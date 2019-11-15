@@ -46,16 +46,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Form Animal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Form Animal.Designer.cs">
+      <DependentUpon>Form Animal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form Booking Delete.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form Booking Delete.Designer.cs">
+      <DependentUpon>Form Booking Delete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form Booking.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form Booking.Designer.cs">
+      <DependentUpon>Form Booking.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form Help.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form Help.Designer.cs">
+      <DependentUpon>Form Help.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form Owner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form Owner.Designer.cs">
+      <DependentUpon>Form Owner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form Print.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form Print.Designer.cs">
+      <DependentUpon>Form Print.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form Import Medicin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form Import Medicin.Designer.cs">
+      <DependentUpon>Form Import Medicin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form Sale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form Sale.Designer.cs">
+      <DependentUpon>Form Sale.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form Main Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form Main Menu.Designer.cs">
+      <DependentUpon>Form Main Menu.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Form Main Menu.resx">
+      <DependentUpon>Form Main Menu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
