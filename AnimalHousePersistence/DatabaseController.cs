@@ -7,8 +7,13 @@ using System.Data.SqlClient;
 
 namespace AnimalHousePersistence
 {
-    public class DatabaseController : IDatabaseController
+    public class DatabaseController : IPersistenceController
     {
+        public DatabaseController()
+        {
+
+        }
+
         SqlConnection db;
         SqlDataReader reader;
 
@@ -41,7 +46,7 @@ namespace AnimalHousePersistence
             DBCCommit.ExecuteNonQuery();
         }
 
-        public static void DBCRollbackTrans()
+        public void DBCRollbackTrans()
         {
             SqlCommand DBCRollback = new SqlCommand();
             DBCRollback.CommandText = "ROLLBACK";

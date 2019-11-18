@@ -8,8 +8,17 @@ using AnimalHouseEntity;
 
 namespace AnimalHouseTemp
 {
-    class ViggoTemp
+    public class ViggoTemp
     {
-       DatabaseController Da = new DatabaseController();
+       public IPersistenceController Daba;
+        public ViggoTemp()
+        {
+            Daba = new DatabaseController();
+        }
+
+        public void test()
+        {
+            Daba.DBCBeginTrans();
+        }
     }
 }
