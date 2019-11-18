@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A7D74849-B8ED-482D-9016-E82EF491AD08}</ProjectGuid>
-    <OutputType>Library</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AnimalHouseEntity</RootNamespace>
-    <AssemblyName>AnimalHouseEntity</AssemblyName>
+    <ProjectGuid>{DD23DA30-51A2-475D-A3DC-754578695225}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>AnimalHouseTemp</RootNamespace>
+    <AssemblyName>AnimalHouseTemp</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,6 +24,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -41,25 +43,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Animal.cs" />
-    <Compile Include="Booking.cs" />
-    <Compile Include="Business.cs" />
-    <Compile Include="Cage.cs" />
-    <Compile Include="Doctor.cs" />
-    <Compile Include="Medicin.cs" />
-    <Compile Include="Order Line.cs" />
-    <Compile Include="Owner.cs" />
-    <Compile Include="Private.cs" />
+    <Compile Include="AllanTemp.cs" />
+    <Compile Include="JacobTemp.cs" />
+    <Compile Include="NichlasTemp.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Receipt.cs" />
-    <Compile Include="Ressource.cs" />
-    <Compile Include="Shelf Ressource.cs" />
-    <Compile Include="Treatment.cs" />
+    <Compile Include="ViggoTemp.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnimalHouseController\AnimalHouseController.csproj">
+      <Project>{b2b90e49-802e-4b20-8d88-29db2476fbec}</Project>
+      <Name>AnimalHouseController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AnimalHouseEntity\AnimalHouseEntity.csproj">
+      <Project>{a7d74849-b8ed-482d-9016-e82ef491ad08}</Project>
+      <Name>AnimalHouseEntity</Name>
+    </ProjectReference>
     <ProjectReference Include="..\AnimalHousePersistence\AnimalHousePersistence.csproj">
       <Project>{20a05cfd-d6e1-4596-9f82-c2d202694ca4}</Project>
       <Name>AnimalHousePersistence</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AnimalHouseV3\AnimalHouseUI.csproj">
+      <Project>{64c41d0b-c71e-4c30-9423-b54fce6fa456}</Project>
+      <Name>AnimalHouseUI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

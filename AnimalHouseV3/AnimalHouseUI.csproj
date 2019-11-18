@@ -102,6 +102,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form Animal.resx">
+      <DependentUpon>Form Animal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form Main Menu.resx">
       <DependentUpon>Form Main Menu.cs</DependentUpon>
     </EmbeddedResource>
@@ -126,6 +129,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnimalHouseController\AnimalHouseController.csproj">
+      <Project>{b2b90e49-802e-4b20-8d88-29db2476fbec}</Project>
+      <Name>AnimalHouseController</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

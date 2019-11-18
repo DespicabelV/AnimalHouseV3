@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnimalHouseEntity
 {
-    class OrderLine
+    class Animal
     {
     }
 }

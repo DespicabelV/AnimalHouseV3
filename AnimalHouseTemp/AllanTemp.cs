@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AnimalHouseEntity
+namespace AnimalHouseTemp
 {
-    class OrderLine
+    class AllanTemp
     {
     }
 }

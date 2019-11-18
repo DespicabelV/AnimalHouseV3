@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalHouseEntity", "Animal
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalHousePersistence", "AnimalHousePersistence\AnimalHousePersistence.csproj", "{20A05CFD-D6E1-4596-9F82-C2D202694CA4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AnimalHouseTemp", "AnimalHouseTemp\AnimalHouseTemp.csproj", "{DD23DA30-51A2-475D-A3DC-754578695225}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{20A05CFD-D6E1-4596-9F82-C2D202694CA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{20A05CFD-D6E1-4596-9F82-C2D202694CA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{20A05CFD-D6E1-4596-9F82-C2D202694CA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD23DA30-51A2-475D-A3DC-754578695225}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD23DA30-51A2-475D-A3DC-754578695225}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD23DA30-51A2-475D-A3DC-754578695225}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD23DA30-51A2-475D-A3DC-754578695225}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
