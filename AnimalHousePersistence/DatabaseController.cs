@@ -7,11 +7,12 @@ using System.Data.SqlClient;
 
 namespace AnimalHousePersistence
 {
-    class DatabaseController
+    public class DatabaseController : IDatabaseController
     {
         SqlConnection db;
         SqlDataReader reader;
 
+        //General SQL Statements
         private SqlConnection DBCOpenDB()
         {
             db = new SqlConnection("Data source = den1.mssql7.gear.host; Initial Catalog = animalhousev3;User Id= animalhousev3 ;Password= Ts3N59?EL_mw");
@@ -19,7 +20,7 @@ namespace AnimalHousePersistence
             return db;
         }
 
-        public void DBCCloseDB()
+        private void DBCCloseDB()
         {
             db.Close();
         }
@@ -40,7 +41,7 @@ namespace AnimalHousePersistence
             DBCCommit.ExecuteNonQuery();
         }
 
-        public void DBCRollbackTrans()
+        public static void DBCRollbackTrans()
         {
             SqlCommand DBCRollback = new SqlCommand();
             DBCRollback.CommandText = "ROLLBACK";
@@ -48,26 +49,87 @@ namespace AnimalHousePersistence
             DBCRollback.ExecuteNonQuery();
         }
 
-        public void DBCDelete()
+
+        //Genaric Statemets used by all 
+        public void DBCDelete(string DBCFrom, string DBCWhere, string DBCParam)
+        {
+            SqlCommand Delete_ = new SqlCommand();
+            Delete_.CommandText = $"DELETE FROM {DBCFrom} WHERE {DBCWhere} ='{DBCParam}'";
+            Delete_.Connection = db;
+            Delete_.ExecuteNonQuery();
+        }
+
+        public object DBCSelectFromWhere(string DBCFrom, string DBCWhere, string DBCParam)
+        {
+            object DBCSelectObject;
+            SqlCommand SelectFrom = new SqlCommand();
+            SelectFrom.CommandText = $"SELECT FROM {DBCFrom} WHERE {DBCWhere} ='{DBCParam}'";
+            SelectFrom.Connection = db;
+            DBCSelectObject = SelectFrom.ExecuteReader();
+            return DBCSelectObject;
+        }
+
+
+        //Inserts
+        public void DBCInsertAnimal()
         {
 
         }
 
-        public void DBCSelectFromWhere()
+        public void DBCInsertBooking()
         {
 
         }
 
-        public void DBCInsert()
+        public void DBCInsertBusiness()
         {
 
         }
 
-        public void DBCUpdate()
+        public void DBCInsertMedicin()
         {
 
         }
 
+        public void DBCInsertOrderLine()
+        {
+
+        }
+
+        public void DBCInsertOwner()
+        {
+
+        }
+
+        public void DBCInsertPrivate()
+        {
+
+        }
+
+        public void DBCInsertReceipt()
+        {
+
+        }
+
+
+        //Updates
+        public void DBCUpdateOwner()
+        {
+
+        }
+
+        public void DBCUpdateAnimal()
+        {
+
+        }
+
+        public void DBCUpdateMedicin()
+        {
+
+        }
+
+
+        //Select From All
         public void DBCSelectFrom()
         {
 
