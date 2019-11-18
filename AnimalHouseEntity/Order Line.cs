@@ -6,7 +6,21 @@ using System.Threading.Tasks;
 
 namespace AnimalHouseEntity
 {
-    class OrderLine
+    public class OrderLine
     {
+        private int ID;
+        private int ReceiptID;
+        private int ProductCategoryID;
+        private double Price;
+        private int Amount;
+
+        public OrderLine(int ID, int ReceiptID, int ProductCategoryID, double Price, int Amount)
+        {
+            this.ID = ID;
+            this.ReceiptID = ReceiptID;
+            this.ProductCategoryID = ProductCategoryID;
+            this.Price = Price;
+            this.Amount = Amount;
+        }
     }
 }

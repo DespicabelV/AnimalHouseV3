@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace AnimalHouseEntity
 {
-    class Private : Owner
+    public class Private : Owner
     {
+        public Private(int TelefonNr, string FirstName, string LastName, string Adress, string Email, string City, int ZipCode) : base(TelefonNr, FirstName, LastName, Adress, Email, City, ZipCode)
+        {
+        }
     }
 }

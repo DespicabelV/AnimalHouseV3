@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace AnimalHouseEntity
 {
-    class Doctor
+    public class Doctor
     {
+        private int ID;
+        private string Name;
+        private int Expertise;
+
+        public Doctor(int ID, string Name, int Expertise)
+        {
+            this.ID = ID;
+            this.Name = Name;
+            this.Expertise = Expertise;
+        }
     }
 }

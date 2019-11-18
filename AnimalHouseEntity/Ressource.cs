@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace AnimalHouseEntity
 {
-    abstract class Ressource
+    public abstract class Ressource
     {
+        private int ID;
+        private double Price;
+        private int ProductCategoryID;
+
+        protected Ressource(int ID, double Price, int ProductCategoryID)
+        {
+            this.ID = ID;
+            this.Price = Price;
+            this.ProductCategoryID = ProductCategoryID;
+        }
     }
 }

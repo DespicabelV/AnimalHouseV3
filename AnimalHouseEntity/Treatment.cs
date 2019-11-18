@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace AnimalHouseEntity
 {
-    class Treatment : Ressource
+    public class Treatment : Ressource
     {
+        private string Name;
+        public Treatment(int ID, double Price, int ProductCategoryID,string Name) : base(ID, Price, ProductCategoryID)
+        {
+            this.Name = Name;
+        }
     }
 }

@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace AnimalHouseEntity
 {
-    class Cage : Ressource
+    public class Cage : Ressource
     {
+        private string AnimalType;
+        private bool RentCheck;
+        public Cage(int ID, double Price, int ProductCategoryID, string AnimalType) : base(ID, Price, ProductCategoryID)
+        {
+            this.AnimalType = AnimalType;
+        }
+
+
+
     }
 }
