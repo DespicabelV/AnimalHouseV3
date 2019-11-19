@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AnimalHouseV3
 {
-    public partial class FormUploadMedicin : Form
+    public partial class FormImportMedicin : Form
     {
-        public FormUploadMedicin()
+        public FormImportMedicin()
         {
             InitializeComponent();
         }
