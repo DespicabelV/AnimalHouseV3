@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AnimalHouseV3
 {
-    public partial class FormSale : Form
+    public partial class FormSalePos : Form
     {
-        public FormSale()
+        public FormSalePos()
         {
             InitializeComponent();
         }

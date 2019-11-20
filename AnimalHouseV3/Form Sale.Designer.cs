@@ -1,6 +1,6 @@
 ﻿namespace AnimalHouseV3
 {
-    partial class FormSale
+    partial class FormSalePos
     {
         /// <summary>
         /// Required designer variable.
@@ -40,19 +40,19 @@
             this.button1 = new System.Windows.Forms.Button();
             this.domainUpDown1 = new System.Windows.Forms.DomainUpDown();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.Name = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InStock = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.txtboxTotalPrisWithTax = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtboxTotalPrisWithOutTax = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.BtnPay = new System.Windows.Forms.Button();
+            this.NameDataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QtyDataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PriceDataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InStockDataGripView = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.Name2DataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty1DataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price1DataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -156,46 +156,14 @@
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Name,
-            this.Qty,
-            this.Price,
-            this.InStock});
+            this.NameDataGripView,
+            this.QtyDataGripView,
+            this.PriceDataGripView,
+            this.InStockDataGripView});
             this.dataGridView1.Location = new System.Drawing.Point(25, 192);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(261, 245);
             this.dataGridView1.TabIndex = 14;
-            // 
-            // Name
-            // 
-            this.Name.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Name.FillWeight = 75F;
-            this.Name.HeaderText = "Name";
-            this.Name.Name = "Name";
-            this.Name.Width = 60;
-            // 
-            // Qty
-            // 
-            this.Qty.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Qty.FillWeight = 75F;
-            this.Qty.HeaderText = "Qty";
-            this.Qty.Name = "Qty";
-            this.Qty.Width = 48;
-            // 
-            // Price
-            // 
-            this.Price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.Price.FillWeight = 75F;
-            this.Price.HeaderText = "Price";
-            this.Price.Name = "Price";
-            this.Price.Width = 56;
-            // 
-            // InStock
-            // 
-            this.InStock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.InStock.FillWeight = 75F;
-            this.InStock.HeaderText = "In Stock";
-            this.InStock.Name = "InStock";
-            this.InStock.Width = 53;
             // 
             // txtboxTotalPrisWithTax
             // 
@@ -208,34 +176,13 @@
             // 
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
+            this.Name2DataGripView,
+            this.Qty1DataGripView,
+            this.Price1DataGripView});
             this.dataGridView2.Location = new System.Drawing.Point(446, 193);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(261, 245);
             this.dataGridView2.TabIndex = 16;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn1.FillWeight = 75F;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn2.FillWeight = 75F;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Qty";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn3.FillWeight = 75F;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Price";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // txtboxTotalPrisWithOutTax
             // 
@@ -271,7 +218,60 @@
             this.BtnPay.Text = "Pay";
             this.BtnPay.UseVisualStyleBackColor = true;
             // 
-            // FormSale
+            // NameDataGripView
+            // 
+            this.NameDataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.NameDataGripView.FillWeight = 75F;
+            this.NameDataGripView.HeaderText = "Name";
+            this.NameDataGripView.Name = "NameDataGripView";
+            this.NameDataGripView.Width = 60;
+            // 
+            // QtyDataGripView
+            // 
+            this.QtyDataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.QtyDataGripView.FillWeight = 75F;
+            this.QtyDataGripView.HeaderText = "Qty";
+            this.QtyDataGripView.Name = "QtyDataGripView";
+            this.QtyDataGripView.Width = 48;
+            // 
+            // PriceDataGripView
+            // 
+            this.PriceDataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.PriceDataGripView.FillWeight = 75F;
+            this.PriceDataGripView.HeaderText = "Price";
+            this.PriceDataGripView.Name = "PriceDataGripView";
+            this.PriceDataGripView.Width = 56;
+            // 
+            // InStockDataGripView
+            // 
+            this.InStockDataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.InStockDataGripView.FillWeight = 75F;
+            this.InStockDataGripView.HeaderText = "In Stock";
+            this.InStockDataGripView.Name = "InStockDataGripView";
+            this.InStockDataGripView.Width = 53;
+            // 
+            // Name2DataGripView
+            // 
+            this.Name2DataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Name2DataGripView.FillWeight = 75F;
+            this.Name2DataGripView.HeaderText = "Name";
+            this.Name2DataGripView.Name = "Name2DataGripView";
+            // 
+            // Qty1DataGripView
+            // 
+            this.Qty1DataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Qty1DataGripView.FillWeight = 75F;
+            this.Qty1DataGripView.HeaderText = "Qty";
+            this.Qty1DataGripView.Name = "Qty1DataGripView";
+            // 
+            // Price1DataGripView
+            // 
+            this.Price1DataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Price1DataGripView.FillWeight = 75F;
+            this.Price1DataGripView.HeaderText = "Price";
+            this.Price1DataGripView.Name = "Price1DataGripView";
+            // 
+            // FormSalePos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -294,7 +294,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.BuisnessCheckBox);
             this.Controls.Add(this.PrivateCheckBox);
-            this.Name = "FormSale";
+            this.Name = "FormSalePos";
             this.Text = "Form Sale";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -317,18 +317,18 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DomainUpDown domainUpDown1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Name;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn InStock;
         private System.Windows.Forms.TextBox txtboxTotalPrisWithTax;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.TextBox txtboxTotalPrisWithOutTax;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button BtnPay;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameDataGripView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QtyDataGripView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PriceDataGripView;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn InStockDataGripView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Name2DataGripView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Qty1DataGripView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price1DataGripView;
     }
 }

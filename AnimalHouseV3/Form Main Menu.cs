@@ -37,7 +37,7 @@ namespace AnimalHouseV3
 
         private void BtnSalg_Click(object sender, EventArgs e)
         {
-            Form_Sale Sale = new Form_Sale();
+            FormSalePos Sale = new FormSalePos();
             Sale.Show();
         }
 
