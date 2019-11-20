@@ -40,7 +40,7 @@ namespace AnimalHouseV3
             }
             else
             {
-                Insert(TxtAnimalName.Text, TxtAnimalRace.Text, AnimalBirthCalender.Value, Convert.ToInt32(TxtBoxAnimalNr.Text), TxtOwnerName.Text, TxtBoxAnimalDoctorName.Text, Convert.ToInt32(TxtBoxAnimalChip.Text));
+                //Insert(TxtAnimalName.Text, TxtAnimalRace.Text, AnimalBirthCalender.Value, Convert.ToInt32(TxtBoxAnimalNr.Text), TxtOwnerName.Text, TxtBoxAnimalDoctorName.Text, Convert.ToInt32(TxtBoxAnimalChip.Text));
             }
         }
     }
