@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="DatabaseController.cs" />
     <Compile Include="IPersistenceController.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
