@@ -105,6 +105,9 @@
     <EmbeddedResource Include="Form Animal.resx">
       <DependentUpon>Form Animal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form Import Medicin.resx">
+      <DependentUpon>Form Import Medicin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form Main Menu.resx">
       <DependentUpon>Form Main Menu.cs</DependentUpon>
     </EmbeddedResource>
