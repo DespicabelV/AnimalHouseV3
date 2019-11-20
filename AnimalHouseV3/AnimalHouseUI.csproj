@@ -110,6 +110,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form Main Menu.resx">
       <DependentUpon>Form Main Menu.cs</DependentUpon>
+    
+    
+    
+    
     </EmbeddedResource>
     <EmbeddedResource Include="Form Owner.resx">
       <DependentUpon>Form Owner.cs</DependentUpon>
