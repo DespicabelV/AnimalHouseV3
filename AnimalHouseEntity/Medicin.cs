@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnimalHouseEntity
 {
-   public class Medicin
+   public class Medicin : Ressource
     {
         private string Name;
         public Medicin(int ID, double Price, int ProductCategoryID, string Name) : base(ID, Price, ProductCategoryID)

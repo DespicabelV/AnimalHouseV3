@@ -54,7 +54,7 @@
             this.BtnEjer.Name = "BtnEjer";
             this.BtnEjer.Size = new System.Drawing.Size(97, 39);
             this.BtnEjer.TabIndex = 1;
-            this.BtnEjer.Text = "Ejer";
+            this.BtnEjer.Text = "Owner";
             this.BtnEjer.UseVisualStyleBackColor = true;
             this.BtnEjer.Click += new System.EventHandler(this.BtnEjer_Click);
             // 
@@ -65,7 +65,7 @@
             this.BtnDyr.Name = "BtnDyr";
             this.BtnDyr.Size = new System.Drawing.Size(97, 39);
             this.BtnDyr.TabIndex = 3;
-            this.BtnDyr.Text = "Dyr";
+            this.BtnDyr.Text = "Animal";
             this.BtnDyr.UseVisualStyleBackColor = true;
             this.BtnDyr.Click += new System.EventHandler(this.BtnDyr_Click);
             // 
@@ -76,7 +76,7 @@
             this.BtnSalg.Name = "BtnSalg";
             this.BtnSalg.Size = new System.Drawing.Size(97, 39);
             this.BtnSalg.TabIndex = 2;
-            this.BtnSalg.Text = "Salg";
+            this.BtnSalg.Text = "Sale";
             this.BtnSalg.UseVisualStyleBackColor = true;
             this.BtnSalg.Click += new System.EventHandler(this.BtnSalg_Click);
             // 
@@ -87,7 +87,7 @@
             this.BtnIndlæsMedicin.Name = "BtnIndlæsMedicin";
             this.BtnIndlæsMedicin.Size = new System.Drawing.Size(97, 39);
             this.BtnIndlæsMedicin.TabIndex = 4;
-            this.BtnIndlæsMedicin.Text = "Indlæs Medicin";
+            this.BtnIndlæsMedicin.Text = "Import Medicin";
             this.BtnIndlæsMedicin.UseVisualStyleBackColor = true;
             this.BtnIndlæsMedicin.Click += new System.EventHandler(this.BtnIndlæsMedicin_Click);
             // 
