@@ -111,6 +111,9 @@
     <EmbeddedResource Include="Form Main Menu.resx">
       <DependentUpon>Form Main Menu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form Owner.resx">
+      <DependentUpon>Form Owner.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
