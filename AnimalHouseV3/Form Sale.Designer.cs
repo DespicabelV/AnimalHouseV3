@@ -1,6 +1,6 @@
 ﻿namespace AnimalHouseV3
 {
-    partial class Form_Sale
+    partial class FormSale
     {
         /// <summary>
         /// Required designer variable.
@@ -271,7 +271,7 @@
             this.BtnPay.Text = "Pay";
             this.BtnPay.UseVisualStyleBackColor = true;
             // 
-            // Form_Sale
+            // FormSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -294,8 +294,8 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.BuisnessCheckBox);
             this.Controls.Add(this.PrivateCheckBox);
-            this.Name = "Form_Sale";
-            this.Text = "Form_Sale";
+            this.Name = "FormSale";
+            this.Text = "Form Sale";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
