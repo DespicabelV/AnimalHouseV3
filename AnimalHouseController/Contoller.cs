@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AnimalHouseController
 {
-    class Contoller
+    public class Contoller
     {
         static void Main(string[] args)
         {

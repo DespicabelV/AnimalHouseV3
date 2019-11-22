@@ -27,46 +27,85 @@ namespace AnimalHousePersistence
 
         public void DBCBeginTrans()
         {
+            DBCOpenDB();
             SqlCommand DBCTrans = new SqlCommand();
             DBCTrans.CommandText = "BEGIN TRANSACTION";
             DBCTrans.Connection = db;
             DBCTrans.ExecuteNonQuery();
+            DBCCloseDB();
         }
 
         public void DBCCommitTrans()
         {
+            DBCOpenDB();
             SqlCommand DBCCommit = new SqlCommand();
             DBCCommit.CommandText = "COMMIT";
             DBCCommit.Connection = db;
             DBCCommit.ExecuteNonQuery();
+            DBCCloseDB();
         }
 
         public void DBCRollbackTrans()
         {
+            DBCOpenDB();
             SqlCommand DBCRollback = new SqlCommand();
             DBCRollback.CommandText = "ROLLBACK";
             DBCRollback.Connection = db;
             DBCRollback.ExecuteNonQuery();
+            DBCCloseDB();
+        }
+
+        public bool CheckIfExist(string DBCFrom, string DBCWhere, string DBCParam)
+        {
+            int i;
+            bool flag = true;
+            DBCOpenDB();
+            SqlCommand DBCCheck = new SqlCommand();
+            DBCCheck.CommandText = $"SELECT COUNT(*) FROM {DBCFrom} WHERE {DBCWhere} = {DBCParam}";
+            DBCCheck.Connection = db;
+            i = (int) DBCCheck.ExecuteScalar();
+            DBCCloseDB();
+
+            if (i == 0)
+            {
+                flag = false;
+            }
+
+            return flag;
         }
 
 
         //Genaric Statemets used by all 
         public void DBCDelete(string DBCFrom, string DBCWhere, string DBCParam)
         {
+            DBCOpenDB();
             SqlCommand Delete_ = new SqlCommand();
             Delete_.CommandText = $"DELETE FROM {DBCFrom} WHERE {DBCWhere} ='{DBCParam}'";
             Delete_.Connection = db;
             Delete_.ExecuteNonQuery();
+            DBCCloseDB();
         }
 
-        public object DBCSelectFromWhere(string DBCFrom, string DBCWhere, string DBCParam)
+        public List<string> DBCSelectFromWhere(string DBCFrom, string DBCWhere, string DBCParam)
         {
-            object DBCSelectObject;
+            DBCOpenDB();
+            int DBCSelectCount;
+            List<string> DBCListSelect = new List<string>();
+            
             SqlCommand SelectFrom = new SqlCommand();
-            SelectFrom.CommandText = $"SELECT FROM {DBCFrom} WHERE {DBCWhere} ='{DBCParam}'";
+            SelectFrom.CommandText = $"SELECT * FROM {DBCFrom} WHERE {DBCWhere} = {DBCParam}";
             SelectFrom.Connection = db;
-            DBCSelectObject = SelectFrom.ExecuteReader();
-            return DBCSelectObject;
+            reader = SelectFrom.ExecuteReader();
+            reader.Read();
+
+            DBCSelectCount = reader.FieldCount;
+            for (int i = 0; i < DBCSelectCount; i++)
+            {
+                DBCListSelect.Add(Convert.ToString(reader.GetValue(i)));
+            }
+            
+            DBCCloseDB();
+            return DBCListSelect;
         }
 
 
@@ -139,11 +178,13 @@ namespace AnimalHousePersistence
 
         public void DBCInsertOwner(int TelefonNr, string Fornavn, string Efternavn, string Adresse, string Email, string By, int Postnr)
         {
+            DBCOpenDB();
             SqlCommand DBCInsertAnimal = new SqlCommand();
             DBCInsertAnimal.CommandText = $"INSERT INTO Ejer (TelefonNr, Fornavn, Efternavn, Adresse, Email, By_, PostNr)" +
                 $"VALUES({TelefonNr}, '{Fornavn}', '{Efternavn}', '{Adresse}', '{Email}', '{By}', {Postnr})";
             DBCInsertAnimal.Connection = db;
             DBCInsertAnimal.ExecuteNonQuery();
+            DBCCloseDB();
         }
 
         public void DBCInsertPrivate(int Ejer)

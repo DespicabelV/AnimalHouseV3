@@ -105,6 +105,9 @@
     <EmbeddedResource Include="Form Animal.resx">
       <DependentUpon>Form Animal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form Booking Delete.resx">
+      <DependentUpon>Form Booking Delete.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form Booking.resx">
       <DependentUpon>Form Booking.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,6 +149,10 @@
     <ProjectReference Include="..\AnimalHouseController\AnimalHouseController.csproj">
       <Project>{b2b90e49-802e-4b20-8d88-29db2476fbec}</Project>
       <Name>AnimalHouseController</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\AnimalHouseTemp\AnimalHouseTemp.csproj">
+      <Project>{dd23da30-51a2-475d-a3dc-754578695225}</Project>
+      <Name>AnimalHouseTemp</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,9 +1,13 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AnimalHousePersistence
 {
     public interface IPersistenceController
     {
+
+        bool CheckIfExist(string DBCFrom, string DBCWhere, string DBCParam);
+
         void DBCBeginTrans();
 
         void DBCCommitTrans();
@@ -12,7 +16,7 @@ namespace AnimalHousePersistence
 
         void DBCDelete(string DBCFrom, string DBCWhere, string DBCParam);
 
-        object DBCSelectFromWhere(string DBCFrom, string DBCWhere, string DBCParam);
+        List<string> DBCSelectFromWhere(string DBCFrom, string DBCWhere, string DBCParam);
 
         void DBCInsertAnimal(string Navn, char Kon, DateTime Fodselsdag, string Race, int Laege, int Chip);
 
