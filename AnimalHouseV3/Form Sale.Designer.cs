@@ -30,27 +30,25 @@
         {
             this.PrivateCheckBox = new System.Windows.Forms.CheckBox();
             this.BuisnessCheckBox = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.Owner = new System.Windows.Forms.Label();
             this.BtnSearchOwner = new System.Windows.Forms.Button();
-            this.Bookning = new System.Windows.Forms.DomainUpDown();
             this.BtnAddBookning = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.ButtonAddToCart = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.NameDataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PriceDataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QtyColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.InStockDataGripView = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.txtboxTotalPrisWithTax = new System.Windows.Forms.TextBox();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.Name2DataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Qty1DataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price1DataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtboxTotalPrisWithOutTax = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.BtnPay = new System.Windows.Forms.Button();
-            this.NameDataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QtyDataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PriceDataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.InStockDataGripView = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.Name2DataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Qty1DataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Price1DataGripView = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ComboBoxCategory = new System.Windows.Forms.ComboBox();
             this.ComboBoxCart = new System.Windows.Forms.ComboBox();
             this.TxtboxSearchRessourceCategory = new System.Windows.Forms.TextBox();
@@ -58,6 +56,9 @@
             this.Label11 = new System.Windows.Forms.Label();
             this.TextboxDiscount = new System.Windows.Forms.TextBox();
             this.ButtonDiscount = new System.Windows.Forms.Button();
+            this.OwnerValid = new System.Windows.Forms.CheckBox();
+            this.ComboBoxBookning = new System.Windows.Forms.ComboBox();
+            this.textBoxOwnerSearch = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -71,6 +72,7 @@
             this.PrivateCheckBox.TabIndex = 0;
             this.PrivateCheckBox.Text = "Private";
             this.PrivateCheckBox.UseVisualStyleBackColor = true;
+            this.PrivateCheckBox.CheckedChanged += new System.EventHandler(this.PrivateCheckBox_CheckedChanged);
             // 
             // BuisnessCheckBox
             // 
@@ -81,13 +83,7 @@
             this.BuisnessCheckBox.TabIndex = 1;
             this.BuisnessCheckBox.Text = "Business";
             this.BuisnessCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(487, 42);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 4;
+            this.BuisnessCheckBox.CheckedChanged += new System.EventHandler(this.BuisnessCheckBox_CheckedChanged);
             // 
             // Owner
             // 
@@ -106,14 +102,7 @@
             this.BtnSearchOwner.TabIndex = 6;
             this.BtnSearchOwner.Text = "Search";
             this.BtnSearchOwner.UseVisualStyleBackColor = true;
-            // 
-            // Bookning
-            // 
-            this.Bookning.Location = new System.Drawing.Point(446, 68);
-            this.Bookning.Name = "Bookning";
-            this.Bookning.Size = new System.Drawing.Size(141, 20);
-            this.Bookning.TabIndex = 7;
-            this.Bookning.Text = "Booknings";
+            this.BtnSearchOwner.Click += new System.EventHandler(this.BtnSearchOwner_Click);
             // 
             // BtnAddBookning
             // 
@@ -147,13 +136,43 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.NameDataGripView,
-            this.QtyDataGripView,
             this.PriceDataGripView,
+            this.QtyColumn,
             this.InStockDataGripView});
             this.dataGridView1.Location = new System.Drawing.Point(25, 192);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(261, 348);
             this.dataGridView1.TabIndex = 14;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // NameDataGripView
+            // 
+            this.NameDataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.NameDataGripView.FillWeight = 75F;
+            this.NameDataGripView.HeaderText = "Name";
+            this.NameDataGripView.Name = "NameDataGripView";
+            // 
+            // PriceDataGripView
+            // 
+            this.PriceDataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.PriceDataGripView.FillWeight = 75F;
+            this.PriceDataGripView.HeaderText = "Price";
+            this.PriceDataGripView.Name = "PriceDataGripView";
+            // 
+            // QtyColumn
+            // 
+            this.QtyColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.QtyColumn.FillWeight = 75F;
+            this.QtyColumn.HeaderText = "Qty";
+            this.QtyColumn.Name = "QtyColumn";
+            // 
+            // InStockDataGripView
+            // 
+            this.InStockDataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
+            this.InStockDataGripView.FillWeight = 75F;
+            this.InStockDataGripView.HeaderText = "In Stock";
+            this.InStockDataGripView.Name = "InStockDataGripView";
+            this.InStockDataGripView.Width = 53;
             // 
             // txtboxTotalPrisWithTax
             // 
@@ -173,6 +192,27 @@
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(295, 322);
             this.dataGridView2.TabIndex = 16;
+            // 
+            // Name2DataGripView
+            // 
+            this.Name2DataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Name2DataGripView.FillWeight = 75F;
+            this.Name2DataGripView.HeaderText = "Name";
+            this.Name2DataGripView.Name = "Name2DataGripView";
+            // 
+            // Qty1DataGripView
+            // 
+            this.Qty1DataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Qty1DataGripView.FillWeight = 75F;
+            this.Qty1DataGripView.HeaderText = "Qty";
+            this.Qty1DataGripView.Name = "Qty1DataGripView";
+            // 
+            // Price1DataGripView
+            // 
+            this.Price1DataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Price1DataGripView.FillWeight = 75F;
+            this.Price1DataGripView.HeaderText = "Price";
+            this.Price1DataGripView.Name = "Price1DataGripView";
             // 
             // txtboxTotalPrisWithOutTax
             // 
@@ -208,66 +248,12 @@
             this.BtnPay.Text = "Pay";
             this.BtnPay.UseVisualStyleBackColor = true;
             // 
-            // NameDataGripView
-            // 
-            this.NameDataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.NameDataGripView.FillWeight = 75F;
-            this.NameDataGripView.HeaderText = "Name";
-            this.NameDataGripView.Name = "NameDataGripView";
-            this.NameDataGripView.Width = 60;
-            // 
-            // QtyDataGripView
-            // 
-            this.QtyDataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.QtyDataGripView.FillWeight = 75F;
-            this.QtyDataGripView.HeaderText = "Qty";
-            this.QtyDataGripView.Name = "QtyDataGripView";
-            this.QtyDataGripView.Width = 48;
-            // 
-            // PriceDataGripView
-            // 
-            this.PriceDataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.PriceDataGripView.FillWeight = 75F;
-            this.PriceDataGripView.HeaderText = "Price";
-            this.PriceDataGripView.Name = "PriceDataGripView";
-            this.PriceDataGripView.Width = 56;
-            // 
-            // InStockDataGripView
-            // 
-            this.InStockDataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCells;
-            this.InStockDataGripView.FillWeight = 75F;
-            this.InStockDataGripView.HeaderText = "In Stock";
-            this.InStockDataGripView.Name = "InStockDataGripView";
-            this.InStockDataGripView.Width = 53;
-            // 
-            // Name2DataGripView
-            // 
-            this.Name2DataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Name2DataGripView.FillWeight = 75F;
-            this.Name2DataGripView.HeaderText = "Name";
-            this.Name2DataGripView.Name = "Name2DataGripView";
-            // 
-            // Qty1DataGripView
-            // 
-            this.Qty1DataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Qty1DataGripView.FillWeight = 75F;
-            this.Qty1DataGripView.HeaderText = "Qty";
-            this.Qty1DataGripView.Name = "Qty1DataGripView";
-            // 
-            // Price1DataGripView
-            // 
-            this.Price1DataGripView.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Price1DataGripView.FillWeight = 75F;
-            this.Price1DataGripView.HeaderText = "Price";
-            this.Price1DataGripView.Name = "Price1DataGripView";
-            // 
             // ComboBoxCategory
             // 
             this.ComboBoxCategory.FormattingEnabled = true;
             this.ComboBoxCategory.Items.AddRange(new object[] {
-            "Name",
-            "Qty",
-            "Price"});
+            "Medicin",
+            "Shelf Ressource"});
             this.ComboBoxCategory.Location = new System.Drawing.Point(25, 139);
             this.ComboBoxCategory.Name = "ComboBoxCategory";
             this.ComboBoxCategory.Size = new System.Drawing.Size(261, 21);
@@ -289,14 +275,14 @@
             // 
             // TxtboxSearchRessourceCategory
             // 
-            this.TxtboxSearchRessourceCategory.Location = new System.Drawing.Point(54, 166);
+            this.TxtboxSearchRessourceCategory.Location = new System.Drawing.Point(25, 166);
             this.TxtboxSearchRessourceCategory.Name = "TxtboxSearchRessourceCategory";
-            this.TxtboxSearchRessourceCategory.Size = new System.Drawing.Size(133, 20);
+            this.TxtboxSearchRessourceCategory.Size = new System.Drawing.Size(197, 20);
             this.TxtboxSearchRessourceCategory.TabIndex = 23;
             // 
             // ButtonSearch
             // 
-            this.ButtonSearch.Location = new System.Drawing.Point(193, 165);
+            this.ButtonSearch.Location = new System.Drawing.Point(228, 165);
             this.ButtonSearch.Name = "ButtonSearch";
             this.ButtonSearch.Size = new System.Drawing.Size(58, 20);
             this.ButtonSearch.TabIndex = 24;
@@ -328,11 +314,40 @@
             this.ButtonDiscount.Text = "Discount";
             this.ButtonDiscount.UseVisualStyleBackColor = true;
             // 
+            // OwnerValid
+            // 
+            this.OwnerValid.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.OwnerValid.AutoSize = true;
+            this.OwnerValid.Location = new System.Drawing.Point(657, 44);
+            this.OwnerValid.Name = "OwnerValid";
+            this.OwnerValid.Size = new System.Drawing.Size(15, 14);
+            this.OwnerValid.TabIndex = 28;
+            this.OwnerValid.UseVisualStyleBackColor = true;
+            // 
+            // ComboBoxBookning
+            // 
+            this.ComboBoxBookning.FormattingEnabled = true;
+            this.ComboBoxBookning.Location = new System.Drawing.Point(487, 67);
+            this.ComboBoxBookning.Name = "ComboBoxBookning";
+            this.ComboBoxBookning.Size = new System.Drawing.Size(100, 21);
+            this.ComboBoxBookning.TabIndex = 29;
+            this.ComboBoxBookning.Text = "Bookning";
+            // 
+            // textBoxOwnerSearch
+            // 
+            this.textBoxOwnerSearch.Location = new System.Drawing.Point(487, 41);
+            this.textBoxOwnerSearch.Name = "textBoxOwnerSearch";
+            this.textBoxOwnerSearch.Size = new System.Drawing.Size(100, 20);
+            this.textBoxOwnerSearch.TabIndex = 30;
+            // 
             // FormSalePos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(910, 617);
+            this.Controls.Add(this.textBoxOwnerSearch);
+            this.Controls.Add(this.ComboBoxBookning);
+            this.Controls.Add(this.OwnerValid);
             this.Controls.Add(this.ButtonDiscount);
             this.Controls.Add(this.Label11);
             this.Controls.Add(this.TextboxDiscount);
@@ -350,14 +365,13 @@
             this.Controls.Add(this.ButtonAddToCart);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnAddBookning);
-            this.Controls.Add(this.Bookning);
             this.Controls.Add(this.BtnSearchOwner);
             this.Controls.Add(this.Owner);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.BuisnessCheckBox);
             this.Controls.Add(this.PrivateCheckBox);
             this.Name = "FormSalePos";
             this.Text = "Form Sale";
+            this.Load += new System.EventHandler(this.FormSalePos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
@@ -369,10 +383,8 @@
 
         private System.Windows.Forms.CheckBox PrivateCheckBox;
         private System.Windows.Forms.CheckBox BuisnessCheckBox;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label Owner;
         private System.Windows.Forms.Button BtnSearchOwner;
-        private System.Windows.Forms.DomainUpDown Bookning;
         private System.Windows.Forms.Button BtnAddBookning;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button ButtonAddToCart;
@@ -383,10 +395,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button BtnPay;
-        private System.Windows.Forms.DataGridViewTextBoxColumn NameDataGripView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QtyDataGripView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn PriceDataGripView;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn InStockDataGripView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Name2DataGripView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Qty1DataGripView;
         private System.Windows.Forms.DataGridViewTextBoxColumn Price1DataGripView;
@@ -397,5 +405,12 @@
         private System.Windows.Forms.Label Label11;
         private System.Windows.Forms.TextBox TextboxDiscount;
         private System.Windows.Forms.Button ButtonDiscount;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameDataGripView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PriceDataGripView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QtyColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn InStockDataGripView;
+        private System.Windows.Forms.CheckBox OwnerValid;
+        private System.Windows.Forms.ComboBox ComboBoxBookning;
+        private System.Windows.Forms.TextBox textBoxOwnerSearch;
     }
 }
