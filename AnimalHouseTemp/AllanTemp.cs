@@ -6,7 +6,6 @@ using System.Text;
 using System.Threading.Tasks;
 using AnimalHouseEntity;
 using AnimalHousePersistence;
-using AnimalHouseV3;
 
 
 namespace AnimalHouseTemp

@@ -24,7 +24,7 @@ namespace AnimalHouseTemp
         
         public void callAddOwner(JacobTempEntity owner)
         {
-            owner.AddToDatabase();
+            //owner.AddToDatabase();
         }
         
         
@@ -40,8 +40,8 @@ namespace AnimalHouseTemp
         private void AddToDatabase()
         {
             
-            OwnerController.DBCInsertOwner(;
-            OwnerController.DBCUpdateOwner();
+            //OwnerController.DBCInsertOwner();
+            //OwnerController.DBCUpdateOwner();
             
         }
          

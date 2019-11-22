@@ -47,7 +47,7 @@ namespace AnimalHouseV3
             {
                 MessageBox.Show(AnimalBirthCalender.Value.ToShortDateString().ToString());               
                 
-                controller.NewAnimal(TxtAnimalName.Text, Gender, AnimalBirthCalender.Value, TxtAnimalRace.Text, Convert.ToInt32(TxtBoxAnimalDoctorNr.Text), Convert.ToInt32(TxtBoxAnimalChip.Text));
+                //controller.NewAnimal(TxtAnimalName.Text, Gender, AnimalBirthCalender.Value, TxtAnimalRace.Text, Convert.ToInt32(TxtBoxAnimalDoctorNr.Text), Convert.ToInt32(TxtBoxAnimalChip.Text));
             }
         }
 
