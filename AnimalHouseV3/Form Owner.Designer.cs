@@ -38,7 +38,6 @@
             this.TextBoxFirstName = new System.Windows.Forms.TextBox();
             this.TextBoxTelephoneNR = new System.Windows.Forms.TextBox();
             this.TextBoxLastName = new System.Windows.Forms.TextBox();
-            this.TextBoxEmail = new System.Windows.Forms.TextBox();
             this.TextBoxStreet = new System.Windows.Forms.TextBox();
             this.TextBoxZipCode = new System.Windows.Forms.TextBox();
             this.TextBoxCity = new System.Windows.Forms.TextBox();
@@ -59,6 +58,7 @@
             this.TextBoxCVRNR = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.TextBoxCompanyName = new System.Windows.Forms.TextBox();
+            this.TextBoxEmail = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -146,13 +146,6 @@
             this.TextBoxLastName.Size = new System.Drawing.Size(170, 22);
             this.TextBoxLastName.TabIndex = 13;
             // 
-            // TextBoxEmail
-            // 
-            this.TextBoxEmail.Location = new System.Drawing.Point(95, 200);
-            this.TextBoxEmail.Name = "TextBoxEmail";
-            this.TextBoxEmail.Size = new System.Drawing.Size(215, 22);
-            this.TextBoxEmail.TabIndex = 16;
-            // 
             // TextBoxStreet
             // 
             this.TextBoxStreet.Location = new System.Drawing.Point(95, 241);
@@ -199,6 +192,7 @@
             this.ButtonCreateOwner.TabIndex = 24;
             this.ButtonCreateOwner.Text = "Create";
             this.ButtonCreateOwner.UseVisualStyleBackColor = true;
+            this.ButtonCreateOwner.Click += new System.EventHandler(this.ButtonCreateOwner_Click);
             // 
             // ButtonUpdateOwner
             // 
@@ -326,6 +320,13 @@
             this.TextBoxCompanyName.TabIndex = 38;
             this.TextBoxCompanyName.Visible = false;
             // 
+            // TextBoxEmail
+            // 
+            this.TextBoxEmail.Location = new System.Drawing.Point(95, 200);
+            this.TextBoxEmail.Name = "TextBoxEmail";
+            this.TextBoxEmail.Size = new System.Drawing.Size(215, 22);
+            this.TextBoxEmail.TabIndex = 16;
+            // 
             // Form_Owner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -382,7 +383,6 @@
         private System.Windows.Forms.TextBox TextBoxFirstName;
         private System.Windows.Forms.TextBox TextBoxTelephoneNR;
         private System.Windows.Forms.TextBox TextBoxLastName;
-        private System.Windows.Forms.TextBox TextBoxEmail;
         private System.Windows.Forms.TextBox TextBoxStreet;
         private System.Windows.Forms.TextBox TextBoxZipCode;
         private System.Windows.Forms.TextBox TextBoxCity;
@@ -403,5 +403,6 @@
         private System.Windows.Forms.TextBox TextBoxCVRNR;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox TextBoxCompanyName;
+        private System.Windows.Forms.TextBox TextBoxEmail;
     }
 }

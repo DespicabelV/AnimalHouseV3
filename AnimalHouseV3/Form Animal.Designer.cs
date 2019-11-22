@@ -43,7 +43,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnCheckOwner = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.TxtBoxAnimalDoctorName = new System.Windows.Forms.TextBox();
+            this.TxtBoxAnimalDoctorNr = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtBoxAnimalChip = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -142,6 +142,7 @@
             this.CheckBoxMale.TabIndex = 9;
             this.CheckBoxMale.Text = "Male";
             this.CheckBoxMale.UseVisualStyleBackColor = true;
+            this.CheckBoxMale.CheckedChanged += new System.EventHandler(this.CheckBoxMale_CheckedChanged);
             // 
             // CheckBoxFemale
             // 
@@ -152,6 +153,7 @@
             this.CheckBoxFemale.TabIndex = 10;
             this.CheckBoxFemale.Text = "Female";
             this.CheckBoxFemale.UseVisualStyleBackColor = true;
+            this.CheckBoxFemale.CheckedChanged += new System.EventHandler(this.CheckBoxFemale_CheckedChanged);
             // 
             // TxtBoxAnimalNr
             // 
@@ -187,12 +189,12 @@
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
             // 
-            // TxtBoxAnimalDoctorName
+            // TxtBoxAnimalDoctorNr
             // 
-            this.TxtBoxAnimalDoctorName.Location = new System.Drawing.Point(1248, 377);
-            this.TxtBoxAnimalDoctorName.Name = "TxtBoxAnimalDoctorName";
-            this.TxtBoxAnimalDoctorName.Size = new System.Drawing.Size(400, 38);
-            this.TxtBoxAnimalDoctorName.TabIndex = 16;
+            this.TxtBoxAnimalDoctorNr.Location = new System.Drawing.Point(1248, 377);
+            this.TxtBoxAnimalDoctorNr.Name = "TxtBoxAnimalDoctorNr";
+            this.TxtBoxAnimalDoctorNr.Size = new System.Drawing.Size(400, 38);
+            this.TxtBoxAnimalDoctorNr.TabIndex = 16;
             // 
             // label7
             // 
@@ -314,7 +316,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1790, 1115);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1790, 1412);
             this.Controls.Add(this.AnimalBirthCalender);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.TextBoxJournal);
@@ -327,7 +330,7 @@
             this.Controls.Add(this.btnAnimalUploadPic);
             this.Controls.Add(this.TxtBoxAnimalChip);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.TxtBoxAnimalDoctorName);
+            this.Controls.Add(this.TxtBoxAnimalDoctorNr);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnCheckOwner);
@@ -345,8 +348,7 @@
             this.Controls.Add(this.TxtAnimalName);
             this.Controls.Add(this.label1);
             this.Name = "Form_Animal";
-            this.Text = "w22";
-            this.Load += new System.EventHandler(this.Form_Animal_Load);
+            this.Text = "Animal";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -370,7 +372,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnCheckOwner;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox TxtBoxAnimalDoctorName;
+        private System.Windows.Forms.TextBox TxtBoxAnimalDoctorNr;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TxtBoxAnimalChip;
         private System.Windows.Forms.Label label8;
