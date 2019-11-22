@@ -34,12 +34,10 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TxtAnimalRace = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.TxtAnimalBirthDate = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.CheckBoxMale = new System.Windows.Forms.CheckBox();
             this.CheckBoxFemale = new System.Windows.Forms.CheckBox();
-            this.TxtBoxAnimalNr = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnCheckOwner = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -57,6 +55,7 @@
             this.TextBoxJournal = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.AnimalBirthCalender = new System.Windows.Forms.DateTimePicker();
+            this.TxtBoxAnimalNr = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -108,13 +107,6 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Animal:";
             // 
-            // TxtAnimalBirthDate
-            // 
-            this.TxtAnimalBirthDate.Location = new System.Drawing.Point(200, 291);
-            this.TxtAnimalBirthDate.Name = "TxtAnimalBirthDate";
-            this.TxtAnimalBirthDate.Size = new System.Drawing.Size(400, 38);
-            this.TxtAnimalBirthDate.TabIndex = 7;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -154,13 +146,6 @@
             this.CheckBoxFemale.Text = "Female";
             this.CheckBoxFemale.UseVisualStyleBackColor = true;
             this.CheckBoxFemale.CheckedChanged += new System.EventHandler(this.CheckBoxFemale_CheckedChanged);
-            // 
-            // TxtBoxAnimalNr
-            // 
-            this.TxtBoxAnimalNr.Location = new System.Drawing.Point(200, 455);
-            this.TxtBoxAnimalNr.Name = "TxtBoxAnimalNr";
-            this.TxtBoxAnimalNr.Size = new System.Drawing.Size(400, 38);
-            this.TxtBoxAnimalNr.TabIndex = 12;
             // 
             // label6
             // 
@@ -306,11 +291,18 @@
             // 
             // AnimalBirthCalender
             // 
-            this.AnimalBirthCalender.Location = new System.Drawing.Point(658, 291);
+            this.AnimalBirthCalender.Location = new System.Drawing.Point(200, 291);
             this.AnimalBirthCalender.Name = "AnimalBirthCalender";
             this.AnimalBirthCalender.Size = new System.Drawing.Size(291, 38);
             this.AnimalBirthCalender.TabIndex = 29;
             this.AnimalBirthCalender.Value = new System.DateTime(2019, 11, 19, 0, 0, 0, 0);
+            // 
+            // TxtBoxAnimalNr
+            // 
+            this.TxtBoxAnimalNr.Location = new System.Drawing.Point(200, 455);
+            this.TxtBoxAnimalNr.Name = "TxtBoxAnimalNr";
+            this.TxtBoxAnimalNr.Size = new System.Drawing.Size(400, 38);
+            this.TxtBoxAnimalNr.TabIndex = 12;
             // 
             // Form_Animal
             // 
@@ -339,7 +331,6 @@
             this.Controls.Add(this.CheckBoxFemale);
             this.Controls.Add(this.CheckBoxMale);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.TxtAnimalBirthDate);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TxtAnimalRace);
             this.Controls.Add(this.label3);
@@ -363,12 +354,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtAnimalRace;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TxtAnimalBirthDate;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.CheckBox CheckBoxMale;
         private System.Windows.Forms.CheckBox CheckBoxFemale;
-        private System.Windows.Forms.TextBox TxtBoxAnimalNr;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnCheckOwner;
         private System.Windows.Forms.Button btnSearch;
@@ -386,5 +375,6 @@
         private System.Windows.Forms.RichTextBox TextBoxJournal;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker AnimalBirthCalender;
+        private System.Windows.Forms.TextBox TxtBoxAnimalNr;
     }
 }
