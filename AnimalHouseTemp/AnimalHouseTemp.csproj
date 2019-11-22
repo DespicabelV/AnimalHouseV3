@@ -46,6 +46,7 @@
     <Compile Include="AllanTemp.cs" />
     <Compile Include="JacobTemp.cs" />
     <Compile Include="NichlasTemp.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViggoTemp.cs" />
   </ItemGroup>

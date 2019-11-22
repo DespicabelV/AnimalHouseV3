@@ -18,7 +18,7 @@ namespace AnimalHouseTemp
 
         public void test()
         {
-            Daba.DBCBeginTrans();
+            Console.WriteLine("hej");
         }
     }
 }
