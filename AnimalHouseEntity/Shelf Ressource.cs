@@ -9,9 +9,11 @@ namespace AnimalHouseEntity
     public class Shelf_Ressource : Ressource
     {
         private string Name;
-        public Shelf_Ressource(int ID, double Price, int ProductCategoryID, string Name) : base(ID, Price, ProductCategoryID)
+        private int Amount;
+        public Shelf_Ressource(int ID, double Price, int ProductCategoryID, string Name, int Amount) : base(ID, Price, ProductCategoryID)
         {
             this.Name = Name;
+            this.Amount = Amount;
         }
     }
 }

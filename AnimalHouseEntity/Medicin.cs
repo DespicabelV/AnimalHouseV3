@@ -9,9 +9,11 @@ namespace AnimalHouseEntity
    public class Medicin : Ressource
     {
         private string Name;
-        public Medicin(int ID, double Price, int ProductCategoryID, string Name) : base(ID, Price, ProductCategoryID)
+        private int Amount;
+        public Medicin(int ID, double Price, int ProductCategoryID, string Name, int Amount) : base(ID, Price, ProductCategoryID)
         {
             this.Name = Name;
+            this.Amount = Amount;
         }
     }
 }
