@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using System.Windows.Forms;
 
 namespace AnimalHouseV3
@@ -18,6 +19,11 @@ namespace AnimalHouseV3
         }
 
         private void textBox4_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ButtonCreateOwner_Click(object sender, EventArgs e)
         {
 
         }
