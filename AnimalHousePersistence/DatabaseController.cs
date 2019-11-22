@@ -110,7 +110,7 @@ namespace AnimalHousePersistence
 
 
         //Inserts
-        public void DBCInsertAnimal(string Navn, char Kon, DateTime Fodselsdag, string Race, int Laege, int Chip)
+        public void DBCInsertAnimal(string Navn, char Kon, string Fodselsdag, string Race, int Laege, int Chip)
         {
             DBCOpenDB();
             SqlCommand DBCInsertAnimal = new SqlCommand();
@@ -121,7 +121,7 @@ namespace AnimalHousePersistence
             DBCCloseDB();
         }
 
-        public void DBCInsertBooking(int Behandling, int Laege, int Dyr, int Bur, int Burdage, DateTime Dato, int Tid)
+        public void DBCInsertBooking(int Behandling, int Laege, int Dyr, int Bur, int Burdage, string Dato, int Tid)
         {
             DBCOpenDB();
             SqlCommand DBCInsertAnimal = new SqlCommand();
@@ -223,12 +223,12 @@ namespace AnimalHousePersistence
             DBCCloseDB();
         }
 
-        public void DBCUpdateAnimal(int ID, string Navn, char Kon, DateTime Date, string Race, int Laege, int Chip)
+        public void DBCUpdateAnimal(int ID, string Navn, char Kon, string Date, string Race, int Laege, int Chip)
         {
             DBCOpenDB();
             SqlCommand DBCInsertAnimal = new SqlCommand();
             DBCInsertAnimal.CommandText = $"UPDATE Dyr " +
-                $"SET Navn = '{Navn}', Kon = '{Kon}', Fodselsdag = '{Date.ToString("yyyy-MM-dd")}', Race = '{Race}', Laege = {Laege}, Chip = {Chip}" +
+                $"SET Navn = '{Navn}', Kon = '{Kon}', Fodselsdag = '{Date}', Race = '{Race}', Laege = {Laege}, Chip = {Chip}" +
                 $"WHERE ID = {ID}";
             DBCInsertAnimal.Connection = db;
             DBCInsertAnimal.ExecuteNonQuery();

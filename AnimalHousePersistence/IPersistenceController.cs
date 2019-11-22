@@ -18,9 +18,9 @@ namespace AnimalHousePersistence
 
         List<string> DBCSelectFromWhere(string DBCFrom, string DBCWhere, string DBCParam);
 
-        void DBCInsertAnimal(string Navn, char Kon, DateTime Fodselsdag, string Race, int Laege, int Chip);
+        void DBCInsertAnimal(string Navn, char Kon, string Fodselsdag, string Race, int Laege, int Chip);
 
-        void DBCInsertBooking(int Behandling, int Laege, int Dyr, int Bur, int Burdage, DateTime Dato, int Tid);
+        void DBCInsertBooking(int Behandling, int Laege, int Dyr, int Bur, int Burdage, string Dato, int Tid);
 
         void DBCInsertBusiness(int Ejer, string FirmaNavn, int CVR);
 
@@ -38,7 +38,7 @@ namespace AnimalHousePersistence
 
         void DBCUpdateOwner(int TelefonNr, string Fornavn, string Efternavn, string Adresse, string Email, string By_, int Postnr);
 
-        void DBCUpdateAnimal(int ID, string Navn, char Kon, DateTime Date, string Race, int Laege, int Chip);
+        void DBCUpdateAnimal(int ID, string Navn, char Kon, string Date, string Race, int Laege, int Chip);
 
         void DBCUpdateMedicin(int ID, string Navn);
 

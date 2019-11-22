@@ -45,10 +45,19 @@ namespace AnimalHouseV3
                 MessageBox.Show("Please put in a phone number for the owner");
                 return;
             }
+            if (Controller.ControllerOwnerExist(textBoxOwnerInput.Text) == false)
+            {
+                MessageBox.Show("No owner exist under that phone number");
+                return;
+            }
 
             TempList = Controller.ControllerGetOwner(textBoxOwnerInput.Text);
-
-
+            textBoxOwnerPhoneInfo.Text  = TempList[0];
+            textBoxOwnerNameInfo.Text   = TempList[1] + " " + TempList[2];
+            textBoxOwnerStreetInfo.Text = TempList[3];
+            textBoxOwnerEmailInfo.Text  = TempList[4];
+            textBoxOwnerCityInfo.Text   = TempList[5];
+            textBoxOwnerZipInfo.Text    = TempList[6]; 
         }
     }
 }
