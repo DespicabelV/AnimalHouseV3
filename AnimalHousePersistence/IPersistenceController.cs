@@ -20,6 +20,8 @@ namespace AnimalHousePersistence
 
         void DBCInsertAnimal(string Navn, char Kon, string Fodselsdag, string Race, int Laege, int Chip);
 
+        void DBCInsertRelation(int Ejer, int Dyr);
+
         void DBCInsertBooking(int Behandling, int Laege, int Dyr, int Bur, int Burdage, string Dato, int Tid);
 
         void DBCInsertBusiness(int Ejer, string FirmaNavn, int CVR);

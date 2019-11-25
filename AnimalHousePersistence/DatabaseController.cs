@@ -121,6 +121,17 @@ namespace AnimalHousePersistence
             DBCCloseDB();
         }
 
+        public void DBCInsertRelation(int Ejer, int Dyr)
+        {
+            DBCOpenDB();
+            SqlCommand DBCInsertRelation = new SqlCommand();
+            DBCInsertRelation.CommandText = $"INSERT INTO Relation (Ejer, Dyr) " +
+                $"VALUES({Ejer}, {Dyr})";
+            DBCInsertRelation.Connection = db;
+            DBCInsertRelation.ExecuteNonQuery();
+            DBCCloseDB();
+        }
+        
         public void DBCInsertBooking(int Behandling, int Laege, int Dyr, int Bur, int Burdage, string Dato, int Tid)
         {
             DBCOpenDB();
