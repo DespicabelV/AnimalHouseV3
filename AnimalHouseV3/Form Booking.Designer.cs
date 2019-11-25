@@ -38,7 +38,19 @@
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonHelp = new System.Windows.Forms.Button();
             this.groupBoxOwnerInfo = new System.Windows.Forms.GroupBox();
+            this.textBoxOwnerCityInfo = new System.Windows.Forms.TextBox();
+            this.textBoxOwnerZipInfo = new System.Windows.Forms.TextBox();
+            this.textBoxOwnerStreetInfo = new System.Windows.Forms.TextBox();
+            this.textBoxOwnerEmailInfo = new System.Windows.Forms.TextBox();
+            this.textBoxOwnerPhoneInfo = new System.Windows.Forms.TextBox();
+            this.textBoxOwnerNameInfo = new System.Windows.Forms.TextBox();
             this.groupBoxAnimalInfo = new System.Windows.Forms.GroupBox();
+            this.textBoxAnimalChipInfo = new System.Windows.Forms.TextBox();
+            this.textBoxAnimalIDInfo = new System.Windows.Forms.TextBox();
+            this.textBoxAnimalBDayInfo = new System.Windows.Forms.TextBox();
+            this.textBoxAnimalRaceInfo = new System.Windows.Forms.TextBox();
+            this.textBoxAnimalGenderInfo = new System.Windows.Forms.TextBox();
+            this.textBoxAnimalNameInfo = new System.Windows.Forms.TextBox();
             this.labelTreatments = new System.Windows.Forms.Label();
             this.comboBoxTreatmentsChoice = new System.Windows.Forms.ComboBox();
             this.labelDoctor = new System.Windows.Forms.Label();
@@ -50,18 +62,6 @@
             this.buttonCreate = new System.Windows.Forms.Button();
             this.comboBoxDaysChoice = new System.Windows.Forms.ComboBox();
             this.labelDays = new System.Windows.Forms.Label();
-            this.textBoxOwnerNameInfo = new System.Windows.Forms.TextBox();
-            this.textBoxOwnerPhoneInfo = new System.Windows.Forms.TextBox();
-            this.textBoxOwnerEmailInfo = new System.Windows.Forms.TextBox();
-            this.textBoxOwnerStreetInfo = new System.Windows.Forms.TextBox();
-            this.textBoxOwnerZipInfo = new System.Windows.Forms.TextBox();
-            this.textBoxOwnerCityInfo = new System.Windows.Forms.TextBox();
-            this.textBoxAnimalNameInfo = new System.Windows.Forms.TextBox();
-            this.textBoxAnimalGenderInfo = new System.Windows.Forms.TextBox();
-            this.textBoxAnimalRaceInfo = new System.Windows.Forms.TextBox();
-            this.textBoxAnimalBDayInfo = new System.Windows.Forms.TextBox();
-            this.textBoxAnimalIDInfo = new System.Windows.Forms.TextBox();
-            this.textBoxAnimalChipInfo = new System.Windows.Forms.TextBox();
             this.groupBoxOwnerInfo.SuspendLayout();
             this.groupBoxAnimalInfo.SuspendLayout();
             this.SuspendLayout();
@@ -120,6 +120,7 @@
             this.comboBoxAnimalChoice.Name = "comboBoxAnimalChoice";
             this.comboBoxAnimalChoice.Size = new System.Drawing.Size(229, 24);
             this.comboBoxAnimalChoice.TabIndex = 5;
+            this.comboBoxAnimalChoice.SelectedIndexChanged += new System.EventHandler(this.comboBoxAnimalChoice_SelectedIndexChanged);
             // 
             // buttonSearch
             // 
@@ -164,6 +165,60 @@
             this.groupBoxOwnerInfo.TabStop = false;
             this.groupBoxOwnerInfo.Text = "Owner";
             // 
+            // textBoxOwnerCityInfo
+            // 
+            this.textBoxOwnerCityInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxOwnerCityInfo.Location = new System.Drawing.Point(6, 105);
+            this.textBoxOwnerCityInfo.Name = "textBoxOwnerCityInfo";
+            this.textBoxOwnerCityInfo.ReadOnly = true;
+            this.textBoxOwnerCityInfo.Size = new System.Drawing.Size(224, 22);
+            this.textBoxOwnerCityInfo.TabIndex = 6;
+            // 
+            // textBoxOwnerZipInfo
+            // 
+            this.textBoxOwnerZipInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxOwnerZipInfo.Location = new System.Drawing.Point(236, 105);
+            this.textBoxOwnerZipInfo.Name = "textBoxOwnerZipInfo";
+            this.textBoxOwnerZipInfo.ReadOnly = true;
+            this.textBoxOwnerZipInfo.Size = new System.Drawing.Size(75, 22);
+            this.textBoxOwnerZipInfo.TabIndex = 5;
+            // 
+            // textBoxOwnerStreetInfo
+            // 
+            this.textBoxOwnerStreetInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxOwnerStreetInfo.Location = new System.Drawing.Point(6, 77);
+            this.textBoxOwnerStreetInfo.Name = "textBoxOwnerStreetInfo";
+            this.textBoxOwnerStreetInfo.ReadOnly = true;
+            this.textBoxOwnerStreetInfo.Size = new System.Drawing.Size(305, 22);
+            this.textBoxOwnerStreetInfo.TabIndex = 4;
+            // 
+            // textBoxOwnerEmailInfo
+            // 
+            this.textBoxOwnerEmailInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxOwnerEmailInfo.Location = new System.Drawing.Point(6, 49);
+            this.textBoxOwnerEmailInfo.Name = "textBoxOwnerEmailInfo";
+            this.textBoxOwnerEmailInfo.ReadOnly = true;
+            this.textBoxOwnerEmailInfo.Size = new System.Drawing.Size(305, 22);
+            this.textBoxOwnerEmailInfo.TabIndex = 3;
+            // 
+            // textBoxOwnerPhoneInfo
+            // 
+            this.textBoxOwnerPhoneInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxOwnerPhoneInfo.Location = new System.Drawing.Point(236, 21);
+            this.textBoxOwnerPhoneInfo.Name = "textBoxOwnerPhoneInfo";
+            this.textBoxOwnerPhoneInfo.ReadOnly = true;
+            this.textBoxOwnerPhoneInfo.Size = new System.Drawing.Size(75, 22);
+            this.textBoxOwnerPhoneInfo.TabIndex = 2;
+            // 
+            // textBoxOwnerNameInfo
+            // 
+            this.textBoxOwnerNameInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxOwnerNameInfo.Location = new System.Drawing.Point(6, 21);
+            this.textBoxOwnerNameInfo.Name = "textBoxOwnerNameInfo";
+            this.textBoxOwnerNameInfo.ReadOnly = true;
+            this.textBoxOwnerNameInfo.Size = new System.Drawing.Size(224, 22);
+            this.textBoxOwnerNameInfo.TabIndex = 1;
+            // 
             // groupBoxAnimalInfo
             // 
             this.groupBoxAnimalInfo.Controls.Add(this.textBoxAnimalChipInfo);
@@ -178,6 +233,60 @@
             this.groupBoxAnimalInfo.TabIndex = 10;
             this.groupBoxAnimalInfo.TabStop = false;
             this.groupBoxAnimalInfo.Text = "Animal";
+            // 
+            // textBoxAnimalChipInfo
+            // 
+            this.textBoxAnimalChipInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxAnimalChipInfo.Location = new System.Drawing.Point(236, 105);
+            this.textBoxAnimalChipInfo.Name = "textBoxAnimalChipInfo";
+            this.textBoxAnimalChipInfo.ReadOnly = true;
+            this.textBoxAnimalChipInfo.Size = new System.Drawing.Size(75, 22);
+            this.textBoxAnimalChipInfo.TabIndex = 22;
+            // 
+            // textBoxAnimalIDInfo
+            // 
+            this.textBoxAnimalIDInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxAnimalIDInfo.Location = new System.Drawing.Point(236, 21);
+            this.textBoxAnimalIDInfo.Name = "textBoxAnimalIDInfo";
+            this.textBoxAnimalIDInfo.ReadOnly = true;
+            this.textBoxAnimalIDInfo.Size = new System.Drawing.Size(75, 22);
+            this.textBoxAnimalIDInfo.TabIndex = 23;
+            // 
+            // textBoxAnimalBDayInfo
+            // 
+            this.textBoxAnimalBDayInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxAnimalBDayInfo.Location = new System.Drawing.Point(6, 77);
+            this.textBoxAnimalBDayInfo.Name = "textBoxAnimalBDayInfo";
+            this.textBoxAnimalBDayInfo.ReadOnly = true;
+            this.textBoxAnimalBDayInfo.Size = new System.Drawing.Size(305, 22);
+            this.textBoxAnimalBDayInfo.TabIndex = 22;
+            // 
+            // textBoxAnimalRaceInfo
+            // 
+            this.textBoxAnimalRaceInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxAnimalRaceInfo.Location = new System.Drawing.Point(6, 49);
+            this.textBoxAnimalRaceInfo.Name = "textBoxAnimalRaceInfo";
+            this.textBoxAnimalRaceInfo.ReadOnly = true;
+            this.textBoxAnimalRaceInfo.Size = new System.Drawing.Size(224, 22);
+            this.textBoxAnimalRaceInfo.TabIndex = 8;
+            // 
+            // textBoxAnimalGenderInfo
+            // 
+            this.textBoxAnimalGenderInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxAnimalGenderInfo.Location = new System.Drawing.Point(236, 49);
+            this.textBoxAnimalGenderInfo.Name = "textBoxAnimalGenderInfo";
+            this.textBoxAnimalGenderInfo.ReadOnly = true;
+            this.textBoxAnimalGenderInfo.Size = new System.Drawing.Size(75, 22);
+            this.textBoxAnimalGenderInfo.TabIndex = 7;
+            // 
+            // textBoxAnimalNameInfo
+            // 
+            this.textBoxAnimalNameInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxAnimalNameInfo.Location = new System.Drawing.Point(6, 21);
+            this.textBoxAnimalNameInfo.Name = "textBoxAnimalNameInfo";
+            this.textBoxAnimalNameInfo.ReadOnly = true;
+            this.textBoxAnimalNameInfo.Size = new System.Drawing.Size(224, 22);
+            this.textBoxAnimalNameInfo.TabIndex = 2;
             // 
             // labelTreatments
             // 
@@ -273,114 +382,6 @@
             this.labelDays.Size = new System.Drawing.Size(50, 17);
             this.labelDays.TabIndex = 21;
             this.labelDays.Text = "Day(s)";
-            // 
-            // textBoxOwnerNameInfo
-            // 
-            this.textBoxOwnerNameInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxOwnerNameInfo.Location = new System.Drawing.Point(6, 21);
-            this.textBoxOwnerNameInfo.Name = "textBoxOwnerNameInfo";
-            this.textBoxOwnerNameInfo.ReadOnly = true;
-            this.textBoxOwnerNameInfo.Size = new System.Drawing.Size(224, 22);
-            this.textBoxOwnerNameInfo.TabIndex = 1;
-            // 
-            // textBoxOwnerPhoneInfo
-            // 
-            this.textBoxOwnerPhoneInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxOwnerPhoneInfo.Location = new System.Drawing.Point(236, 21);
-            this.textBoxOwnerPhoneInfo.Name = "textBoxOwnerPhoneInfo";
-            this.textBoxOwnerPhoneInfo.ReadOnly = true;
-            this.textBoxOwnerPhoneInfo.Size = new System.Drawing.Size(75, 22);
-            this.textBoxOwnerPhoneInfo.TabIndex = 2;
-            // 
-            // textBoxOwnerEmailInfo
-            // 
-            this.textBoxOwnerEmailInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxOwnerEmailInfo.Location = new System.Drawing.Point(6, 49);
-            this.textBoxOwnerEmailInfo.Name = "textBoxOwnerEmailInfo";
-            this.textBoxOwnerEmailInfo.ReadOnly = true;
-            this.textBoxOwnerEmailInfo.Size = new System.Drawing.Size(305, 22);
-            this.textBoxOwnerEmailInfo.TabIndex = 3;
-            // 
-            // textBoxOwnerStreetInfo
-            // 
-            this.textBoxOwnerStreetInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxOwnerStreetInfo.Location = new System.Drawing.Point(6, 77);
-            this.textBoxOwnerStreetInfo.Name = "textBoxOwnerStreetInfo";
-            this.textBoxOwnerStreetInfo.ReadOnly = true;
-            this.textBoxOwnerStreetInfo.Size = new System.Drawing.Size(305, 22);
-            this.textBoxOwnerStreetInfo.TabIndex = 4;
-            // 
-            // textBoxOwnerZipInfo
-            // 
-            this.textBoxOwnerZipInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxOwnerZipInfo.Location = new System.Drawing.Point(236, 105);
-            this.textBoxOwnerZipInfo.Name = "textBoxOwnerZipInfo";
-            this.textBoxOwnerZipInfo.ReadOnly = true;
-            this.textBoxOwnerZipInfo.Size = new System.Drawing.Size(75, 22);
-            this.textBoxOwnerZipInfo.TabIndex = 5;
-            // 
-            // textBoxOwnerCityInfo
-            // 
-            this.textBoxOwnerCityInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxOwnerCityInfo.Location = new System.Drawing.Point(6, 105);
-            this.textBoxOwnerCityInfo.Name = "textBoxOwnerCityInfo";
-            this.textBoxOwnerCityInfo.ReadOnly = true;
-            this.textBoxOwnerCityInfo.Size = new System.Drawing.Size(224, 22);
-            this.textBoxOwnerCityInfo.TabIndex = 6;
-            // 
-            // textBoxAnimalNameInfo
-            // 
-            this.textBoxAnimalNameInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxAnimalNameInfo.Location = new System.Drawing.Point(6, 21);
-            this.textBoxAnimalNameInfo.Name = "textBoxAnimalNameInfo";
-            this.textBoxAnimalNameInfo.ReadOnly = true;
-            this.textBoxAnimalNameInfo.Size = new System.Drawing.Size(224, 22);
-            this.textBoxAnimalNameInfo.TabIndex = 2;
-            // 
-            // textBoxAnimalGenderInfo
-            // 
-            this.textBoxAnimalGenderInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxAnimalGenderInfo.Location = new System.Drawing.Point(236, 49);
-            this.textBoxAnimalGenderInfo.Name = "textBoxAnimalGenderInfo";
-            this.textBoxAnimalGenderInfo.ReadOnly = true;
-            this.textBoxAnimalGenderInfo.Size = new System.Drawing.Size(75, 22);
-            this.textBoxAnimalGenderInfo.TabIndex = 7;
-            // 
-            // textBoxAnimalRaceInfo
-            // 
-            this.textBoxAnimalRaceInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxAnimalRaceInfo.Location = new System.Drawing.Point(6, 49);
-            this.textBoxAnimalRaceInfo.Name = "textBoxAnimalRaceInfo";
-            this.textBoxAnimalRaceInfo.ReadOnly = true;
-            this.textBoxAnimalRaceInfo.Size = new System.Drawing.Size(224, 22);
-            this.textBoxAnimalRaceInfo.TabIndex = 8;
-            // 
-            // textBoxAnimalBDayInfo
-            // 
-            this.textBoxAnimalBDayInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxAnimalBDayInfo.Location = new System.Drawing.Point(6, 77);
-            this.textBoxAnimalBDayInfo.Name = "textBoxAnimalBDayInfo";
-            this.textBoxAnimalBDayInfo.ReadOnly = true;
-            this.textBoxAnimalBDayInfo.Size = new System.Drawing.Size(305, 22);
-            this.textBoxAnimalBDayInfo.TabIndex = 22;
-            // 
-            // textBoxAnimalIDInfo
-            // 
-            this.textBoxAnimalIDInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxAnimalIDInfo.Location = new System.Drawing.Point(236, 21);
-            this.textBoxAnimalIDInfo.Name = "textBoxAnimalIDInfo";
-            this.textBoxAnimalIDInfo.ReadOnly = true;
-            this.textBoxAnimalIDInfo.Size = new System.Drawing.Size(75, 22);
-            this.textBoxAnimalIDInfo.TabIndex = 23;
-            // 
-            // textBoxAnimalChipInfo
-            // 
-            this.textBoxAnimalChipInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxAnimalChipInfo.Location = new System.Drawing.Point(236, 105);
-            this.textBoxAnimalChipInfo.Name = "textBoxAnimalChipInfo";
-            this.textBoxAnimalChipInfo.ReadOnly = true;
-            this.textBoxAnimalChipInfo.Size = new System.Drawing.Size(75, 22);
-            this.textBoxAnimalChipInfo.TabIndex = 22;
             // 
             // Form_Booking
             // 

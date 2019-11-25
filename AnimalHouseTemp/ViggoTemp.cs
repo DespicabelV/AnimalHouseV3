@@ -34,14 +34,25 @@ namespace AnimalHouseTemp
         }
 
         //Controler
-        public List<string> ControllerGetOwner(string TelefonNr)
+        public List<string> ControllerGetOwner(string PhoneNum)
         {
             List<string> ControllerGetOwner = new List<string>();
 
-            ControllerGetOwner = PrivateFetch(TelefonNr);
+            ControllerGetOwner = PrivateFetch(PhoneNum);
 
             return ControllerGetOwner;
         }
+
+
+        public List<string> ControllerGetRelation(string OwnerID)
+        {
+            List<string> ControllerGetRelation = new List<string>();
+
+            ControllerGetRelation = RelationFetch(OwnerID);
+
+            return ControllerGetRelation;
+        }
+
 
         public bool ControllerOwnerExist(string COParam)
         {
@@ -51,6 +62,13 @@ namespace AnimalHouseTemp
         }
 
         //Entity
+        static bool PrivateExist(string PEParam)
+        {
+            IPersistenceController Daba = new DatabaseController();
+            bool TempBool;
+            return TempBool = Daba.CheckIfExist("Ejer", "TelefonNr", PEParam);
+        }
+
         static List<string> PrivateFetch(string PFParam)
         {
             IPersistenceController Daba = new DatabaseController();
@@ -61,11 +79,14 @@ namespace AnimalHouseTemp
             return ListOwn;
         }
 
-        static bool PrivateExist(string PEParam)
+        static List<string> RelationFetch(string RFparam)
         {
             IPersistenceController Daba = new DatabaseController();
-            bool TempBool;
-            return TempBool = Daba.CheckIfExist("Ejer", "TelefonNr", PEParam);
+            List<string> ListRela;
+
+            ListRela = Daba.DBCSelectFromWhere("Relation", "Ejer", RFparam);
+
+            return ListRela;
         }
     }
 }

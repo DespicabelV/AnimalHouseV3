@@ -96,14 +96,17 @@ namespace AnimalHousePersistence
             SelectFrom.CommandText = $"SELECT * FROM {DBCFrom} WHERE {DBCWhere} = {DBCParam}";
             SelectFrom.Connection = db;
             reader = SelectFrom.ExecuteReader();
-            reader.Read();
 
             DBCSelectCount = reader.FieldCount;
-            for (int i = 0; i < DBCSelectCount; i++)
+            while (reader.Read())
             {
-                DBCListSelect.Add(Convert.ToString(reader.GetValue(i)));
+                for (int i = 0; i < DBCSelectCount; i++)
+                {
+                    DBCListSelect.Add(Convert.ToString(reader.GetValue(i)));
+                }
             }
-            
+
+
             DBCCloseDB();
             return DBCListSelect;
         }

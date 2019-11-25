@@ -38,7 +38,9 @@ namespace AnimalHouseV3
 
         private void buttonSearch_Click(object sender, EventArgs e)
         {
-            List<string> TempList = new List<string>();
+            List<string> TempOwnerList = new List<string>();
+            List<string> TempRelationList = new List<string>();
+            int RelationItemCount;
 
             if (textBoxOwnerInput.TextLength == 0)
             {
@@ -51,13 +53,26 @@ namespace AnimalHouseV3
                 return;
             }
 
-            TempList = Controller.ControllerGetOwner(textBoxOwnerInput.Text);
-            textBoxOwnerPhoneInfo.Text  = TempList[0];
-            textBoxOwnerNameInfo.Text   = TempList[1] + " " + TempList[2];
-            textBoxOwnerStreetInfo.Text = TempList[3];
-            textBoxOwnerEmailInfo.Text  = TempList[4];
-            textBoxOwnerCityInfo.Text   = TempList[5];
-            textBoxOwnerZipInfo.Text    = TempList[6]; 
+            TempOwnerList = Controller.ControllerGetOwner(textBoxOwnerInput.Text);
+            textBoxOwnerPhoneInfo.Text  = TempOwnerList[0];
+            textBoxOwnerNameInfo.Text   = TempOwnerList[1] + " " + TempOwnerList[2];
+            textBoxOwnerStreetInfo.Text = TempOwnerList[3];
+            textBoxOwnerEmailInfo.Text  = TempOwnerList[4];
+            textBoxOwnerCityInfo.Text   = TempOwnerList[5];
+            textBoxOwnerZipInfo.Text    = TempOwnerList[6];
+
+            TempRelationList = Controller.ControllerGetRelation(textBoxOwnerInput.Text);
+            RelationItemCount = TempRelationList.Count;
+            for (int i = 0; i < RelationItemCount; i = i + 2)
+            {
+                comboBoxAnimalChoice.Items.Add(TempRelationList[i+1]);
+            }
+
+        }
+
+        private void comboBoxAnimalChoice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
