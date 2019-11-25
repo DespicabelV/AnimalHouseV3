@@ -62,6 +62,7 @@
             this.buttonCreate = new System.Windows.Forms.Button();
             this.comboBoxDaysChoice = new System.Windows.Forms.ComboBox();
             this.labelDays = new System.Windows.Forms.Label();
+            this.textBoxAnimalDoctorInfo = new System.Windows.Forms.TextBox();
             this.groupBoxOwnerInfo.SuspendLayout();
             this.groupBoxAnimalInfo.SuspendLayout();
             this.SuspendLayout();
@@ -112,6 +113,7 @@
             this.textBoxOwnerInput.Name = "textBoxOwnerInput";
             this.textBoxOwnerInput.Size = new System.Drawing.Size(229, 22);
             this.textBoxOwnerInput.TabIndex = 4;
+            this.textBoxOwnerInput.Text = "1874865";
             // 
             // comboBoxAnimalChoice
             // 
@@ -221,6 +223,7 @@
             // 
             // groupBoxAnimalInfo
             // 
+            this.groupBoxAnimalInfo.Controls.Add(this.textBoxAnimalDoctorInfo);
             this.groupBoxAnimalInfo.Controls.Add(this.textBoxAnimalChipInfo);
             this.groupBoxAnimalInfo.Controls.Add(this.textBoxAnimalIDInfo);
             this.groupBoxAnimalInfo.Controls.Add(this.textBoxAnimalBDayInfo);
@@ -383,6 +386,15 @@
             this.labelDays.TabIndex = 21;
             this.labelDays.Text = "Day(s)";
             // 
+            // textBoxAnimalDoctorInfo
+            // 
+            this.textBoxAnimalDoctorInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxAnimalDoctorInfo.Location = new System.Drawing.Point(6, 105);
+            this.textBoxAnimalDoctorInfo.Name = "textBoxAnimalDoctorInfo";
+            this.textBoxAnimalDoctorInfo.ReadOnly = true;
+            this.textBoxAnimalDoctorInfo.Size = new System.Drawing.Size(224, 22);
+            this.textBoxAnimalDoctorInfo.TabIndex = 24;
+            // 
             // Form_Booking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -457,5 +469,6 @@
         private System.Windows.Forms.TextBox textBoxAnimalRaceInfo;
         private System.Windows.Forms.TextBox textBoxAnimalGenderInfo;
         private System.Windows.Forms.TextBox textBoxAnimalNameInfo;
+        private System.Windows.Forms.TextBox textBoxAnimalDoctorInfo;
     }
 }

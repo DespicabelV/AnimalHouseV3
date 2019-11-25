@@ -5,6 +5,7 @@ namespace AnimalHousePersistence
 {
     public interface IPersistenceController
     {
+        List<string> DBCSelectFrom(string DBCFrom);
 
         bool CheckIfExist(string DBCFrom, string DBCWhere, string DBCParam);
 

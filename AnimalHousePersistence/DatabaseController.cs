@@ -111,6 +111,30 @@ namespace AnimalHousePersistence
             return DBCListSelect;
         }
 
+        public List<string> DBCSelectFrom(string DBCFrom)
+        {
+            DBCOpenDB();
+            int DBCSelectCount;
+            List<string> DBCListSelect = new List<string>();
+
+            SqlCommand SelectFrom = new SqlCommand();
+            SelectFrom.CommandText = $"SELECT * FROM {DBCFrom}";
+            SelectFrom.Connection = db;
+            reader = SelectFrom.ExecuteReader();
+
+            DBCSelectCount = reader.FieldCount;
+            while (reader.Read())
+            {
+                for (int i = 0; i < DBCSelectCount; i++)
+                {
+                    DBCListSelect.Add(Convert.ToString(reader.GetValue(i)));
+                }
+            }
+
+            DBCCloseDB();
+            return DBCListSelect;
+        }
+
 
         //Inserts
         public void DBCInsertAnimal(string Navn, char Kon, string Fodselsdag, string Race, int Laege, int Chip)
@@ -271,13 +295,6 @@ namespace AnimalHousePersistence
             DBCInsertAnimal.Connection = db;
             DBCInsertAnimal.ExecuteNonQuery();
             DBCCloseDB();
-        }
-
-
-        //Select From All
-        public void DBCSelectFrom()
-        {
-
         }
     }
 }

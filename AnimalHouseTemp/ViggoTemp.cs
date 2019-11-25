@@ -21,44 +21,58 @@ namespace AnimalHouseTemp
             Daba = new DatabaseController();
         }
 
-        public void test()
-        {
-            List<string> ListOwn;
-            Console.WriteLine("hej");
-            ListOwn = PrivateFetch("1874865");
-            foreach (string item in ListOwn)
-            {
-                Console.Write(item + " ");
-            }
-            Console.ReadKey();
-        }
-
         //Controler
-        public List<string> ControllerGetOwner(string PhoneNum)
-        {
-            List<string> ControllerGetOwner = new List<string>();
-
-            ControllerGetOwner = PrivateFetch(PhoneNum);
-
-            return ControllerGetOwner;
-        }
-
-
-        public List<string> ControllerGetRelation(string OwnerID)
-        {
-            List<string> ControllerGetRelation = new List<string>();
-
-            ControllerGetRelation = RelationFetch(OwnerID);
-
-            return ControllerGetRelation;
-        }
-
 
         public bool ControllerOwnerExist(string COParam)
         {
             bool TempBool;
             TempBool = PrivateExist(COParam);
             return TempBool;
+        }
+
+        public List<string> ControllerGetOwner(string PhoneNum)
+        {
+            List<string> ControllerGetOwner;
+
+            ControllerGetOwner = PrivateFetch(PhoneNum);
+
+            return ControllerGetOwner;
+        }
+
+        public List<string> ControllerGetRelation(string OwnerID)
+        {
+            List<string> ControllerGetRelation;
+
+            ControllerGetRelation = RelationFetch(OwnerID);
+
+            return ControllerGetRelation;
+        }
+
+        public List<string> ControllerGetAnimal(string AnimalID)
+        {
+            List<string> ControllerGetAnimal;
+
+            ControllerGetAnimal = AnimalFetch(AnimalID);
+
+            return ControllerGetAnimal;
+        }
+
+        public List<string> ControllerGetAllDoctor()
+        {
+            List<string> ControllerGetAllDoctor;
+
+            ControllerGetAllDoctor = DoctorAllFetch("Laege");
+
+            return ControllerGetAllDoctor;
+        }
+
+        public List<string> ControllerGetAllTreatment()
+        {
+            List<string> ControllerGetAllTreatment;
+
+            ControllerGetAllTreatment = TreatmentAllFetch("Behandling");
+
+            return ControllerGetAllTreatment;
         }
 
         //Entity
@@ -79,14 +93,44 @@ namespace AnimalHouseTemp
             return ListOwn;
         }
 
-        static List<string> RelationFetch(string RFparam)
+        static List<string> RelationFetch(string RFParam)
         {
             IPersistenceController Daba = new DatabaseController();
             List<string> ListRela;
 
-            ListRela = Daba.DBCSelectFromWhere("Relation", "Ejer", RFparam);
+            ListRela = Daba.DBCSelectFromWhere("Relation", "Ejer", RFParam);
 
             return ListRela;
+        }
+
+        static List<string> AnimalFetch(string AFParam)
+        {
+            IPersistenceController Daba = new DatabaseController();
+            List<string> ListAnimal;
+
+            ListAnimal = Daba.DBCSelectFromWhere("Dyr", "ID", AFParam);
+
+            return ListAnimal;
+        }
+
+        static List<string> DoctorAllFetch(string DFParam)
+        {
+            IPersistenceController Daba = new DatabaseController();
+            List<string> ListDoctor;
+
+            ListDoctor = Daba.DBCSelectFrom(DFParam);
+
+            return ListDoctor;
+        }
+
+        static List<string> TreatmentAllFetch(string TFParam)
+        {
+            IPersistenceController Daba = new DatabaseController();
+            List<string> ListTreatment;
+
+            ListTreatment = Daba.DBCSelectFrom(TFParam);
+
+            return ListTreatment;
         }
     }
 }
