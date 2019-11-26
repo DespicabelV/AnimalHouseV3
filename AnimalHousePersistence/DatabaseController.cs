@@ -133,7 +133,7 @@ namespace AnimalHousePersistence
             return DBCListSelectSp;
         }
 
-        public List<string> DBCSelectAnimal(string DBCName, string DBCDate, string DBCRace, string DBCGender)
+        public List<string> DBCSelectAnimal(string DBCName, string DBCDate, string DBCRace, char DBCGender)
         {
             DBCOpenDB();
             List<string> DBCSelectAnimal = new List<string>();

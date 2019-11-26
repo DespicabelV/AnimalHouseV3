@@ -11,7 +11,7 @@ namespace AnimalHousePersistence
 
         bool CheckIfExist(string DBCFrom, string DBCWhere, string DBCParam);
 
-        List<string> DBCSelectAnimal(string DBCName, string DBCDate, string DBCRace, string DBCGender);
+        List<string> DBCSelectAnimal(string DBCName, string DBCDate, string DBCRace, char DBCGender);
 
         void DBCBeginTrans();
 
