@@ -45,6 +45,7 @@
             this.textBoxOwnerPhoneInfo = new System.Windows.Forms.TextBox();
             this.textBoxOwnerNameInfo = new System.Windows.Forms.TextBox();
             this.groupBoxAnimalInfo = new System.Windows.Forms.GroupBox();
+            this.textBoxAnimalDoctorInfo = new System.Windows.Forms.TextBox();
             this.textBoxAnimalChipInfo = new System.Windows.Forms.TextBox();
             this.textBoxAnimalIDInfo = new System.Windows.Forms.TextBox();
             this.textBoxAnimalBDayInfo = new System.Windows.Forms.TextBox();
@@ -57,12 +58,13 @@
             this.comboBoxDoctorChoice = new System.Windows.Forms.ComboBox();
             this.labelDate = new System.Windows.Forms.Label();
             this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
-            this.groupBoxTimeChoice = new System.Windows.Forms.GroupBox();
             this.checkBoxCage = new System.Windows.Forms.CheckBox();
             this.buttonCreate = new System.Windows.Forms.Button();
             this.comboBoxDaysChoice = new System.Windows.Forms.ComboBox();
             this.labelDays = new System.Windows.Forms.Label();
-            this.textBoxAnimalDoctorInfo = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.labelTime = new System.Windows.Forms.Label();
+            this.buttonTimeSearch = new System.Windows.Forms.Button();
             this.groupBoxOwnerInfo.SuspendLayout();
             this.groupBoxAnimalInfo.SuspendLayout();
             this.SuspendLayout();
@@ -142,6 +144,7 @@
             this.buttonDelete.TabIndex = 7;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // buttonHelp
             // 
@@ -236,6 +239,15 @@
             this.groupBoxAnimalInfo.TabIndex = 10;
             this.groupBoxAnimalInfo.TabStop = false;
             this.groupBoxAnimalInfo.Text = "Animal";
+            // 
+            // textBoxAnimalDoctorInfo
+            // 
+            this.textBoxAnimalDoctorInfo.BackColor = System.Drawing.SystemColors.Control;
+            this.textBoxAnimalDoctorInfo.Location = new System.Drawing.Point(6, 105);
+            this.textBoxAnimalDoctorInfo.Name = "textBoxAnimalDoctorInfo";
+            this.textBoxAnimalDoctorInfo.ReadOnly = true;
+            this.textBoxAnimalDoctorInfo.Size = new System.Drawing.Size(224, 22);
+            this.textBoxAnimalDoctorInfo.TabIndex = 24;
             // 
             // textBoxAnimalChipInfo
             // 
@@ -341,15 +353,6 @@
             this.dateTimePickerDate.Size = new System.Drawing.Size(269, 22);
             this.dateTimePickerDate.TabIndex = 16;
             // 
-            // groupBoxTimeChoice
-            // 
-            this.groupBoxTimeChoice.Location = new System.Drawing.Point(426, 176);
-            this.groupBoxTimeChoice.Name = "groupBoxTimeChoice";
-            this.groupBoxTimeChoice.Size = new System.Drawing.Size(269, 141);
-            this.groupBoxTimeChoice.TabIndex = 17;
-            this.groupBoxTimeChoice.TabStop = false;
-            this.groupBoxTimeChoice.Text = "Time";
-            // 
             // checkBoxCage
             // 
             this.checkBoxCage.AutoSize = true;
@@ -359,6 +362,7 @@
             this.checkBoxCage.TabIndex = 18;
             this.checkBoxCage.Text = "Cage";
             this.checkBoxCage.UseVisualStyleBackColor = true;
+            this.checkBoxCage.CheckedChanged += new System.EventHandler(this.checkBoxCage_CheckedChanged);
             // 
             // buttonCreate
             // 
@@ -376,6 +380,7 @@
             this.comboBoxDaysChoice.Name = "comboBoxDaysChoice";
             this.comboBoxDaysChoice.Size = new System.Drawing.Size(46, 24);
             this.comboBoxDaysChoice.TabIndex = 20;
+            this.comboBoxDaysChoice.Visible = false;
             // 
             // labelDays
             // 
@@ -385,26 +390,47 @@
             this.labelDays.Size = new System.Drawing.Size(50, 17);
             this.labelDays.TabIndex = 21;
             this.labelDays.Text = "Day(s)";
+            this.labelDays.Visible = false;
             // 
-            // textBoxAnimalDoctorInfo
+            // comboBox1
             // 
-            this.textBoxAnimalDoctorInfo.BackColor = System.Drawing.SystemColors.Control;
-            this.textBoxAnimalDoctorInfo.Location = new System.Drawing.Point(6, 105);
-            this.textBoxAnimalDoctorInfo.Name = "textBoxAnimalDoctorInfo";
-            this.textBoxAnimalDoctorInfo.ReadOnly = true;
-            this.textBoxAnimalDoctorInfo.Size = new System.Drawing.Size(224, 22);
-            this.textBoxAnimalDoctorInfo.TabIndex = 24;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(426, 176);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(188, 24);
+            this.comboBox1.TabIndex = 22;
+            // 
+            // labelTime
+            // 
+            this.labelTime.AutoSize = true;
+            this.labelTime.Location = new System.Drawing.Point(340, 179);
+            this.labelTime.Name = "labelTime";
+            this.labelTime.Size = new System.Drawing.Size(39, 17);
+            this.labelTime.TabIndex = 23;
+            this.labelTime.Text = "Time";
+            // 
+            // buttonTimeSearch
+            // 
+            this.buttonTimeSearch.Location = new System.Drawing.Point(620, 176);
+            this.buttonTimeSearch.Name = "buttonTimeSearch";
+            this.buttonTimeSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonTimeSearch.TabIndex = 24;
+            this.buttonTimeSearch.Text = "Search";
+            this.buttonTimeSearch.UseVisualStyleBackColor = true;
+            this.buttonTimeSearch.Click += new System.EventHandler(this.buttonTimeSearch_Click);
             // 
             // Form_Booking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 441);
+            this.Controls.Add(this.buttonTimeSearch);
+            this.Controls.Add(this.labelTime);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.labelDays);
             this.Controls.Add(this.comboBoxDaysChoice);
             this.Controls.Add(this.buttonCreate);
             this.Controls.Add(this.checkBoxCage);
-            this.Controls.Add(this.groupBoxTimeChoice);
             this.Controls.Add(this.dateTimePickerDate);
             this.Controls.Add(this.labelDate);
             this.Controls.Add(this.comboBoxDoctorChoice);
@@ -452,7 +478,6 @@
         private System.Windows.Forms.ComboBox comboBoxDoctorChoice;
         private System.Windows.Forms.Label labelDate;
         private System.Windows.Forms.DateTimePicker dateTimePickerDate;
-        private System.Windows.Forms.GroupBox groupBoxTimeChoice;
         private System.Windows.Forms.CheckBox checkBoxCage;
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.ComboBox comboBoxDaysChoice;
@@ -470,5 +495,8 @@
         private System.Windows.Forms.TextBox textBoxAnimalGenderInfo;
         private System.Windows.Forms.TextBox textBoxAnimalNameInfo;
         private System.Windows.Forms.TextBox textBoxAnimalDoctorInfo;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label labelTime;
+        private System.Windows.Forms.Button buttonTimeSearch;
     }
 }

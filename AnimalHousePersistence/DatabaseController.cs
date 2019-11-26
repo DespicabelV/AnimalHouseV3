@@ -111,6 +111,50 @@ namespace AnimalHousePersistence
             return DBCListSelect;
         }
 
+        public List<string> DBCSelectSpecificFromWhere(string DBCSelect ,string DBCFrom, string DBCWhere, string DBCParam)
+        {
+            DBCOpenDB();
+            List<string> DBCListSelectSp = new List<string>();
+
+            SqlCommand SelectFrom = new SqlCommand();
+            SelectFrom.CommandText = $"SELECT {DBCSelect} FROM {DBCFrom} WHERE {DBCWhere} = {DBCParam}";
+            SelectFrom.Connection = db;
+            reader = SelectFrom.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    DBCListSelectSp.Add(Convert.ToString(reader.GetValue(i)));
+                }
+            }
+
+            DBCCloseDB();
+            return DBCListSelectSp;
+        }
+
+        public List<string> DBCSelectAnimal(string DBCName, string DBCDate, string DBCRace, string DBCGender)
+        {
+            DBCOpenDB();
+            List<string> DBCSelectAnimal = new List<string>();
+
+            SqlCommand SelectFrom = new SqlCommand();
+            SelectFrom.CommandText = $"select * from Dyr where navn = '{DBCName}' and Fodselsdag= '{DBCDate}' and Race ='{DBCRace}' and Kon ='{DBCGender}'";
+            SelectFrom.Connection = db;
+            reader = SelectFrom.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    DBCSelectAnimal.Add(Convert.ToString(reader.GetValue(i)));
+                }
+            }
+
+            DBCCloseDB();
+            return DBCSelectAnimal;
+        }
+
         public List<string> DBCSelectFrom(string DBCFrom)
         {
             DBCOpenDB();

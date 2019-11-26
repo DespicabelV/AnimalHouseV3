@@ -7,7 +7,11 @@ namespace AnimalHousePersistence
     {
         List<string> DBCSelectFrom(string DBCFrom);
 
+        List<string> DBCSelectSpecificFromWhere(string DBCSelect, string DBCFrom, string DBCWhere, string DBCParam);
+
         bool CheckIfExist(string DBCFrom, string DBCWhere, string DBCParam);
+
+        List<string> DBCSelectAnimal(string DBCName, string DBCDate, string DBCRace, string DBCGender);
 
         void DBCBeginTrans();
 

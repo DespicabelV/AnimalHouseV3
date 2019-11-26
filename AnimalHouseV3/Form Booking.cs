@@ -66,6 +66,7 @@ namespace AnimalHouseV3
             List<string> TempOwnerList = new List<string>();
             List<string> TempRelationList = new List<string>();
             List<string> TempAnimalList = new List<string>();
+            comboBoxAnimalChoice.Items.Clear();
 
             if (textBoxOwnerInput.TextLength == 0)
             {
@@ -90,31 +91,54 @@ namespace AnimalHouseV3
             AnimalArray = new string[TempRelationList.Count / 2 , 7];
 
 
-            for (int i = 0; i < TempRelationList.Count; i = i++)
+            for (int i = 0; i < TempRelationList.Count/2; i++)
             {
-                TempAnimalList = Controller.ControllerGetAnimal(TempRelationList[i+1]);
+                TempAnimalList = Controller.ControllerGetAnimal(TempRelationList[(i*2)+1]);
                 for (int j = 0; j < 7; j++)
                 {
                     AnimalArray[i, j] = TempAnimalList[j];
                 }
                 comboBoxAnimalChoice.Items.Add(AnimalArray[i,1]);
             }
-
         }
 
         private void comboBoxAnimalChoice_SelectedIndexChanged(object sender, EventArgs e)
         {
             List<string> TempAnimalList = new List<string>();
-
-            TempAnimalList = Controller.ControllerGetAnimal(comboBoxAnimalChoice.Text);
+            TempAnimalList = Controller.ControllerGetAnimal(AnimalArray[comboBoxAnimalChoice.SelectedIndex, 0]);
 
             textBoxAnimalIDInfo.Text     = TempAnimalList[0];
             textBoxAnimalNameInfo.Text   = TempAnimalList[1];
             textBoxAnimalGenderInfo.Text = TempAnimalList[2];
             textBoxAnimalBDayInfo.Text   = TempAnimalList[3];
             textBoxAnimalRaceInfo.Text   = TempAnimalList[4];
-            textBoxAnimalDoctorInfo.Text = DoctorArray[1,Convert.ToInt32(TempAnimalList[5])-1];
+            textBoxAnimalDoctorInfo.Text = DoctorArray[Convert.ToInt32(TempAnimalList[5])-1,1];
             textBoxAnimalChipInfo.Text   = TempAnimalList[6];
+        }
+
+        private void checkBoxCage_CheckedChanged(object sender, EventArgs e)
+        {
+            if (labelDays.Visible == true && comboBoxDaysChoice.Visible == true)
+            {
+                labelDays.Visible = false;
+                comboBoxDaysChoice.Visible = false;
+            }
+            else
+            {
+                labelDays.Visible = true;
+                comboBoxDaysChoice.Visible = true;
+            }
+        }
+
+        private void buttonDelete_Click(object sender, EventArgs e)
+        {
+            Form_Booking_Delete Delete = new Form_Booking_Delete();
+            Delete.ShowDialog();
+        }
+
+        private void buttonTimeSearch_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
