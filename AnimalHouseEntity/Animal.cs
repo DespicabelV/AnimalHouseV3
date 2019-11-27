@@ -40,9 +40,35 @@ namespace AnimalHouseEntity
         }
 
         IPersistenceController DBController;
+
+        static List<string> AnimalFetch(string AFParam)
+        {
+            IPersistenceController Daba = new DatabaseController();
+            List<string> ListAnimal;
+
+            ListAnimal = Daba.DBCSelectFromWhere("Dyr", "ID", AFParam);
+
+            return ListAnimal;
+        }
+
         public void Add(Animal Animal)
         {
+            DBController = new DatabaseController();
             DBController.DBCInsertAnimal(Animal.Name, Animal.Gender, Animal.Birthdate, Animal.Race, Animal.Doctor, Animal.Chip);
         }
+        
+        public bool CheckOwner(string Ejer, string EjerTelenummer, string Parameter)
+        {
+            DBController = new DatabaseController();
+            return DBController.CheckIfExist(Ejer, EjerTelenummer, Parameter);
+        }
+        
+        public void InsertRelation(int EjerTeleNummer, int DyrID)
+        {
+            DBController = new DatabaseController();
+            DBController.DBCInsertRelation(EjerTeleNummer, DyrID);
+        }
+
+
     }
 }

@@ -18,6 +18,7 @@ namespace AnimalHouseV3
         {
             InitializeComponent();
         }
+        //Husk at ændre nedenunder
         AnimalHouseTemp.Controller Contemp = new Controller();
 
 
@@ -40,15 +41,15 @@ namespace AnimalHouseV3
             }
 
 
-            if (TxtAnimalName.Text == "" || TxtAnimalRace.Text == "" || TxtBoxAnimalDoctorNr.Text == "" || TxtBoxAnimalChip.Text == "")
+            if (TxtAnimalName.Text == "" || TxtAnimal.Text == "" || TxtBoxAnimalDoctorNr.Text == "" || TxtBoxAnimalChip.Text == "" || TxtOwnerPhone.Text == "")
             {
                 MessageBox.Show("Fill out the blanks");
             }
             else
             {
-                string hej  = AnimalBirthCalender.ToString();
-                Contemp.NewAnimal(TxtAnimalName.Text, Gender, Convert.ToDateTime(AnimalBirthCalender.Value).ToString("yyyy-MM-dd"), TxtAnimalRace.Text, Convert.ToInt32(TxtBoxAnimalDoctorNr.Text), Convert.ToInt32(TxtBoxAnimalChip.Text));
-                MessageBox.Show("fandme ikk passe");
+                Contemp.NewAnimal(TxtAnimalName.Text, Gender, Convert.ToDateTime(AnimalBirthCalender.Value).ToString("yyyy-MM-dd"), TxtAnimal.Text, Convert.ToInt32(TxtBoxAnimalDoctorNr.Text), Convert.ToInt32(TxtBoxAnimalChip.Text));
+                TxtBoxAnimalNr.Text = TxtBoxAnimalNr.Text + Contemp.FindDyrID(TxtAnimalName.Text, Convert.ToDateTime(AnimalBirthCalender.Value).ToString("yyyy-MM-dd"), TxtAnimal.Text, Gender)[0];
+                Contemp.AddRelation(Convert.ToInt32(TxtOwnerPhone.Text), Convert.ToInt32(TxtBoxAnimalNr.Text));
             }
         }
 
@@ -69,5 +70,50 @@ namespace AnimalHouseV3
             }
             else CheckBoxFemale.Enabled = true;
         }
-    }
+
+        private void btnCheckOwner_Click(object sender, EventArgs e)
+        {
+            if (Contemp.CheckAnimalOwner("Ejer", "TelefonNr", TxtOwnerPhone.Text) == true)
+            {
+                CheckOwnerRight.Checked = true;
+                CheckOwnerWrong.Checked = false; 
+            }
+            else
+            {
+                CheckOwnerWrong.Checked = true;
+                CheckOwnerRight.Checked = false;
+            }
+            
+        }
+       
+        private void btnSearch_Click(object sender, EventArgs e)
+        {
+            if (Contemp.CheckIfAnimalExist("Dyr", "ID", TxtBoxAnimalNr.Text) == false)
+            {
+                MessageBox.Show("Animal doesn't exist");
+            }
+            else
+            {
+                TxtAnimalName.Text = Contemp.SearchAnimal(TxtBoxAnimalNr.Text)[1];
+                if (Contemp.SearchAnimal(TxtBoxAnimalNr.Text)[2] == "F")
+                {
+                    CheckBoxMale.Checked = false;
+                    CheckBoxFemale.Checked = true;
+                    CheckBoxMale.Enabled = false;
+                }
+                else
+                {
+                    CheckBoxFemale.Checked = false;
+                    CheckBoxMale.Checked = true;
+                    CheckBoxFemale.Enabled = false;
+                }
+                AnimalBirthCalender.Value = Convert.ToDateTime(Contemp.SearchAnimal(TxtBoxAnimalNr.Text)[3]);
+                TxtAnimal.Text = Contemp.SearchAnimal(TxtBoxAnimalNr.Text)[4];
+                TxtBoxAnimalDoctorNr.Text = Contemp.SearchAnimal(TxtBoxAnimalNr.Text)[5];
+                TxtBoxAnimalChip.Text = Contemp.SearchAnimal(TxtBoxAnimalNr.Text)[6];
+            }
+
+
+        }
+    }   
 }
