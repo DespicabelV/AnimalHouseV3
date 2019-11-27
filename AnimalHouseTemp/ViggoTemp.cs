@@ -75,11 +75,20 @@ namespace AnimalHouseTemp
             return ControllerGetAllTreatment;
         }
 
-        public List<string> ControllerGetTime(string Date, string Doctor)
+        public List<string> ControllerGetBookedTime(string Date, string Doctor)
+        {
+            List<string> ControllerGetBookedTime;
+
+            ControllerGetBookedTime = TimeBookedTimeFetch(Date, Doctor);
+
+            return ControllerGetBookedTime;
+        }
+
+        public List<string> ControllerGetTime()
         {
             List<string> ControllerGetTime;
 
-            ControllerGetTime = TimeTimeFetch(Date, Doctor);
+            ControllerGetTime = TimeTimeFetch();
 
             return ControllerGetTime;
         }
@@ -142,12 +151,22 @@ namespace AnimalHouseTemp
             return ListTreatment;
         }
 
-        static List<string> TimeTimeFetch(string TTParamDate, string TTPramDoctor)
+        static List<string> TimeBookedTimeFetch(string TTParamDate, string TTPramDoctor)
         {
             IPersistenceController Daba = new DatabaseController();
             List<string> ListTime;
 
-            ListTime = Daba.DBCTider(TTParamDate, TTPramDoctor);
+            ListTime = Daba.DBCBookedTimes(TTParamDate, TTPramDoctor);
+
+            return ListTime;
+        }
+
+        static List<string> TimeTimeFetch()
+        {
+            IPersistenceController Daba = new DatabaseController();
+            List<string> ListTime;
+
+            ListTime = Daba.DBCTimes();
 
             return ListTime;
         }

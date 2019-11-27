@@ -131,6 +131,28 @@ namespace AnimalHousePersistence
             return DBCListSelectSp;
         }
 
+        public List<string> DBCSelectSpecific(string DBCSelect, string DBCFrom)
+        {
+            DBCOpenDB();
+            List<string> DBCListSelectSp = new List<string>();
+
+            SqlCommand SelectFrom = new SqlCommand();
+            SelectFrom.CommandText = $"SELECT {DBCSelect} FROM {DBCFrom}";
+            SelectFrom.Connection = db;
+            reader = SelectFrom.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    DBCListSelectSp.Add(Convert.ToString(reader.GetValue(i)));
+                }
+            }
+
+            DBCCloseDB();
+            return DBCListSelectSp;
+        }
+
         public List<string> DBCSelectAnimal(string DBCName, string DBCDate, string DBCRace, char DBCGender)
         {
             DBCOpenDB();
@@ -175,13 +197,13 @@ namespace AnimalHousePersistence
             return DBCListSelect;
         }
 
-        public List<string> DBCTider(string DBCDate, string DBCDoctor)
+        public List<string> DBCBookedTimes(string DBCDate, string DBCDoctor)
         {
             DBCOpenDB();
-            List<string> DBCTider = new List<string>();
+            List<string> DBCBookedTimes = new List<string>();
 
             SqlCommand DBCTiderCom = new SqlCommand();
-            DBCTiderCom.CommandText = $"select Tider.FraTil, Tider.ID from Tider" +
+            DBCTiderCom.CommandText = $"select Tider.FraTil, Tider.ID from Tider " +
                 $"left outer Join Bookning On Bookning.Tid = Tider.ID where Bookning.Dato = '{DBCDate}' and Bookning.Laege = {DBCDoctor}";
             DBCTiderCom.Connection = db;
             reader = DBCTiderCom.ExecuteReader();
@@ -190,12 +212,34 @@ namespace AnimalHousePersistence
             {
                 for (int i = 0; i < reader.FieldCount; i++)
                 {
-                    DBCTider.Add(Convert.ToString(reader.GetValue(i)));
+                    DBCBookedTimes.Add(Convert.ToString(reader.GetValue(i)));
                 }
             }
 
             DBCCloseDB();
-            return DBCTider;
+            return DBCBookedTimes;
+        }
+
+        public List<string> DBCTimes()
+        {
+            DBCOpenDB();
+            List<string> DBCTimes = new List<string>();
+
+            SqlCommand DBCTimeCom = new SqlCommand();
+            DBCTimeCom.CommandText = $"select * from Tider";
+            DBCTimeCom.Connection = db;
+            reader = DBCTimeCom.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    DBCTimes.Add(Convert.ToString(reader.GetValue(i)));
+                }
+            }
+
+            DBCCloseDB();
+            return DBCTimes;
         }
 
 

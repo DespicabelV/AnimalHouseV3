@@ -143,7 +143,9 @@ namespace AnimalHouseV3
 
         private void buttonTimeSearch_Click(object sender, EventArgs e)
         {
-            Controller.ControllerGetTime(dateTimePickerDate.Value.ToString,"Hans");
+            List<string> TempBookedTimeList, TempTimeList;
+            TempBookedTimeList = Controller.ControllerGetBookedTime(Convert.ToDateTime(dateTimePickerDate.Value).ToString("yyyy-MM-dd"),"1");
+            TempTimeList = Controller.ControllerGetTime();
         }
 
         private void comboBoxTreatmentsChoice_SelectedIndexChanged(object sender, EventArgs e)
