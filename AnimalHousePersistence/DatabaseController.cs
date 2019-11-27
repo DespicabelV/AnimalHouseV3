@@ -96,21 +96,92 @@ namespace AnimalHousePersistence
             SelectFrom.CommandText = $"SELECT * FROM {DBCFrom} WHERE {DBCWhere} = {DBCParam}";
             SelectFrom.Connection = db;
             reader = SelectFrom.ExecuteReader();
-            reader.Read();
 
             DBCSelectCount = reader.FieldCount;
-            for (int i = 0; i < DBCSelectCount; i++)
+            while (reader.Read())
             {
-                DBCListSelect.Add(Convert.ToString(reader.GetValue(i)));
+                for (int i = 0; i < DBCSelectCount; i++)
+                {
+                    DBCListSelect.Add(Convert.ToString(reader.GetValue(i)));
+                }
             }
-            
+
+
+            DBCCloseDB();
+            return DBCListSelect;
+        }
+
+        public List<string> DBCSelectSpecificFromWhere(string DBCSelect ,string DBCFrom, string DBCWhere, string DBCParam)
+        {
+            DBCOpenDB();
+            List<string> DBCListSelectSp = new List<string>();
+
+            SqlCommand SelectFrom = new SqlCommand();
+            SelectFrom.CommandText = $"SELECT {DBCSelect} FROM {DBCFrom} WHERE {DBCWhere} = {DBCParam}";
+            SelectFrom.Connection = db;
+            reader = SelectFrom.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    DBCListSelectSp.Add(Convert.ToString(reader.GetValue(i)));
+                }
+            }
+
+            DBCCloseDB();
+            return DBCListSelectSp;
+        }
+
+        public List<string> DBCSelectAnimal(string DBCName, string DBCDate, string DBCRace, char DBCGender)
+        {
+            DBCOpenDB();
+            List<string> DBCSelectAnimal = new List<string>();
+
+            SqlCommand SelectFrom = new SqlCommand();
+            SelectFrom.CommandText = $"select * from Dyr where navn = '{DBCName}' and Fodselsdag= '{DBCDate}' and Race ='{DBCRace}' and Kon ='{DBCGender}'";
+            SelectFrom.Connection = db;
+            reader = SelectFrom.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    DBCSelectAnimal.Add(Convert.ToString(reader.GetValue(i)));
+                }
+            }
+
+            DBCCloseDB();
+            return DBCSelectAnimal;
+        }
+
+        public List<string> DBCSelectFrom(string DBCFrom)
+        {
+            DBCOpenDB();
+            int DBCSelectCount;
+            List<string> DBCListSelect = new List<string>();
+
+            SqlCommand SelectFrom = new SqlCommand();
+            SelectFrom.CommandText = $"SELECT * FROM {DBCFrom}";
+            SelectFrom.Connection = db;
+            reader = SelectFrom.ExecuteReader();
+
+            DBCSelectCount = reader.FieldCount;
+            while (reader.Read())
+            {
+                for (int i = 0; i < DBCSelectCount; i++)
+                {
+                    DBCListSelect.Add(Convert.ToString(reader.GetValue(i)));
+                }
+            }
+
             DBCCloseDB();
             return DBCListSelect;
         }
 
 
         //Inserts
-        public void DBCInsertAnimal(string Navn, char Kon, DateTime Fodselsdag, string Race, int Laege, int Chip)
+        public void DBCInsertAnimal(string Navn, char Kon, string Fodselsdag, string Race, int Laege, int Chip)
         {
             DBCOpenDB();
             SqlCommand DBCInsertAnimal = new SqlCommand();
@@ -121,7 +192,18 @@ namespace AnimalHousePersistence
             DBCCloseDB();
         }
 
-        public void DBCInsertBooking(int Behandling, int Laege, int Dyr, int Bur, int Burdage, DateTime Dato, int Tid)
+        public void DBCInsertRelation(int Ejer, int Dyr)
+        {
+            DBCOpenDB();
+            SqlCommand DBCInsertRelation = new SqlCommand();
+            DBCInsertRelation.CommandText = $"INSERT INTO Relation (Ejer, Dyr) " +
+                $"VALUES({Ejer}, {Dyr})";
+            DBCInsertRelation.Connection = db;
+            DBCInsertRelation.ExecuteNonQuery();
+            DBCCloseDB();
+        }
+        
+        public void DBCInsertBooking(int Behandling, int Laege, int Dyr, int Bur, int Burdage, string Dato, int Tid)
         {
             DBCOpenDB();
             SqlCommand DBCInsertAnimal = new SqlCommand();
@@ -223,12 +305,12 @@ namespace AnimalHousePersistence
             DBCCloseDB();
         }
 
-        public void DBCUpdateAnimal(int ID, string Navn, char Kon, DateTime Date, string Race, int Laege, int Chip)
+        public void DBCUpdateAnimal(int ID, string Navn, char Kon, string Date, string Race, int Laege, int Chip)
         {
             DBCOpenDB();
             SqlCommand DBCInsertAnimal = new SqlCommand();
             DBCInsertAnimal.CommandText = $"UPDATE Dyr " +
-                $"SET Navn = '{Navn}', Kon = '{Kon}', Fodselsdag = '{Date.ToString("yyyy-MM-dd")}', Race = '{Race}', Laege = {Laege}, Chip = {Chip}" +
+                $"SET Navn = '{Navn}', Kon = '{Kon}', Fodselsdag = '{Date}', Race = '{Race}', Laege = {Laege}, Chip = {Chip}" +
                 $"WHERE ID = {ID}";
             DBCInsertAnimal.Connection = db;
             DBCInsertAnimal.ExecuteNonQuery();
@@ -257,13 +339,6 @@ namespace AnimalHousePersistence
             DBCInsertAnimal.Connection = db;
             DBCInsertAnimal.ExecuteNonQuery();
             DBCCloseDB();
-        }
-
-
-        //Select From All
-        public void DBCSelectFrom()
-        {
-
         }
     }
 }

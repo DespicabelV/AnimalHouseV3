@@ -10,19 +10,18 @@ using AnimalHousePersistence;
 
 namespace AnimalHouseTemp
 {
-    class AllanTemp
+    public class AllanTemp
     {
                
                 
     }
-    class Controller //Controller
+    public class Controller //Controller
     {
 
-        void NewAnimal(string Name, char Gender,DateTime Birthdate, string Race, int Doctor, int Chip)
+        public void NewAnimal(string Name, char Gender,string Birthdate, string Race, int Doctor, int Chip)
         {
             Dyr animal = new Dyr(Name, Gender, Birthdate, Race, Doctor, Chip);
-            animal.Add(animal);
-            
+            animal.Add();            
         }        
     }
 
@@ -31,26 +30,13 @@ namespace AnimalHouseTemp
         private int ID;
         private string Name;
         private char Gender;
-        private DateTime Birthdate;
+        private string Birthdate;
         private string Race;
         private int Doctor;
         private int Chip;
-        private string Journal;
+        private string Journal;      
 
-
-        public Dyr(int ID, string Name, char Gender, DateTime Birthdate, string Race, int Doctor, int Chip, string Journal)
-        {
-            this.ID = ID;
-            this.Name = Name;
-            this.Gender = Gender;
-            this.Birthdate = Birthdate;
-            this.Race = Race;
-            this.Doctor = Doctor;
-            this.Chip = Chip;
-            this.Journal = Journal;
-        }
-
-        public Dyr(string Name, char Gender, DateTime Birthdate, string Race, int Doctor, int Chip)
+        public Dyr(string Name, char Gender, string Birthdate, string Race, int Doctor, int Chip)
         {
             this.Name = Name;
             this.Gender = Gender;
@@ -61,9 +47,10 @@ namespace AnimalHouseTemp
         }
 
         IPersistenceController DBController;
-        public void Add(Dyr Animal)
+        public void Add()
         {
-            DBController.DBCInsertAnimal(Animal.Name, Animal.Gender, Animal.Birthdate, Animal.Race, Animal.Doctor, Animal.Chip);
+            DBController = new DatabaseController();
+            DBController.DBCInsertAnimal(Name, Gender, Birthdate, Race, Doctor, Chip);
         }
    }
 }

@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AnimalHouseController;
+using AnimalHouseTemp;
 
 namespace AnimalHouseV3
 {
@@ -17,37 +18,37 @@ namespace AnimalHouseV3
         {
             InitializeComponent();
         }
-        AnimalHouseController.Contoller controller;
+        AnimalHouseTemp.Controller Contemp = new Controller();
+
+
         private void btnAnimalCreate_Click(object sender, EventArgs e)
         {
             char Gender = 'T';
-            char CheckGender()
+            if (CheckBoxFemale.Checked == false && CheckBoxMale.Checked == false)
             {
-                
-                if (CheckBoxFemale.Checked == false || CheckBoxMale.Checked == false)
-                {
-                    MessageBox.Show("Choose gender");
-                }
-                else if (CheckBoxFemale.Checked == true)
-                {
-                    return Gender = 'F';
-                }
-                else if (CheckBoxMale.Checked == true)
-                {
-                    return Gender = 'M';
-                }
-                return Gender;
-            }            
-
-            if (TxtAnimalName.Text=="" || TxtAnimalRace.Text == "" || TxtBoxAnimalDoctorNr.Text=="" || TxtBoxAnimalChip.Text=="")
+                MessageBox.Show("Choose gender");
+                return;
+            }
+            
+            if (CheckBoxFemale.Checked == true)
             {
-                MessageBox.Show("Fill out the blanks");
-            }            
+                Gender = 'F';
+            }
             else
             {
-                MessageBox.Show(AnimalBirthCalender.Value.ToShortDateString().ToString());               
-                
-                //controller.NewAnimal(TxtAnimalName.Text, Gender, AnimalBirthCalender.Value, TxtAnimalRace.Text, Convert.ToInt32(TxtBoxAnimalDoctorNr.Text), Convert.ToInt32(TxtBoxAnimalChip.Text));
+                Gender = 'M';
+            }
+
+
+            if (TxtAnimalName.Text == "" || TxtAnimalRace.Text == "" || TxtBoxAnimalDoctorNr.Text == "" || TxtBoxAnimalChip.Text == "")
+            {
+                MessageBox.Show("Fill out the blanks");
+            }
+            else
+            {
+                string hej  = AnimalBirthCalender.ToString();
+                Contemp.NewAnimal(TxtAnimalName.Text, Gender, Convert.ToDateTime(AnimalBirthCalender.Value).ToString("yyyy-MM-dd"), TxtAnimalRace.Text, Convert.ToInt32(TxtBoxAnimalDoctorNr.Text), Convert.ToInt32(TxtBoxAnimalChip.Text));
+                MessageBox.Show("fandme ikk passe");
             }
         }
 
