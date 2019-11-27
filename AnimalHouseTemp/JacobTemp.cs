@@ -45,6 +45,19 @@ namespace AnimalHouseTemp
             List<string> Ownerlist=owner.SearchForOwner(TelephoneNr);
             return Ownerlist;
         }
+        public List<string> SearchForPrivate(string TelePhoneNr)
+        {
+            JacobTempAHC entity = new JacobTempAHC();
+            List<string> PrivateList = entity.SearchForPrivate(TelePhoneNr);
+            return PrivateList;
+        }
+        public List<string> SearchForBusiness(string TelePhoneNr)
+        {
+            JacobTempEntity entity = new JacobTempEntity();
+            List<string> BusinessList = entity.SearchForBusiness(TelePhoneNr);
+            return BusinessList;
+        }
+
 
 
     }
@@ -77,13 +90,20 @@ namespace AnimalHouseTemp
            List<string> ownerlist= OwnerController.DBCSelectFromWhere("ejer", "TelefonNr", TelePhoneNr);
             return ownerlist;
         }
+       
         public List<string> SearchForPrivate(string TelePhoneNr)
         {
-            List<string> PrivateList = OwnerController.DBCSelectFromWhere("Private", "TelefonNr", TelePhoneNr);
+            List<string> PrivateList = OwnerController.DBCSelectFromWhere("Private_", "TelefonNr", TelePhoneNr);
             return PrivateList;
+        }
+        public List<string> SearchForBusiness(string TelePhoneNr)
+        {
+            List<string> BusinessList = OwnerController.DBCSelectFromWhere("Erhverv", "TelefonNr", TelePhoneNr);
+            return BusinessList;
         }
 
 
 
     }
+    
 }

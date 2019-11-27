@@ -73,7 +73,8 @@ namespace AnimalHouseV3
         {
             if (BusinessCheck.Checked)
             {
-             //  List<string>
+                //  List<string>
+                List<string> BusinessList = Controller.SearchForBusiness(TextBoxTelephoneNR.Text);
                List<string> OwnerList= Controller.SearchForOwner(TextBoxTelephoneNR.Text);
                 TextBoxTelephoneNR.Text = OwnerList[0];
                 TextBoxFirstName.Text = OwnerList[1];
@@ -82,12 +83,15 @@ namespace AnimalHouseV3
                 TextBoxEmail.Text = OwnerList[4];
                 TextBoxCity.Text = OwnerList[5];
                 TextBoxZipCode.Text = OwnerList[6];
+                TextBoxCompanyName.Text = BusinessList[1];
+                TextBoxCVRNR.Text = BusinessList[2];
                 
                 
                
             }
             else if(PrivateCheck.Checked)
             {
+                List<string> PrivateList = Controller.SearchForPrivate(TextBoxTelephoneNR.Text);
                 List<string> OwnerList = Controller.SearchForOwner(TextBoxTelephoneNR.Text);
                 TextBoxTelephoneNR.Text = OwnerList[0];
                 TextBoxFirstName.Text = OwnerList[1];
@@ -96,12 +100,14 @@ namespace AnimalHouseV3
                 TextBoxEmail.Text = OwnerList[4];
                 TextBoxCity.Text = OwnerList[5];
                 TextBoxZipCode.Text = OwnerList[6];
+                //TextboxPrivateIdentify.text = PrivateList[1];
+
             }
         }
 
         private void ButtonUpdateOwner_Click(object sender, EventArgs e)
         {
-         //   Controller.UpdatePrivateOwner()
+          //Controller.UpdatePrivateOwner()
         }
     }
 }
