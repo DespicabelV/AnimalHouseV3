@@ -30,9 +30,9 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.TxtAnimalName = new System.Windows.Forms.TextBox();
-            this.TxtOwnerName = new System.Windows.Forms.TextBox();
+            this.TxtOwnerPhone = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.TxtAnimalRace = new System.Windows.Forms.TextBox();
+            this.TxtAnimal = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -75,12 +75,12 @@
             this.TxtAnimalName.Size = new System.Drawing.Size(400, 38);
             this.TxtAnimalName.TabIndex = 1;
             // 
-            // TxtOwnerName
+            // TxtOwnerPhone
             // 
-            this.TxtOwnerName.Location = new System.Drawing.Point(1190, 81);
-            this.TxtOwnerName.Name = "TxtOwnerName";
-            this.TxtOwnerName.Size = new System.Drawing.Size(400, 38);
-            this.TxtOwnerName.TabIndex = 3;
+            this.TxtOwnerPhone.Location = new System.Drawing.Point(1190, 81);
+            this.TxtOwnerPhone.Name = "TxtOwnerPhone";
+            this.TxtOwnerPhone.Size = new System.Drawing.Size(400, 38);
+            this.TxtOwnerPhone.TabIndex = 3;
             // 
             // label2
             // 
@@ -91,12 +91,12 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Owner:";
             // 
-            // TxtAnimalRace
+            // TxtAnimal
             // 
-            this.TxtAnimalRace.Location = new System.Drawing.Point(200, 147);
-            this.TxtAnimalRace.Name = "TxtAnimalRace";
-            this.TxtAnimalRace.Size = new System.Drawing.Size(400, 38);
-            this.TxtAnimalRace.TabIndex = 5;
+            this.TxtAnimal.Location = new System.Drawing.Point(200, 147);
+            this.TxtAnimal.Name = "TxtAnimal";
+            this.TxtAnimal.Size = new System.Drawing.Size(400, 38);
+            this.TxtAnimal.TabIndex = 5;
             // 
             // label3
             // 
@@ -164,15 +164,17 @@
             this.btnCheckOwner.TabIndex = 13;
             this.btnCheckOwner.Text = "Check";
             this.btnCheckOwner.UseVisualStyleBackColor = true;
+            this.btnCheckOwner.Click += new System.EventHandler(this.btnCheckOwner_Click);
             // 
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(649, 455);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(127, 38);
+            this.btnSearch.Size = new System.Drawing.Size(190, 54);
             this.btnSearch.TabIndex = 14;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
             // 
             // TxtBoxAnimalDoctorNr
             // 
@@ -293,7 +295,7 @@
             // 
             this.AnimalBirthCalender.Location = new System.Drawing.Point(200, 291);
             this.AnimalBirthCalender.Name = "AnimalBirthCalender";
-            this.AnimalBirthCalender.Size = new System.Drawing.Size(291, 38);
+            this.AnimalBirthCalender.Size = new System.Drawing.Size(333, 38);
             this.AnimalBirthCalender.TabIndex = 29;
             this.AnimalBirthCalender.Value = new System.DateTime(2019, 11, 19, 0, 0, 0, 0);
             // 
@@ -309,7 +311,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1790, 1412);
+            this.ClientSize = new System.Drawing.Size(1790, 1088);
             this.Controls.Add(this.AnimalBirthCalender);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.TextBoxJournal);
@@ -332,9 +334,9 @@
             this.Controls.Add(this.CheckBoxMale);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.TxtAnimalRace);
+            this.Controls.Add(this.TxtAnimal);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.TxtOwnerName);
+            this.Controls.Add(this.TxtOwnerPhone);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TxtAnimalName);
             this.Controls.Add(this.label1);
@@ -350,9 +352,9 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TxtAnimalName;
-        private System.Windows.Forms.TextBox TxtOwnerName;
+        private System.Windows.Forms.TextBox TxtOwnerPhone;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TxtAnimalRace;
+        private System.Windows.Forms.TextBox TxtAnimal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;

@@ -22,7 +22,49 @@ namespace AnimalHouseTemp
         {
             Dyr animal = new Dyr(Name, Gender, Birthdate, Race, Doctor, Chip);
             animal.Add();            
-        }        
+        }
+
+        public bool CheckAnimalOwner(string Ejer, string TeleNummer, string Parameter)
+        {
+            Dyr animal = new Dyr();
+            return animal.CheckOwner(Ejer, TeleNummer, Parameter);
+        }
+        //ikke færdig
+        public void AddRelation(int EjerTelenummer, int DyrID)
+        {
+            Dyr animal = new Dyr();
+            animal.InsertRelation(EjerTelenummer, DyrID);
+        }
+
+        public List<string> SearchAnimal(string IDDyr)
+        {
+            Dyr animal = new Dyr();
+            animal.GetAnimal(IDDyr);
+            List<string> DyrList = new List<string>();
+            foreach (string i in animal.GetAnimal(IDDyr))
+            {
+                DyrList.Add(i);
+            }
+            return DyrList;
+        }
+
+        public bool CheckIfAnimalExist(string From, string Where, string Parameter)
+        {
+            Dyr animal = new Dyr();
+            return animal.CheckIfAnimalExist(From, Where, Parameter);
+        }
+
+        public List<string> FindDyrID(string Name, string Date, string Race, char Gender)
+        {
+            Dyr animal = new Dyr();
+            animal.GetDyrID(Name, Date, Race, Gender);
+            List<string> DyrList = new List<string>();
+            foreach (string i in animal.GetDyrID(Name, Date, Race, Gender))
+            {
+                DyrList.Add(i);
+            }
+            return DyrList;
+        }
     }
 
    public class Dyr //entity
@@ -34,7 +76,8 @@ namespace AnimalHouseTemp
         private string Race;
         private int Doctor;
         private int Chip;
-        private string Journal;      
+        private string Journal;
+
 
         public Dyr(string Name, char Gender, string Birthdate, string Race, int Doctor, int Chip)
         {
@@ -46,11 +89,56 @@ namespace AnimalHouseTemp
             this.Chip = Chip;
         }
 
-        IPersistenceController DBController;
+        public Dyr()
+        {
+
+        }
+
+
         public void Add()
         {
-            DBController = new DatabaseController();
+            IPersistenceController DBController = new DatabaseController();
             DBController.DBCInsertAnimal(Name, Gender, Birthdate, Race, Doctor, Chip);
+        }
+
+        public bool CheckOwner(string Ejer, string EjerTelenummer, string Parameter)
+        {
+            IPersistenceController DBController = new DatabaseController();
+            return DBController.CheckIfExist(Ejer, EjerTelenummer, Parameter);
+        }
+
+        //ikke færdig
+        public void InsertRelation(int EjerTelenummer, int DyrID)
+        {
+            IPersistenceController DBController = new DatabaseController();
+            DBController.DBCInsertRelation(EjerTelenummer, DyrID);
+        }
+  
+
+        public List<string> GetAnimal(string AFParam)
+        {
+            IPersistenceController DBController = new DatabaseController();
+            List<string> ListAnimal;
+
+            ListAnimal = DBController.DBCSelectFromWhere("Dyr", "ID", AFParam);
+
+            return ListAnimal;
+        }
+
+        public bool CheckIfAnimalExist(string From, string Where, string Parameter)
+        {
+            IPersistenceController DBController = new DatabaseController();
+            return DBController.CheckIfExist(From, Where, Parameter);
+        }
+
+        public List<string> GetDyrID(string Name, string Date, string Race, char Gender)
+        {
+            IPersistenceController DBController = new DatabaseController();
+            List<string> ListAnimal;
+
+            ListAnimal = DBController.DBCSelectAnimal(Name, Date, Race, Gender);
+
+            return ListAnimal;
         }
    }
 }
