@@ -20,37 +20,37 @@ namespace AnimalHouseV3
         private void BtnBookning_Click(object sender, EventArgs e)
         {
             Form_Booking Bookning = new Form_Booking();
-            Bookning.Show();
+            Bookning.ShowDialog();
         }
 
         private void BtnEjer_Click(object sender, EventArgs e)
         {
             Form_Owner Owner = new Form_Owner();
-            Owner.Show();
+            Owner.ShowDialog();
         }
 
         private void BtnDyr_Click(object sender, EventArgs e)
         {
             Form_Animal Animal = new Form_Animal();
-            Animal.Show();
+            Animal.ShowDialog();
         }
 
         private void BtnSalg_Click(object sender, EventArgs e)
         {
             FormSalePos Sale = new FormSalePos();
-            Sale.Show();
+            Sale.ShowDialog();
         }
 
         private void BtnIndlæsMedicin_Click(object sender, EventArgs e)
         {
             FormImportMedicin importMedicin = new FormImportMedicin();
-            importMedicin.Show();
+            importMedicin.ShowDialog();
         }
 
         private void BtnPrint_Click(object sender, EventArgs e)
         {
             FormPrint Print = new FormPrint();
-            Print.Show();
+            Print.ShowDialog();
         }
     }
 }
