@@ -10,7 +10,7 @@ using System.Data;
 
 namespace AnimalHouseTemp
 {
-    class NichlasTemp
+    public class NichlasTemp
     {
         public IPersistenceController Daba;
         public NichlasTemp()
@@ -19,11 +19,10 @@ namespace AnimalHouseTemp
         }
 
         SqlConnection db;
-        SqlDataReader reader;
 
         private SqlConnection DBCOpenDB()
         {
-            db = new SqlConnection("Data source = den1.mssql8.gear.host; Initial Catalog = semester2; User Id = semester2; Password = Tz94m3Vv!!2Y");
+            db = new SqlConnection("Data source = den1.mssql7.gear.host; Initial Catalog = animalhousev3;User Id= animalhousev3 ;Password= Ts3N59?EL_mw");
             db.Open();
             return db;
         }
@@ -33,11 +32,12 @@ namespace AnimalHouseTemp
             db.Close();
         }
 
-        public object SelectFromXToGridView(string from)
+        //Vælger bare en bestemt table og retunerne det som en datatable
+        public object SelectFromXToGridView(string Table)
         {
-            string qry = $"select * from {from}";
+            string Qry = $"select Ressource.VareKatagoriID, {Table}.*, Ressource.Pris from {Table},Ressource where {Table}.ID = Ressource.ID";
             DBCOpenDB();
-            SqlCommand SqlCMD = new SqlCommand(qry, DBCOpenDB());
+            SqlCommand SqlCMD = new SqlCommand(Qry, DBCOpenDB());
             SqlDataAdapter Sdr = new SqlDataAdapter(SqlCMD);
             DataTable dt = new DataTable();
             Sdr.Fill(dt);
@@ -45,10 +45,64 @@ namespace AnimalHouseTemp
             return dt;
         }
 
-        //Anden Constructor til Owner, som kun anvender de parameter jeg skal skal bruge
-        public void SelectOwner()
+        //Selecter fra bestemt table og hvad det skal være  og retunerne det som en datatable
+        public object SelectFromXToGridViewWhereX(string Table, string Where)
         {
-            //Daba.DBCSelectFromWhere();
+            string Qry = $"select  Ressource.VareKatagoriID, {Table}.*, Ressource.Pris from {Table},Ressource where {Table}.ID = Ressource.ID and Navn Like '%{Where}%'";
+            DBCOpenDB();
+            SqlCommand SqlCMD = new SqlCommand(Qry, DBCOpenDB());
+            SqlDataAdapter Adapter = new SqlDataAdapter(SqlCMD);
+            DataTable dt = new DataTable();
+            Adapter.Fill(dt);
+            DBCCloseDB();
+            return dt;
         }
+
+        public object SelectFromOrdreLine(int Where)
+        {
+            string Qry = $"select * from OrdreLinje where Id = {Where} ";
+            DBCOpenDB();
+            SqlCommand SqlCMD = new SqlCommand(Qry, DBCOpenDB());
+            SqlDataAdapter Adapter = new SqlDataAdapter(SqlCMD);
+            DataTable dt = new DataTable();
+            Adapter.Fill(dt);
+            DBCCloseDB();
+            return dt;
+        }
+
+        public void InsertIntoOrdreLineWhereX(int Faktura, int RessourceKatagori, int Ressource, double Pris, int Antal, bool Where)
+        {
+            DBCOpenDB();
+            SqlCommand DBCInsertAnimal = new SqlCommand();
+            DBCInsertAnimal.CommandText = $"INSERT INTO OrdreLinje (Faktura, RessourceKatagori, Ressource, Pris, Antal) " +
+                $"VALUES({Faktura}, {RessourceKatagori}, {Ressource}, {Pris}, {Antal}) where ID = {Where}";
+            DBCInsertAnimal.Connection = db;
+            DBCInsertAnimal.ExecuteNonQuery();
+            DBCCloseDB();
+        }
+
+        public void UpdateAmountInStockForUniqueItem(string Category,int Amount, int Where)
+        {
+            DBCOpenDB();
+            SqlCommand UpdateAmountInStockForUniqueItem = new SqlCommand();
+            UpdateAmountInStockForUniqueItem.CommandText = $"UPDATE {Category} " +
+                $"SET Antal = '{Amount}'" +
+                $"WHERE ID = {Where}";
+            UpdateAmountInStockForUniqueItem.Connection = db;
+            UpdateAmountInStockForUniqueItem.ExecuteNonQuery();
+            DBCCloseDB();
+        }
+
+        public void DBCInsertOrderLine(int Faktura, int RessourceKatagori, int Ressource, double Pris, int Antal)
+        {
+            DBCOpenDB();
+            SqlCommand DBCInsertOrderLine = new SqlCommand();
+            DBCInsertOrderLine.CommandText = $"INSERT INTO OrdreLinje (Faktura, RessourceKatagori, Ressource, Pris, Antal) " +
+                $"VALUES({Faktura}, {RessourceKatagori}, {Ressource}, {Pris}, {Antal})";
+            DBCInsertOrderLine.Connection = db;
+            DBCInsertOrderLine.ExecuteNonQuery();
+            DBCCloseDB();
+        }
+
     }
 }
