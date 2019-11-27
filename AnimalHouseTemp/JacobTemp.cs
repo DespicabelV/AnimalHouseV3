@@ -8,48 +8,56 @@ using AnimalHouseEntity;
 
 namespace AnimalHouseTemp
 {
+    // the data will go through 4 steps. 
+    // 1. Getting read from the ui and converted to proper variable. 
+    // 2. Controller making new object with these variable, maybe added to list?
+    // 3. An AddOwner method in the owner class will transfer the object from the controller to the DatabaseController through an interface
+    // 4. The DatabaseController then inserts the Owner into the database with an InsertOwner method, wich includes SQL command strings. 
+
     class JacobTempAui
     {
-       // this piece of code can't be made in here, but instead it will be made in UI.
+        // this piece of code can't be made in here, but instead it will be made in UI.
         JacobTempAHC Controller = new JacobTempAHC();
 
 
-        
+
     }
-    public class JacobTempAHC 
+    public class JacobTempAHC
     {
-        // the data will go through 4 steps. 
-        // 1. Getting read from the ui and converted to proper variable. 
-        // 2. Controller making new object with these variable, maybe added to list?
-        // 3. An AddOwner method in the owner class will transfer the object from the controller to the DatabaseController through an interface
-        // 4. The DatabaseController then inserts the Owner into the database with an InsertOwner method, wich includes SQL command strings. 
-        
-        
-      
-        
+        // code for controller layer  
+
         public void CreatePrivateOwner(int telefonnr, string firstname, string lastname, string adress, string email, string city, int zipcode)
         {
             JacobTempEntity PrivateOwner = new JacobTempEntity();
             PrivateOwner.AddOwnerToDatabase(telefonnr, firstname, lastname, adress, email, city, zipcode);
             PrivateOwner.AddPrivateToDatabase(telefonnr);
-                
+
         }
-        public void CreateBusinessOwner(int telefonnr, string firstname, string lastname, string adress, string email, string city, int zipcode,string companyname,int CVRNR)
+        public void CreateBusinessOwner(int telefonnr, string firstname, string lastname, string adress, string email, string city, int zipcode, string companyname, int CVRNR)
         {
             JacobTempEntity BusinessOwner = new JacobTempEntity();
             BusinessOwner.AddOwnerToDatabase(telefonnr, firstname, lastname, adress, email, city, zipcode);
             BusinessOwner.AddBusinessToDatabase(telefonnr, companyname, CVRNR);
         }
-        
-        
+        public List<string> SearchForOwner(string TelephoneNr)
+        {
+            JacobTempEntity owner = new JacobTempEntity();
+            List<string> Ownerlist=owner.SearchForOwner(TelephoneNr);
+            return Ownerlist;
+        }
+
+
     }
     class JacobTempEntity
     {
+        //code for entity layer
+
         public IPersistenceController OwnerController;
         public JacobTempEntity()
         {
             OwnerController = new DatabaseController();
         }
+
 
         public void AddBusinessToDatabase(int telefonnr, string companyname, int CVRNR)
         {
@@ -64,10 +72,18 @@ namespace AnimalHouseTemp
             OwnerController.DBCInsertPrivate(telefonnr);
         }
 
-         
-        
+        public List<string> SearchForOwner(string TelePhoneNr)
+        {
+           List<string> ownerlist= OwnerController.DBCSelectFromWhere("ejer", "TelefonNr", TelePhoneNr);
+            return ownerlist;
+        }
+        public List<string> SearchForPrivate(string TelePhoneNr)
+        {
+            List<string> PrivateList = OwnerController.DBCSelectFromWhere("Private", "TelefonNr", TelePhoneNr);
+            return PrivateList;
+        }
+
+
+
     }
-
-
-    
 }
