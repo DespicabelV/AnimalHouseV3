@@ -47,6 +47,10 @@ namespace AnimalHouseV3
                 comboBoxTreatmentsChoice.Items.Add(TreatmentList[i + 1]);
             }
 
+            for (int i = 0; i < 10; i++)
+            {
+                comboBoxDaysChoice.Items.Add(i + 1);
+            }
         }
 
         private void buttonAddOwner_Click(object sender, EventArgs e)
