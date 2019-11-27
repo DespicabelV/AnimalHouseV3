@@ -28,23 +28,24 @@ namespace AnimalHouseV3
         {
             InitializeComponent();
 
+            dateTimePickerDate.CustomFormat = "yyyy-MM-dd";
             List<string> TreatmentList = Controller.ControllerGetAllTreatment();
             List<string> DoctorList = Controller.ControllerGetAllDoctor();
             
             DoctorArray      = new string[DoctorList.Count / 2, 2];
             for (int i = 0; i < DoctorList.Count/2; i++)
             {
-                DoctorArray[i, 0] = DoctorList[i];
-                DoctorArray[i, 1] = DoctorList[i+1];
-                comboBoxDoctorChoice.Items.Add(DoctorList[i + 1]);
+                DoctorArray[i, 0] = DoctorList[(i * 2)];
+                DoctorArray[i, 1] = DoctorList[(i * 2)+ 1];
+                comboBoxDoctorChoice.Items.Add(DoctorList[(i * 2) + 1]);
             }
 
             TreatmentArray = new string[TreatmentList.Count / 2, 2];
             for (int i = 0; i < TreatmentList.Count / 2; i++)
             {
-                TreatmentArray[i, 0] = TreatmentList[i];
-                TreatmentArray[i, 1] = TreatmentList[i + 1];
-                comboBoxTreatmentsChoice.Items.Add(TreatmentList[i + 1]);
+                TreatmentArray[i, 0] = TreatmentList[(i * 2)];
+                TreatmentArray[i, 1] = TreatmentList[(i * 2) + 1];
+                comboBoxTreatmentsChoice.Items.Add(TreatmentList[(i * 2) + 1]);
             }
 
             for (int i = 0; i < 10; i++)
@@ -141,6 +142,16 @@ namespace AnimalHouseV3
         }
 
         private void buttonTimeSearch_Click(object sender, EventArgs e)
+        {
+            Controller.ControllerGetTime(dateTimePickerDate.Value.ToString,"Hans");
+        }
+
+        private void comboBoxTreatmentsChoice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxDoctorChoice_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

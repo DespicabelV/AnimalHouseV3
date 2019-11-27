@@ -89,7 +89,6 @@ namespace AnimalHousePersistence
         public List<string> DBCSelectFromWhere(string DBCFrom, string DBCWhere, string DBCParam)
         {
             DBCOpenDB();
-            int DBCSelectCount;
             List<string> DBCListSelect = new List<string>();
             
             SqlCommand SelectFrom = new SqlCommand();
@@ -97,10 +96,9 @@ namespace AnimalHousePersistence
             SelectFrom.Connection = db;
             reader = SelectFrom.ExecuteReader();
 
-            DBCSelectCount = reader.FieldCount;
             while (reader.Read())
             {
-                for (int i = 0; i < DBCSelectCount; i++)
+                for (int i = 0; i < reader.FieldCount; i++)
                 {
                     DBCListSelect.Add(Convert.ToString(reader.GetValue(i)));
                 }
@@ -158,7 +156,6 @@ namespace AnimalHousePersistence
         public List<string> DBCSelectFrom(string DBCFrom)
         {
             DBCOpenDB();
-            int DBCSelectCount;
             List<string> DBCListSelect = new List<string>();
 
             SqlCommand SelectFrom = new SqlCommand();
@@ -166,10 +163,9 @@ namespace AnimalHousePersistence
             SelectFrom.Connection = db;
             reader = SelectFrom.ExecuteReader();
 
-            DBCSelectCount = reader.FieldCount;
             while (reader.Read())
             {
-                for (int i = 0; i < DBCSelectCount; i++)
+                for (int i = 0; i < reader.FieldCount; i++)
                 {
                     DBCListSelect.Add(Convert.ToString(reader.GetValue(i)));
                 }
@@ -177,6 +173,29 @@ namespace AnimalHousePersistence
 
             DBCCloseDB();
             return DBCListSelect;
+        }
+
+        public List<string> DBCTider(string DBCDate, string DBCDoctor)
+        {
+            DBCOpenDB();
+            List<string> DBCTider = new List<string>();
+
+            SqlCommand DBCTiderCom = new SqlCommand();
+            DBCTiderCom.CommandText = $"select Tider.FraTil, Tider.ID from Tider" +
+                $"left outer Join Bookning On Bookning.Tid = Tider.ID where Bookning.Dato = '{DBCDate}' and Bookning.Laege = {DBCDoctor}";
+            DBCTiderCom.Connection = db;
+            reader = DBCTiderCom.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    DBCTider.Add(Convert.ToString(reader.GetValue(i)));
+                }
+            }
+
+            DBCCloseDB();
+            return DBCTider;
         }
 
 
@@ -324,6 +343,18 @@ namespace AnimalHousePersistence
             DBCInsertAnimal.CommandText = $"UPDATE Medicin " +
                 $"SET Navn = '{Navn}'" +
                 $"WHERE ID = {ID}";
+            DBCInsertAnimal.Connection = db;
+            DBCInsertAnimal.ExecuteNonQuery();
+            DBCCloseDB();
+        }
+
+        public void DBCUpdateBusiness(int ID, string Navn, string CVR)
+        {
+            DBCOpenDB();
+            SqlCommand DBCInsertAnimal = new SqlCommand();
+            DBCInsertAnimal.CommandText = $"UPDATE Erhverv " +
+                $"SET FirmaNavn = '{Navn}', CVR = {CVR}" +
+                $"WHERE Ejer = {ID}";
             DBCInsertAnimal.Connection = db;
             DBCInsertAnimal.ExecuteNonQuery();
             DBCCloseDB();

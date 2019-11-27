@@ -13,6 +13,8 @@ namespace AnimalHousePersistence
 
         List<string> DBCSelectAnimal(string DBCName, string DBCDate, string DBCRace, char DBCGender);
 
+        List<string> DBCTider(string DBCDate, string DBCDoctor);
+
         void DBCBeginTrans();
 
         void DBCCommitTrans();
@@ -50,6 +52,8 @@ namespace AnimalHousePersistence
         void DBCUpdateMedicin(int ID, string Navn);
 
         void DBCUpdateRessource(int ID, int Pris, int VareKata);
+
+        void DBCUpdateBusiness(int ID, string Navn, string CVR);
 
 
 

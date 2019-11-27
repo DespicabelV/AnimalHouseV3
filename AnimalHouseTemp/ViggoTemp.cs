@@ -75,6 +75,15 @@ namespace AnimalHouseTemp
             return ControllerGetAllTreatment;
         }
 
+        public List<string> ControllerGetTime(string Date, string Doctor)
+        {
+            List<string> ControllerGetTime;
+
+            ControllerGetTime = TimeTimeFetch(Date, Doctor);
+
+            return ControllerGetTime;
+        }
+
         //Entity
         static bool PrivateExist(string PEParam)
         {
@@ -131,6 +140,16 @@ namespace AnimalHouseTemp
             ListTreatment = Daba.DBCSelectFrom(TFParam);
 
             return ListTreatment;
+        }
+
+        static List<string> TimeTimeFetch(string TTParamDate, string TTPramDoctor)
+        {
+            IPersistenceController Daba = new DatabaseController();
+            List<string> ListTime;
+
+            ListTime = Daba.DBCTider(TTParamDate, TTPramDoctor);
+
+            return ListTime;
         }
     }
 }

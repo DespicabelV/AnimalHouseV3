@@ -319,6 +319,7 @@
             this.comboBoxTreatmentsChoice.Name = "comboBoxTreatmentsChoice";
             this.comboBoxTreatmentsChoice.Size = new System.Drawing.Size(269, 24);
             this.comboBoxTreatmentsChoice.TabIndex = 12;
+            this.comboBoxTreatmentsChoice.SelectedIndexChanged += new System.EventHandler(this.comboBoxTreatmentsChoice_SelectedIndexChanged);
             // 
             // labelDoctor
             // 
@@ -336,6 +337,7 @@
             this.comboBoxDoctorChoice.Name = "comboBoxDoctorChoice";
             this.comboBoxDoctorChoice.Size = new System.Drawing.Size(269, 24);
             this.comboBoxDoctorChoice.TabIndex = 14;
+            this.comboBoxDoctorChoice.SelectedIndexChanged += new System.EventHandler(this.comboBoxDoctorChoice_SelectedIndexChanged);
             // 
             // labelDate
             // 
