@@ -46,7 +46,7 @@ namespace AnimalHouseTemp
         }
         public List<string> SearchForPrivate(string TelePhoneNr)
         {
-            JacobTempAHC entity = new JacobTempAHC();
+            JacobTempEntity entity = new JacobTempEntity();
             List<string> PrivateList = entity.SearchForPrivate(TelePhoneNr);
             return PrivateList;
         }
