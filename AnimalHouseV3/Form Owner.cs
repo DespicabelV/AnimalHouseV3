@@ -68,7 +68,6 @@ namespace AnimalHouseV3
                 labelCompanyName.Visible = false;
             }
         }
-
         private void ButtonSearchOwner_Click(object sender, EventArgs e)
         {
             if (BusinessCheck.Checked)
@@ -104,10 +103,57 @@ namespace AnimalHouseV3
 
             }
         }
-
         private void ButtonUpdateOwner_Click(object sender, EventArgs e)
         {
-          //Controller.UpdatePrivateOwner()
+            if (BusinessCheck.Checked)
+            {
+                Controller.UpdateOwner(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxFirstName.Text, TextBoxLastName.Text, TextBoxStreet + TextBoxNr.Text + TextBoxFloor.Text, TextBoxEmail.Text, TextBoxCity.Text, Convert.ToInt32(TextBoxZipCode.Text));
+                Controller.UpdateBusiness(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxCompanyName.Text, TextBoxCVRNR.Text);
+            }
+            else if(PrivateCheck.Checked)
+            {
+                Controller.UpdateOwner(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxFirstName.Text, TextBoxLastName.Text, TextBoxStreet + TextBoxNr.Text + TextBoxFloor.Text, TextBoxEmail.Text, TextBoxCity.Text, Convert.ToInt32(TextBoxZipCode.Text));
+            }
+          
         }
+        private void ButtonAddPet_Click(object sender, EventArgs e)
+        {
+            Form_Animal form = new Form_Animal();
+            form.ShowDialog();
+        }
+
+        private void ButtonDeleteOwner_Click(object sender, EventArgs e)
+        {
+            if (PrivateCheck.Checked)
+                Controller.DeleteOwner("ejer", "TelefonNr", TextBoxTelephoneNR.Text);
+            else if (BusinessCheck.Checked)
+            {
+                Controller.DeleteOwner("ejer", "TelefonNr", TextBoxTelephoneNR.Text);
+                Controller.DeleteOwner("Erhverv", "TelefonNr", TextBoxTelephoneNR.Text);
+            }
+            
+        }
+
+        private void PrivateCheck_CheckedChanged(object sender, EventArgs e)
+        {
+            if (BusinessCheck.Checked)
+            {
+                PrivateCheck.Checked = false;
+                TextBoxCompanyName.Visible = true;
+                TextBoxCVRNR.Visible = true;
+                labelCVRNR.Visible = true;
+                labelCompanyName.Visible = true;
+            }
+            if (!BusinessCheck.Checked)
+            {
+                PrivateCheck.Checked = true;
+                TextBoxCompanyName.Visible = false;
+                TextBoxCVRNR.Visible = false;
+                labelCVRNR.Visible = false;
+                labelCompanyName.Visible = false;
+            }
+        }
+
+        // spørgsmål til forms, skal jeg ændre street tekstfelt til bare et felt? Jeg har tre felter, men kun en column over i databasen???
     }
 }

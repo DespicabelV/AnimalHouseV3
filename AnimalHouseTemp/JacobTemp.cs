@@ -25,19 +25,18 @@ namespace AnimalHouseTemp
     public class JacobTempAHC
     {
         // code for controller layer  
-
-        public void CreatePrivateOwner(int telefonnr, string firstname, string lastname, string adress, string email, string city, int zipcode)
+        public void CreatePrivateOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
         {
             JacobTempEntity PrivateOwner = new JacobTempEntity();
-            PrivateOwner.AddOwnerToDatabase(telefonnr, firstname, lastname, adress, email, city, zipcode);
-            PrivateOwner.AddPrivateToDatabase(telefonnr);
+            PrivateOwner.AddOwnerToDatabase(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
+            PrivateOwner.AddPrivateToDatabase(TelePhoneNr);
 
         }
-        public void CreateBusinessOwner(int telefonnr, string firstname, string lastname, string adress, string email, string city, int zipcode, string companyname, int CVRNR)
+        public void CreateBusinessOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode, string companyname, int CVRNR)
         {
             JacobTempEntity BusinessOwner = new JacobTempEntity();
-            BusinessOwner.AddOwnerToDatabase(telefonnr, firstname, lastname, adress, email, city, zipcode);
-            BusinessOwner.AddBusinessToDatabase(telefonnr, companyname, CVRNR);
+            BusinessOwner.AddOwnerToDatabase(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
+            BusinessOwner.AddBusinessToDatabase(TelePhoneNr, companyname, CVRNR);
         }
         public List<string> SearchForOwner(string TelephoneNr)
         {
@@ -57,53 +56,73 @@ namespace AnimalHouseTemp
             List<string> BusinessList = entity.SearchForBusiness(TelePhoneNr);
             return BusinessList;
         }
-
-
-
+        public void UpdateOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
+        {
+            JacobTempEntity Update = new JacobTempEntity();
+            Update.UpdateOwner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
+        }
+        public void UpdateBusiness(int TelePhoneNr, string CompanyName,string CVRNR)
+        {
+            JacobTempEntity Update = new JacobTempEntity();
+            Update.UpdateBusiness(TelePhoneNr, CompanyName, CVRNR);
+        }
+        public void DeleteOwner(string Owner,string Where,string TelephoneNr)
+        {
+            JacobTempEntity entity = new JacobTempEntity();
+            entity.DeleteOwner(Owner, Where, TelephoneNr);
+        }
+        //public void DeleteBusiness(string Owner)
     }
     class JacobTempEntity
     {
         //code for entity layer
-
         public IPersistenceController OwnerController;
         public JacobTempEntity()
         {
             OwnerController = new DatabaseController();
         }
-
-
-        public void AddBusinessToDatabase(int telefonnr, string companyname, int CVRNR)
+        public void AddBusinessToDatabase(int TelePhoneNr, string companyname, int CVRNR)
         {
-            OwnerController.DBCInsertBusiness(telefonnr, companyname, CVRNR);
+            OwnerController.DBCInsertBusiness(TelePhoneNr, companyname, CVRNR);
         }
-        public void AddOwnerToDatabase(int telefonnr, string firstname, string lastname, string adress, string email, string city, int zipcode)
+        public void AddOwnerToDatabase(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
         {
-            OwnerController.DBCInsertOwner(telefonnr, firstname, lastname, adress, email, city, zipcode);
+            OwnerController.DBCInsertOwner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
         }
-        public void AddPrivateToDatabase(int telefonnr)
+        public void AddPrivateToDatabase(int TelePhoneNr)
         {
-            OwnerController.DBCInsertPrivate(telefonnr);
+            OwnerController.DBCInsertPrivate(TelePhoneNr);
         }
-
         public List<string> SearchForOwner(string TelePhoneNr)
         {
            List<string> ownerlist= OwnerController.DBCSelectFromWhere("ejer", "TelefonNr", TelePhoneNr);
             return ownerlist;
         }
-       
         public List<string> SearchForPrivate(string TelePhoneNr)
         {
-            List<string> PrivateList = OwnerController.DBCSelectFromWhere("Private_", "TelefonNr", TelePhoneNr);
+            List<string> PrivateList = OwnerController.DBCSelectFromWhere("Private_", "ejer", TelePhoneNr);
             return PrivateList;
         }
         public List<string> SearchForBusiness(string TelePhoneNr)
         {
-            List<string> BusinessList = OwnerController.DBCSelectFromWhere("Erhverv", "TelefonNr", TelePhoneNr);
+            List<string> BusinessList = OwnerController.DBCSelectFromWhere("Erhverv", "ejer", TelePhoneNr);
             return BusinessList;
         }
-
-
-
+        public void UpdateOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
+        {
+            OwnerController.DBCUpdateOwner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
+        }
+        public void UpdateBusiness(int TelePhoneNr, string companyname, string CVRNR)
+        {
+            OwnerController.DBCUpdateBusiness(TelePhoneNr, companyname, CVRNR);
+        }
+        public void DeleteOwner(string Owner,string Where,string TelephoneNr)
+        {
+            OwnerController.DBCDelete("ejer", "TelefonNr", "TelefonNr");
+        }
+       //public void DeleteBusiness(string Business,string Where,string TelehponeNr)
+        //{
+        //    OwnerController.DBCDelete(Business, Where, TelehponeNr);
+        //}
     }
-    
 }
