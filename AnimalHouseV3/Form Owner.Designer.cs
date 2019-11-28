@@ -41,7 +41,6 @@
             this.TextBoxStreet = new System.Windows.Forms.TextBox();
             this.TextBoxZipCode = new System.Windows.Forms.TextBox();
             this.TextBoxCity = new System.Windows.Forms.TextBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.ButtonSearchOwner = new System.Windows.Forms.Button();
             this.ButtonCreateOwner = new System.Windows.Forms.Button();
             this.ButtonUpdateOwner = new System.Windows.Forms.Button();
@@ -60,8 +59,9 @@
             this.TextBoxCompanyName = new System.Windows.Forms.TextBox();
             this.TextBoxEmail = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -169,17 +169,6 @@
             this.TextBoxCity.Size = new System.Drawing.Size(100, 22);
             this.TextBoxCity.TabIndex = 21;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::AnimalHouseV3.Properties.Resources.Labrador_edit;
-            this.pictureBox1.InitialImage = null;
-            this.pictureBox1.Location = new System.Drawing.Point(9, 342);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(269, 225);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 22;
-            this.pictureBox1.TabStop = false;
-            // 
             // ButtonSearchOwner
             // 
             this.ButtonSearchOwner.Location = new System.Drawing.Point(235, 148);
@@ -218,15 +207,17 @@
             this.ButtonDeleteOwner.TabIndex = 26;
             this.ButtonDeleteOwner.Text = "Delete";
             this.ButtonDeleteOwner.UseVisualStyleBackColor = true;
+            this.ButtonDeleteOwner.Click += new System.EventHandler(this.ButtonDeleteOwner_Click);
             // 
             // ButtonAddPet
             // 
-            this.ButtonAddPet.Location = new System.Drawing.Point(292, 515);
+            this.ButtonAddPet.Location = new System.Drawing.Point(304, 520);
             this.ButtonAddPet.Name = "ButtonAddPet";
             this.ButtonAddPet.Size = new System.Drawing.Size(96, 41);
             this.ButtonAddPet.TabIndex = 27;
             this.ButtonAddPet.Text = "Add Pet";
             this.ButtonAddPet.UseVisualStyleBackColor = true;
+            this.ButtonAddPet.Click += new System.EventHandler(this.ButtonAddPet_Click);
             // 
             // PrivateCheck
             // 
@@ -239,6 +230,7 @@
             this.PrivateCheck.TabIndex = 28;
             this.PrivateCheck.Text = "Private";
             this.PrivateCheck.UseVisualStyleBackColor = true;
+            this.PrivateCheck.CheckedChanged += new System.EventHandler(this.PrivateCheck_CheckedChanged);
             // 
             // BusinessCheck
             // 
@@ -351,11 +343,21 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Functions";
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(9, 411);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
+            this.dataGridView1.TabIndex = 40;
+            // 
             // Form_Owner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(872, 587);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.TextBoxCompanyName);
             this.Controls.Add(this.labelCompanyName);
@@ -370,7 +372,6 @@
             this.Controls.Add(this.PrivateCheck);
             this.Controls.Add(this.ButtonAddPet);
             this.Controls.Add(this.ButtonSearchOwner);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.TextBoxCity);
             this.Controls.Add(this.TextBoxZipCode);
             this.Controls.Add(this.TextBoxStreet);
@@ -388,8 +389,8 @@
             this.Name = "Form_Owner";
             this.Text = "Form_Owner";
             this.Load += new System.EventHandler(this.Form_Owner_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -410,7 +411,6 @@
         private System.Windows.Forms.TextBox TextBoxStreet;
         private System.Windows.Forms.TextBox TextBoxZipCode;
         private System.Windows.Forms.TextBox TextBoxCity;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button ButtonSearchOwner;
         private System.Windows.Forms.Button ButtonCreateOwner;
         private System.Windows.Forms.Button ButtonUpdateOwner;
@@ -429,5 +429,6 @@
         private System.Windows.Forms.TextBox TextBoxCompanyName;
         private System.Windows.Forms.TextBox TextBoxEmail;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
