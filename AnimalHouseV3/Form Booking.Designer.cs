@@ -62,7 +62,7 @@
             this.buttonCreate = new System.Windows.Forms.Button();
             this.comboBoxDaysChoice = new System.Windows.Forms.ComboBox();
             this.labelDays = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxTimeChoice = new System.Windows.Forms.ComboBox();
             this.labelTime = new System.Windows.Forms.Label();
             this.buttonTimeSearch = new System.Windows.Forms.Button();
             this.groupBoxOwnerInfo.SuspendLayout();
@@ -374,6 +374,7 @@
             this.buttonCreate.TabIndex = 19;
             this.buttonCreate.Text = "Create";
             this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // comboBoxDaysChoice
             // 
@@ -394,13 +395,13 @@
             this.labelDays.Text = "Day(s)";
             this.labelDays.Visible = false;
             // 
-            // comboBox1
+            // comboBoxTimeChoice
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(426, 176);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(188, 24);
-            this.comboBox1.TabIndex = 22;
+            this.comboBoxTimeChoice.FormattingEnabled = true;
+            this.comboBoxTimeChoice.Location = new System.Drawing.Point(426, 176);
+            this.comboBoxTimeChoice.Name = "comboBoxTimeChoice";
+            this.comboBoxTimeChoice.Size = new System.Drawing.Size(188, 24);
+            this.comboBoxTimeChoice.TabIndex = 22;
             // 
             // labelTime
             // 
@@ -428,7 +429,7 @@
             this.ClientSize = new System.Drawing.Size(707, 441);
             this.Controls.Add(this.buttonTimeSearch);
             this.Controls.Add(this.labelTime);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxTimeChoice);
             this.Controls.Add(this.labelDays);
             this.Controls.Add(this.comboBoxDaysChoice);
             this.Controls.Add(this.buttonCreate);
@@ -497,7 +498,7 @@
         private System.Windows.Forms.TextBox textBoxAnimalGenderInfo;
         private System.Windows.Forms.TextBox textBoxAnimalNameInfo;
         private System.Windows.Forms.TextBox textBoxAnimalDoctorInfo;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxTimeChoice;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Button buttonTimeSearch;
     }

@@ -12,6 +12,7 @@ namespace AnimalHouseTemp
     {
         IPersistenceController Daba;
 
+
         //Todo
         //Check if the owner is there
         //Lav inset journal til dyr
@@ -91,6 +92,13 @@ namespace AnimalHouseTemp
             ControllerGetTime = TimeTimeFetch();
 
             return ControllerGetTime;
+        }
+
+        public void ControllerAddBookning(int Treatment, int Doctor, int Animal, int CageID, int CageDay, string Date, int Times)
+        {
+            Booking TempBook;
+            TempBook = new Booking(Treatment, Doctor, Animal, CageID, CageDay, Date, Times);
+            TempBook.Add();
         }
 
         //Entity

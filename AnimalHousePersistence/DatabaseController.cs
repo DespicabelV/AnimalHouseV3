@@ -354,6 +354,19 @@ namespace AnimalHousePersistence
             DBCCloseDB();
         }
 
+        public void DBCInsertJournal(int Laege, int Dyr, string Dato, string Emne, string Kommentar)
+        {
+            DBCOpenDB();
+            SqlCommand DBCInsertAnimal = new SqlCommand();
+            DBCInsertAnimal.CommandText = $"INSERT INTO Journal (Laege, Dyr, Dato, Emne, Kommentar)" +
+                $"VALUES({Laege}, {Dyr}, {Dato}, {Emne}, {Kommentar})";
+            DBCInsertAnimal.Connection = db;
+            DBCInsertAnimal.ExecuteNonQuery();
+            DBCCloseDB();
+        }
+
+
+
 
         //Updates
         public void DBCUpdateOwner(int TelefonNr, string Fornavn, string Efternavn, string Adresse, string Email, string By_, int Postnr)

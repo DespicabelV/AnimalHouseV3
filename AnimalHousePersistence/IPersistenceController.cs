@@ -47,6 +47,8 @@ namespace AnimalHousePersistence
 
         void DBCInsertReceipt(int Total, int Bookning, int Ejer);
 
+        void DBCInsertJournal(int Laege, int Dyr, string Dato, string Emne, string Kommentar);
+
         void DBCUpdateOwner(int TelefonNr, string Fornavn, string Efternavn, string Adresse, string Email, string By_, int Postnr);
 
         void DBCUpdateAnimal(int ID, string Navn, char Kon, string Date, string Race, int Laege, int Chip);
