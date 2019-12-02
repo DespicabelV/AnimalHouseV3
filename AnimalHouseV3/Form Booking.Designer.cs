@@ -65,6 +65,8 @@
             this.comboBoxTimeChoice = new System.Windows.Forms.ComboBox();
             this.labelTime = new System.Windows.Forms.Label();
             this.buttonTimeSearch = new System.Windows.Forms.Button();
+            this.comboBoxCageChoice = new System.Windows.Forms.ComboBox();
+            this.labelCageChoice = new System.Windows.Forms.Label();
             this.groupBoxOwnerInfo.SuspendLayout();
             this.groupBoxAnimalInfo.SuspendLayout();
             this.SuspendLayout();
@@ -358,7 +360,7 @@
             // checkBoxCage
             // 
             this.checkBoxCage.AutoSize = true;
-            this.checkBoxCage.Location = new System.Drawing.Point(426, 324);
+            this.checkBoxCage.Location = new System.Drawing.Point(426, 206);
             this.checkBoxCage.Name = "checkBoxCage";
             this.checkBoxCage.Size = new System.Drawing.Size(63, 21);
             this.checkBoxCage.TabIndex = 18;
@@ -379,7 +381,7 @@
             // comboBoxDaysChoice
             // 
             this.comboBoxDaysChoice.FormattingEnabled = true;
-            this.comboBoxDaysChoice.Location = new System.Drawing.Point(649, 324);
+            this.comboBoxDaysChoice.Location = new System.Drawing.Point(649, 206);
             this.comboBoxDaysChoice.Name = "comboBoxDaysChoice";
             this.comboBoxDaysChoice.Size = new System.Drawing.Size(46, 24);
             this.comboBoxDaysChoice.TabIndex = 20;
@@ -388,7 +390,7 @@
             // labelDays
             // 
             this.labelDays.AutoSize = true;
-            this.labelDays.Location = new System.Drawing.Point(593, 327);
+            this.labelDays.Location = new System.Drawing.Point(593, 209);
             this.labelDays.Name = "labelDays";
             this.labelDays.Size = new System.Drawing.Size(50, 17);
             this.labelDays.TabIndex = 21;
@@ -422,11 +424,32 @@
             this.buttonTimeSearch.UseVisualStyleBackColor = true;
             this.buttonTimeSearch.Click += new System.EventHandler(this.buttonTimeSearch_Click);
             // 
+            // comboBoxCageChoice
+            // 
+            this.comboBoxCageChoice.FormattingEnabled = true;
+            this.comboBoxCageChoice.Location = new System.Drawing.Point(514, 236);
+            this.comboBoxCageChoice.Name = "comboBoxCageChoice";
+            this.comboBoxCageChoice.Size = new System.Drawing.Size(181, 24);
+            this.comboBoxCageChoice.TabIndex = 25;
+            this.comboBoxCageChoice.Visible = false;
+            // 
+            // labelCageChoice
+            // 
+            this.labelCageChoice.AutoSize = true;
+            this.labelCageChoice.Location = new System.Drawing.Point(423, 239);
+            this.labelCageChoice.Name = "labelCageChoice";
+            this.labelCageChoice.Size = new System.Drawing.Size(85, 17);
+            this.labelCageChoice.TabIndex = 26;
+            this.labelCageChoice.Text = "Chose Cage";
+            this.labelCageChoice.Visible = false;
+            // 
             // Form_Booking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(707, 441);
+            this.Controls.Add(this.labelCageChoice);
+            this.Controls.Add(this.comboBoxCageChoice);
             this.Controls.Add(this.buttonTimeSearch);
             this.Controls.Add(this.labelTime);
             this.Controls.Add(this.comboBoxTimeChoice);
@@ -501,5 +524,7 @@
         private System.Windows.Forms.ComboBox comboBoxTimeChoice;
         private System.Windows.Forms.Label labelTime;
         private System.Windows.Forms.Button buttonTimeSearch;
+        private System.Windows.Forms.ComboBox comboBoxCageChoice;
+        private System.Windows.Forms.Label labelCageChoice;
     }
 }

@@ -101,6 +101,15 @@ namespace AnimalHouseTemp
             TempBook.Add();
         }
 
+        public List<string> ControllerGetCage()
+        {
+            List<string> ControllerGetCage;
+
+            ControllerGetCage = CageFetch();
+
+            return ControllerGetCage;
+        }
+
         //Entity
         static bool PrivateExist(string PEParam)
         {
@@ -177,6 +186,16 @@ namespace AnimalHouseTemp
             ListTime = Daba.DBCTimes();
 
             return ListTime;
+        }
+
+        static List<string> CageFetch()
+        {
+            IPersistenceController Daba = new DatabaseController();
+            List<string> CageList;
+
+            CageList = Daba.DBCSelectFrom("Bur");
+
+            return CageList;
         }
     }
 }

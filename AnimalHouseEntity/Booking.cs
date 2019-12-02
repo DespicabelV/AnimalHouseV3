@@ -20,6 +20,7 @@ namespace AnimalHouseEntity
 
         public Booking(int Treatment,int Doctor,int Animal, int CageID, int CageDayAmount, string Date, int Times)
         {
+            IPC = new DatabaseController();
             this.CageID = CageID;
             this.CageDayAmount = CageDayAmount;
             this.Date = Date;
@@ -31,7 +32,7 @@ namespace AnimalHouseEntity
 
         public void Add()
         {
-            IPC.DBCInsertBooking(Treatment,Doctor,Animal,CageID,CageDayAmount,Date,Times);
+            IPC.DBCInsertBooking(Treatment, Doctor, Animal, CageID, CageDayAmount, Date, Times);
         }
     }
 }

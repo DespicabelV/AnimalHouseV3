@@ -359,7 +359,7 @@ namespace AnimalHousePersistence
             DBCOpenDB();
             SqlCommand DBCInsertAnimal = new SqlCommand();
             DBCInsertAnimal.CommandText = $"INSERT INTO Journal (Laege, Dyr, Dato, Emne, Kommentar)" +
-                $"VALUES({Laege}, {Dyr}, {Dato}, {Emne}, {Kommentar})";
+                $"VALUES({Laege}, {Dyr}, '{Dato}', '{Emne}', '{Kommentar}')";
             DBCInsertAnimal.Connection = db;
             DBCInsertAnimal.ExecuteNonQuery();
             DBCCloseDB();

@@ -24,6 +24,7 @@ namespace AnimalHouseV3
         private string[,] TreatmentArray;
         private string[,] AnimalArray;
         private string[,] TimeArray;
+        private string[,] CageArray;
 
         public Form_Booking()
         {
@@ -31,6 +32,7 @@ namespace AnimalHouseV3
 
             List<string> TreatmentList = Controller.ControllerGetAllTreatment();
             List<string> DoctorList = Controller.ControllerGetAllDoctor();
+            List<string> CageList = Controller.ControllerGetCage();
 
             DoctorArray = new string[DoctorList.Count / 2, 2];
             for (int i = 0; i < DoctorList.Count / 2; i++)
@@ -50,10 +52,20 @@ namespace AnimalHouseV3
             }
             comboBoxTreatmentsChoice.SelectedIndex = 0;
 
+            CageArray = new string[CageList.Count / 2, 2];
+            for (int i = 0; i < CageList.Count / 2; i++)
+            {
+                CageArray[i, 0] = CageList[(i * 2)];
+                CageArray[i, 1] = CageList[(i * 2) + 1];
+                comboBoxCageChoice.Items.Add(CageList[(i * 2)] + " " + CageList[(i * 2 + 1)]);
+            }
+            comboBoxCageChoice.SelectedIndex = 0;
+
             for (int i = 0; i < 10; i++)
             {
-                comboBoxDaysChoice.Items.Add(i + 1);
+                comboBoxDaysChoice.Items.Add(i);
             }
+            comboBoxDaysChoice.SelectedIndex = 0;
         }
 
         private void buttonAddOwner_Click(object sender, EventArgs e)
@@ -128,12 +140,16 @@ namespace AnimalHouseV3
             if (labelDays.Visible == true && comboBoxDaysChoice.Visible == true)
             {
                 labelDays.Visible = false;
+                labelCageChoice.Visible = false;
                 comboBoxDaysChoice.Visible = false;
+                comboBoxCageChoice.Visible = false;
             }
             else
             {
                 labelDays.Visible = true;
+                labelCageChoice.Visible = true;
                 comboBoxDaysChoice.Visible = true;
+                comboBoxCageChoice.Visible = true;
             }
         }
 
@@ -147,7 +163,7 @@ namespace AnimalHouseV3
         {
             List<string> TempBookedTimeList, TempTimeList;
 
-            TempBookedTimeList = Controller.ControllerGetBookedTime(Convert.ToDateTime(dateTimePickerDate.Value).ToString("yyyy-MM-dd"), "1");
+            TempBookedTimeList = Controller.ControllerGetBookedTime(Convert.ToDateTime(dateTimePickerDate.Value).ToString("yyyy-MM-dd"), DoctorArray[comboBoxDoctorChoice.SelectedIndex,0]);
             TempTimeList = Controller.ControllerGetTime();
 
             TimeArray = new string[TempTimeList.Count / 2, 2];
@@ -187,7 +203,30 @@ namespace AnimalHouseV3
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            Controller.ControllerAddBookning();
+            //if (textBoxOwnerInput.TextLength == 0 || )
+            //{
+            //}
+
+            int CageID;
+            if (checkBoxCage.Checked)
+            {
+                CageID = Convert.ToInt32(CageArray[comboBoxCageChoice.SelectedIndex, 0]);
+            }
+            else
+            {
+                CageID = 110;
+            }
+
+            Controller.ControllerAddBookning(
+                Convert.ToInt32(TreatmentArray[comboBoxTreatmentsChoice.SelectedIndex, 0]),
+                Convert.ToInt32(DoctorArray[comboBoxDoctorChoice.SelectedIndex, 0]),
+                Convert.ToInt32(AnimalArray[comboBoxAnimalChoice.SelectedIndex, 0]),
+                CageID,
+                Convert.ToInt32(comboBoxDaysChoice.Text),
+                Convert.ToDateTime(dateTimePickerDate.Value).ToString("yyyy-MM-dd"),
+                Convert.ToInt32(TimeArray[comboBoxTimeChoice.SelectedIndex, 0]));
+            MessageBox.Show("Bookning created","sucess!",MessageBoxButtons.OK);
+            this.Close();
         }
     }
 }
