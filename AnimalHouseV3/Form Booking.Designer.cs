@@ -67,6 +67,10 @@
             this.buttonTimeSearch = new System.Windows.Forms.Button();
             this.comboBoxCageChoice = new System.Windows.Forms.ComboBox();
             this.labelCageChoice = new System.Windows.Forms.Label();
+            this.buttonBookningSearch = new System.Windows.Forms.Button();
+            this.textBoxBookingSearch = new System.Windows.Forms.TextBox();
+            this.buttonUpdate = new System.Windows.Forms.Button();
+            this.comboBoxBookningChoice = new System.Windows.Forms.ComboBox();
             this.groupBoxOwnerInfo.SuspendLayout();
             this.groupBoxAnimalInfo.SuspendLayout();
             this.SuspendLayout();
@@ -140,9 +144,9 @@
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(426, 383);
+            this.buttonDelete.Location = new System.Drawing.Point(637, 79);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelete.Size = new System.Drawing.Size(106, 23);
             this.buttonDelete.TabIndex = 7;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
@@ -150,12 +154,13 @@
             // 
             // buttonHelp
             // 
-            this.buttonHelp.Location = new System.Drawing.Point(670, 10);
+            this.buttonHelp.Location = new System.Drawing.Point(749, 12);
             this.buttonHelp.Name = "buttonHelp";
             this.buttonHelp.Size = new System.Drawing.Size(25, 25);
             this.buttonHelp.TabIndex = 8;
             this.buttonHelp.Text = "?";
             this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
             // 
             // groupBoxOwnerInfo
             // 
@@ -308,7 +313,7 @@
             // labelTreatments
             // 
             this.labelTreatments.AutoSize = true;
-            this.labelTreatments.Location = new System.Drawing.Point(340, 90);
+            this.labelTreatments.Location = new System.Drawing.Point(340, 142);
             this.labelTreatments.Name = "labelTreatments";
             this.labelTreatments.Size = new System.Drawing.Size(80, 17);
             this.labelTreatments.TabIndex = 11;
@@ -317,7 +322,7 @@
             // comboBoxTreatmentsChoice
             // 
             this.comboBoxTreatmentsChoice.FormattingEnabled = true;
-            this.comboBoxTreatmentsChoice.Location = new System.Drawing.Point(426, 87);
+            this.comboBoxTreatmentsChoice.Location = new System.Drawing.Point(426, 139);
             this.comboBoxTreatmentsChoice.Name = "comboBoxTreatmentsChoice";
             this.comboBoxTreatmentsChoice.Size = new System.Drawing.Size(269, 24);
             this.comboBoxTreatmentsChoice.TabIndex = 12;
@@ -326,7 +331,7 @@
             // labelDoctor
             // 
             this.labelDoctor.AutoSize = true;
-            this.labelDoctor.Location = new System.Drawing.Point(340, 120);
+            this.labelDoctor.Location = new System.Drawing.Point(340, 172);
             this.labelDoctor.Name = "labelDoctor";
             this.labelDoctor.Size = new System.Drawing.Size(50, 17);
             this.labelDoctor.TabIndex = 13;
@@ -335,7 +340,7 @@
             // comboBoxDoctorChoice
             // 
             this.comboBoxDoctorChoice.FormattingEnabled = true;
-            this.comboBoxDoctorChoice.Location = new System.Drawing.Point(426, 117);
+            this.comboBoxDoctorChoice.Location = new System.Drawing.Point(426, 169);
             this.comboBoxDoctorChoice.Name = "comboBoxDoctorChoice";
             this.comboBoxDoctorChoice.Size = new System.Drawing.Size(269, 24);
             this.comboBoxDoctorChoice.TabIndex = 14;
@@ -344,7 +349,7 @@
             // labelDate
             // 
             this.labelDate.AutoSize = true;
-            this.labelDate.Location = new System.Drawing.Point(340, 150);
+            this.labelDate.Location = new System.Drawing.Point(340, 202);
             this.labelDate.Name = "labelDate";
             this.labelDate.Size = new System.Drawing.Size(38, 17);
             this.labelDate.TabIndex = 15;
@@ -352,7 +357,7 @@
             // 
             // dateTimePickerDate
             // 
-            this.dateTimePickerDate.Location = new System.Drawing.Point(426, 147);
+            this.dateTimePickerDate.Location = new System.Drawing.Point(426, 199);
             this.dateTimePickerDate.Name = "dateTimePickerDate";
             this.dateTimePickerDate.Size = new System.Drawing.Size(269, 22);
             this.dateTimePickerDate.TabIndex = 16;
@@ -360,7 +365,7 @@
             // checkBoxCage
             // 
             this.checkBoxCage.AutoSize = true;
-            this.checkBoxCage.Location = new System.Drawing.Point(426, 206);
+            this.checkBoxCage.Location = new System.Drawing.Point(426, 258);
             this.checkBoxCage.Name = "checkBoxCage";
             this.checkBoxCage.Size = new System.Drawing.Size(63, 21);
             this.checkBoxCage.TabIndex = 18;
@@ -370,7 +375,7 @@
             // 
             // buttonCreate
             // 
-            this.buttonCreate.Location = new System.Drawing.Point(620, 383);
+            this.buttonCreate.Location = new System.Drawing.Point(620, 381);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(75, 23);
             this.buttonCreate.TabIndex = 19;
@@ -381,7 +386,7 @@
             // comboBoxDaysChoice
             // 
             this.comboBoxDaysChoice.FormattingEnabled = true;
-            this.comboBoxDaysChoice.Location = new System.Drawing.Point(649, 206);
+            this.comboBoxDaysChoice.Location = new System.Drawing.Point(649, 258);
             this.comboBoxDaysChoice.Name = "comboBoxDaysChoice";
             this.comboBoxDaysChoice.Size = new System.Drawing.Size(46, 24);
             this.comboBoxDaysChoice.TabIndex = 20;
@@ -390,7 +395,7 @@
             // labelDays
             // 
             this.labelDays.AutoSize = true;
-            this.labelDays.Location = new System.Drawing.Point(593, 209);
+            this.labelDays.Location = new System.Drawing.Point(593, 261);
             this.labelDays.Name = "labelDays";
             this.labelDays.Size = new System.Drawing.Size(50, 17);
             this.labelDays.TabIndex = 21;
@@ -400,7 +405,7 @@
             // comboBoxTimeChoice
             // 
             this.comboBoxTimeChoice.FormattingEnabled = true;
-            this.comboBoxTimeChoice.Location = new System.Drawing.Point(426, 176);
+            this.comboBoxTimeChoice.Location = new System.Drawing.Point(426, 228);
             this.comboBoxTimeChoice.Name = "comboBoxTimeChoice";
             this.comboBoxTimeChoice.Size = new System.Drawing.Size(188, 24);
             this.comboBoxTimeChoice.TabIndex = 22;
@@ -408,7 +413,7 @@
             // labelTime
             // 
             this.labelTime.AutoSize = true;
-            this.labelTime.Location = new System.Drawing.Point(340, 179);
+            this.labelTime.Location = new System.Drawing.Point(340, 231);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(39, 17);
             this.labelTime.TabIndex = 23;
@@ -416,7 +421,7 @@
             // 
             // buttonTimeSearch
             // 
-            this.buttonTimeSearch.Location = new System.Drawing.Point(620, 176);
+            this.buttonTimeSearch.Location = new System.Drawing.Point(620, 228);
             this.buttonTimeSearch.Name = "buttonTimeSearch";
             this.buttonTimeSearch.Size = new System.Drawing.Size(75, 23);
             this.buttonTimeSearch.TabIndex = 24;
@@ -427,7 +432,7 @@
             // comboBoxCageChoice
             // 
             this.comboBoxCageChoice.FormattingEnabled = true;
-            this.comboBoxCageChoice.Location = new System.Drawing.Point(514, 236);
+            this.comboBoxCageChoice.Location = new System.Drawing.Point(514, 288);
             this.comboBoxCageChoice.Name = "comboBoxCageChoice";
             this.comboBoxCageChoice.Size = new System.Drawing.Size(181, 24);
             this.comboBoxCageChoice.TabIndex = 25;
@@ -436,18 +441,58 @@
             // labelCageChoice
             // 
             this.labelCageChoice.AutoSize = true;
-            this.labelCageChoice.Location = new System.Drawing.Point(423, 239);
+            this.labelCageChoice.Location = new System.Drawing.Point(423, 291);
             this.labelCageChoice.Name = "labelCageChoice";
             this.labelCageChoice.Size = new System.Drawing.Size(85, 17);
             this.labelCageChoice.TabIndex = 26;
             this.labelCageChoice.Text = "Chose Cage";
             this.labelCageChoice.Visible = false;
             // 
+            // buttonBookningSearch
+            // 
+            this.buttonBookningSearch.Location = new System.Drawing.Point(637, 18);
+            this.buttonBookningSearch.Name = "buttonBookningSearch";
+            this.buttonBookningSearch.Size = new System.Drawing.Size(106, 55);
+            this.buttonBookningSearch.TabIndex = 27;
+            this.buttonBookningSearch.Text = "Search Bookning";
+            this.buttonBookningSearch.UseVisualStyleBackColor = true;
+            this.buttonBookningSearch.Click += new System.EventHandler(this.buttonBookningSearch_Click);
+            // 
+            // textBoxBookingSearch
+            // 
+            this.textBoxBookingSearch.Location = new System.Drawing.Point(426, 19);
+            this.textBoxBookingSearch.Name = "textBoxBookingSearch";
+            this.textBoxBookingSearch.Size = new System.Drawing.Size(205, 22);
+            this.textBoxBookingSearch.TabIndex = 28;
+            // 
+            // buttonUpdate
+            // 
+            this.buttonUpdate.Location = new System.Drawing.Point(539, 381);
+            this.buttonUpdate.Name = "buttonUpdate";
+            this.buttonUpdate.Size = new System.Drawing.Size(75, 23);
+            this.buttonUpdate.TabIndex = 29;
+            this.buttonUpdate.Text = "Update";
+            this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
+            // 
+            // comboBoxBookningChoice
+            // 
+            this.comboBoxBookningChoice.FormattingEnabled = true;
+            this.comboBoxBookningChoice.Location = new System.Drawing.Point(426, 47);
+            this.comboBoxBookningChoice.Name = "comboBoxBookningChoice";
+            this.comboBoxBookningChoice.Size = new System.Drawing.Size(205, 24);
+            this.comboBoxBookningChoice.TabIndex = 30;
+            this.comboBoxBookningChoice.SelectedIndexChanged += new System.EventHandler(this.comboBoxBookningChoice_SelectedIndexChanged);
+            // 
             // Form_Booking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 441);
+            this.ClientSize = new System.Drawing.Size(786, 416);
+            this.Controls.Add(this.comboBoxBookningChoice);
+            this.Controls.Add(this.buttonUpdate);
+            this.Controls.Add(this.textBoxBookingSearch);
+            this.Controls.Add(this.buttonBookningSearch);
             this.Controls.Add(this.labelCageChoice);
             this.Controls.Add(this.comboBoxCageChoice);
             this.Controls.Add(this.buttonTimeSearch);
@@ -526,5 +571,9 @@
         private System.Windows.Forms.Button buttonTimeSearch;
         private System.Windows.Forms.ComboBox comboBoxCageChoice;
         private System.Windows.Forms.Label labelCageChoice;
+        private System.Windows.Forms.Button buttonBookningSearch;
+        private System.Windows.Forms.TextBox textBoxBookingSearch;
+        private System.Windows.Forms.Button buttonUpdate;
+        private System.Windows.Forms.ComboBox comboBoxBookningChoice;
     }
 }

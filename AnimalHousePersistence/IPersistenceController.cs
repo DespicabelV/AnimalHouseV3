@@ -23,6 +23,8 @@ namespace AnimalHousePersistence
 
         void DBCDelete(string DBCFrom, string DBCWhere, string DBCParam);
 
+        string DBCGetDoctor(string DBCPram);
+
         List<string> DBCSelectFromWhere(string DBCFrom, string DBCWhere, string DBCParam);
 
         List<string> DBCSelectSpecific(string DBCSelect, string DBCFrom);
@@ -31,7 +33,7 @@ namespace AnimalHousePersistence
 
         void DBCInsertRelation(int Ejer, int Dyr);
 
-        void DBCInsertBooking(int Behandling, int Laege, int Dyr, int Bur, int Burdage, string Dato, int Tid);
+        void DBCInsertBooking(int Behandling, int Laege, int Dyr, int Bur, int Burdage, string Dato, int Tid, int Ejer);
 
         void DBCInsertBusiness(int Ejer, string FirmaNavn, int CVR);
 

@@ -94,10 +94,10 @@ namespace AnimalHouseTemp
             return ControllerGetTime;
         }
 
-        public void ControllerAddBookning(int Treatment, int Doctor, int Animal, int CageID, int CageDay, string Date, int Times)
+        public void ControllerAddBookning(int Treatment, int Doctor, int Animal, int CageID, int CageDay, string Date, int Times, int Owner)
         {
             Booking TempBook;
-            TempBook = new Booking(Treatment, Doctor, Animal, CageID, CageDay, Date, Times);
+            TempBook = new Booking(Treatment, Doctor, Animal, CageID, CageDay, Date, Times, Owner);
             TempBook.Add();
         }
 
@@ -108,6 +108,15 @@ namespace AnimalHouseTemp
             ControllerGetCage = CageFetch();
 
             return ControllerGetCage;
+        }
+
+        public List<string> ControllerGetBookning(string OwnerID)
+        {
+            List<string> ControllerGetBookning;
+
+            ControllerGetBookning = BookningFetch(OwnerID);
+
+            return ControllerGetBookning;
         }
 
         //Entity
@@ -126,6 +135,16 @@ namespace AnimalHouseTemp
             ListOwn = Daba.DBCSelectFromWhere("Ejer", "TelefonNr", PFParam);
           
             return ListOwn;
+        }
+
+        static List<string> BookningFetch(string PFParam)
+        {
+            IPersistenceController Daba = new DatabaseController();
+            List<string> ListBookning;
+
+            ListBookning = Daba.DBCSelectFromWhere("Bookning", "Ejer", PFParam);
+
+            return ListBookning;
         }
 
         static List<string> RelationFetch(string RFParam)

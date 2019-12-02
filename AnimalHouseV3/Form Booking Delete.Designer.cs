@@ -64,7 +64,7 @@
             // labelReservation
             // 
             this.labelReservation.AutoSize = true;
-            this.labelReservation.Location = new System.Drawing.Point(9, 69);
+            this.labelReservation.Location = new System.Drawing.Point(9, 63);
             this.labelReservation.Name = "labelReservation";
             this.labelReservation.Size = new System.Drawing.Size(84, 17);
             this.labelReservation.TabIndex = 3;

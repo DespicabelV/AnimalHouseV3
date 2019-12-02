@@ -25,6 +25,8 @@ namespace AnimalHouseV3
         private string[,] AnimalArray;
         private string[,] TimeArray;
         private string[,] CageArray;
+        private string[,] BookingArray;
+        private bool SearchCheck, TimeCheck;
 
         public Form_Booking()
         {
@@ -107,9 +109,8 @@ namespace AnimalHouseV3
             textBoxOwnerZipInfo.Text = TempOwnerList[6];
 
             TempRelationList = Controller.ControllerGetRelation(textBoxOwnerInput.Text);
+
             AnimalArray = new string[TempRelationList.Count / 2, 7];
-
-
             for (int i = 0; i < TempRelationList.Count / 2; i++)
             {
                 TempAnimalList = Controller.ControllerGetAnimal(TempRelationList[(i * 2) + 1]);
@@ -119,6 +120,8 @@ namespace AnimalHouseV3
                 }
                 comboBoxAnimalChoice.Items.Add(AnimalArray[i, 1]);
             }
+            comboBoxAnimalChoice.SelectedIndex = 0;
+            SearchCheck = true;
         }
 
         private void comboBoxAnimalChoice_SelectedIndexChanged(object sender, EventArgs e)
@@ -129,10 +132,11 @@ namespace AnimalHouseV3
             textBoxAnimalIDInfo.Text = TempAnimalList[0];
             textBoxAnimalNameInfo.Text = TempAnimalList[1];
             textBoxAnimalGenderInfo.Text = TempAnimalList[2];
-            textBoxAnimalBDayInfo.Text = TempAnimalList[3];
+            textBoxAnimalBDayInfo.Text = Convert.ToDateTime(TempAnimalList[3]).ToString("dd-MM-yyyy");
             textBoxAnimalRaceInfo.Text = TempAnimalList[4];
             textBoxAnimalDoctorInfo.Text = DoctorArray[Convert.ToInt32(TempAnimalList[5]) - 1, 1];
             textBoxAnimalChipInfo.Text = TempAnimalList[6];
+            comboBoxDoctorChoice.SelectedIndex = Convert.ToInt32(TempAnimalList[5]);
         }
 
         private void checkBoxCage_CheckedChanged(object sender, EventArgs e)
@@ -189,6 +193,7 @@ namespace AnimalHouseV3
                 comboBoxTimeChoice.Items.Add(TimeArray[i, 1]);
             }
             comboBoxTimeChoice.SelectedIndex = 0;
+            TimeCheck = true;
         }
 
         private void comboBoxTreatmentsChoice_SelectedIndexChanged(object sender, EventArgs e)
@@ -201,11 +206,92 @@ namespace AnimalHouseV3
 
         }
 
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonBookningSearch_Click(object sender, EventArgs e)
+        {
+            if (textBoxBookingSearch.TextLength == 0)
+            {
+                MessageBox.Show("Please put in a phone number for the owner");
+                return;
+            }
+            if (Controller.ControllerOwnerExist(textBoxBookingSearch.Text) == false)
+            {
+                MessageBox.Show("No owner exist under that phone number");
+                return;
+            }
+
+            List<string> TempBookningList = new List<string>();
+            List<string> TempRelationList = new List<string>();
+            List<string> TempAnimalList = new List<string>();
+            TempBookningList = Controller.ControllerGetBookning(textBoxBookingSearch.Text);
+            TempRelationList = Controller.ControllerGetRelation(textBoxBookingSearch.Text);
+
+            AnimalArray = new string[TempRelationList.Count / 2, 7];
+            for (int i = 0; i < TempRelationList.Count / 2; i++)
+            {
+                TempAnimalList = Controller.ControllerGetAnimal(TempRelationList[(i * 2) + 1]);
+                for (int j = 0; j < 7; j++)
+                {
+                    AnimalArray[i, j] = TempAnimalList[j];
+                }
+            }
+
+
+            BookingArray = new string[TempBookningList.Count / 9, 9];
+            for (int i = 0; i < TempBookningList.Count / 9; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    BookingArray[i, j] = TempBookningList[(i * 9) + j];  //Convert.ToDateTime(TempAnimalList[3]).ToString("dd-MM-yyyy")
+                }
+                comboBoxBookningChoice.Items.Add(Convert.ToDateTime(TempBookningList[(i * 9) + 6]).ToString("dd-MM-yyyy") + " " + AnimalArray[Convert.ToInt32(TempBookningList[(i * 9) + 3]),1]);
+            }
+            comboBoxBookningChoice.SelectedIndex = BookingArray.Length/9 - 1;
+        }
+
+
+        private void comboBoxBookningChoice_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<string> TempOwnerList = new List<string>();
+            List<string> TempAnimalList = new List<string>();
+            //DONT WORK DOWN!
+            //TempAnimalList = Controller.ControllerGetAnimal(AnimalArray[.SelectedIndex, 0]);
+
+
+            TempOwnerList = Controller.ControllerGetOwner(textBoxBookingSearch.Text);
+            textBoxOwnerPhoneInfo.Text = TempOwnerList[0];
+            textBoxOwnerNameInfo.Text = TempOwnerList[1] + " " + TempOwnerList[2];
+            textBoxOwnerStreetInfo.Text = TempOwnerList[3];
+            textBoxOwnerEmailInfo.Text = TempOwnerList[4];
+            textBoxOwnerCityInfo.Text = TempOwnerList[5];
+            textBoxOwnerZipInfo.Text = TempOwnerList[6];
+
+            textBoxAnimalIDInfo.Text = TempAnimalList[0];
+            textBoxAnimalNameInfo.Text = TempAnimalList[1];
+            textBoxAnimalGenderInfo.Text = TempAnimalList[2];
+            textBoxAnimalBDayInfo.Text = Convert.ToDateTime(TempAnimalList[3]).ToString("dd-MM-yyyy");
+            textBoxAnimalRaceInfo.Text = TempAnimalList[4];
+            textBoxAnimalDoctorInfo.Text = DoctorArray[Convert.ToInt32(TempAnimalList[5]) - 1, 1];
+            textBoxAnimalChipInfo.Text = TempAnimalList[6];
+            comboBoxDoctorChoice.SelectedIndex = Convert.ToInt32(TempAnimalList[5]);
+        }
+
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            //if (textBoxOwnerInput.TextLength == 0 || )
-            //{
-            //}
+            if (SearchCheck != true || TimeCheck != true)
+            {
+                MessageBox.Show("Please select a owner and a time before booking", "Error", MessageBoxButtons.OK);
+                return;
+            }
 
             int CageID;
             if (checkBoxCage.Checked)
@@ -224,7 +310,8 @@ namespace AnimalHouseV3
                 CageID,
                 Convert.ToInt32(comboBoxDaysChoice.Text),
                 Convert.ToDateTime(dateTimePickerDate.Value).ToString("yyyy-MM-dd"),
-                Convert.ToInt32(TimeArray[comboBoxTimeChoice.SelectedIndex, 0]));
+                Convert.ToInt32(TimeArray[comboBoxTimeChoice.SelectedIndex, 0]),
+                Convert.ToInt32(textBoxOwnerInput.Text));
             MessageBox.Show("Bookning created","sucess!",MessageBoxButtons.OK);
             this.Close();
         }

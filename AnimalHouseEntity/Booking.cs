@@ -17,8 +17,9 @@ namespace AnimalHouseEntity
         private int Treatment;
         private int Doctor;
         private int Animal;
+        private int Owner;
 
-        public Booking(int Treatment,int Doctor,int Animal, int CageID, int CageDayAmount, string Date, int Times)
+        public Booking(int Treatment,int Doctor,int Animal, int CageID, int CageDayAmount, string Date, int Times, int Owner)
         {
             IPC = new DatabaseController();
             this.CageID = CageID;
@@ -28,11 +29,12 @@ namespace AnimalHouseEntity
             this.Treatment = Treatment;
             this.Doctor = Doctor;
             this.Animal = Animal;
+            this.Owner = Owner;
         }
 
         public void Add()
         {
-            IPC.DBCInsertBooking(Treatment, Doctor, Animal, CageID, CageDayAmount, Date, Times);
+            IPC.DBCInsertBooking(Treatment, Doctor, Animal, CageID, CageDayAmount, Date, Times, Owner);
         }
     }
 }
