@@ -40,13 +40,11 @@
             this.CheckBoxFemale = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.btnCheckOwner = new System.Windows.Forms.Button();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.TxtBoxAnimalDoctorNr = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtBoxAnimalChip = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnAnimalUploadPic = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PictureBoxAnimal = new System.Windows.Forms.PictureBox();
             this.btnAnimalCreate = new System.Windows.Forms.Button();
             this.btnAnimalDelete = new System.Windows.Forms.Button();
             this.btnAnimalUpdate = new System.Windows.Forms.Button();
@@ -56,7 +54,19 @@
             this.label9 = new System.Windows.Forms.Label();
             this.AnimalBirthCalender = new System.Windows.Forms.DateTimePicker();
             this.TxtBoxAnimalNr = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.DoctorComboBox = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.TxtJournalTitle = new System.Windows.Forms.TextBox();
+            this.JournalCalender = new System.Windows.Forms.DateTimePicker();
+            this.btnJournal = new System.Windows.Forms.Button();
+            this.buttonHelp = new System.Windows.Forms.Button();
+            this.groupboxFillin = new System.Windows.Forms.GroupBox();
+            this.btnSearch = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnShowJournal = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnimal)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -150,7 +160,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(48, 455);
+            this.label6.Location = new System.Drawing.Point(1038, 285);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(147, 32);
             this.label6.TabIndex = 11;
@@ -166,27 +176,10 @@
             this.btnCheckOwner.UseVisualStyleBackColor = true;
             this.btnCheckOwner.Click += new System.EventHandler(this.btnCheckOwner_Click);
             // 
-            // btnSearch
-            // 
-            this.btnSearch.Location = new System.Drawing.Point(649, 455);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(190, 54);
-            this.btnSearch.TabIndex = 14;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // TxtBoxAnimalDoctorNr
-            // 
-            this.TxtBoxAnimalDoctorNr.Location = new System.Drawing.Point(1248, 377);
-            this.TxtBoxAnimalDoctorNr.Name = "TxtBoxAnimalDoctorNr";
-            this.TxtBoxAnimalDoctorNr.Size = new System.Drawing.Size(400, 38);
-            this.TxtBoxAnimalDoctorNr.TabIndex = 16;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(1126, 377);
+            this.label7.Location = new System.Drawing.Point(53, 364);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(106, 32);
             this.label7.TabIndex = 15;
@@ -194,7 +187,7 @@
             // 
             // TxtBoxAnimalChip
             // 
-            this.TxtBoxAnimalChip.Location = new System.Drawing.Point(1248, 471);
+            this.TxtBoxAnimalChip.Location = new System.Drawing.Point(200, 458);
             this.TxtBoxAnimalChip.Name = "TxtBoxAnimalChip";
             this.TxtBoxAnimalChip.Size = new System.Drawing.Size(400, 38);
             this.TxtBoxAnimalChip.TabIndex = 18;
@@ -202,7 +195,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1126, 471);
+            this.label8.Location = new System.Drawing.Point(64, 458);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(82, 32);
             this.label8.TabIndex = 17;
@@ -210,24 +203,27 @@
             // 
             // btnAnimalUploadPic
             // 
-            this.btnAnimalUploadPic.Location = new System.Drawing.Point(1070, 580);
+            this.btnAnimalUploadPic.Location = new System.Drawing.Point(1222, 1080);
             this.btnAnimalUploadPic.Name = "btnAnimalUploadPic";
-            this.btnAnimalUploadPic.Size = new System.Drawing.Size(173, 56);
+            this.btnAnimalUploadPic.Size = new System.Drawing.Size(275, 63);
             this.btnAnimalUploadPic.TabIndex = 19;
-            this.btnAnimalUploadPic.Text = "Upload";
+            this.btnAnimalUploadPic.Text = "Upload Picture";
             this.btnAnimalUploadPic.UseVisualStyleBackColor = true;
+            this.btnAnimalUploadPic.Click += new System.EventHandler(this.btnAnimalUploadPic_Click);
             // 
-            // pictureBox1
+            // PictureBoxAnimal
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(1281, 580);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(381, 295);
-            this.pictureBox1.TabIndex = 20;
-            this.pictureBox1.TabStop = false;
+            this.PictureBoxAnimal.Image = global::AnimalHouseV3.Properties.Resources.Labrador_edit;
+            this.PictureBoxAnimal.Location = new System.Drawing.Point(1191, 779);
+            this.PictureBoxAnimal.Name = "PictureBoxAnimal";
+            this.PictureBoxAnimal.Size = new System.Drawing.Size(367, 295);
+            this.PictureBoxAnimal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PictureBoxAnimal.TabIndex = 20;
+            this.PictureBoxAnimal.TabStop = false;
             // 
             // btnAnimalCreate
             // 
-            this.btnAnimalCreate.Location = new System.Drawing.Point(1373, 912);
+            this.btnAnimalCreate.Location = new System.Drawing.Point(1503, 1080);
             this.btnAnimalCreate.Name = "btnAnimalCreate";
             this.btnAnimalCreate.Size = new System.Drawing.Size(275, 63);
             this.btnAnimalCreate.TabIndex = 21;
@@ -237,21 +233,23 @@
             // 
             // btnAnimalDelete
             // 
-            this.btnAnimalDelete.Location = new System.Drawing.Point(1373, 1013);
+            this.btnAnimalDelete.Location = new System.Drawing.Point(1503, 1149);
             this.btnAnimalDelete.Name = "btnAnimalDelete";
             this.btnAnimalDelete.Size = new System.Drawing.Size(275, 63);
             this.btnAnimalDelete.TabIndex = 22;
             this.btnAnimalDelete.Text = "Delete";
             this.btnAnimalDelete.UseVisualStyleBackColor = true;
+            this.btnAnimalDelete.Click += new System.EventHandler(this.btnAnimalDelete_Click);
             // 
             // btnAnimalUpdate
             // 
-            this.btnAnimalUpdate.Location = new System.Drawing.Point(1060, 1013);
+            this.btnAnimalUpdate.Location = new System.Drawing.Point(1222, 1149);
             this.btnAnimalUpdate.Name = "btnAnimalUpdate";
             this.btnAnimalUpdate.Size = new System.Drawing.Size(275, 63);
             this.btnAnimalUpdate.TabIndex = 23;
             this.btnAnimalUpdate.Text = "Update";
             this.btnAnimalUpdate.UseVisualStyleBackColor = true;
+            this.btnAnimalUpdate.Click += new System.EventHandler(this.btnAnimalUpdate_Click);
             // 
             // CheckOwnerRight
             // 
@@ -276,9 +274,9 @@
             // 
             // TextBoxJournal
             // 
-            this.TextBoxJournal.Location = new System.Drawing.Point(54, 580);
+            this.TextBoxJournal.Location = new System.Drawing.Point(54, 841);
             this.TextBoxJournal.Name = "TextBoxJournal";
-            this.TextBoxJournal.Size = new System.Drawing.Size(546, 500);
+            this.TextBoxJournal.Size = new System.Drawing.Size(546, 371);
             this.TextBoxJournal.TabIndex = 27;
             this.TextBoxJournal.Text = "";
             // 
@@ -295,23 +293,140 @@
             // 
             this.AnimalBirthCalender.Location = new System.Drawing.Point(200, 291);
             this.AnimalBirthCalender.Name = "AnimalBirthCalender";
-            this.AnimalBirthCalender.Size = new System.Drawing.Size(333, 38);
+            this.AnimalBirthCalender.Size = new System.Drawing.Size(400, 38);
             this.AnimalBirthCalender.TabIndex = 29;
-            this.AnimalBirthCalender.Value = new System.DateTime(2019, 11, 19, 0, 0, 0, 0);
+            this.AnimalBirthCalender.Value = new System.DateTime(2019, 12, 2, 0, 0, 0, 0);
             // 
             // TxtBoxAnimalNr
             // 
-            this.TxtBoxAnimalNr.Location = new System.Drawing.Point(200, 455);
+            this.TxtBoxAnimalNr.Location = new System.Drawing.Point(1191, 282);
             this.TxtBoxAnimalNr.Name = "TxtBoxAnimalNr";
-            this.TxtBoxAnimalNr.Size = new System.Drawing.Size(400, 38);
+            this.TxtBoxAnimalNr.Size = new System.Drawing.Size(182, 38);
             this.TxtBoxAnimalNr.TabIndex = 12;
+            // 
+            // DoctorComboBox
+            // 
+            this.DoctorComboBox.FormattingEnabled = true;
+            this.DoctorComboBox.Location = new System.Drawing.Point(200, 357);
+            this.DoctorComboBox.Name = "DoctorComboBox";
+            this.DoctorComboBox.Size = new System.Drawing.Size(400, 39);
+            this.DoctorComboBox.TabIndex = 30;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(56, 604);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(78, 32);
+            this.label10.TabIndex = 31;
+            this.label10.Text = "Title:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(56, 708);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(83, 32);
+            this.label11.TabIndex = 32;
+            this.label11.Text = "Date:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(56, 801);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(145, 32);
+            this.label12.TabIndex = 33;
+            this.label12.Text = "Comment:";
+            // 
+            // TxtJournalTitle
+            // 
+            this.TxtJournalTitle.Location = new System.Drawing.Point(200, 597);
+            this.TxtJournalTitle.Name = "TxtJournalTitle";
+            this.TxtJournalTitle.Size = new System.Drawing.Size(400, 38);
+            this.TxtJournalTitle.TabIndex = 34;
+            // 
+            // JournalCalender
+            // 
+            this.JournalCalender.Location = new System.Drawing.Point(200, 708);
+            this.JournalCalender.Name = "JournalCalender";
+            this.JournalCalender.Size = new System.Drawing.Size(400, 38);
+            this.JournalCalender.TabIndex = 35;
+            this.JournalCalender.Value = new System.DateTime(2019, 12, 2, 13, 17, 56, 0);
+            // 
+            // btnJournal
+            // 
+            this.btnJournal.Location = new System.Drawing.Point(617, 1150);
+            this.btnJournal.Name = "btnJournal";
+            this.btnJournal.Size = new System.Drawing.Size(221, 62);
+            this.btnJournal.TabIndex = 36;
+            this.btnJournal.Text = "Comment";
+            this.btnJournal.UseVisualStyleBackColor = true;
+            this.btnJournal.Click += new System.EventHandler(this.btnJournal_Click);
+            // 
+            // buttonHelp
+            // 
+            this.buttonHelp.Location = new System.Drawing.Point(1725, 15);
+            this.buttonHelp.Margin = new System.Windows.Forms.Padding(6);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Size = new System.Drawing.Size(50, 48);
+            this.buttonHelp.TabIndex = 37;
+            this.buttonHelp.Text = "?";
+            this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            // 
+            // groupboxFillin
+            // 
+            this.groupboxFillin.Location = new System.Drawing.Point(35, 44);
+            this.groupboxFillin.Name = "groupboxFillin";
+            this.groupboxFillin.Size = new System.Drawing.Size(604, 497);
+            this.groupboxFillin.TabIndex = 38;
+            this.groupboxFillin.TabStop = false;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Location = new System.Drawing.Point(1400, 279);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(190, 54);
+            this.btnSearch.TabIndex = 14;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = true;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(986, 39);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(653, 340);
+            this.groupBox1.TabIndex = 39;
+            this.groupBox1.TabStop = false;
+            // 
+            // btnShowJournal
+            // 
+            this.btnShowJournal.Location = new System.Drawing.Point(617, 1076);
+            this.btnShowJournal.Name = "btnShowJournal";
+            this.btnShowJournal.Size = new System.Drawing.Size(222, 67);
+            this.btnShowJournal.TabIndex = 40;
+            this.btnShowJournal.Text = "Show Journal";
+            this.btnShowJournal.UseVisualStyleBackColor = true;
+            this.btnShowJournal.Click += new System.EventHandler(this.btnShowJournal_Click);
             // 
             // Form_Animal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1790, 1088);
+            this.ClientSize = new System.Drawing.Size(1790, 1224);
+            this.Controls.Add(this.btnShowJournal);
+            this.Controls.Add(this.btnSearch);
+            this.Controls.Add(this.buttonHelp);
+            this.Controls.Add(this.btnJournal);
+            this.Controls.Add(this.JournalCalender);
+            this.Controls.Add(this.TxtJournalTitle);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.DoctorComboBox);
             this.Controls.Add(this.AnimalBirthCalender);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.TextBoxJournal);
@@ -320,13 +435,11 @@
             this.Controls.Add(this.btnAnimalUpdate);
             this.Controls.Add(this.btnAnimalDelete);
             this.Controls.Add(this.btnAnimalCreate);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.PictureBoxAnimal);
             this.Controls.Add(this.btnAnimalUploadPic);
             this.Controls.Add(this.TxtBoxAnimalChip);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.TxtBoxAnimalDoctorNr);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.btnCheckOwner);
             this.Controls.Add(this.TxtBoxAnimalNr);
             this.Controls.Add(this.label6);
@@ -340,9 +453,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TxtAnimalName);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.groupboxFillin);
+            this.Controls.Add(this.groupBox1);
             this.Name = "Form_Animal";
             this.Text = "Animal";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnimal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,13 +477,11 @@
         private System.Windows.Forms.CheckBox CheckBoxFemale;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button btnCheckOwner;
-        private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.TextBox TxtBoxAnimalDoctorNr;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TxtBoxAnimalChip;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnAnimalUploadPic;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PictureBoxAnimal;
         private System.Windows.Forms.Button btnAnimalCreate;
         private System.Windows.Forms.Button btnAnimalDelete;
         private System.Windows.Forms.Button btnAnimalUpdate;
@@ -378,5 +491,17 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker AnimalBirthCalender;
         private System.Windows.Forms.TextBox TxtBoxAnimalNr;
+        private System.Windows.Forms.ComboBox DoctorComboBox;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox TxtJournalTitle;
+        private System.Windows.Forms.DateTimePicker JournalCalender;
+        private System.Windows.Forms.Button btnJournal;
+        private System.Windows.Forms.Button buttonHelp;
+        private System.Windows.Forms.GroupBox groupboxFillin;
+        private System.Windows.Forms.Button btnSearch;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.Button btnShowJournal;
     }
 }
