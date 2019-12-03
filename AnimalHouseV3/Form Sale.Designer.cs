@@ -39,6 +39,11 @@
             this.SelectItemColoumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.txtboxTotalPrisWithTax = new System.Windows.Forms.TextBox();
             this.DataGridViewCart = new System.Windows.Forms.DataGridView();
+            this.RessourceCategoryColoumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RessourceNrColoumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NameColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AmountColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PriceColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtboxTotalPrisWithOutTax = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,9 +57,10 @@
             this.ButtonDiscount = new System.Windows.Forms.Button();
             this.OwnerValid = new System.Windows.Forms.CheckBox();
             this.ComboBoxBookning = new System.Windows.Forms.ComboBox();
-            this.textBoxOwnerSearch = new System.Windows.Forms.TextBox();
+            this.textBoxOwner = new System.Windows.Forms.TextBox();
             this.TextboxAmount = new System.Windows.Forms.TextBox();
             this.buttonHelp = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewItemsInStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCart)).BeginInit();
             this.SuspendLayout();
@@ -62,7 +68,7 @@
             // PrivateCheckBox
             // 
             this.PrivateCheckBox.AutoSize = true;
-            this.PrivateCheckBox.Location = new System.Drawing.Point(99, 42);
+            this.PrivateCheckBox.Location = new System.Drawing.Point(108, 106);
             this.PrivateCheckBox.Name = "PrivateCheckBox";
             this.PrivateCheckBox.Size = new System.Drawing.Size(59, 17);
             this.PrivateCheckBox.TabIndex = 0;
@@ -73,7 +79,7 @@
             // BuisnessCheckBox
             // 
             this.BuisnessCheckBox.AutoSize = true;
-            this.BuisnessCheckBox.Location = new System.Drawing.Point(25, 42);
+            this.BuisnessCheckBox.Location = new System.Drawing.Point(25, 106);
             this.BuisnessCheckBox.Name = "BuisnessCheckBox";
             this.BuisnessCheckBox.Size = new System.Drawing.Size(68, 17);
             this.BuisnessCheckBox.TabIndex = 1;
@@ -84,7 +90,7 @@
             // LabelOwner
             // 
             this.LabelOwner.AutoSize = true;
-            this.LabelOwner.Location = new System.Drawing.Point(819, 46);
+            this.LabelOwner.Location = new System.Drawing.Point(25, 72);
             this.LabelOwner.Name = "LabelOwner";
             this.LabelOwner.Size = new System.Drawing.Size(41, 13);
             this.LabelOwner.TabIndex = 5;
@@ -92,7 +98,7 @@
             // 
             // BtnSearchOwner
             // 
-            this.BtnSearchOwner.Location = new System.Drawing.Point(966, 44);
+            this.BtnSearchOwner.Location = new System.Drawing.Point(173, 70);
             this.BtnSearchOwner.Name = "BtnSearchOwner";
             this.BtnSearchOwner.Size = new System.Drawing.Size(58, 20);
             this.BtnSearchOwner.TabIndex = 6;
@@ -102,21 +108,22 @@
             // 
             // BtnAddBookning
             // 
-            this.BtnAddBookning.Location = new System.Drawing.Point(966, 70);
+            this.BtnAddBookning.Location = new System.Drawing.Point(911, 165);
             this.BtnAddBookning.Name = "BtnAddBookning";
-            this.BtnAddBookning.Size = new System.Drawing.Size(58, 20);
+            this.BtnAddBookning.Size = new System.Drawing.Size(42, 20);
             this.BtnAddBookning.TabIndex = 8;
             this.BtnAddBookning.Text = "Add";
             this.BtnAddBookning.UseVisualStyleBackColor = true;
+            this.BtnAddBookning.Click += new System.EventHandler(this.BtnAddBookning_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(819, 169);
+            this.label2.Location = new System.Drawing.Point(971, 169);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(26, 13);
+            this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Cart";
+            this.label2.Text = "Type:";
             // 
             // ButtonAddToCart
             // 
@@ -149,30 +156,75 @@
             // 
             // txtboxTotalPrisWithTax
             // 
-            this.txtboxTotalPrisWithTax.Location = new System.Drawing.Point(1057, 558);
+            this.txtboxTotalPrisWithTax.Enabled = false;
+            this.txtboxTotalPrisWithTax.Location = new System.Drawing.Point(974, 555);
             this.txtboxTotalPrisWithTax.Name = "txtboxTotalPrisWithTax";
             this.txtboxTotalPrisWithTax.Size = new System.Drawing.Size(74, 20);
             this.txtboxTotalPrisWithTax.TabIndex = 15;
+            this.txtboxTotalPrisWithTax.Text = "0";
             // 
             // DataGridViewCart
             // 
             this.DataGridViewCart.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGridViewCart.Location = new System.Drawing.Point(819, 192);
+            this.DataGridViewCart.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.RessourceCategoryColoumn,
+            this.RessourceNrColoumn,
+            this.NameColumn,
+            this.AmountColumn,
+            this.PriceColumn});
+            this.DataGridViewCart.Location = new System.Drawing.Point(749, 192);
             this.DataGridViewCart.Name = "DataGridViewCart";
-            this.DataGridViewCart.Size = new System.Drawing.Size(385, 322);
+            this.DataGridViewCart.Size = new System.Drawing.Size(374, 322);
             this.DataGridViewCart.TabIndex = 16;
+            // 
+            // RessourceCategoryColoumn
+            // 
+            this.RessourceCategoryColoumn.FillWeight = 80F;
+            this.RessourceCategoryColoumn.HeaderText = "Ressource Category";
+            this.RessourceCategoryColoumn.Name = "RessourceCategoryColoumn";
+            this.RessourceCategoryColoumn.Width = 80;
+            // 
+            // RessourceNrColoumn
+            // 
+            this.RessourceNrColoumn.FillWeight = 80F;
+            this.RessourceNrColoumn.HeaderText = "Ressource Nr";
+            this.RessourceNrColoumn.Name = "RessourceNrColoumn";
+            this.RessourceNrColoumn.Width = 80;
+            // 
+            // NameColumn
+            // 
+            this.NameColumn.FillWeight = 60F;
+            this.NameColumn.HeaderText = "Name";
+            this.NameColumn.Name = "NameColumn";
+            this.NameColumn.Width = 60;
+            // 
+            // AmountColumn
+            // 
+            this.AmountColumn.FillWeight = 50F;
+            this.AmountColumn.HeaderText = "Amount";
+            this.AmountColumn.Name = "AmountColumn";
+            this.AmountColumn.Width = 50;
+            // 
+            // PriceColumn
+            // 
+            this.PriceColumn.FillWeight = 60F;
+            this.PriceColumn.HeaderText = "Price";
+            this.PriceColumn.Name = "PriceColumn";
+            this.PriceColumn.Width = 60;
             // 
             // txtboxTotalPrisWithOutTax
             // 
-            this.txtboxTotalPrisWithOutTax.Location = new System.Drawing.Point(1057, 584);
+            this.txtboxTotalPrisWithOutTax.Enabled = false;
+            this.txtboxTotalPrisWithOutTax.Location = new System.Drawing.Point(974, 581);
             this.txtboxTotalPrisWithOutTax.Name = "txtboxTotalPrisWithOutTax";
             this.txtboxTotalPrisWithOutTax.Size = new System.Drawing.Size(74, 20);
             this.txtboxTotalPrisWithOutTax.TabIndex = 17;
+            this.txtboxTotalPrisWithOutTax.Text = "0";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(978, 561);
+            this.label1.Location = new System.Drawing.Point(895, 558);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(64, 13);
             this.label1.TabIndex = 18;
@@ -181,7 +233,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(978, 587);
+            this.label3.Location = new System.Drawing.Point(895, 584);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 13);
             this.label3.TabIndex = 19;
@@ -189,12 +241,13 @@
             // 
             // BtnPay
             // 
-            this.BtnPay.Location = new System.Drawing.Point(1146, 583);
+            this.BtnPay.Location = new System.Drawing.Point(1063, 580);
             this.BtnPay.Name = "BtnPay";
             this.BtnPay.Size = new System.Drawing.Size(58, 20);
             this.BtnPay.TabIndex = 20;
             this.BtnPay.Text = "Pay";
             this.BtnPay.UseVisualStyleBackColor = true;
+            this.BtnPay.Click += new System.EventHandler(this.BtnPay_Click);
             // 
             // ComboBoxCategory
             // 
@@ -213,14 +266,15 @@
             // 
             this.ComboBoxCart.FormattingEnabled = true;
             this.ComboBoxCart.Items.AddRange(new object[] {
-            "Buisness",
+            "Business",
             "Standard",
             "Loyality Discount"});
-            this.ComboBoxCart.Location = new System.Drawing.Point(860, 164);
+            this.ComboBoxCart.Location = new System.Drawing.Point(1004, 164);
             this.ComboBoxCart.Name = "ComboBoxCart";
-            this.ComboBoxCart.Size = new System.Drawing.Size(121, 21);
+            this.ComboBoxCart.Size = new System.Drawing.Size(119, 21);
             this.ComboBoxCart.TabIndex = 22;
             this.ComboBoxCart.Text = "DiscountType";
+            this.ComboBoxCart.SelectedIndexChanged += new System.EventHandler(this.ComboBoxCart_SelectedIndexChanged);
             // 
             // TxtboxSearchRessourceCategory
             // 
@@ -243,7 +297,7 @@
             // Label11
             // 
             this.Label11.AutoSize = true;
-            this.Label11.Location = new System.Drawing.Point(978, 529);
+            this.Label11.Location = new System.Drawing.Point(895, 526);
             this.Label11.Name = "Label11";
             this.Label11.Size = new System.Drawing.Size(52, 13);
             this.Label11.TabIndex = 26;
@@ -251,25 +305,28 @@
             // 
             // TextboxDiscount
             // 
-            this.TextboxDiscount.Location = new System.Drawing.Point(1057, 526);
+            this.TextboxDiscount.Enabled = false;
+            this.TextboxDiscount.Location = new System.Drawing.Point(974, 523);
             this.TextboxDiscount.Name = "TextboxDiscount";
             this.TextboxDiscount.Size = new System.Drawing.Size(74, 20);
             this.TextboxDiscount.TabIndex = 25;
+            this.TextboxDiscount.Text = "0";
             // 
             // ButtonDiscount
             // 
-            this.ButtonDiscount.Location = new System.Drawing.Point(1146, 525);
+            this.ButtonDiscount.Location = new System.Drawing.Point(1063, 522);
             this.ButtonDiscount.Name = "ButtonDiscount";
             this.ButtonDiscount.Size = new System.Drawing.Size(58, 20);
             this.ButtonDiscount.TabIndex = 27;
             this.ButtonDiscount.Text = "Discount";
             this.ButtonDiscount.UseVisualStyleBackColor = true;
+            this.ButtonDiscount.Click += new System.EventHandler(this.ButtonDiscount_Click);
             // 
             // OwnerValid
             // 
             this.OwnerValid.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.OwnerValid.AutoSize = true;
-            this.OwnerValid.Location = new System.Drawing.Point(1030, 46);
+            this.OwnerValid.Location = new System.Drawing.Point(237, 72);
             this.OwnerValid.Name = "OwnerValid";
             this.OwnerValid.Size = new System.Drawing.Size(15, 14);
             this.OwnerValid.TabIndex = 28;
@@ -278,18 +335,17 @@
             // ComboBoxBookning
             // 
             this.ComboBoxBookning.FormattingEnabled = true;
-            this.ComboBoxBookning.Location = new System.Drawing.Point(860, 69);
+            this.ComboBoxBookning.Location = new System.Drawing.Point(805, 164);
             this.ComboBoxBookning.Name = "ComboBoxBookning";
             this.ComboBoxBookning.Size = new System.Drawing.Size(100, 21);
             this.ComboBoxBookning.TabIndex = 29;
-            this.ComboBoxBookning.Text = "Bookning";
             // 
-            // textBoxOwnerSearch
+            // textBoxOwner
             // 
-            this.textBoxOwnerSearch.Location = new System.Drawing.Point(860, 43);
-            this.textBoxOwnerSearch.Name = "textBoxOwnerSearch";
-            this.textBoxOwnerSearch.Size = new System.Drawing.Size(100, 20);
-            this.textBoxOwnerSearch.TabIndex = 30;
+            this.textBoxOwner.Location = new System.Drawing.Point(67, 69);
+            this.textBoxOwner.Name = "textBoxOwner";
+            this.textBoxOwner.Size = new System.Drawing.Size(100, 20);
+            this.textBoxOwner.TabIndex = 30;
             // 
             // TextboxAmount
             // 
@@ -300,25 +356,36 @@
             // 
             // buttonHelp
             // 
-            this.buttonHelp.Location = new System.Drawing.Point(1185, 11);
+            this.buttonHelp.Location = new System.Drawing.Point(1102, 11);
             this.buttonHelp.Margin = new System.Windows.Forms.Padding(2);
             this.buttonHelp.Name = "buttonHelp";
             this.buttonHelp.Size = new System.Drawing.Size(19, 20);
             this.buttonHelp.TabIndex = 32;
             this.buttonHelp.Text = "?";
             this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(746, 169);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.TabIndex = 33;
+            this.label4.Text = "Bookning:";
             // 
             // FormSalePos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1226, 653);
+            this.ClientSize = new System.Drawing.Size(1145, 653);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.ButtonAddToCart);
             this.Controls.Add(this.TextboxAmount);
             this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.BuisnessCheckBox);
             this.Controls.Add(this.PrivateCheckBox);
-            this.Controls.Add(this.textBoxOwnerSearch);
+            this.Controls.Add(this.textBoxOwner);
             this.Controls.Add(this.ComboBoxBookning);
             this.Controls.Add(this.OwnerValid);
             this.Controls.Add(this.ButtonDiscount);
@@ -340,7 +407,7 @@
             this.Controls.Add(this.BtnSearchOwner);
             this.Controls.Add(this.LabelOwner);
             this.Name = "FormSalePos";
-            this.Text = "Form Sale";
+            this.Text = "Sale";
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewItemsInStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridViewCart)).EndInit();
             this.ResumeLayout(false);
@@ -373,9 +440,15 @@
         private System.Windows.Forms.Button ButtonDiscount;
         private System.Windows.Forms.CheckBox OwnerValid;
         private System.Windows.Forms.ComboBox ComboBoxBookning;
-        private System.Windows.Forms.TextBox textBoxOwnerSearch;
+        private System.Windows.Forms.TextBox textBoxOwner;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelectItemColoumn;
         private System.Windows.Forms.TextBox TextboxAmount;
         private System.Windows.Forms.Button buttonHelp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RessourceCategoryColoumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RessourceNrColoumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NameColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AmountColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PriceColumn;
+        private System.Windows.Forms.Label label4;
     }
 }
