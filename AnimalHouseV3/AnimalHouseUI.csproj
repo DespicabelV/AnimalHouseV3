@@ -113,6 +113,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form AnimalJournal.resx">
+      <DependentUpon>Form AnimalJournal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form Animal.resx">
       <DependentUpon>Form Animal.cs</DependentUpon>
     </EmbeddedResource>
