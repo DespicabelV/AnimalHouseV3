@@ -61,6 +61,8 @@ namespace AnimalHousePersistence
 
         void DBCUpdateBusiness(int ID, string Navn, string CVR);
 
+        void DBCUpdateBookning(int Behandling, int Laege, int Dyr, int Bur, int Burdag, string Dato, int Tid, int ID);
+
         List<string> DBCTimes();
 
     }

@@ -94,13 +94,6 @@ namespace AnimalHouseTemp
             return ControllerGetTime;
         }
 
-        public void ControllerAddBookning(int Treatment, int Doctor, int Animal, int CageID, int CageDay, string Date, int Times, int Owner)
-        {
-            Booking TempBook;
-            TempBook = new Booking(Treatment, Doctor, Animal, CageID, CageDay, Date, Times, Owner);
-            TempBook.Add();
-        }
-
         public List<string> ControllerGetCage()
         {
             List<string> ControllerGetCage;
@@ -119,7 +112,22 @@ namespace AnimalHouseTemp
             return ControllerGetBookning;
         }
 
-        //Entity
+        public void ControllerAddBookning(int Treatment, int Doctor, int Animal, int CageID, int CageDay, string Date, int Times, int Owner)
+        {
+            Booking TempBook;
+            TempBook = new Booking(Treatment, Doctor, Animal, CageID, CageDay, Date, Times, Owner);
+            TempBook.Add();
+        }
+
+        public void ControllerUpdateBookning(int Treatment, int Doctor, int Animal, int CageID, int CageDay, string Date, int Times, int Owner)
+        {
+            Booking TempBook;
+            TempBook = new Booking(Treatment, Doctor, Animal, CageID, CageDay, Date, Times, Owner);
+            TempBook.Update();
+        }
+
+        //------------------------Entity-----------------------------
+
         static bool PrivateExist(string PEParam)
         {
             IPersistenceController Daba = new DatabaseController();
@@ -216,5 +224,7 @@ namespace AnimalHouseTemp
 
             return CageList;
         }
+        
+
     }
 }

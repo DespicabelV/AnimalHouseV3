@@ -36,5 +36,10 @@ namespace AnimalHouseEntity
         {
             IPC.DBCInsertBooking(Treatment, Doctor, Animal, CageID, CageDayAmount, Date, Times, Owner);
         }
+
+        public void Update()
+        {
+
+        }
     }
 }

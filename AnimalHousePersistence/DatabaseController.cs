@@ -248,8 +248,8 @@ namespace AnimalHousePersistence
             string DBCGetDoctorString;
 
             SqlCommand SelectFromJoin = new SqlCommand();
-            SelectFromJoin.CommandText = $"select Laege.Navn from Laege" +
-                $"right outer join Dyr on Laege.ID = Dyr.Laege" +
+            SelectFromJoin.CommandText = $"select Laege.Navn from Laege " +
+                $"right outer join Dyr on Laege.ID = Dyr.Laege " +
                 $"where Dyr.ID = {DBCPram}";
             SelectFromJoin.Connection = db;
             DBCGetDoctorString = (string)SelectFromJoin.ExecuteScalar();
@@ -439,6 +439,18 @@ namespace AnimalHousePersistence
             SqlCommand DBCInsertAnimal = new SqlCommand();
             DBCInsertAnimal.CommandText = $"UPDATE Ressource " +
                 $"SET Pris = {Pris}, VarekatagoriID = {VareKata}" +
+                $"WHERE ID = {ID}";
+            DBCInsertAnimal.Connection = db;
+            DBCInsertAnimal.ExecuteNonQuery();
+            DBCCloseDB();
+        }
+
+        public void DBCUpdateBookning(int Behandling, int Laege, int Dyr, int Bur, int Burdag, string Dato, int Tid, int ID)
+        {
+            DBCOpenDB();
+            SqlCommand DBCInsertAnimal = new SqlCommand();
+            DBCInsertAnimal.CommandText = $"UPDATE Bookning " +
+                $"SET Behandling = {Behandling}, Laege = {Laege}, Dyr = {Dyr}, Bur = {Bur}, Burdage = {Burdag}, Dato = {Dato}, Tid = {Tid}" +
                 $"WHERE ID = {ID}";
             DBCInsertAnimal.Connection = db;
             DBCInsertAnimal.ExecuteNonQuery();
