@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using AnimalHousePersistence;
 using AnimalHouseEntity;
+using System.Data.SqlClient;
+using System.Data;
 
 namespace AnimalHouseTemp
 {
@@ -24,6 +26,7 @@ namespace AnimalHouseTemp
     }
     public class JacobTempAHC
     {
+        JacobTempEntity entity = new JacobTempEntity();
         // code for controller layer  
         public void CreatePrivateOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
         {
@@ -71,10 +74,15 @@ namespace AnimalHouseTemp
             JacobTempEntity entity = new JacobTempEntity();
             entity.DeleteOwner(Owner, Where, TelephoneNr);
         }
-        //public void DeleteBusiness(string Owner)
+        public object ShowAnimalDataTable(string TelephoneNr)
+        {
+          object dt= entity.GetAnimalDataTable(TelephoneNr);
+            return dt;
+        }
     }
     class JacobTempEntity
     {
+        SqlConnection db;
         //code for entity layer
         public IPersistenceController OwnerController;
         public JacobTempEntity()
@@ -118,11 +126,51 @@ namespace AnimalHouseTemp
         }
         public void DeleteOwner(string Owner,string Where,string TelephoneNr)
         {
-            OwnerController.DBCDelete("ejer", "TelefonNr", "TelefonNr");
+            OwnerController.DBCDelete(Owner, Where, TelephoneNr);
         }
-       //public void DeleteBusiness(string Business,string Where,string TelehponeNr)
-        //{
-        //    OwnerController.DBCDelete(Business, Where, TelehponeNr);
-        //}
+        private SqlConnection DBCOpenDB()
+        {
+             db = new SqlConnection("Data source = den1.mssql7.gear.host; Initial Catalog = animalhousev3;User Id= animalhousev3 ;Password= Ts3N59?EL_mw");
+            db.Open();
+            return db;
+        }
+        private void DBCCloseDB()
+        {
+            db.Close();
+        }
+        public object GetAnimalDataTable(string TelePhoneNr)
+        {
+            string Qry = $"select Dyr.Navn, Dyr.ID from Dyr join Relation on Dyr.ID = Relation.Dyr join Ejer on Relation.Ejer = Ejer.TelefonNr where Ejer.TelefonNr = {TelePhoneNr}";
+            DBCOpenDB();
+            SqlCommand SqlCMD = new SqlCommand(Qry, DBCOpenDB());
+            SqlDataAdapter Adapter = new SqlDataAdapter(SqlCMD);
+            DataTable dt = new DataTable();
+            Adapter.Fill(dt);
+            DBCCloseDB();
+            return dt;
+        }
     }
 }
+
+//  kode til unittest <==
+//public bool CheckIfExist(string DBCFrom, string DBCWhere, string DBCParam)
+//{
+//    int i;
+//    bool flag = true;
+//    DBCOpenDB();
+//    SqlCommand DBCCheck = new SqlCommand();
+//    DBCCheck.CommandText = $"SELECT COUNT(*) FROM {DBCFrom} WHERE {DBCWhere} = {DBCParam}";
+//    DBCCheck.Connection = db;
+//    i = (int)DBCCheck.ExecuteScalar();
+//    DBCCloseDB();
+
+//    if (i == 0)
+//    {
+//        flag = false;
+//    }
+
+//    return flag;
+//}
+// kode til unittest ==>
+
+
