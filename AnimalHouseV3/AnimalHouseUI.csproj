@@ -47,11 +47,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Form AnimalJournal.cs">
-      <Subtype>From</Subtype>
-    </Compile> 
-    
-    
-    
+      <SubType>From</SubType>
+    </Compile>
+    <Compile Include="Form AnimalJournal.Designer.cs">
+      <DependentUpon>Form AnimalJournal.cs</DependentUpon>
+    </Compile>  
     <Compile Include="Animalhousev3DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
