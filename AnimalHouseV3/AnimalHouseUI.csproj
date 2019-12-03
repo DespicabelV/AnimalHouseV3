@@ -52,6 +52,11 @@
     <Compile Include="Form AnimalJournal.Designer.cs">
       <DependentUpon>Form AnimalJournal.cs</DependentUpon>
     </Compile>
+    
+    
+    
+    
+    
     <Compile Include="Form Animal.cs">
       <SubType>Form</SubType>
     </Compile>
