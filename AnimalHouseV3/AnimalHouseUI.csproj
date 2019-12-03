@@ -52,11 +52,11 @@
     <Compile Include="Form AnimalJournal.Designer.cs">
       <DependentUpon>Form AnimalJournal.cs</DependentUpon>
     </Compile>
-    
-    
-    
-    
-    
+    <Compile Include="Animalhousev3DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Animalhousev3DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form Animal.cs">
       <SubType>Form</SubType>
     </Compile>
