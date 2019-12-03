@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -59,8 +60,14 @@
             this.TextBoxCompanyName = new System.Windows.Forms.TextBox();
             this.TextBoxEmail = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dyrBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.animalhousev3DataSet = new AnimalHouseV3.Animalhousev3DataSet();
+            this.LejlighedCheck = new System.Windows.Forms.CheckBox();
+            this.dyrTableAdapter = new AnimalHouseV3.Animalhousev3DataSetTableAdapters.DyrTableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dyrBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animalhousev3DataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -211,7 +218,7 @@
             // 
             // ButtonAddPet
             // 
-            this.ButtonAddPet.Location = new System.Drawing.Point(304, 520);
+            this.ButtonAddPet.Location = new System.Drawing.Point(351, 523);
             this.ButtonAddPet.Name = "ButtonAddPet";
             this.ButtonAddPet.Size = new System.Drawing.Size(96, 41);
             this.ButtonAddPet.TabIndex = 27;
@@ -276,6 +283,7 @@
             this.TextBoxFloor.Name = "TextBoxFloor";
             this.TextBoxFloor.Size = new System.Drawing.Size(37, 22);
             this.TextBoxFloor.TabIndex = 33;
+            this.TextBoxFloor.Visible = false;
             // 
             // ButtonHelpOwner
             // 
@@ -287,6 +295,7 @@
             this.ButtonHelpOwner.TabIndex = 34;
             this.ButtonHelpOwner.Text = "?";
             this.ButtonHelpOwner.UseVisualStyleBackColor = false;
+            this.ButtonHelpOwner.Click += new System.EventHandler(this.ButtonHelpOwner_Click);
             // 
             // labelCVRNR
             // 
@@ -343,14 +352,39 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Functions";
             // 
+            // dyrBindingSource
+            // 
+            this.dyrBindingSource.DataMember = "Dyr";
+            this.dyrBindingSource.DataSource = this.animalhousev3DataSet;
+            // 
+            // animalhousev3DataSet
+            // 
+            this.animalhousev3DataSet.DataSetName = "Animalhousev3DataSet";
+            this.animalhousev3DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // LejlighedCheck
+            // 
+            this.LejlighedCheck.AutoSize = true;
+            this.LejlighedCheck.Location = new System.Drawing.Point(179, 310);
+            this.LejlighedCheck.Name = "LejlighedCheck";
+            this.LejlighedCheck.Size = new System.Drawing.Size(87, 21);
+            this.LejlighedCheck.TabIndex = 41;
+            this.LejlighedCheck.Text = "Lejlighed";
+            this.LejlighedCheck.UseVisualStyleBackColor = true;
+            this.LejlighedCheck.CheckedChanged += new System.EventHandler(this.LejlighedCheck_CheckedChanged);
+            // 
+            // dyrTableAdapter
+            // 
+            this.dyrTableAdapter.ClearBeforeFill = true;
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(9, 411);
+            this.dataGridView1.Location = new System.Drawing.Point(38, 400);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 40;
+            this.dataGridView1.TabIndex = 42;
             // 
             // Form_Owner
             // 
@@ -358,6 +392,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(872, 587);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.LejlighedCheck);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.TextBoxCompanyName);
             this.Controls.Add(this.labelCompanyName);
@@ -390,6 +425,8 @@
             this.Text = "Form_Owner";
             this.Load += new System.EventHandler(this.Form_Owner_Load);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dyrBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.animalhousev3DataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -429,6 +466,10 @@
         private System.Windows.Forms.TextBox TextBoxCompanyName;
         private System.Windows.Forms.TextBox TextBoxEmail;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox LejlighedCheck;
+        private Animalhousev3DataSet animalhousev3DataSet;
+        private System.Windows.Forms.BindingSource dyrBindingSource;
+        private Animalhousev3DataSetTableAdapters.DyrTableAdapter dyrTableAdapter;
         private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

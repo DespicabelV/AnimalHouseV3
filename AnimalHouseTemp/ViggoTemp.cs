@@ -12,6 +12,7 @@ namespace AnimalHouseTemp
     {
         IPersistenceController Daba;
 
+
         //Todo
         //Check if the owner is there
         //Lav inset journal til dyr
@@ -93,7 +94,40 @@ namespace AnimalHouseTemp
             return ControllerGetTime;
         }
 
-        //Entity
+        public List<string> ControllerGetCage()
+        {
+            List<string> ControllerGetCage;
+
+            ControllerGetCage = CageFetch();
+
+            return ControllerGetCage;
+        }
+
+        public List<string> ControllerGetBookning(string OwnerID)
+        {
+            List<string> ControllerGetBookning;
+
+            ControllerGetBookning = BookningFetch(OwnerID);
+
+            return ControllerGetBookning;
+        }
+
+        public void ControllerAddBookning(int Treatment, int Doctor, int Animal, int CageID, int CageDay, string Date, int Times, int Owner)
+        {
+            Booking TempBook;
+            TempBook = new Booking(Treatment, Doctor, Animal, CageID, CageDay, Date, Times, Owner);
+            TempBook.Add();
+        }
+
+        public void ControllerUpdateBookning(int Treatment, int Doctor, int Animal, int CageID, int CageDay, string Date, int Times, int Owner)
+        {
+            Booking TempBook;
+            TempBook = new Booking(Treatment, Doctor, Animal, CageID, CageDay, Date, Times, Owner);
+            TempBook.Update();
+        }
+
+        //------------------------Entity-----------------------------
+
         static bool PrivateExist(string PEParam)
         {
             IPersistenceController Daba = new DatabaseController();
@@ -109,6 +143,16 @@ namespace AnimalHouseTemp
             ListOwn = Daba.DBCSelectFromWhere("Ejer", "TelefonNr", PFParam);
           
             return ListOwn;
+        }
+
+        static List<string> BookningFetch(string PFParam)
+        {
+            IPersistenceController Daba = new DatabaseController();
+            List<string> ListBookning;
+
+            ListBookning = Daba.DBCSelectFromWhere("Bookning", "Ejer", PFParam);
+
+            return ListBookning;
         }
 
         static List<string> RelationFetch(string RFParam)
@@ -170,5 +214,17 @@ namespace AnimalHouseTemp
 
             return ListTime;
         }
+
+        static List<string> CageFetch()
+        {
+            IPersistenceController Daba = new DatabaseController();
+            List<string> CageList;
+
+            CageList = Daba.DBCSelectFrom("Bur");
+
+            return CageList;
+        }
+        
+
     }
 }

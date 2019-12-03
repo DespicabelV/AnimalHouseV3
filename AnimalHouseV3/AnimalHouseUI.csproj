@@ -46,6 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Form AnimalJournal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form AnimalJournal.Designer.cs">
+      <DependentUpon>Form AnimalJournal.cs</DependentUpon>
+    </Compile>  
+    <Compile Include="Animalhousev3DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Animalhousev3DataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form Animal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -102,6 +113,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form AnimalJournal.resx">
+      <DependentUpon>Form AnimalJournal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form Animal.resx">
       <DependentUpon>Form Animal.cs</DependentUpon>
     </EmbeddedResource>
@@ -133,6 +147,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Animalhousev3DataSet.xsc">
+      <DependentUpon>Animalhousev3DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Animalhousev3DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Animalhousev3DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Animalhousev3DataSet.xss">
+      <DependentUpon>Animalhousev3DataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
