@@ -18,5 +18,10 @@ namespace AnimalHouseEntity
             this.Price = Price;
             this.ProductCategoryID = ProductCategoryID;
         }
+
+        protected Ressource(int ID)
+        {
+            this.ID = ID;
+        }
     }
 }

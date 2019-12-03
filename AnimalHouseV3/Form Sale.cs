@@ -14,9 +14,11 @@ namespace AnimalHouseV3
     public partial class FormSalePos : Form
     {
         NichlasTemp Temp = new NichlasTemp();
+        NæstenController NC = new NæstenController();
         public FormSalePos()
         {
             InitializeComponent();
+
         }
 
         private void PrivateCheckBox_CheckedChanged(object sender, EventArgs e)
@@ -41,7 +43,24 @@ namespace AnimalHouseV3
 
         private void BtnSearchOwner_Click(object sender, EventArgs e)
         {
-            //Select * from Owner
+            Temp.GetOwner(textBoxOwner.Text);
+            Temp.CheckIfExsist(textBoxOwner.Text);
+            if (Temp.CheckIfExsist(textBoxOwner.Text) == true)
+            {
+                OwnerValid.Checked = true;
+                OwnerValid.Enabled = false;
+            }
+            else
+            {
+                OwnerValid.Checked = false;
+                OwnerValid.Enabled = false;
+
+            }
+
+            foreach (string item in Temp.GetBookning1(textBoxOwner.Text))
+            {
+                ComboBoxBookning.Items.Add(item);
+            }
         }
 
         private void ComboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
@@ -59,47 +78,112 @@ namespace AnimalHouseV3
 
         private void ButtonAddToCart_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < DataGridViewItemsInStock.Rows.Count; i++)
+            for (int i = 0; i <= DataGridViewItemsInStock.Rows.Count -1; i++)
             {
-                bool RowAlreadyExist = false;
-                bool CheckedCells = (bool)DataGridViewItemsInStock.Rows[i].Cells[0].Value;
-                if (CheckedCells == true)
+                bool RowExist = false;
+                bool CheckedCell = Convert.ToBoolean(DataGridViewItemsInStock.Rows[i].Cells[0].Value);
+                if (CheckedCell == true)
                 {
                     DataGridViewRow Row = DataGridViewItemsInStock.Rows[i];
-                    if (DataGridViewCart.Rows.Count!=0)
+                    if (DataGridViewCart.Rows.Count != 0)
                     {
-                        for(int j = 0; j <= DataGridViewCart.Rows.Count; j++) 
+                        for (int j= 0; j < DataGridViewCart.Rows.Count-1; j++)
                         {
-                            if (Row.Cells[0].Value.ToString() == DataGridViewCart.Rows[j].Cells[0].Value.ToString())
+                            if (Row.Cells[2].Value.ToString() == DataGridViewCart.Rows[j].Cells[2].Value.ToString())
                             {
-                                RowAlreadyExist = true;
+                                RowExist = true;
                                 break;
                             }
                         }
-                        if (RowAlreadyExist == false)
+                        if(RowExist == false)
                         {
-                            int RessourceID = 0;
-                            string Name = "";
-                            double Price = 0;
-                            int RessourceKategory = 0;
-                            foreach (DataGridViewRow k in DataGridViewItemsInStock.Rows)
-                            {
-                                RessourceID = Convert.ToInt32(k.Cells[0].Value);
-                                Name = k.Cells[1].Value.ToString();
-                                Price = Convert.ToInt32(k.Cells[3].Value);
-                                RessourceKategory = Convert.ToInt32(k.Cells[4].Value);
-                            }
-                            Temp.DBCInsertOrderLine(Convert.ToInt32(ComboBoxBookning.Text), RessourceKategory,RessourceID,Price,Convert.ToInt32(TextboxAmount.Text));
+                            DataGridViewCart.Rows.Add(Row.Cells[1].Value.ToString(),
+                                                      Row.Cells[2].Value.ToString(),
+                                                      Row.Cells[3].Value.ToString(),
+                                                      Row.Cells[4].Value = TextboxAmount.Text,
+                                                      Row.Cells[5].Value.ToString());
+                            DataGridViewItemsInStock.Rows[i].Cells[0].Value = false;
+
+                            //  NC.InsertOrderLine(Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(Row.Cells[1].Value),Convert.ToInt32(Row.Cells[2].Value), Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text));
+                            //  DataGridViewCart.DataSource = Temp.SelectFromOrdreLine(Convert.ToInt32(ComboBoxBookning.Text));
                         }
                     }
                     else
                     {
-
+                        DataGridViewCart.Rows.Add(Row.Cells[1].Value.ToString(),//RessourceCategory
+                                                  Row.Cells[2].Value.ToString(),//RessourceNumber
+                                                  Row.Cells[3].Value.ToString(),//Name
+                                                  Row.Cells[4].Value = TextboxAmount.Text,//Amount
+                                                  Row.Cells[5].Value.ToString());//Pris
+                        DataGridViewItemsInStock.Rows[i].Cells[0].Value = false;
+                        // NC.InsertOrderLine(Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(Row.Cells[1].Value), Convert.ToInt32(Row.Cells[2].Value), Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text));
                     }
+                    TextboxDiscount.Text = Row.Cells[5].Value.ToString();
+                    txtboxTotalPrisWithOutTax.Text = NC.ChangeOfPriceWithOutMoms(Convert.ToInt32(Row.Cells[5].Value),Convert.ToInt32(TextboxAmount.Text), Convert.ToInt32(txtboxTotalPrisWithOutTax.Text)).ToString();
+                    txtboxTotalPrisWithTax.Text = NC.ChangeOfPriceWithMoms(Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text), Convert.ToInt32(txtboxTotalPrisWithOutTax.Text)).ToString();
                 }
             }
-            DataGridViewCart.DataSource = Temp.SelectFromOrdreLine(2);
+            TextboxAmount.Text = "";
+            
+        }
 
+        private void ComboBoxCart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (ComboBoxCart.SelectedIndex==0)
+            {
+                TextboxDiscount.Text = "10";
+            }
+            if (ComboBoxCart.SelectedIndex == 1)
+            {
+                TextboxDiscount.Text = "0";
+            }
+            if (ComboBoxCart.SelectedIndex == 2)
+            {
+                TextboxDiscount.Text = "8";
+            }
+        }
+
+        private void BtnAddBookning_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnPay_Click(object sender, EventArgs e)
+        {
+            NæstenController NC = new NæstenController();
+            if (ComboBoxBookning.Text == "")
+            {
+                MessageBox.Show("");
+            }
+            if (BuisnessCheckBox.Checked == true)
+            {
+                NC.InsertReciept(Convert.ToInt32(txtboxTotalPrisWithOutTax.Text), Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(textBoxOwner.Text));
+            }
+        
+            if (PrivateCheckBox.Checked== false)
+            {
+                NC.InsertReciept(Convert.ToInt32(txtboxTotalPrisWithTax.Text), Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(textBoxOwner.Text));
+            }
+
+            for (int i = 0; i <= DataGridViewCart.Rows.Count - 2; i++)
+            {
+                DataGridViewRow Row = DataGridViewCart.Rows[i];
+                MessageBox.Show("xD");
+                //Faktura                               //RessourceCategory                 //RessourceId                       //Price                                 //Amount
+               // NC.InsertOrderLine(Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(Row.Cells[1].Value), Convert.ToInt32(Row.Cells[2].Value), Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text));
+            }
+
+            //NC.UpdateAmountInStock("Medicin", Row.Cells[2].Value, , );
+        }
+
+        private void ButtonDiscount_Click(object sender, EventArgs e)
+        {
+           txtboxTotalPrisWithOutTax.Text = NC.Discount(Convert.ToInt32(txtboxTotalPrisWithOutTax.Text), Convert.ToInt32(TextboxDiscount.Text)).ToString();
+           txtboxTotalPrisWithTax.Text = NC.Discount(Convert.ToInt32(txtboxTotalPrisWithTax.Text), Convert.ToInt32(TextboxDiscount.Text)).ToString();
         }
     }
 }
