@@ -385,6 +385,7 @@
             this.buttonCreate.TabIndex = 19;
             this.buttonCreate.Text = "Create";
             this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Visible = false;
             this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // comboBoxDaysChoice
@@ -471,12 +472,13 @@
             // 
             // buttonUpdate
             // 
-            this.buttonUpdate.Location = new System.Drawing.Point(651, 361);
+            this.buttonUpdate.Location = new System.Drawing.Point(732, 361);
             this.buttonUpdate.Name = "buttonUpdate";
             this.buttonUpdate.Size = new System.Drawing.Size(75, 46);
             this.buttonUpdate.TabIndex = 29;
             this.buttonUpdate.Text = "Update";
             this.buttonUpdate.UseVisualStyleBackColor = true;
+            this.buttonUpdate.Visible = false;
             this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // comboBoxBookningChoice

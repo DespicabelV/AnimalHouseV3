@@ -47,7 +47,7 @@ namespace AnimalHousePersistence
 
         void DBCInsertPrivate(int Ejer);
 
-        void DBCInsertReceipt(int Total, int Bookning, int Ejer);
+        int DBCInsertReceipt(int Total, string Bookning, int Ejer);
 
         void DBCInsertJournal(int Laege, int Dyr, string Dato, string Emne, string Kommentar);
 
@@ -61,7 +61,7 @@ namespace AnimalHousePersistence
 
         void DBCUpdateBusiness(int ID, string Navn, string CVR);
 
-        void DBCUpdateBookning(int Behandling, int Laege, int Dyr, int Bur, int Burdag, string Dato, int Tid, int ID);
+        void DBCUpdateBookning(int Behandling, int Laege, int ID, int Bur, int Burdag, string Dato, int Tid);
 
         List<string> DBCTimes();
 
