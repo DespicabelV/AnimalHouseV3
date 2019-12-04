@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.labelOwner = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxBookingSearch = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.labelReservation = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxBookningChoice = new System.Windows.Forms.ComboBox();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -45,12 +45,12 @@
             this.labelOwner.TabIndex = 0;
             this.labelOwner.Text = "Owner";
             // 
-            // textBox1
+            // textBoxBookingSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(64, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(235, 22);
-            this.textBox1.TabIndex = 1;
+            this.textBoxBookingSearch.Location = new System.Drawing.Point(64, 28);
+            this.textBoxBookingSearch.Name = "textBoxBookingSearch";
+            this.textBoxBookingSearch.Size = new System.Drawing.Size(235, 22);
+            this.textBoxBookingSearch.TabIndex = 1;
             // 
             // buttonSearch
             // 
@@ -60,6 +60,7 @@
             this.buttonSearch.TabIndex = 2;
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
+            this.buttonSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // labelReservation
             // 
@@ -70,13 +71,13 @@
             this.labelReservation.TabIndex = 3;
             this.labelReservation.Text = "Reservation";
             // 
-            // comboBox1
+            // comboBoxBookningChoice
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(100, 60);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(199, 24);
-            this.comboBox1.TabIndex = 4;
+            this.comboBoxBookningChoice.FormattingEnabled = true;
+            this.comboBoxBookningChoice.Location = new System.Drawing.Point(100, 60);
+            this.comboBoxBookningChoice.Name = "comboBoxBookningChoice";
+            this.comboBoxBookningChoice.Size = new System.Drawing.Size(199, 24);
+            this.comboBoxBookningChoice.TabIndex = 4;
             // 
             // buttonDelete
             // 
@@ -86,6 +87,7 @@
             this.buttonDelete.TabIndex = 5;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelete_Click);
             // 
             // Form_Booking_Delete
             // 
@@ -93,10 +95,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(408, 158);
             this.Controls.Add(this.buttonDelete);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.comboBoxBookningChoice);
             this.Controls.Add(this.labelReservation);
             this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxBookingSearch);
             this.Controls.Add(this.labelOwner);
             this.Name = "Form_Booking_Delete";
             this.Text = "Form_Booking_Delete";
@@ -108,10 +110,10 @@
         #endregion
 
         private System.Windows.Forms.Label labelOwner;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxBookingSearch;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Label labelReservation;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxBookningChoice;
         private System.Windows.Forms.Button buttonDelete;
     }
 }

@@ -359,15 +359,17 @@ namespace AnimalHousePersistence
             DBCCloseDB();
         }
 
-        public void DBCInsertReceipt(int Total, int Bookning, int Ejer)
+        public int DBCInsertReceipt(int Total, string Bookning, int Ejer)
         {
+            int TempID;
             DBCOpenDB();
             SqlCommand DBCInsertAnimal = new SqlCommand();
-            DBCInsertAnimal.CommandText = $"INSERT INTO Faktura (Total, Bookning, Ejer)" +
+            DBCInsertAnimal.CommandText = $"INSERT INTO Faktura (Total, Bookning, Ejer) output INSERTED.ID " +
                 $"VALUES({Total}, {Bookning}, {Ejer})";
             DBCInsertAnimal.Connection = db;
-            DBCInsertAnimal.ExecuteNonQuery();
+            TempID = (int)DBCInsertAnimal.ExecuteScalar();
             DBCCloseDB();
+            return TempID;
         }
 
         public void DBCInsertJournal(int Laege, int Dyr, string Dato, string Emne, string Kommentar)
@@ -445,12 +447,12 @@ namespace AnimalHousePersistence
             DBCCloseDB();
         }
 
-        public void DBCUpdateBookning(int Behandling, int Laege, int Dyr, int Bur, int Burdag, string Dato, int Tid, int ID)
+        public void DBCUpdateBookning(int Behandling, int Laege, int ID, int Bur, int Burdag, string Dato, int Tid)
         {
             DBCOpenDB();
             SqlCommand DBCInsertAnimal = new SqlCommand();
             DBCInsertAnimal.CommandText = $"UPDATE Bookning " +
-                $"SET Behandling = {Behandling}, Laege = {Laege}, Dyr = {Dyr}, Bur = {Bur}, Burdage = {Burdag}, Dato = {Dato}, Tid = {Tid}" +
+                $"SET Behandling = {Behandling}, Laege = {Laege}, Bur = {Bur}, Burdage = {Burdag}, Dato = '{Dato}', Tid = {Tid}" +
                 $"WHERE ID = {ID}";
             DBCInsertAnimal.Connection = db;
             DBCInsertAnimal.ExecuteNonQuery();

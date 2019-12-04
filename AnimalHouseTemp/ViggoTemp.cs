@@ -12,11 +12,6 @@ namespace AnimalHouseTemp
     {
         IPersistenceController Daba;
 
-
-        //Todo
-        //Check if the owner is there
-        //Lav inset journal til dyr
-
         public ViggoTemp()
         {
             Daba = new DatabaseController();
@@ -119,11 +114,16 @@ namespace AnimalHouseTemp
             TempBook.Add();
         }
 
-        public void ControllerUpdateBookning(int Treatment, int Doctor, int Animal, int CageID, int CageDay, string Date, int Times, int Owner)
+        public void ControllerUpdateBookning(int Treatment, int Doctor, int ID, int CageID, int CageDayAmount, string Date, int Times)
         {
             Booking TempBook;
-            TempBook = new Booking(Treatment, Doctor, Animal, CageID, CageDay, Date, Times, Owner);
+            TempBook = new Booking(Treatment,Doctor, ID, CageID,CageDayAmount,Date,Times);
             TempBook.Update();
+        }
+
+        public void ControllerDeleteBookning(string Pram)
+        {
+            DeleteBookning(Pram);
         }
 
         //------------------------Entity-----------------------------
@@ -225,6 +225,10 @@ namespace AnimalHouseTemp
             return CageList;
         }
         
-
+        static void DeleteBookning(string DBPram)
+        {
+            IPersistenceController Daba = new DatabaseController();
+            Daba.DBCDelete("Bookning", "ID", DBPram);
+        }
     }
 }
