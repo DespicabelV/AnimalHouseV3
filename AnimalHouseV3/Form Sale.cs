@@ -118,7 +118,6 @@ namespace AnimalHouseV3
                         DataGridViewItemsInStock.Rows[i].Cells[0].Value = false;
                         // NC.InsertOrderLine(Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(Row.Cells[1].Value), Convert.ToInt32(Row.Cells[2].Value), Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text));
                     }
-                    TextboxDiscount.Text = Row.Cells[5].Value.ToString();
                     txtboxTotalPrisWithOutTax.Text = NC.ChangeOfPriceWithOutMoms(Convert.ToInt32(Row.Cells[5].Value),Convert.ToInt32(TextboxAmount.Text), Convert.ToInt32(txtboxTotalPrisWithOutTax.Text)).ToString();
                     txtboxTotalPrisWithTax.Text = NC.ChangeOfPriceWithMoms(Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text), Convert.ToInt32(txtboxTotalPrisWithOutTax.Text)).ToString();
                 }
@@ -145,6 +144,8 @@ namespace AnimalHouseV3
 
         private void BtnAddBookning_Click(object sender, EventArgs e)
         {
+            
+            //NC.SelectSpecificTreatment(Convert.ToInt32(ComboBoxBookning.Text));
         }
 
         private void buttonHelp_Click(object sender, EventArgs e)
@@ -155,26 +156,24 @@ namespace AnimalHouseV3
         private void BtnPay_Click(object sender, EventArgs e)
         {
             NæstenController NC = new NæstenController();
-            if (ComboBoxBookning.Text == "")
+            if (BuisnessCheckBox.Checked == false && BuisnessCheckBox.Checked == false || textBoxOwner.Text == "")
             {
-                MessageBox.Show("");
+                MessageBox.Show("Fill out the empty brackets");
             }
-            if (BuisnessCheckBox.Checked == true)
+            else if (BuisnessCheckBox.Checked == true)
             {
                 NC.InsertReciept(Convert.ToInt32(txtboxTotalPrisWithOutTax.Text), Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(textBoxOwner.Text));
             }
-        
-            if (PrivateCheckBox.Checked== false)
+            else  if (PrivateCheckBox.Checked == true)
             {
                 NC.InsertReciept(Convert.ToInt32(txtboxTotalPrisWithTax.Text), Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(textBoxOwner.Text));
             }
 
-            for (int i = 0; i <= DataGridViewCart.Rows.Count - 2; i++)
+            for (int i = 0; i <= DataGridViewCart.Rows.Count - 1; i++)
             {
                 DataGridViewRow Row = DataGridViewCart.Rows[i];
-                MessageBox.Show("xD");
-                //Faktura                               //RessourceCategory                 //RessourceId                       //Price                                 //Amount
-               // NC.InsertOrderLine(Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(Row.Cells[1].Value), Convert.ToInt32(Row.Cells[2].Value), Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text));
+                //                                          Faktura                             //RessourceCategorySetToRecieptID                 //RessourceId                       //Price                                 //Amount
+                NC.InsertOrderLine(Convert.ToInt32(NC.GetRecieptID(ComboBoxBookning.Text)), Convert.ToInt32(Row.Cells[1].Value), Convert.ToInt32(Row.Cells[2].Value), Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text));
             }
 
             //NC.UpdateAmountInStock("Medicin", Row.Cells[2].Value, , );

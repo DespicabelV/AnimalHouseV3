@@ -36,6 +36,7 @@ namespace AnimalHouseTemp
     }
     public class AlmostReceipt
     {
+        IPersistenceController DBC = new DatabaseController();
         private int ID;
         private int PriceTotal;
         private int BookingID;
@@ -55,14 +56,72 @@ namespace AnimalHouseTemp
             this.BookingID = BookingID;
             this.EjerTelefonNr = EjerTelefonNr;
         }
+
+        public AlmostReceipt(int ID)
+        {
+            this.ID = ID;
+        }
+
         public void InsertReciept()
         {
-            IPersistenceController DBC = new DatabaseController();
             DBC.DBCInsertReceipt(PriceTotal,BookingID,EjerTelefonNr);
+        }
+        
 
+        public static List<string> GetRecieptId(string BookningID)
+        {
+            IPersistenceController DBC = new DatabaseController();
+            return DBC.DBCSelectSpecificFromWhere("ID", "Faktura", "Bookning", BookningID);
+        }
+
+
+    }
+
+    public abstract class AlmostRessource
+    {
+        private int ID;
+        private double Price;
+        private int ProductCategoryID;
+
+
+        public AlmostRessource(int ID, double Price, int ProductCategoryID)
+        {
+            this.ID = ID;
+            this.Price = Price;
+            this.ProductCategoryID = ProductCategoryID;
+        }
+
+        public AlmostRessource(int ID)
+        {
+            this.ID = ID;
         }
     }
 
+    public class Treatment : Ressource
+    {
+        IPersistenceController DBC = new DatabaseController();
+        private string Name;
+        public Treatment(int ID, double Price, int ProductCategoryID, string Name) : base(ID, Price, ProductCategoryID)
+        {
+            this.Name = Name;
+        }
+
+        public Treatment(int ID) : base (ID)
+        {
+            
+        }
+
+        //public List<string> SelectSpecificTreatment(string ID)
+        //{
+        //    return DBC.DBCSelectSpecificFromWhere("Behandling","Bookning","ID",ID);
+        //}
+
+        //public List<string> SelectSpecificIdFromRessourceAndX(string Table, int ID)
+        //{
+        //    NichlasTemp temp = new NichlasTemp();
+        //    return temp.SelectSpecificIdFromRessourceAndX(Table, ID);
+        //}
+    }
 
     public class EntityLejeOrdre
     {
@@ -120,6 +179,24 @@ namespace AnimalHouseTemp
 
     public class NæstenController
     {
+        //public void SelectSpecificTreatment(int ID)
+        //{
+        //    Treatment Tm = new Treatment(ID);
+        //    Tm.SelectSpecificTreatment(ID.ToString());
+        //}
+
+        //public List<string> SelectSpecificIdFromRessourceAndX(string Table, int ID)
+        //{
+        //    Treatment Tm = new Treatment(ID);
+        //    Tm.SelectSpecificIdFromRessourceAndX();
+        //}
+
+        public List<string> GetRecieptID(string BookningID)
+        {
+            return AlmostReceipt.GetRecieptId(BookningID);
+
+        }
+
         public void InsertOrderLine(int Faktura, int RessourceKatagori, int Ressource, int Price, int Antal)
         {
             EntityLejeOrdre ELO = new EntityLejeOrdre(Faktura,RessourceKatagori,Ressource,Price,Antal);
@@ -170,6 +247,7 @@ namespace AnimalHouseTemp
         }
 
         SqlConnection db;
+        SqlDataReader reader;
 
         private SqlConnection DBCOpenDB()
         {
@@ -268,6 +346,29 @@ namespace AnimalHouseTemp
             DBCCloseDB();
         }
         //Console/Entity Kode
+
+        public List<string> SelectSpecificIdFromRessourceAndX( string Table, int ID)
+        {
+            DBCOpenDB();
+            List<string> DBCListSelect = new List<string>();
+
+            SqlCommand SelectFrom = new SqlCommand();
+            SelectFrom.CommandText = $"select  Ressource.VareKatagoriID, {Table}.*, Ressource.Pris from {Table},Ressource where {Table}.ID = Ressource.ID and ID Like '%{ID}%'";
+            SelectFrom.Connection = db;
+            reader = SelectFrom.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    DBCListSelect.Add(Convert.ToString(reader.GetValue(i)));
+                }
+            }
+
+
+            DBCCloseDB();
+            return DBCListSelect;
+        }
 
         public bool CheckIfExsist1(string OwnerID)
         {

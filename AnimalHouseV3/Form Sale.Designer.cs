@@ -339,6 +339,7 @@
             this.ComboBoxBookning.Name = "ComboBoxBookning";
             this.ComboBoxBookning.Size = new System.Drawing.Size(100, 21);
             this.ComboBoxBookning.TabIndex = 29;
+            this.ComboBoxBookning.Text = "0";
             // 
             // textBoxOwner
             // 
