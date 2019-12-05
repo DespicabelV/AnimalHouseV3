@@ -47,7 +47,7 @@ namespace AnimalHousePersistence
 
         void DBCInsertPrivate(int Ejer);
 
-        int DBCInsertReceipt(int Total, string Bookning, int Ejer);
+        int DBCInsertReceipt(int Total, int Bookning, int Ejer);
 
         void DBCInsertJournal(int Laege, int Dyr, string Dato, string Emne, string Kommentar);
 
