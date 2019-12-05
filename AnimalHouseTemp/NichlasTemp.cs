@@ -39,10 +39,12 @@ namespace AnimalHouseTemp
         IPersistenceController DBC = new DatabaseController();
         private int ID;
         private int PriceTotal;
-        private int BookingID;
+        private string BookingID;
         private int EjerTelefonNr;
 
-        public AlmostReceipt(int ID, int PriceTotal, int BookingID, int EjerTelefonNr)
+        private static int TempID;
+
+        public AlmostReceipt(int ID, int PriceTotal, string BookingID, int EjerTelefonNr)
         {
             this.ID = ID;
             this.PriceTotal = PriceTotal;
@@ -50,7 +52,7 @@ namespace AnimalHouseTemp
             this.EjerTelefonNr = EjerTelefonNr;
         }
 
-        public AlmostReceipt(int PriceTotal, int BookingID, int EjerTelefonNr)
+        public AlmostReceipt(int PriceTotal, string BookingID, int EjerTelefonNr)
         {
             this.PriceTotal = PriceTotal;
             this.BookingID = BookingID;
@@ -62,19 +64,14 @@ namespace AnimalHouseTemp
             this.ID = ID;
         }
 
-        public void InsertReciept()
+        public int InsertReciept()
         {
-            DBC.DBCInsertReceipt(PriceTotal,BookingID,EjerTelefonNr);
+            if (BookingID == "")
+            {
+                BookingID = null;
+            }
+            return DBC.DBCInsertReceipt(PriceTotal,BookingID,EjerTelefonNr);
         }
-        
-
-        public static List<string> GetRecieptId(string BookningID)
-        {
-            IPersistenceController DBC = new DatabaseController();
-            return DBC.DBCSelectSpecificFromWhere("ID", "Faktura", "Bookning", BookningID);
-        }
-
-
     }
 
     public abstract class AlmostRessource
@@ -191,11 +188,7 @@ namespace AnimalHouseTemp
         //    Tm.SelectSpecificIdFromRessourceAndX();
         //}
 
-        public List<string> GetRecieptID(string BookningID)
-        {
-            return AlmostReceipt.GetRecieptId(BookningID);
 
-        }
 
         public void InsertOrderLine(int Faktura, int RessourceKatagori, int Ressource, int Price, int Antal)
         {
@@ -231,10 +224,10 @@ namespace AnimalHouseTemp
 
         }
 
-        public void InsertReciept(int PriceTotal, int Bookning, int Ejer)
+        public int InsertReciept(int PriceTotal, string Bookning, int Ejer)
         {
             AlmostReceipt almostReceipt = new AlmostReceipt(PriceTotal,Bookning, Ejer);
-            almostReceipt.InsertReciept();
+            return almostReceipt.InsertReciept();
         }
     }
 
@@ -413,5 +406,28 @@ namespace AnimalHouseTemp
             NichlasTemp Temp = new NichlasTemp();
             return Temp.GetBookning(OwnerId);
         }
+
+        public List<string> DBCInsertReceipt(int Total, string Bookning, int Ejer)
+        {
+            List<string> DBCListSelect = new List<string>();
+            DBCOpenDB();
+            SqlCommand SelectFrom = new SqlCommand();
+            SelectFrom.CommandText = $"INSERT INTO Faktura (Total, Bookning, Ejer) output INSERTED.ID " +
+                $"VALUES({Total}, {Bookning}, {Ejer})";
+            SelectFrom.Connection = db;
+            reader = SelectFrom.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    DBCListSelect.Add(Convert.ToString(reader.GetValue(i)));
+                }
+            }
+            return DBCListSelect;
+
+
+        }
+
     }
 }

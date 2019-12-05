@@ -155,6 +155,7 @@ namespace AnimalHouseV3
 
         private void BtnPay_Click(object sender, EventArgs e)
         {
+            int x = 0;
             NæstenController NC = new NæstenController();
             if (BuisnessCheckBox.Checked == false && BuisnessCheckBox.Checked == false || textBoxOwner.Text == "")
             {
@@ -162,18 +163,18 @@ namespace AnimalHouseV3
             }
             else if (BuisnessCheckBox.Checked == true)
             {
-                NC.InsertReciept(Convert.ToInt32(txtboxTotalPrisWithOutTax.Text), Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(textBoxOwner.Text));
+                 x=NC.InsertReciept(Convert.ToInt32(txtboxTotalPrisWithOutTax.Text), ComboBoxBookning.Text, Convert.ToInt32(textBoxOwner.Text));
             }
             else  if (PrivateCheckBox.Checked == true)
             {
-                NC.InsertReciept(Convert.ToInt32(txtboxTotalPrisWithTax.Text), Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(textBoxOwner.Text));
+                x=NC.InsertReciept(Convert.ToInt32(txtboxTotalPrisWithTax.Text), ComboBoxBookning.Text, Convert.ToInt32(textBoxOwner.Text));
             }
 
             for (int i = 0; i <= DataGridViewCart.Rows.Count - 1; i++)
             {
                 DataGridViewRow Row = DataGridViewCart.Rows[i];
-                //                                          Faktura                             //RessourceCategorySetToRecieptID                 //RessourceId                       //Price                                 //Amount
-                NC.InsertOrderLine(Convert.ToInt32(NC.GetRecieptID(ComboBoxBookning.Text)), Convert.ToInt32(Row.Cells[1].Value), Convert.ToInt32(Row.Cells[2].Value), Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text));
+                //                  Faktura                             //RessourceCategorySetToRecieptID                 //RessourceId                       //Price                                 //Amount
+                NC.InsertOrderLine(x,Convert.ToInt32(Row.Cells[1].Value), Convert.ToInt32(Row.Cells[2].Value), Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text));
             }
 
             //NC.UpdateAmountInStock("Medicin", Row.Cells[2].Value, , );
