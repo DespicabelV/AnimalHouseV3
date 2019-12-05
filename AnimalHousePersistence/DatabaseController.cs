@@ -359,7 +359,7 @@ namespace AnimalHousePersistence
             DBCCloseDB();
         }
 
-        public int DBCInsertReceipt(int Total, string Bookning, int Ejer)
+        public int DBCInsertReceipt(int Total, int Bookning, int Ejer)
         {
             int TempID;
             DBCOpenDB();
