@@ -39,12 +39,12 @@ namespace AnimalHouseTemp
         IPersistenceController DBC = new DatabaseController();
         private int ID;
         private int PriceTotal;
-        private string BookingID;
+        private int BookingID;
         private int EjerTelefonNr;
 
         private static int TempID;
 
-        public AlmostReceipt(int ID, int PriceTotal, string BookingID, int EjerTelefonNr)
+        public AlmostReceipt(int ID, int PriceTotal, int BookingID, int EjerTelefonNr)
         {
             this.ID = ID;
             this.PriceTotal = PriceTotal;
@@ -52,7 +52,7 @@ namespace AnimalHouseTemp
             this.EjerTelefonNr = EjerTelefonNr;
         }
 
-        public AlmostReceipt(int PriceTotal, string BookingID, int EjerTelefonNr)
+        public AlmostReceipt(int PriceTotal, int BookingID, int EjerTelefonNr)
         {
             this.PriceTotal = PriceTotal;
             this.BookingID = BookingID;
@@ -66,9 +66,9 @@ namespace AnimalHouseTemp
 
         public int InsertReciept()
         {
-            if (BookingID == "")
+            if (BookingID == 0)
             {
-                BookingID = null;
+                BookingID = 11;
             }
             return DBC.DBCInsertReceipt(PriceTotal,BookingID,EjerTelefonNr);
         }
@@ -224,7 +224,7 @@ namespace AnimalHouseTemp
 
         }
 
-        public int InsertReciept(int PriceTotal, string Bookning, int Ejer)
+        public int InsertReciept(int PriceTotal, int Bookning, int Ejer)
         {
             AlmostReceipt almostReceipt = new AlmostReceipt(PriceTotal,Bookning, Ejer);
             return almostReceipt.InsertReciept();
@@ -374,6 +374,19 @@ namespace AnimalHouseTemp
             return Temp.CheckIfExsist1(OwnerID);
         }
 
+        public bool CheckIfExsistInPrivate1(string OwnerID)
+        {
+            IPersistenceController DBController = new DatabaseController();
+            return DBController.CheckIfExist("Private_", "Ejer", OwnerID);
+        }
+        public bool CheckIfExsistInPrivate(string OwnerID)
+        {
+            NichlasTemp Temp = new NichlasTemp();
+            return Temp.CheckIfExsistInPrivate1(OwnerID);
+        }
+
+
+
         public List<string> GetOwner1(string OwnerID)
         {
             IPersistenceController DBController = new DatabaseController();
@@ -428,6 +441,33 @@ namespace AnimalHouseTemp
 
 
         }
+
+        public string DBCSelectFromEjerJoinPrivate(string DBCParam)
+        {
+            DBCOpenDB();
+            string DBCSelect = "";
+
+            SqlCommand SelectFrom = new SqlCommand();
+            SelectFrom.CommandText = $"SELECT TelefonNr from Ejer join Private_ on TelefonNr = Private_.EJer where TelefonNr = {DBCParam}";
+            SelectFrom.Connection = db;
+            reader = SelectFrom.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    DBCSelect = (Convert.ToString(reader.GetValue(i)));
+                }
+            }
+
+
+            DBCCloseDB();
+            return DBCSelect;
+        }
+
+
+
+
 
     }
 }

@@ -55,7 +55,7 @@
             this.Label11 = new System.Windows.Forms.Label();
             this.TextboxDiscount = new System.Windows.Forms.TextBox();
             this.ButtonDiscount = new System.Windows.Forms.Button();
-            this.OwnerValid = new System.Windows.Forms.CheckBox();
+            this.OwnerValidCheckBox = new System.Windows.Forms.CheckBox();
             this.ComboBoxBookning = new System.Windows.Forms.ComboBox();
             this.textBoxOwner = new System.Windows.Forms.TextBox();
             this.TextboxAmount = new System.Windows.Forms.TextBox();
@@ -104,7 +104,7 @@
             this.BtnSearchOwner.TabIndex = 6;
             this.BtnSearchOwner.Text = "Search";
             this.BtnSearchOwner.UseVisualStyleBackColor = true;
-            this.BtnSearchOwner.Click += new System.EventHandler(this.BtnSearchOwner_Click);
+            this.BtnSearchOwner.Click += new System.EventHandler(this.ButtonSearchOwner_Click);
             // 
             // BtnAddBookning
             // 
@@ -142,6 +142,7 @@
             this.SelectItemColoumn});
             this.DataGridViewItemsInStock.Location = new System.Drawing.Point(25, 192);
             this.DataGridViewItemsInStock.Name = "DataGridViewItemsInStock";
+            this.DataGridViewItemsInStock.RowHeadersVisible = false;
             this.DataGridViewItemsInStock.Size = new System.Drawing.Size(584, 322);
             this.DataGridViewItemsInStock.TabIndex = 14;
             // 
@@ -174,6 +175,7 @@
             this.PriceColumn});
             this.DataGridViewCart.Location = new System.Drawing.Point(749, 192);
             this.DataGridViewCart.Name = "DataGridViewCart";
+            this.DataGridViewCart.RowHeadersVisible = false;
             this.DataGridViewCart.Size = new System.Drawing.Size(374, 322);
             this.DataGridViewCart.TabIndex = 16;
             // 
@@ -247,7 +249,7 @@
             this.BtnPay.TabIndex = 20;
             this.BtnPay.Text = "Pay";
             this.BtnPay.UseVisualStyleBackColor = true;
-            this.BtnPay.Click += new System.EventHandler(this.BtnPay_Click);
+            this.BtnPay.Click += new System.EventHandler(this.ButtonPay_Click);
             // 
             // ComboBoxCategory
             // 
@@ -292,7 +294,7 @@
             this.ButtonSearch.TabIndex = 24;
             this.ButtonSearch.Text = "Search";
             this.ButtonSearch.UseVisualStyleBackColor = true;
-            this.ButtonSearch.Click += new System.EventHandler(this.ButtonSearch_Click);
+            this.ButtonSearch.Click += new System.EventHandler(this.ButtonSearchRessource_Click);
             // 
             // Label11
             // 
@@ -322,15 +324,15 @@
             this.ButtonDiscount.UseVisualStyleBackColor = true;
             this.ButtonDiscount.Click += new System.EventHandler(this.ButtonDiscount_Click);
             // 
-            // OwnerValid
+            // OwnerValidCheckBox
             // 
-            this.OwnerValid.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
-            this.OwnerValid.AutoSize = true;
-            this.OwnerValid.Location = new System.Drawing.Point(237, 72);
-            this.OwnerValid.Name = "OwnerValid";
-            this.OwnerValid.Size = new System.Drawing.Size(15, 14);
-            this.OwnerValid.TabIndex = 28;
-            this.OwnerValid.UseVisualStyleBackColor = true;
+            this.OwnerValidCheckBox.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
+            this.OwnerValidCheckBox.AutoSize = true;
+            this.OwnerValidCheckBox.Location = new System.Drawing.Point(237, 72);
+            this.OwnerValidCheckBox.Name = "OwnerValidCheckBox";
+            this.OwnerValidCheckBox.Size = new System.Drawing.Size(15, 14);
+            this.OwnerValidCheckBox.TabIndex = 28;
+            this.OwnerValidCheckBox.UseVisualStyleBackColor = true;
             // 
             // ComboBoxBookning
             // 
@@ -339,6 +341,7 @@
             this.ComboBoxBookning.Name = "ComboBoxBookning";
             this.ComboBoxBookning.Size = new System.Drawing.Size(100, 21);
             this.ComboBoxBookning.TabIndex = 29;
+            this.ComboBoxBookning.Text = "0";
             // 
             // textBoxOwner
             // 
@@ -387,7 +390,7 @@
             this.Controls.Add(this.PrivateCheckBox);
             this.Controls.Add(this.textBoxOwner);
             this.Controls.Add(this.ComboBoxBookning);
-            this.Controls.Add(this.OwnerValid);
+            this.Controls.Add(this.OwnerValidCheckBox);
             this.Controls.Add(this.ButtonDiscount);
             this.Controls.Add(this.Label11);
             this.Controls.Add(this.TextboxDiscount);
@@ -438,7 +441,7 @@
         private System.Windows.Forms.Label Label11;
         private System.Windows.Forms.TextBox TextboxDiscount;
         private System.Windows.Forms.Button ButtonDiscount;
-        private System.Windows.Forms.CheckBox OwnerValid;
+        private System.Windows.Forms.CheckBox OwnerValidCheckBox;
         private System.Windows.Forms.ComboBox ComboBoxBookning;
         private System.Windows.Forms.TextBox textBoxOwner;
         private System.Windows.Forms.DataGridViewCheckBoxColumn SelectItemColoumn;
