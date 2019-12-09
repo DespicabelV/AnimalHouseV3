@@ -29,6 +29,10 @@ namespace AnimalHousePersistence
 
         List<string> DBCSelectSpecific(string DBCSelect, string DBCFrom);
 
+        List<string> DBCGetRessourcePrint(string DBCPram);
+
+        List<string> DBCGetMedicinPrint(string DBCPram);
+
         void DBCInsertAnimal(string Navn, char Kon, string Fodselsdag, string Race, int Laege, int Chip);
 
         void DBCInsertRelation(int Ejer, int Dyr);

@@ -257,6 +257,52 @@ namespace AnimalHousePersistence
             return DBCGetDoctorString;
         }
 
+        public List<string> DBCGetMedicinPrint(string DBCPram)
+        {
+            DBCOpenDB();
+            List<string> DBCMedicinList = new List<string>();
+
+            SqlCommand DBCGetMedicinPrint = new SqlCommand();
+            DBCGetMedicinPrint.CommandText = $"select Ressource.VareKatagoriID, Medicin.ID, Medicin.Navn, Medicin.Antal, Ressource.Pris from Medicin " +
+                $"Left join Ressource On Medicin.ID = Ressource.ID";
+            DBCGetMedicinPrint.Connection = db;
+            reader = DBCGetMedicinPrint.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    DBCMedicinList.Add(Convert.ToString(reader.GetValue(i)));
+                }
+            }
+
+            DBCCloseDB();
+            return DBCMedicinList;
+        }
+
+        public List<string> DBCGetRessourcePrint(string DBCPram)
+        {
+            DBCOpenDB();
+            List<string> DBCRessourceList = new List<string>();
+
+            SqlCommand DBCGetRessourcePrint = new SqlCommand();
+            DBCGetRessourcePrint.CommandText = $"select Ressource.VareKatagoriID, Hyldevare.ID, Hyldevare.Navn, Hyldevare.Antal, Ressource.Pris from Hyldevare " +
+                $"Left join Ressource On Hyldevare.ID = Ressource.ID";
+            DBCGetRessourcePrint.Connection = db;
+            reader = DBCGetRessourcePrint.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    DBCRessourceList.Add(Convert.ToString(reader.GetValue(i)));
+                }
+            }
+
+            DBCCloseDB();
+            return DBCRessourceList;
+        }
+
 
         //Inserts
         public void DBCInsertAnimal(string Navn, char Kon, string Fodselsdag, string Race, int Laege, int Chip)
