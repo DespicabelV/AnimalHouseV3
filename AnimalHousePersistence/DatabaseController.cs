@@ -257,7 +257,7 @@ namespace AnimalHousePersistence
             return DBCGetDoctorString;
         }
 
-        public List<string> DBCGetMedicinPrint(string DBCPram)
+        public List<string> DBCGetMedicinPrint()
         {
             DBCOpenDB();
             List<string> DBCMedicinList = new List<string>();
@@ -280,7 +280,7 @@ namespace AnimalHousePersistence
             return DBCMedicinList;
         }
 
-        public List<string> DBCGetRessourcePrint(string DBCPram)
+        public List<string> DBCGetRessourcePrint()
         {
             DBCOpenDB();
             List<string> DBCRessourceList = new List<string>();
