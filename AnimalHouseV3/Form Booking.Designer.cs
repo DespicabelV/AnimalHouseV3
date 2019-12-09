@@ -1,6 +1,6 @@
 ﻿namespace AnimalHouseV3
 {
-    partial class Form_Booking
+    partial class FormBooking
     {
         /// <summary>
         /// Required designer variable.
@@ -125,7 +125,6 @@
             this.textBoxOwnerInput.Name = "textBoxOwnerInput";
             this.textBoxOwnerInput.Size = new System.Drawing.Size(229, 22);
             this.textBoxOwnerInput.TabIndex = 4;
-            this.textBoxOwnerInput.Text = "1874865";
             // 
             // comboBoxAnimalChoice
             // 
@@ -519,7 +518,7 @@
             this.groupBoxFindBookning.TabStop = false;
             this.groupBoxFindBookning.Text = "Find And Edit Bookning";
             // 
-            // Form_Booking
+            // FormBooking
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -545,7 +544,7 @@
             this.Controls.Add(this.groupBoxAnimalInfo);
             this.Controls.Add(this.groupBoxOwnerInfo);
             this.Controls.Add(this.buttonHelp);
-            this.Name = "Form_Booking";
+            this.Name = "FormBooking";
             this.Text = "Form_Booking";
             this.groupBoxOwnerInfo.ResumeLayout(false);
             this.groupBoxOwnerInfo.PerformLayout();

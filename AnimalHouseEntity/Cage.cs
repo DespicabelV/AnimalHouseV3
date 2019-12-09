@@ -14,8 +14,5 @@ namespace AnimalHouseEntity
         {
             this.AnimalType = AnimalType;
         }
-
-
-
     }
 }
