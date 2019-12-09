@@ -57,7 +57,7 @@ namespace AnimalHousePersistence
 
         void DBCUpdateMedicin(int ID, string Navn);
 
-        void DBCUpdateRessource(int ID, int Pris, int VareKata);
+        void DBCUpdateRessource(int ID, int Pris);
 
         void DBCUpdateBusiness(int ID, string Navn, string CVR);
 

@@ -14,7 +14,7 @@ using AnimalHouseTemp;
 
 namespace AnimalHouseV3
 {
-    public partial class Form_Booking : Form
+    public partial class FormBooking : Form
     {
         //TEMP
         ViggoTemp Controller = new ViggoTemp();
@@ -28,7 +28,7 @@ namespace AnimalHouseV3
         private string[,] BookingArray;
         private bool SearchCheck, TimeCheck;
 
-        public Form_Booking()
+        public FormBooking()
         {
             InitializeComponent();
 
@@ -221,7 +221,9 @@ namespace AnimalHouseV3
 
         private void buttonHelp_Click(object sender, EventArgs e)
         {
-
+            FormHelp Help = new FormHelp();
+            Help.HelpIndex = 1;
+            Help.Show();
         }
 
         private void buttonUpdate_Click(object sender, EventArgs e)
@@ -400,7 +402,7 @@ namespace AnimalHouseV3
                 Convert.ToDateTime(dateTimePickerDate.Value).ToString("yyyy-MM-dd"),
                 Convert.ToInt32(TimeArray[comboBoxTimeChoice.SelectedIndex, 0]),
                 Convert.ToInt32(textBoxOwnerInput.Text));
-            MessageBox.Show("Bookning created","sucess!",MessageBoxButtons.OK);
+            MessageBox.Show("Bookning created","Sucess!",MessageBoxButtons.OK);
             this.Close();
         }
     }

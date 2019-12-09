@@ -125,6 +125,9 @@
     <EmbeddedResource Include="Form Booking.resx">
       <DependentUpon>Form Booking.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form Help.resx">
+      <DependentUpon>Form Help.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form Import Medicin.resx">
       <DependentUpon>Form Import Medicin.cs</DependentUpon>
     </EmbeddedResource>
