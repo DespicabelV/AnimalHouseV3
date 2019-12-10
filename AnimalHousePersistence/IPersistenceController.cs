@@ -33,6 +33,8 @@ namespace AnimalHousePersistence
 
         List<string> DBCGetMedicinPrint();
 
+        List<string> DBCPrintDocktorLetter();
+
         void DBCInsertAnimal(string Navn, char Kon, string Fodselsdag, string Race, int Laege, int Chip);
 
         void DBCInsertRelation(int Ejer, int Dyr);

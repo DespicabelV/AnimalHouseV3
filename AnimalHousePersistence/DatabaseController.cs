@@ -303,6 +303,30 @@ namespace AnimalHousePersistence
             return DBCRessourceList;
         }
 
+        public List<string> DBCPrintDocktorLetter()
+        {
+            DBCOpenDB();
+
+            List<string> DBCDoctorLetterList = new List<string>();
+
+            SqlCommand DBCPrintDocktorLetter = new SqlCommand();
+            DBCPrintDocktorLetter.CommandText = $"select Bookning.dyr,Bookning.Ejer,Bookning.Dato,Bookning.Behandling,Bookning.Laege from Bookning " +
+                $"WHERE Dato<DATEADD(YEAR, -1, GETDATE())";
+            DBCPrintDocktorLetter.Connection = db;
+            reader = DBCPrintDocktorLetter.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    DBCDoctorLetterList.Add(Convert.ToString(reader.GetValue(i)));
+                }
+            }
+
+            DBCCloseDB();
+            return DBCDoctorLetterList;
+        }
+
 
         //Inserts
         public void DBCInsertAnimal(string Navn, char Kon, string Fodselsdag, string Race, int Laege, int Chip)

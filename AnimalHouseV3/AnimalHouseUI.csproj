@@ -190,5 +190,8 @@
   <ItemGroup>
     <None Include="Resources\Labrador edit.png" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\DockterLetter.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
