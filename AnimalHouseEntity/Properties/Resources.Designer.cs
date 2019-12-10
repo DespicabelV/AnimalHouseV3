@@ -68,5 +68,14 @@ namespace AnimalHouseEntity.Properties {
                 return ResourceManager.GetString("MedicinData", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        internal static string PrintRessource {
+            get {
+                return ResourceManager.GetString("PrintRessource", resourceCulture);
+            }
+        }
     }
 }

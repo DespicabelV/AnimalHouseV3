@@ -20,7 +20,8 @@ namespace AnimalHouseV3
         private void buttonPrintRessource_Click(object sender, EventArgs e)
         {
             AnimalHouseTemp.Controller Contemp = new AnimalHouseTemp.Controller();
-            
+            AnimalHouseController.Contoller con = new AnimalHouseController.Contoller();
+            con.Export();
         }
     }
 }
