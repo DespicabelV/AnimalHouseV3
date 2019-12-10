@@ -187,8 +187,10 @@ namespace AnimalHouseTemp
         //    Treatment Tm = new Treatment(ID);
         //    Tm.SelectSpecificIdFromRessourceAndX();
         //}
-
-
+        public void UpdateMedicin()
+        {
+            Medicin.UpdatePriceForMedicin();
+        }
 
         public void InsertOrderLine(int Faktura, int RessourceKatagori, int Ressource, int Price, int Antal)
         {
