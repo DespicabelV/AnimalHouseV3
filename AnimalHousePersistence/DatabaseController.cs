@@ -213,7 +213,7 @@ namespace AnimalHousePersistence
                 {
                     DBCBookedTimes.Add(Convert.ToString(reader.GetValue(i)));
                 }
-            } 
+            }
 
             DBCCloseDB();
             return DBCBookedTimes;
