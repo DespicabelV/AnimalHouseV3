@@ -24,16 +24,16 @@ namespace AnimalHouseTemp
             Dyr animal = new Dyr(Name, Gender, Birthdate, Race, Doctor, Chip);
             animal.Add();            
         }
-
-        public bool CheckAnimalOwner(string Parameter)
-        {
-            return Dyr.CheckOwner(Parameter);
-        }
-
+        
         public void AddRelation(int EjerTelenummer, int DyrID)
         {
             Dyr.InsertRelation(EjerTelenummer, DyrID);
         }
+
+        public bool CheckAnimalOwner(string Parameter)
+        {
+            return Dyr.CheckOwner(Parameter);
+        }       
         
         public List<string> SearchAnimal(string IDDyr)
         {
@@ -50,7 +50,7 @@ namespace AnimalHouseTemp
             return Dyr.CheckIfAnimalExist(Parameter);
         }
         
-        public List<string> FindDyrID(string Name, string Date, string Race, char Gender)
+        public List<string> FindAnimalID(string Name, string Date, string Race, char Gender)
         {
             return Dyr.GetDyrID(Name, Date, Race, Gender);
         }
@@ -94,6 +94,56 @@ namespace AnimalHouseTemp
         {
             return Dyr.ShowJournal(DyrID);
         }
+
+        //Her slutter Animal
+
+        //Print Lagerstatus til text fil
+        public void PrintMedicin()
+        {
+            Ressourcer.PrintMedicin();
+        }
+
+        public List<string> PrintShelfStock()
+        {
+            return Ressourcer.PrintShelftStock();
+        }
+
+
+    }
+
+    public abstract class Ressourcer//Entity
+    {
+        private int ID;
+        private double Price;
+        private int ProductCategoryID;
+
+        protected Ressourcer(int ID, double Price, int ProductCategoryID)
+        {
+            this.ID = ID;
+            this.Price = Price;
+            this.ProductCategoryID = ProductCategoryID;
+        }
+
+        protected Ressourcer(int ID)
+        {
+            this.ID = ID;
+        }
+
+        public static void PrintMedicin()
+        {
+            //IPersistenceController DBController = new DatabaseController();
+            Database db = new Database();
+            
+            //db.ExportData(AnimalHouseEntity.prop);
+        }
+
+        public static List<string> PrintShelftStock()
+        {
+            IPersistenceController DBController = new DatabaseController();
+            return DBController.DBCGetRessourcePrint();
+        }
+
+
     }
 
    public class Dyr //entity
@@ -137,17 +187,17 @@ namespace AnimalHouseTemp
             DBController.DBCInsertAnimal(Name, Gender, Birthdate, Race, Doctor, Chip);
         }
 
-        public static bool CheckOwner(string Parameter)
-        {
-            IPersistenceController DBController = new DatabaseController();
-            return DBController.CheckIfExist("Ejer", "TelefonNr", Parameter);
-        }
-
         public static void InsertRelation(int EjerTelenummer, int DyrID)
         {
             IPersistenceController DBController = new DatabaseController();
             DBController.DBCInsertRelation(EjerTelenummer, DyrID);
         }
+        
+        public static bool CheckOwner(string Parameter)
+        {
+            IPersistenceController DBController = new DatabaseController();
+            return DBController.CheckIfExist("Ejer", "TelefonNr", Parameter);
+        }              
   
         public static List<string> GetAnimal(string AFParam)
         {
@@ -210,13 +260,7 @@ namespace AnimalHouseTemp
 
             return ListDoctor;
         }
-
-        //public static string GetJournal(string DyrID)
-        //{
-        //    IPersistenceController DBController = new DatabaseController();
-        //    DBController.select
-        //}
-
+                
         //contructor
         public static void AddJournal(int Doctor, int ID, string Date, string Titel, string Comment)
         {
@@ -248,7 +292,6 @@ namespace AnimalHouseTemp
 
         public object DBCGetJournal(string DBCPram)
         {
-            DBCOpenDB();
             string quary = $"select Laege, Dato, Emne, Kommentar from Journal " +
                 $"where Dyr = {DBCPram}";
             SqlCommand SelectFromJoin = new SqlCommand(quary,DBCOpenDB());
@@ -260,5 +303,27 @@ namespace AnimalHouseTemp
 
             return DT;
         }
+
+        public void ExportData(string File)
+        {
+            DBCOpenDB();
+
+            string quary = $"select Ressource.VareKatagoriID, Medicin.ID, Medicin.Navn, Medicin.Antal, Ressource.Pris from Medicin " +
+                $"Left join Ressource On Medicin.ID = Ressource.ID";
+            SqlCommand SelectRessource = new SqlCommand(quary,DBCOpenDB());
+            SelectRessource.CommandText = quary;
+            SqlDataReader Reader = SelectRessource.ExecuteReader();
+
+            using (System.IO.StreamWriter Writer = new System.IO.StreamWriter(File, false, Encoding.UTF8))
+            {
+                while (Reader.Read())
+                {
+                    Writer.WriteLine(Reader["select Ressource.VareKatagoriID"] + "\t" + Reader["Medicin.ID"] + "\t" + Reader["Medicin.Navn"] + "\t" + Reader["Medicin.Antal"] + "\t" + Reader["Ressource.Pris"]);
+                }
+            }
+            Reader.Close();
+            DBCCloseDB();
+        }
+
     }
 }
