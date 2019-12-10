@@ -19,10 +19,11 @@ namespace AnimalHouseV3
             InitializeComponent();
         }
 
-        private void buttonUpdatePrice_Click(object sender, EventArgs e)
+        private void buttonUpdatePrice_Click_1(object sender, EventArgs e)
         {
             richTextBoxInformation.AppendText("Starting transaction\n ");
-            Nc.UpdateMedicin();
+            int Changes = Nc.UpdateMedicin();
+            richTextBoxInformation.AppendText(Changes + " New changes where added \n");
             richTextBoxInformation.AppendText("Transaction was succesfully \n");
         }
     }

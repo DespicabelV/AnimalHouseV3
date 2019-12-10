@@ -28,35 +28,35 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBoxInformation = new System.Windows.Forms.RichTextBox();
             this.buttonUpdatePrice = new System.Windows.Forms.Button();
+            this.richTextBoxInformation = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
-            // 
-            // richTextBoxInformation
-            // 
-            this.richTextBoxInformation.Location = new System.Drawing.Point(230, 12);
-            this.richTextBoxInformation.Name = "richTextBoxInformation";
-            this.richTextBoxInformation.Size = new System.Drawing.Size(406, 426);
-            this.richTextBoxInformation.TabIndex = 1;
-            this.richTextBoxInformation.Text = "";
             // 
             // buttonUpdatePrice
             // 
-            this.buttonUpdatePrice.Location = new System.Drawing.Point(54, 113);
+            this.buttonUpdatePrice.Location = new System.Drawing.Point(81, 193);
             this.buttonUpdatePrice.Name = "buttonUpdatePrice";
-            this.buttonUpdatePrice.Size = new System.Drawing.Size(107, 23);
-            this.buttonUpdatePrice.TabIndex = 2;
+            this.buttonUpdatePrice.Size = new System.Drawing.Size(93, 23);
+            this.buttonUpdatePrice.TabIndex = 0;
             this.buttonUpdatePrice.Text = "Update Price";
             this.buttonUpdatePrice.UseVisualStyleBackColor = true;
-            this.buttonUpdatePrice.Click += new System.EventHandler(this.buttonUpdatePrice_Click);
+            this.buttonUpdatePrice.Click += new System.EventHandler(this.buttonUpdatePrice_Click_1);
+            // 
+            // richTextBoxInformation
+            // 
+            this.richTextBoxInformation.Location = new System.Drawing.Point(295, 22);
+            this.richTextBoxInformation.Name = "richTextBoxInformation";
+            this.richTextBoxInformation.Size = new System.Drawing.Size(482, 379);
+            this.richTextBoxInformation.TabIndex = 1;
+            this.richTextBoxInformation.Text = "";
             // 
             // FormImportMedicin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.buttonUpdatePrice);
             this.Controls.Add(this.richTextBoxInformation);
+            this.Controls.Add(this.buttonUpdatePrice);
             this.Name = "FormImportMedicin";
             this.Text = "FormImportMedicin";
             this.ResumeLayout(false);
@@ -65,7 +65,7 @@
 
         #endregion
 
-        private System.Windows.Forms.RichTextBox richTextBoxInformation;
         private System.Windows.Forms.Button buttonUpdatePrice;
+        private System.Windows.Forms.RichTextBox richTextBoxInformation;
     }
 }

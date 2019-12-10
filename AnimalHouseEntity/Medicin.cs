@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
 using AnimalHousePersistence;
 
 namespace AnimalHouseEntity
 {
-   public class Medicin : Ressource
-   {
+    public class Medicin : Ressource
+    {
         private string Name;
         private int Amount;
         public Medicin(int ID, double Price, int ProductCategoryID, string Name, int Amount) : base(ID, Price, ProductCategoryID)
@@ -34,20 +33,26 @@ namespace AnimalHouseEntity
         {
             List<string> Lines = new List<string>();
             string Line;
-            StreamReader File = new StreamReader(AnimalHouseEntity.Properties.Resources.MedicinData);
-            while ((Line=File.ReadLine())!= null)
+            //System.IO.StreamReader File = new System.IO.StreamReader(@"C:\CSharp\MedicinData.txt");
+            System.IO.StreamReader File = new System.IO.StreamReader(Properties.Resources.MedicinData);
+            while ((Line = File.ReadLine()) != null)
             {
                 Lines.Add(Line);
             }
             File.Close();
             return Lines;
         }
-        public static void UpdatePriceForMedicin()
+        public static int UpdatePriceForMedicin()
         {
+            int Counter = 0;
+
             foreach (string Line in TextDocumentReader())
             {
                 ChangePriceFromDocument(Line);
+                Counter++;
             }
+            return Counter;
+
         }
-   }
+    }
 }

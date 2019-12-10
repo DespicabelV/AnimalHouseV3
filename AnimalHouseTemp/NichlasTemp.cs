@@ -23,16 +23,16 @@ namespace AnimalHouseTemp
         public Medicinz(int ID, int Amount) : base(ID)
         {
             this.Amount = Amount;
-            
+
         }
 
 
         public void UpdateAmountInStock(string Item, int Id, int Amount)
         {
             NichlasTemp Temp = new NichlasTemp();
-            Temp.DBCUpdateAmountInStock(Item,Amount,Id);
+            Temp.DBCUpdateAmountInStock(Item, Amount, Id);
         }
-    
+
     }
     public class AlmostReceipt
     {
@@ -70,7 +70,7 @@ namespace AnimalHouseTemp
             {
                 BookingID = 11;
             }
-            return DBC.DBCInsertReceipt(PriceTotal,BookingID,EjerTelefonNr);
+            return DBC.DBCInsertReceipt(PriceTotal, BookingID, EjerTelefonNr);
         }
     }
 
@@ -103,9 +103,9 @@ namespace AnimalHouseTemp
             this.Name = Name;
         }
 
-        public Treatment(int ID) : base (ID)
+        public Treatment(int ID) : base(ID)
         {
-            
+
         }
 
         //public List<string> SelectSpecificTreatment(string ID)
@@ -130,7 +130,7 @@ namespace AnimalHouseTemp
         private int Amount;
 
 
-        public EntityLejeOrdre(int ReceiptID, int ProductCategoryID,int RessourceID, int Price, int Amount)
+        public EntityLejeOrdre(int ReceiptID, int ProductCategoryID, int RessourceID, int Price, int Amount)
         {
             this.ReceiptID = ReceiptID;
             this.ProductCategoryID = ProductCategoryID;
@@ -152,14 +152,14 @@ namespace AnimalHouseTemp
         public double Discount(int Price, int Discount)
         {
             double NewPrice;
-            NewPrice = Price - ((Price/100)*Discount);
+            NewPrice = Price - ((Price / 100) * Discount);
             return NewPrice;
         }
         public double ChangeOfPriceWithMoms(int Price, int Amount, int OldPrice)
         {
             double NewPrice = Price;
             Convert.ToDouble(OldPrice);
-            NewPrice = (NewPrice * 1.25)*Amount;
+            NewPrice = (NewPrice * 1.25) * Amount;
             NewPrice = NewPrice + Convert.ToDouble(OldPrice);
             return NewPrice;
         }
@@ -187,40 +187,41 @@ namespace AnimalHouseTemp
         //    Treatment Tm = new Treatment(ID);
         //    Tm.SelectSpecificIdFromRessourceAndX();
         //}
-        public void UpdateMedicin()
+
+        public int UpdateMedicin()
         {
-            Medicin.UpdatePriceForMedicin();
+             return Medicin.UpdatePriceForMedicin();
         }
 
         public void InsertOrderLine(int Faktura, int RessourceKatagori, int Ressource, int Price, int Antal)
         {
-            EntityLejeOrdre ELO = new EntityLejeOrdre(Faktura,RessourceKatagori,Ressource,Price,Antal);
+            EntityLejeOrdre ELO = new EntityLejeOrdre(Faktura, RessourceKatagori, Ressource, Price, Antal);
             NichlasTemp Temp = new NichlasTemp();
-            Temp.DBCInsertOrderLine(Faktura,RessourceKatagori,Ressource,Price,Antal);
+            Temp.DBCInsertOrderLine(Faktura, RessourceKatagori, Ressource, Price, Antal);
         }
 
         public int Discount(int Price, int Discount)
         {
             EntityLejeOrdre ELO = new EntityLejeOrdre(Price);
-             return Convert.ToInt32(ELO.Discount(Price,Discount));
+            return Convert.ToInt32(ELO.Discount(Price, Discount));
         }
 
         public int ChangeOfPriceWithOutMoms(int Price, int Amount, int OldPrice)
         {
-            EntityLejeOrdre ELO = new EntityLejeOrdre(Price,Amount);
+            EntityLejeOrdre ELO = new EntityLejeOrdre(Price, Amount);
             return Convert.ToInt32(ELO.ChangeOfPriceWithOutMoms(Price, Amount, OldPrice));
         }
 
         public int ChangeOfPriceWithMoms(int Price, int Amount, int OldPrice)
         {
             EntityLejeOrdre ELO = new EntityLejeOrdre(Price, Amount);
-            return Convert.ToInt32(ELO.ChangeOfPriceWithMoms(Price, Amount,OldPrice));
+            return Convert.ToInt32(ELO.ChangeOfPriceWithMoms(Price, Amount, OldPrice));
         }
 
         public void UpdateAmountInStock(string Item, int Id, int Amount, int WantedAmount)
         {
 
-            Medicinz MIDZ = new Medicinz(Id,Amount);
+            Medicinz MIDZ = new Medicinz(Id, Amount);
             Amount = Amount - WantedAmount;
             MIDZ.UpdateAmountInStock(Item, Id, Amount);
 
@@ -228,7 +229,7 @@ namespace AnimalHouseTemp
 
         public int InsertReciept(int PriceTotal, int Bookning, int Ejer)
         {
-            AlmostReceipt almostReceipt = new AlmostReceipt(PriceTotal,Bookning, Ejer);
+            AlmostReceipt almostReceipt = new AlmostReceipt(PriceTotal, Bookning, Ejer);
             return almostReceipt.InsertReciept();
         }
     }
@@ -307,7 +308,7 @@ namespace AnimalHouseTemp
             DBCCloseDB();
         }
 
-        public void UpdateAmountInStockForUniqueItem(string Category,int Amount, int Where)
+        public void UpdateAmountInStockForUniqueItem(string Category, int Amount, int Where)
         {
             DBCOpenDB();
             SqlCommand UpdateAmountInStockForUniqueItem = new SqlCommand();
@@ -330,7 +331,7 @@ namespace AnimalHouseTemp
             DBCCloseDB();
         }
 
-        public void DBCUpdateAmountInStock(string Item,int ID, int NewAmount)
+        public void DBCUpdateAmountInStock(string Item, int ID, int NewAmount)
         {
             DBCOpenDB();
             SqlCommand SqlCommand = new SqlCommand();
@@ -342,7 +343,7 @@ namespace AnimalHouseTemp
         }
         //Console/Entity Kode
 
-        public List<string> SelectSpecificIdFromRessourceAndX( string Table, int ID)
+        public List<string> SelectSpecificIdFromRessourceAndX(string Table, int ID)
         {
             DBCOpenDB();
             List<string> DBCListSelect = new List<string>();
@@ -368,7 +369,7 @@ namespace AnimalHouseTemp
         public bool CheckIfExsist1(string OwnerID)
         {
             IPersistenceController DBController = new DatabaseController();
-            return DBController.CheckIfExist("Ejer","TelefonNr",OwnerID);
+            return DBController.CheckIfExist("Ejer", "TelefonNr", OwnerID);
         }
         public bool CheckIfExsist(string OwnerID)
         {
@@ -394,7 +395,7 @@ namespace AnimalHouseTemp
             IPersistenceController DBController = new DatabaseController();
             List<string> ListOwner;
 
-            ListOwner = DBController.DBCSelectSpecificFromWhere("TelefonNr","Ejer","TelefonNr",OwnerID);
+            ListOwner = DBController.DBCSelectSpecificFromWhere("TelefonNr", "Ejer", "TelefonNr", OwnerID);
 
             return ListOwner;
         }
@@ -411,7 +412,7 @@ namespace AnimalHouseTemp
             IPersistenceController DBController = new DatabaseController();
             List<string> ListReceipt;
 
-            ListReceipt = DBController.DBCSelectSpecificFromWhere("ID","Bookning","Ejer",OwnerID);
+            ListReceipt = DBController.DBCSelectSpecificFromWhere("ID", "Bookning", "Ejer", OwnerID);
 
             return ListReceipt;
         }
@@ -466,10 +467,5 @@ namespace AnimalHouseTemp
             DBCCloseDB();
             return DBCSelect;
         }
-
-
-
-
-
     }
 }
