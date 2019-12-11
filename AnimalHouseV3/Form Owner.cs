@@ -25,17 +25,26 @@ namespace AnimalHouseV3
         {}
         private void ButtonCreateOwner_Click(object sender, EventArgs e)
         {
-            if (BusinessCheck.Checked &&!PrivateCheck.Checked)
+            if (TextBoxTelephoneNR.Text == "" || TextBoxFirstName.Text == "" || TextBoxLastName.Text == "" || TextBoxStreet.Text == "" || TextBoxNr.Text == "" || TextBoxEmail.Text == "" || TextBoxCity.Text == "" || TextBoxZipCode.Text == "")
             {
-                Controller.CreateBusinessOwner(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxFirstName.Text, TextBoxLastName.Text, TextBoxStreet.Text+ "" +TextBoxNr.Text+ "" +TextBoxFloor.Text, TextBoxEmail.Text, TextBoxCity.Text, Convert.ToInt32(TextBoxZipCode.Text), TextBoxCompanyName.Text, Convert.ToInt32(TextBoxCVRNR.Text));
-                PrivateCheck.Checked = false;
+                MessageBox.Show("You are missing some blank spaces, fill them out please", "Error: Empty spaces", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                
             }
-            else if(PrivateCheck.Checked&&!BusinessCheck.Checked)
+            else
             {
-                Controller.CreatePrivateOwner(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxFirstName.Text, TextBoxLastName.Text, TextBoxStreet.Text + "" + TextBoxNr.Text + "" + TextBoxFloor.Text, TextBoxEmail.Text, TextBoxCity.Text, Convert.ToInt32(TextBoxZipCode.Text));
-                BusinessCheck.Checked = false;
+                if (BusinessCheck.Checked &&!PrivateCheck.Checked)
+                {
+                    Controller.CreateBusinessOwner(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxFirstName.Text, TextBoxLastName.Text, TextBoxStreet.Text+ "" +TextBoxNr.Text+ "" +TextBoxFloor.Text, TextBoxEmail.Text, TextBoxCity.Text, Convert.ToInt32(TextBoxZipCode.Text), TextBoxCompanyName.Text, Convert.ToInt32(TextBoxCVRNR.Text));
+                    PrivateCheck.Checked = false;
+                }
+                else if(PrivateCheck.Checked&&!BusinessCheck.Checked)
+                {
+                    Controller.CreatePrivateOwner(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxFirstName.Text, TextBoxLastName.Text, TextBoxStreet.Text + "" + TextBoxNr.Text + "" + TextBoxFloor.Text, TextBoxEmail.Text, TextBoxCity.Text, Convert.ToInt32(TextBoxZipCode.Text));
+                    BusinessCheck.Checked = false;
+                }
+
+                MessageBox.Show("The Owner was added to The System", "Creation Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            MessageBox.Show("The Owner was added to The System", "Creation Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         private void Form_Owner_Load(object sender, EventArgs e)
         {
@@ -73,7 +82,7 @@ namespace AnimalHouseV3
                TextBoxTelephoneNR.Text = OwnerList[0];
                TextBoxFirstName.Text = OwnerList[1];
                TextBoxLastName.Text = OwnerList[2];
-                if (LejlighedCheck.Checked)
+                if (ApartmentCheck.Checked)
                 {
                    TextBoxStreet.Text = Adresse[0];
                    TextBoxNr.Text = Adresse[1];
@@ -83,6 +92,7 @@ namespace AnimalHouseV3
                 {
                     TextBoxStreet.Text = Adresse[0];
                     TextBoxNr.Text = Adresse[1];
+                    label5.Visible = true;
                     TextBoxFloor.Visible = true;
                 }
                 TextBoxEmail.Text = OwnerList[4];
@@ -99,7 +109,7 @@ namespace AnimalHouseV3
                 TextBoxTelephoneNR.Text = OwnerList[0];
                 TextBoxFirstName.Text = OwnerList[1];
                 TextBoxLastName.Text = OwnerList[2];
-                if (LejlighedCheck.Checked)
+                if (ApartmentCheck.Checked)
                 {
                     TextBoxStreet.Text = Adresse[0];
                     TextBoxNr.Text = Adresse[1];
@@ -109,15 +119,17 @@ namespace AnimalHouseV3
                 {
                     TextBoxStreet.Text = Adresse[0];
                     TextBoxNr.Text = Adresse[1];
+                    label5.Visible = true;
                     TextBoxFloor.Visible = true;
                 }
                 TextBoxEmail.Text = OwnerList[4];
                 TextBoxCity.Text = OwnerList[5];
                 TextBoxZipCode.Text = OwnerList[6];
                 
+                
 
             }
-            dataGridView1.DataSource= Controller.ShowAnimalDataTable(TextBoxTelephoneNR.Text);
+            dataGridViewOwnerDyr.DataSource= Controller.ShowAnimalDataTable(TextBoxTelephoneNR.Text);
         }
         private void ButtonUpdateOwner_Click(object sender, EventArgs e)
         {
@@ -172,14 +184,16 @@ namespace AnimalHouseV3
             }
         }
 
-        private void LejlighedCheck_CheckedChanged(object sender, EventArgs e)
+        private void ApartmentCheck_CheckChanged(object sender, EventArgs e)
         {
-            if (LejlighedCheck.Checked)
+            if (ApartmentCheck.Checked)
             {
+                label5.Visible = true;
                 TextBoxFloor.Visible = true;
             }
-            else if(!LejlighedCheck.Checked)
+            else if(!ApartmentCheck.Checked)
             {
+                label5.Visible = false;
                 TextBoxFloor.Visible = false;
             }
         }

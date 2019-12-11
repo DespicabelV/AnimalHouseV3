@@ -62,13 +62,13 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dyrBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.animalhousev3DataSet = new AnimalHouseV3.Animalhousev3DataSet();
-            this.LejlighedCheck = new System.Windows.Forms.CheckBox();
+            this.ApartmentCheck = new System.Windows.Forms.CheckBox();
             this.dyrTableAdapter = new AnimalHouseV3.Animalhousev3DataSetTableAdapters.DyrTableAdapter();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewOwnerDyr = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dyrBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.animalhousev3DataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOwnerDyr)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -362,37 +362,37 @@
             this.animalhousev3DataSet.DataSetName = "Animalhousev3DataSet";
             this.animalhousev3DataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // LejlighedCheck
+            // ApartmentCheck
             // 
-            this.LejlighedCheck.AutoSize = true;
-            this.LejlighedCheck.Location = new System.Drawing.Point(179, 310);
-            this.LejlighedCheck.Name = "LejlighedCheck";
-            this.LejlighedCheck.Size = new System.Drawing.Size(87, 21);
-            this.LejlighedCheck.TabIndex = 41;
-            this.LejlighedCheck.Text = "Lejlighed";
-            this.LejlighedCheck.UseVisualStyleBackColor = true;
-            this.LejlighedCheck.CheckedChanged += new System.EventHandler(this.LejlighedCheck_CheckedChanged);
+            this.ApartmentCheck.AutoSize = true;
+            this.ApartmentCheck.Location = new System.Drawing.Point(179, 310);
+            this.ApartmentCheck.Name = "ApartmentCheck";
+            this.ApartmentCheck.Size = new System.Drawing.Size(95, 21);
+            this.ApartmentCheck.TabIndex = 41;
+            this.ApartmentCheck.Text = "Apartment";
+            this.ApartmentCheck.UseVisualStyleBackColor = true;
+            this.ApartmentCheck.CheckedChanged += new System.EventHandler(this.ApartmentCheck_CheckChanged);
             // 
             // dyrTableAdapter
             // 
             this.dyrTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridView1
+            // dataGridViewOwnerDyr
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(38, 400);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.Size = new System.Drawing.Size(240, 150);
-            this.dataGridView1.TabIndex = 42;
+            this.dataGridViewOwnerDyr.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewOwnerDyr.Location = new System.Drawing.Point(38, 400);
+            this.dataGridViewOwnerDyr.Name = "dataGridViewOwnerDyr";
+            this.dataGridViewOwnerDyr.RowHeadersWidth = 51;
+            this.dataGridViewOwnerDyr.Size = new System.Drawing.Size(240, 150);
+            this.dataGridViewOwnerDyr.TabIndex = 42;
             // 
             // Form_Owner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(872, 587);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.LejlighedCheck);
+            this.Controls.Add(this.dataGridViewOwnerDyr);
+            this.Controls.Add(this.ApartmentCheck);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.TextBoxCompanyName);
             this.Controls.Add(this.labelCompanyName);
@@ -427,7 +427,7 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dyrBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.animalhousev3DataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewOwnerDyr)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,10 +466,10 @@
         private System.Windows.Forms.TextBox TextBoxCompanyName;
         private System.Windows.Forms.TextBox TextBoxEmail;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox LejlighedCheck;
+        private System.Windows.Forms.CheckBox ApartmentCheck;
         private Animalhousev3DataSet animalhousev3DataSet;
         private System.Windows.Forms.BindingSource dyrBindingSource;
         private Animalhousev3DataSetTableAdapters.DyrTableAdapter dyrTableAdapter;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewOwnerDyr;
     }
 }

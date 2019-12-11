@@ -98,9 +98,9 @@ namespace AnimalHouseTemp
         //Her slutter Animal
 
         //Print Lagerstatus til text fil
-        public void PrintMedicin()
+        public List<string> ControllerPrintMedicin()
         {
-            Ressourcer.PrintMedicin();
+            return Ressourcer.PrintMedicin();
         }
 
         public List<string> PrintShelfStock()
@@ -129,12 +129,10 @@ namespace AnimalHouseTemp
             this.ID = ID;
         }
 
-        public static void PrintMedicin()
+        public static List<string> PrintMedicin()
         {
-            //IPersistenceController DBController = new DatabaseController();
-            Database db = new Database();
-            
-            //db.ExportData(AnimalHouseEntity.prop);
+            IPersistenceController DBController = new DatabaseController();
+            return DBController.DBCGetMedicinPrint();
         }
 
         public static List<string> PrintShelftStock()
