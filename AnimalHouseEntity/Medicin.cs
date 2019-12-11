@@ -34,7 +34,8 @@ namespace AnimalHouseEntity
             List<string> Lines = new List<string>();
             string Line;
             //System.IO.StreamReader File = new System.IO.StreamReader(@"C:\CSharp\MedicinData.txt");
-            System.IO.StreamReader File = new System.IO.StreamReader(Properties.Resources.MedicinData);
+            string Path = AppDomain.CurrentDomain.BaseDirectory + @"\" + "MedicinData.txt";
+            System.IO.StreamReader File = new System.IO.StreamReader(Path);
             while ((Line = File.ReadLine()) != null)
             {
                 Lines.Add(Line);

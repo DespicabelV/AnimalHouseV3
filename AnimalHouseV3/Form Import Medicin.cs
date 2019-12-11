@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 using System.Windows.Forms;
 using AnimalHouseTemp;
 
@@ -25,6 +26,12 @@ namespace AnimalHouseV3
             int Changes = Nc.UpdateMedicin();
             richTextBoxInformation.AppendText(Changes + " New changes where added \n");
             richTextBoxInformation.AppendText("Transaction was succesfully \n");
+        }
+
+        private void buttonChangeFile_Click(object sender, EventArgs e)
+        {
+            string Path = AppDomain.CurrentDomain.BaseDirectory + @"\" + "MedicinData.txt";
+            Process.Start(Path);
         }
     }
 }

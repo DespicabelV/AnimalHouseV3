@@ -96,7 +96,7 @@ namespace AnimalHouseV3
                     {
                         for (int j= 0; j < DataGridViewCart.Rows.Count-1; j++)
                         {
-                            if (Row.Cells[2].Value.ToString() == DataGridViewCart.Rows[j].Cells[2].Value.ToString())
+                            if (Row.Cells[2].Value.ToString() == DataGridViewCart.Rows[j].Cells[1].Value.ToString())
                             {
                                 RowExist = true;
                                 break;
@@ -110,9 +110,6 @@ namespace AnimalHouseV3
                                                       Row.Cells[4].Value = TextboxAmount.Text,
                                                       Row.Cells[5].Value.ToString());
                             DataGridViewItemsInStock.Rows[i].Cells[0].Value = false;
-
-                            //  NC.InsertOrderLine(Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(Row.Cells[1].Value),Convert.ToInt32(Row.Cells[2].Value), Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text));
-                            //  DataGridViewCart.DataSource = Temp.SelectFromOrdreLine(Convert.ToInt32(ComboBoxBookning.Text));
                         }
                     }
                     else
@@ -123,14 +120,12 @@ namespace AnimalHouseV3
                                                   Row.Cells[4].Value = TextboxAmount.Text,//Amount
                                                   Row.Cells[5].Value.ToString());//Pris
                         DataGridViewItemsInStock.Rows[i].Cells[0].Value = false;
-                        // NC.InsertOrderLine(Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(Row.Cells[1].Value), Convert.ToInt32(Row.Cells[2].Value), Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text));
                     }
                     txtboxTotalPrisWithOutTax.Text = NC.ChangeOfPriceWithOutMoms(Convert.ToInt32(Row.Cells[5].Value),Convert.ToInt32(TextboxAmount.Text), Convert.ToInt32(txtboxTotalPrisWithOutTax.Text)).ToString();
                     txtboxTotalPrisWithTax.Text = NC.ChangeOfPriceWithMoms(Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text), Convert.ToInt32(txtboxTotalPrisWithOutTax.Text)).ToString();
                 }
             }
             TextboxAmount.Text = "";
-            
         }
 
         private void ComboBoxCart_SelectedIndexChanged(object sender, EventArgs e)
