@@ -126,6 +126,11 @@ namespace AnimalHouseTemp
             DeleteBookning(Pram);
         }
 
+        public List<string> ControllerPrintDocktorLetter()
+        {
+            return PrintDoctorLetter();
+        }
+
         //------------------------Entity-----------------------------
 
         static bool PrivateExist(string PEParam)
@@ -229,6 +234,12 @@ namespace AnimalHouseTemp
         {
             IPersistenceController Daba = new DatabaseController();
             Daba.DBCDelete("Bookning", "ID", DBPram);
+        }
+
+        static List<string> PrintDoctorLetter()
+        {
+            IPersistenceController Daba = new DatabaseController();
+            return Daba.DBCPrintDocktorLetter();
         }
     }
 }

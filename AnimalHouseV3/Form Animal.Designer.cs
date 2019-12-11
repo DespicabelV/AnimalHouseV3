@@ -39,7 +39,6 @@
             this.CheckBoxMale = new System.Windows.Forms.CheckBox();
             this.CheckBoxFemale = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnCheckOwner = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtBoxAnimalChip = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -66,6 +65,7 @@
             this.btnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.btnShowJournal = new System.Windows.Forms.Button();
+            this.ButtonCheckOwner_Click = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnimal)).BeginInit();
             this.SuspendLayout();
             // 
@@ -165,16 +165,6 @@
             this.label6.Size = new System.Drawing.Size(147, 32);
             this.label6.TabIndex = 11;
             this.label6.Text = "Animal Nr:";
-            // 
-            // btnCheckOwner
-            // 
-            this.btnCheckOwner.Location = new System.Drawing.Point(1070, 162);
-            this.btnCheckOwner.Name = "btnCheckOwner";
-            this.btnCheckOwner.Size = new System.Drawing.Size(173, 56);
-            this.btnCheckOwner.TabIndex = 13;
-            this.btnCheckOwner.Text = "Check";
-            this.btnCheckOwner.UseVisualStyleBackColor = true;
-            this.btnCheckOwner.Click += new System.EventHandler(this.btnCheckOwner_Click);
             // 
             // label7
             // 
@@ -411,6 +401,16 @@
             this.btnShowJournal.UseVisualStyleBackColor = true;
             this.btnShowJournal.Click += new System.EventHandler(this.btnShowJournal_Click);
             // 
+            // ButtonCheckOwner_Click
+            // 
+            this.ButtonCheckOwner_Click.Location = new System.Drawing.Point(1070, 162);
+            this.ButtonCheckOwner_Click.Name = "ButtonCheckOwner_Click";
+            this.ButtonCheckOwner_Click.Size = new System.Drawing.Size(173, 56);
+            this.ButtonCheckOwner_Click.TabIndex = 13;
+            this.ButtonCheckOwner_Click.Text = "Check";
+            this.ButtonCheckOwner_Click.UseVisualStyleBackColor = true;
+            this.ButtonCheckOwner_Click.Click += new System.EventHandler(this.ButtonCheckOwner_Click_Click);
+            // 
             // Form_Animal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
@@ -440,7 +440,7 @@
             this.Controls.Add(this.TxtBoxAnimalChip);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.btnCheckOwner);
+            this.Controls.Add(this.ButtonCheckOwner_Click);
             this.Controls.Add(this.TxtBoxAnimalNr);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.CheckBoxFemale);
@@ -476,7 +476,6 @@
         private System.Windows.Forms.CheckBox CheckBoxMale;
         private System.Windows.Forms.CheckBox CheckBoxFemale;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Button btnCheckOwner;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox TxtBoxAnimalChip;
         private System.Windows.Forms.Label label8;
@@ -503,5 +502,6 @@
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button btnShowJournal;
+        private System.Windows.Forms.Button ButtonCheckOwner_Click;
     }
 }

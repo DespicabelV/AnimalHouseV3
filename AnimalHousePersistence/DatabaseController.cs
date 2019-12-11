@@ -257,7 +257,7 @@ namespace AnimalHousePersistence
             return DBCGetDoctorString;
         }
 
-        public List<string> DBCGetMedicinPrint(string DBCPram)
+        public List<string> DBCGetMedicinPrint()
         {
             DBCOpenDB();
             List<string> DBCMedicinList = new List<string>();
@@ -280,7 +280,7 @@ namespace AnimalHousePersistence
             return DBCMedicinList;
         }
 
-        public List<string> DBCGetRessourcePrint(string DBCPram)
+        public List<string> DBCGetRessourcePrint()
         {
             DBCOpenDB();
             List<string> DBCRessourceList = new List<string>();
@@ -301,6 +301,30 @@ namespace AnimalHousePersistence
 
             DBCCloseDB();
             return DBCRessourceList;
+        }
+
+        public List<string> DBCPrintDocktorLetter()
+        {
+            DBCOpenDB();
+
+            List<string> DBCDoctorLetterList = new List<string>();
+
+            SqlCommand DBCPrintDocktorLetter = new SqlCommand();
+            DBCPrintDocktorLetter.CommandText = $"select Bookning.dyr,Bookning.Ejer,Bookning.Dato,Bookning.Behandling,Bookning.Laege from Bookning " +
+                $"WHERE Dato<DATEADD(YEAR, -1, GETDATE())";
+            DBCPrintDocktorLetter.Connection = db;
+            reader = DBCPrintDocktorLetter.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    DBCDoctorLetterList.Add(Convert.ToString(reader.GetValue(i)));
+                }
+            }
+
+            DBCCloseDB();
+            return DBCDoctorLetterList;
         }
 
 

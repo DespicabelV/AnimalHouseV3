@@ -76,5 +76,11 @@
   <ItemGroup>
     <None Include="Resources\MedicinData.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\PrintRessource.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DockterLetter.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
