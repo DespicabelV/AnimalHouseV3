@@ -40,6 +40,7 @@
             this.buttonPrintRessource.TabIndex = 0;
             this.buttonPrintRessource.Text = "Print Ressource";
             this.buttonPrintRessource.UseVisualStyleBackColor = true;
+            this.buttonPrintRessource.Click += new System.EventHandler(this.buttonPrintRessource_Click);
             // 
             // buttonPrintDoctorNotice
             // 
