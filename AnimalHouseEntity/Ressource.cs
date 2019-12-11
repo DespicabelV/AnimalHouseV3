@@ -12,16 +12,22 @@ namespace AnimalHouseEntity
         private double Price;
         private int ProductCategoryID;
 
-        protected Ressource(int ID, double Price, int ProductCategoryID)
+        public Ressource(int ID, double Price, int ProductCategoryID)
         {
             this.ID = ID;
             this.Price = Price;
             this.ProductCategoryID = ProductCategoryID;
         }
 
-        protected Ressource(int ID)
+        public Ressource(int ID)
         {
             this.ID = ID;
+        }
+
+        public Ressource(int ID, int Price)
+        {
+            this.ID = ID;
+            this.Price = Price;
         }
     }
 }

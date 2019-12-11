@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AnimalHousePersistence;
 
 namespace AnimalHouseEntity
 {
-   public class Medicin : Ressource
+    public class Medicin : Ressource
     {
         private string Name;
         private int Amount;
@@ -16,28 +17,43 @@ namespace AnimalHouseEntity
             this.Amount = Amount;
         }
 
-
-        public void ExtractDataFromDokument(string ImportString)
+        public static void ChangePriceFromDocument(string ImportString)
         {
             // Afgrænser
-            Char delimiter = ',';
+            IPersistenceController DBC = new DatabaseController();
+            Char delimiter = '#';
             String[] SubString = ImportString.Split(delimiter);
             string TempID = SubString[0];
             string TempPrice = SubString[1];
+            DBC.DBCUpdateRessource(Convert.ToInt32(TempID), Convert.ToInt32(TempPrice));
 
         }
 
-        public List<string> TextDocumentReader()
+        public static List<string> TextDocumentReader()
         {
             List<string> Lines = new List<string>();
             string Line;
-            System.IO.StreamReader File = new System.IO.StreamReader(AnimalHouseEntity.Properties.Resources.MedicinData);
-            while ((Line=File.ReadLine())!= null)
+            //System.IO.StreamReader File = new System.IO.StreamReader(@"C:\CSharp\MedicinData.txt");
+            string Path = AppDomain.CurrentDomain.BaseDirectory + @"\" + "MedicinData.txt";
+            System.IO.StreamReader File = new System.IO.StreamReader(Path);
+            while ((Line = File.ReadLine()) != null)
             {
                 Lines.Add(Line);
             }
             File.Close();
             return Lines;
+        }
+        public static int UpdatePriceForMedicin()
+        {
+            int Counter = 0;
+
+            foreach (string Line in TextDocumentReader())
+            {
+                ChangePriceFromDocument(Line);
+                Counter++;
+            }
+            return Counter;
+
         }
     }
 }
