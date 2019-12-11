@@ -10,9 +10,7 @@ using System.Windows.Forms;
 using AnimalHouseController;
 //TEMP!
 using System.IO;
-using System.Reflection;
 using AnimalHouseTemp;
-using AnimalHouseV3;
 using System.Diagnostics;
 //TEMP END
 
