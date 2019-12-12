@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AnimalHousePersistence;
-using AnimalHouseEntity;
 using System.Data.SqlClient;
 using System.Data;
 using System.Threading;
@@ -77,7 +75,7 @@ namespace AnimalHouseTemp
         }
         public object ShowAnimalDataTable(string TelephoneNr)
         {
-          object dt= entity.GetAnimalDataTable(TelephoneNr);
+          object dt= entity.GetOwnersAnimalDataTable(TelephoneNr);
             return dt;
         }
     }
@@ -85,61 +83,63 @@ namespace AnimalHouseTemp
     {
         SqlConnection db;
         //code for entity layer
-        public IPersistenceController OwnerController;
+        public IPersistenceController DatabaseController;
         public JacobTempEntity()
         {
-            OwnerController = new DatabaseController();
+            DatabaseController = new DatabaseController();
         }
         public void AddBusinessToDatabase(int TelePhoneNr, string companyname, int CVRNR)
         {
-            OwnerController.DBCInsertBusiness(TelePhoneNr, companyname, CVRNR);
+            DatabaseController.DBCInsertBusiness(TelePhoneNr, companyname, CVRNR);
         }
         public void AddOwnerToDatabase(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
         {
-            OwnerController.DBCInsertOwner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
+            DatabaseController.DBCInsertOwner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
         }
         public void AddPrivateToDatabase(int TelePhoneNr)
         {
-            OwnerController.DBCInsertPrivate(TelePhoneNr);
+            DatabaseController.DBCInsertPrivate(TelePhoneNr);
         }
         public List<string> SearchForOwner(string TelePhoneNr)
         {
-           List<string> ownerlist= OwnerController.DBCSelectFromWhere("ejer", "TelefonNr", TelePhoneNr);
+           List<string> ownerlist= DatabaseController.DBCSelectFromWhere("ejer", "TelefonNr", TelePhoneNr);
             return ownerlist;
         }
         public List<string> SearchForPrivate(string TelePhoneNr)
         {
-            List<string> PrivateList = OwnerController.DBCSelectFromWhere("Private_", "ejer", TelePhoneNr);
+            List<string> PrivateList = DatabaseController.DBCSelectFromWhere("Private_", "ejer", TelePhoneNr);
             return PrivateList;
         }
         public List<string> SearchForBusiness(string TelePhoneNr)
         {
-            List<string> BusinessList = OwnerController.DBCSelectFromWhere("Erhverv", "ejer", TelePhoneNr);
+            List<string> BusinessList = DatabaseController.DBCSelectFromWhere("Erhverv", "ejer", TelePhoneNr);
             return BusinessList;
         }
         public void UpdateOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
         {
-            OwnerController.DBCUpdateOwner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
+            DatabaseController.DBCUpdateOwner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
         }
         public void UpdateBusiness(int TelePhoneNr, string companyname, string CVRNR)
         {
-            OwnerController.DBCUpdateBusiness(TelePhoneNr, companyname, CVRNR);
+            DatabaseController.DBCUpdateBusiness(TelePhoneNr, companyname, CVRNR);
         }
         public void DeleteOwner(string Owner,string Where,string TelephoneNr)
         {
-            OwnerController.DBCDelete(Owner, Where, TelephoneNr);
+            DatabaseController.DBCDelete(Owner, Where, TelephoneNr);
         }
         private SqlConnection DBCOpenDB()
         {
+            
              db = new SqlConnection("Data source = den1.mssql7.gear.host; Initial Catalog = animalhousev3;User Id= animalhousev3 ;Password= Ts3N59?EL_mw");
             db.Open();
             return db;
         }
         private void DBCCloseDB()
         {
+            
             db.Close();
         }
-        public object GetAnimalDataTable(string TelePhoneNr)
+        public object GetOwnersAnimalDataTable(string TelePhoneNr)
         {
             string Qry = $"select Dyr.Navn, Dyr.ID from Dyr join Relation on Dyr.ID = Relation.Dyr join Ejer on Relation.Ejer = Ejer.TelefonNr where Ejer.TelefonNr = {TelePhoneNr}";
             DBCOpenDB();

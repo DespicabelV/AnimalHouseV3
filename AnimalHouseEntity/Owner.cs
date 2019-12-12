@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using AnimalHousePersistence;
 
 namespace AnimalHouseEntity
 {
-    public abstract class Owner
+    public class Owner
     {
         private int TelefonNr;
         private string FirstName;
@@ -26,5 +27,44 @@ namespace AnimalHouseEntity
             this.City = City;
             this.ZipCode = ZipCode;
         }
+        public Owner(int TelefonNr)
+        {
+            this.TelefonNr = TelefonNr;
+        }
+
+        IPersistenceController DatabaseController = new DatabaseController();
+        public static List<string> RelationFetch(string RFParam)
+        {
+            IPersistenceController Daba = new DatabaseController();
+            List<string> ListRela;
+
+            ListRela = Daba.DBCSelectFromWhere("Relation", "Ejer", RFParam);
+
+            return ListRela;
+        }
+        public void AddOwnerToDatabase(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
+        {
+            DatabaseController.DBCInsertOwner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
+        }
+        public List<string> SearchForOwner(string TelePhoneNr)
+        {
+            List<string> ownerlist = DatabaseController.DBCSelectFromWhere("ejer", "TelefonNr", TelePhoneNr);
+            return ownerlist;
+        }
+        public void UpdateOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
+        {
+            DatabaseController.DBCUpdateOwner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
+        }
+        public void DeleteOwner(string Owner, string Where, string TelephoneNr)
+        {
+            DatabaseController.DBCDelete(Owner, Where, TelephoneNr);
+        }
+
+        public object GetOwnersAnimalDataTable(string TelePhoneNr)
+        {
+           return DatabaseController.GetOwnersAnimalDataTable(TelePhoneNr);
+        }
+
+
     }
 }

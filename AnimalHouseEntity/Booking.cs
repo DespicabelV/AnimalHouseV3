@@ -54,5 +54,51 @@ namespace AnimalHouseEntity
         { 
             IPC.DBCUpdateBookning(Treatment,Doctor, ID, CageID,CageDayAmount,Date,Times);
         }
+
+        public static List<string> BookningFetch(string PFParam)
+        {
+            IPersistenceController Daba = new DatabaseController();
+            List<string> ListBookning;
+
+            ListBookning = Daba.DBCSelectFromWhere("Bookning", "Ejer", PFParam);
+
+            return ListBookning;
+        }
+
+        public static List<string> BookningFetchSpecific(string OwnerID)
+        {
+            IPersistenceController DBController = new DatabaseController();
+            List<string> ListReceipt;
+
+            ListReceipt = DBController.DBCSelectSpecificFromWhere("ID", "Bookning", "Ejer", OwnerID);
+
+            return ListReceipt;
+        }
+
+        public static List<string> TimeBookedTimeFetch(string TTParamDate, string TTPramDoctor)
+        {
+            IPersistenceController Daba = new DatabaseController();
+            List<string> ListTime;
+
+            ListTime = Daba.DBCBookedTimes(TTParamDate, TTPramDoctor);
+
+            return ListTime;
+        }
+
+        public static List<string> TimeTimeFetch()
+        {
+            IPersistenceController Daba = new DatabaseController();
+            List<string> ListTime;
+
+            ListTime = Daba.DBCTimes();
+
+            return ListTime;
+        }
+
+        public static void DeleteBookning(string DBPram)
+        {
+            IPersistenceController Daba = new DatabaseController();
+            Daba.DBCDelete("Bookning", "ID", DBPram);
+        }
     }
 }

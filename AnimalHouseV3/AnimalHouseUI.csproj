@@ -182,10 +182,6 @@
       <Project>{b2b90e49-802e-4b20-8d88-29db2476fbec}</Project>
       <Name>AnimalHouseController</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AnimalHouseTemp\AnimalHouseTemp.csproj">
-      <Project>{dd23da30-51a2-475d-a3dc-754578695225}</Project>
-      <Name>AnimalHouseTemp</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Labrador edit.png" />

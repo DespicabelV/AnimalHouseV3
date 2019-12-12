@@ -34,9 +34,10 @@
             // 
             // buttonPrintRessource
             // 
-            this.buttonPrintRessource.Location = new System.Drawing.Point(117, 153);
+            this.buttonPrintRessource.Location = new System.Drawing.Point(11, 46);
+            this.buttonPrintRessource.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonPrintRessource.Name = "buttonPrintRessource";
-            this.buttonPrintRessource.Size = new System.Drawing.Size(237, 80);
+            this.buttonPrintRessource.Size = new System.Drawing.Size(118, 67);
             this.buttonPrintRessource.TabIndex = 0;
             this.buttonPrintRessource.Text = "Print Ressource";
             this.buttonPrintRessource.UseVisualStyleBackColor = true;
@@ -44,20 +45,23 @@
             // 
             // buttonPrintDoctorNotice
             // 
-            this.buttonPrintDoctorNotice.Location = new System.Drawing.Point(117, 344);
+            this.buttonPrintDoctorNotice.Location = new System.Drawing.Point(240, 46);
+            this.buttonPrintDoctorNotice.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonPrintDoctorNotice.Name = "buttonPrintDoctorNotice";
-            this.buttonPrintDoctorNotice.Size = new System.Drawing.Size(237, 80);
+            this.buttonPrintDoctorNotice.Size = new System.Drawing.Size(118, 67);
             this.buttonPrintDoctorNotice.TabIndex = 1;
             this.buttonPrintDoctorNotice.Text = "Print Doctor Notice";
             this.buttonPrintDoctorNotice.UseVisualStyleBackColor = true;
+            this.buttonPrintDoctorNotice.Click += new System.EventHandler(this.buttonPrintDoctorNotice_Click);
             // 
             // FormPrint
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1717, 987);
+            this.ClientSize = new System.Drawing.Size(369, 185);
             this.Controls.Add(this.buttonPrintDoctorNotice);
             this.Controls.Add(this.buttonPrintRessource);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "FormPrint";
             this.Text = "FormPrint";
             this.ResumeLayout(false);

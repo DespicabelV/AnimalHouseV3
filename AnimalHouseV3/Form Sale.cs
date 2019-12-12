@@ -7,14 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AnimalHouseTemp;
+using AnimalHouseController;
 
 namespace AnimalHouseV3
 {
     public partial class FormSalePos : Form
     {
-        NichlasTemp Temp = new NichlasTemp();
-        NæstenController NC = new NæstenController();
+        Contoller Controller = new Contoller();
         public FormSalePos()
         {
             InitializeComponent();
@@ -43,11 +42,11 @@ namespace AnimalHouseV3
 
         private void ButtonSearchOwner_Click(object sender, EventArgs e)
         {
-            if (Temp.CheckIfExsist(textBoxOwner.Text) == true)
+            if (Controller.ControllerOwnerExist(textBoxOwner.Text) == true)
             {
                 OwnerValidCheckBox.Checked = true;
                 OwnerValidCheckBox.Enabled = false;
-                if (Temp.CheckIfExsistInPrivate(textBoxOwner.Text) == true)
+                if (Controller.ControllerCheckIfExsistInPrivateIsPrivate(textBoxOwner.Text) == true)
                 {
                     PrivateCheckBox.Checked = true;
                     BuisnessCheckBox.Checked = false;
@@ -64,7 +63,7 @@ namespace AnimalHouseV3
                 OwnerValidCheckBox.Enabled = false;
             }
 
-            foreach (string item in Temp.GetBookning1(textBoxOwner.Text))
+            foreach (string item in Controller.ControllerBookningFeetch(textBoxOwner.Text))
             {
                 ComboBoxBookning.Items.Add(item);
             }
@@ -73,13 +72,13 @@ namespace AnimalHouseV3
         private void ComboBoxCategory_SelectedIndexChanged(object sender, EventArgs e)
         {
             string SelectedCategory=ComboBoxCategory.SelectedItem.ToString();
-            DataGridViewItemsInStock.DataSource = Temp.SelectFromXToGridView(SelectedCategory);
+            DataGridViewItemsInStock.DataSource = Controller.ControllerPrintCategoryToDataGridView(SelectedCategory);
         }
 
         private void ButtonSearchRessource_Click(object sender, EventArgs e)
         {
             string Category = ComboBoxCategory.SelectedItem.ToString();
-            DataGridViewItemsInStock.DataSource = Temp.SelectFromXToGridViewWhereX(Category,TxtboxSearchRessourceCategory.Text);
+            DataGridViewItemsInStock.DataSource = Controller.ControllerPrintCategoryToDataGridViewName(Category,TxtboxSearchRessourceCategory.Text);
             
         }
 
@@ -121,8 +120,8 @@ namespace AnimalHouseV3
                                                   Row.Cells[5].Value.ToString());//Pris
                         DataGridViewItemsInStock.Rows[i].Cells[0].Value = false;
                     }
-                    txtboxTotalPrisWithOutTax.Text = NC.ChangeOfPriceWithOutMoms(Convert.ToInt32(Row.Cells[5].Value),Convert.ToInt32(TextboxAmount.Text), Convert.ToInt32(txtboxTotalPrisWithOutTax.Text)).ToString();
-                    txtboxTotalPrisWithTax.Text = NC.ChangeOfPriceWithMoms(Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text), Convert.ToInt32(txtboxTotalPrisWithOutTax.Text)).ToString();
+                    txtboxTotalPrisWithOutTax.Text = Controller.ControllerChangeOfPriceWithOutMoms(Convert.ToInt32(Row.Cells[5].Value),Convert.ToInt32(TextboxAmount.Text), Convert.ToInt32(txtboxTotalPrisWithOutTax.Text)).ToString();
+                    txtboxTotalPrisWithTax.Text = Controller.ControllerChangeOfPriceWithMoms(Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text), Convert.ToInt32(txtboxTotalPrisWithOutTax.Text)).ToString();
                 }
             }
             TextboxAmount.Text = "";
@@ -157,7 +156,6 @@ namespace AnimalHouseV3
 
         private void ButtonPay_Click(object sender, EventArgs e)
         {
-            NæstenController NC = new NæstenController();
             if (BuisnessCheckBox.Checked == false && BuisnessCheckBox.Checked == false || textBoxOwner.Text == "")
             {
                 MessageBox.Show("Fill out the empty brackets");
@@ -165,21 +163,21 @@ namespace AnimalHouseV3
             }
             else if (BuisnessCheckBox.Checked == true)
             {
-                int ReceiptID = NC.InsertReciept(Convert.ToInt32(txtboxTotalPrisWithOutTax.Text), Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(textBoxOwner.Text));
+                int ReceiptID = Controller.ControllerInsertReciept(Convert.ToInt32(txtboxTotalPrisWithOutTax.Text), Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(textBoxOwner.Text));
                 for (int i = 0; i <= DataGridViewCart.Rows.Count - 2; i++)
                 {
                     DataGridViewRow Row = DataGridViewCart.Rows[i];
                     //              Faktura   //RessourceCategorySetToRecieptID                 //RessourceId                       //Price                                 //Amount
-                    NC.InsertOrderLine(ReceiptID, Convert.ToInt32(Row.Cells[0].Value), Convert.ToInt32(Row.Cells[1].Value), Convert.ToInt32(Row.Cells[4].Value), Convert.ToInt32(Row.Cells[3].Value));
+                    Controller.ControllerInsertOrderLine(ReceiptID, Convert.ToInt32(Row.Cells[0].Value), Convert.ToInt32(Row.Cells[1].Value), Convert.ToInt32(Row.Cells[4].Value), Convert.ToInt32(Row.Cells[3].Value));
                 }
             }
             else if (PrivateCheckBox.Checked == true)
             {
-                int ReceiptID = NC.InsertReciept(Convert.ToInt32(txtboxTotalPrisWithTax.Text), Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(textBoxOwner.Text));
+                int ReceiptID = Controller.ControllerInsertReciept(Convert.ToInt32(txtboxTotalPrisWithTax.Text), Convert.ToInt32(ComboBoxBookning.Text), Convert.ToInt32(textBoxOwner.Text));
                 for (int i = 0; i <= DataGridViewCart.Rows.Count - 2; i++)
                 {
                     DataGridViewRow Row = DataGridViewCart.Rows[i];
-                    NC.InsertOrderLine(ReceiptID, Convert.ToInt32(Row.Cells[0].Value), Convert.ToInt32(Row.Cells[1].Value), Convert.ToInt32(Row.Cells[4].Value), Convert.ToInt32(Row.Cells[3].Value));
+                    Controller.ControllerInsertOrderLine(ReceiptID, Convert.ToInt32(Row.Cells[0].Value), Convert.ToInt32(Row.Cells[1].Value), Convert.ToInt32(Row.Cells[4].Value), Convert.ToInt32(Row.Cells[3].Value));
                 }
             }
             MessageBox.Show("Your Transaction was succesfull", "Succes!", MessageBoxButtons.OK);
@@ -188,8 +186,8 @@ namespace AnimalHouseV3
 
         private void ButtonDiscount_Click(object sender, EventArgs e)
         {
-           txtboxTotalPrisWithOutTax.Text = NC.Discount(Convert.ToInt32(txtboxTotalPrisWithOutTax.Text), Convert.ToInt32(TextboxDiscount.Text)).ToString();
-           txtboxTotalPrisWithTax.Text = NC.Discount(Convert.ToInt32(txtboxTotalPrisWithTax.Text), Convert.ToInt32(TextboxDiscount.Text)).ToString();
+           txtboxTotalPrisWithOutTax.Text = Controller.ControllerDiscount(Convert.ToInt32(txtboxTotalPrisWithOutTax.Text), Convert.ToInt32(TextboxDiscount.Text)).ToString();
+           txtboxTotalPrisWithTax.Text = Controller.ControllerDiscount(Convert.ToInt32(txtboxTotalPrisWithTax.Text), Convert.ToInt32(TextboxDiscount.Text)).ToString();
         }
     }
 }

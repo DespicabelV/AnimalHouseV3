@@ -53,19 +53,5 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AnimalHouseController\AnimalHouseController.csproj">
-      <Project>{b2b90e49-802e-4b20-8d88-29db2476fbec}</Project>
-      <Name>AnimalHouseController</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AnimalHouseEntity\AnimalHouseEntity.csproj">
-      <Project>{a7d74849-b8ed-482d-9016-e82ef491ad08}</Project>
-      <Name>AnimalHouseEntity</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\AnimalHousePersistence\AnimalHousePersistence.csproj">
-      <Project>{20a05cfd-d6e1-4596-9f82-c2d202694ca4}</Project>
-      <Name>AnimalHousePersistence</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -68,10 +68,6 @@
       <Project>{20a05cfd-d6e1-4596-9f82-c2d202694ca4}</Project>
       <Name>AnimalHousePersistence</Name>
     </ProjectReference>
-    <ProjectReference Include="..\AnimalHouseTemp\AnimalHouseTemp.csproj">
-      <Project>{dd23da30-51a2-475d-a3dc-754578695225}</Project>
-      <Name>AnimalHouseTemp</Name>
-    </ProjectReference>
     <ProjectReference Include="..\AnimalHouseV3\AnimalHouseUI.csproj">
       <Project>{64c41d0b-c71e-4c30-9423-b54fce6fa456}</Project>
       <Name>AnimalHouseUI</Name>

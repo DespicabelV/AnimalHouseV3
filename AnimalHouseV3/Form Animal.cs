@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AnimalHouseController;
-using AnimalHouseTemp;
 using AnimalHouseV3.Properties;
 
 namespace AnimalHouseV3
@@ -19,11 +18,11 @@ namespace AnimalHouseV3
         private string[,] DoctorArray; // array bliver lavet
         public Form_Animal()
         {
-            AnimalHouseTemp.Controller Contemp = new Controller();
+            Contoller Controller = new Contoller();
 
             InitializeComponent();
 
-            List<string> DoctorList = Contemp.FindAllDoctor(); // ny list bliver lavet. FindAllDoctor er også en list. FindAllDoctorList finder 12 læger
+            List<string> DoctorList = Controller.ControllerFindAllDoctor(); // ny list bliver lavet. FindAllDoctor er også en list. FindAllDoctorList finder 12 læger
 
             DoctorArray = new string[DoctorList.Count / 2, 2]; // list bliver instatireret og array er lige med ny instans af list. FindAllDoctorList bliver halveret. 
             for (int i = 0; i < DoctorList.Count / 2; i++)  
@@ -36,8 +35,7 @@ namespace AnimalHouseV3
         //Husk at ændre nedenunder
         
         private char Gender()
-        {
-            AnimalHouseTemp.Controller Contemp = new Controller();
+        {            
             char Gender = 'T';
             if (CheckBoxFemale.Checked == false && CheckBoxMale.Checked == false)
             {
@@ -57,7 +55,7 @@ namespace AnimalHouseV3
 
         private void btnAnimalCreate_Click(object sender, EventArgs e)
         {
-            AnimalHouseTemp.Controller Contemp = new Controller();
+            Contoller Controller = new Contoller();
 
             if (TxtAnimalName.Text == "" || TxtAnimal.Text == "" || DoctorComboBox.Text == "" || TxtBoxAnimalChip.Text == "" || TxtOwnerPhone.Text == "")
             {
@@ -65,18 +63,16 @@ namespace AnimalHouseV3
             }
             else
             {
-                Contemp.NewAnimal(TxtAnimalName.Text, Gender(), Convert.ToDateTime(AnimalBirthCalender.Value).ToString("yyyy-MM-dd"),
-                    TxtAnimal.Text, Convert.ToInt32(DoctorComboBox.Text), Convert.ToInt32(TxtBoxAnimalChip.Text));
-                TxtBoxAnimalNr.Text = Contemp.FindAnimalID(TxtAnimalName.Text, Convert.ToDateTime(AnimalBirthCalender.Value).ToString("yyyy-MM-dd"),
+                Controller.ControllerNewAnimal(TxtAnimalName.Text, Gender(), Convert.ToDateTime(AnimalBirthCalender.Value).ToString("yyyy-MM-dd"),
+                    TxtAnimal.Text, Convert.ToInt32(DoctorArray[DoctorComboBox.SelectedIndex,0]), Convert.ToInt32(TxtBoxAnimalChip.Text));
+                TxtBoxAnimalNr.Text = Controller.ControllerFindAnimalID(TxtAnimalName.Text, Convert.ToDateTime(AnimalBirthCalender.Value).ToString("yyyy-MM-dd"),
                     TxtAnimal.Text, Gender())[0];
-                Contemp.AddRelation(Convert.ToInt32(TxtOwnerPhone.Text), Convert.ToInt32(TxtBoxAnimalNr.Text));
+                Controller.ControllerAddRelation(Convert.ToInt32(TxtOwnerPhone.Text), Convert.ToInt32(TxtBoxAnimalNr.Text));
             }
         }
 
         private void CheckBoxFemale_CheckedChanged(object sender, EventArgs e)
         {
-            AnimalHouseTemp.Controller Contemp = new Controller();
-
             if (CheckBoxFemale.Checked == true)
             {
                 CheckBoxMale.Enabled = false;
@@ -86,32 +82,28 @@ namespace AnimalHouseV3
 
         private void CheckBoxMale_CheckedChanged(object sender, EventArgs e)
         {
-            AnimalHouseTemp.Controller Contemp = new Controller();
-
             if (CheckBoxMale.Checked == true)
             {
                 CheckBoxFemale.Enabled = false;
             }
             else CheckBoxFemale.Enabled = true;
-        }
-
-        
+        }        
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-            AnimalHouseTemp.Controller Contemp = new Controller();
+            Contoller Controller = new Contoller();
 
-            if (Contemp.CheckIfAnimalExist(TxtBoxAnimalNr.Text) == false)
+            if (Controller.ControllerCheckIfAnimalExist(TxtBoxAnimalNr.Text) == false)
             {
                 MessageBox.Show("Animal doesn't exist");
             }
             else
             {
-                List<string> DoctorList = Contemp.FindAllDoctor();
+                List<string> DoctorList = Controller.ControllerFindAllDoctor();
 
                 
-                TxtAnimalName.Text = Contemp.SearchAnimal(TxtBoxAnimalNr.Text)[1];
-                if (Contemp.SearchAnimal(TxtBoxAnimalNr.Text)[2] == "F")
+                TxtAnimalName.Text = Controller.ControllerSearchAnimal(TxtBoxAnimalNr.Text)[1];
+                if (Controller.ControllerSearchAnimal(TxtBoxAnimalNr.Text)[2] == "F")
                 {
                     CheckBoxMale.Checked = false;
                     CheckBoxFemale.Checked = true;
@@ -123,25 +115,25 @@ namespace AnimalHouseV3
                     CheckBoxMale.Checked = true;
                     CheckBoxFemale.Enabled = false;
                 }
-                AnimalBirthCalender.Value = Convert.ToDateTime(Contemp.SearchAnimal(TxtBoxAnimalNr.Text)[3]);
-                TxtAnimal.Text = Contemp.SearchAnimal(TxtBoxAnimalNr.Text)[4];
-                DoctorComboBox.Text = Contemp.GetDoctorName(TxtBoxAnimalNr.Text);
-                TxtBoxAnimalChip.Text = Contemp.SearchAnimal(TxtBoxAnimalNr.Text)[6];
+                AnimalBirthCalender.Value = Convert.ToDateTime(Controller.ControllerSearchAnimal(TxtBoxAnimalNr.Text)[3]);
+                TxtAnimal.Text = Controller.ControllerSearchAnimal(TxtBoxAnimalNr.Text)[4];
+                DoctorComboBox.Text = Controller.ControllerGetDoctorName(TxtBoxAnimalNr.Text);
+                TxtBoxAnimalChip.Text = Controller.ControllerSearchAnimal(TxtBoxAnimalNr.Text)[6];
             }
         }
 
         private void btnAnimalUpdate_Click(object sender, EventArgs e)
         {
-            AnimalHouseTemp.Controller Contemp = new Controller();
+            Contoller Controller = new Contoller();
 
-            Contemp.UpdateAnimal(Convert.ToInt32(TxtBoxAnimalNr.Text), TxtAnimalName.Text, Gender(), Convert.ToDateTime(AnimalBirthCalender.Value).ToString("yyyy-MM-dd"), TxtAnimal.Text, Convert.ToInt32(DoctorComboBox.Text), Convert.ToInt32(TxtBoxAnimalChip.Text));
+            Controller.ControllerUpdateAnimal(Convert.ToInt32(TxtBoxAnimalNr.Text), TxtAnimalName.Text, Gender(), Convert.ToDateTime(AnimalBirthCalender.Value).ToString("yyyy-MM-dd"), TxtAnimal.Text, Convert.ToInt32(DoctorArray[DoctorComboBox.SelectedIndex,0]), Convert.ToInt32(TxtBoxAnimalChip.Text));
         }
 
         private void btnAnimalDelete_Click(object sender, EventArgs e)
         {
-            AnimalHouseTemp.Controller Contemp = new Controller();
-            Contemp.DeleteRelation(TxtBoxAnimalNr.Text);
-            Contemp.DeleteAnimal(TxtBoxAnimalNr.Text);
+            Contoller Controller = new Contoller();
+            Controller.ControllerDeleteRelation(TxtBoxAnimalNr.Text);
+            Controller.ControllerDeleteAnimal(TxtBoxAnimalNr.Text);
         }
 
         private void btnAnimalUploadPic_Click(object sender, EventArgs e)
@@ -151,16 +143,8 @@ namespace AnimalHouseV3
         
         private void btnJournal_Click(object sender, EventArgs e)
         {
-            AnimalHouseTemp.Controller Contemp = new Controller();
-            Contemp.AddJournal(Convert.ToInt32(DoctorComboBox.Text), Convert.ToInt32(TxtBoxAnimalNr.Text), Convert.ToDateTime(JournalCalender.Value).ToString("yyyy-MM-dd"), TxtJournalTitle.Text, TextBoxJournal.Text);
-        }
-
-        //ikke færdig
-        private void buttonHelp_Click(object sender, EventArgs e)
-        {
-        //    PictureBox Help = new PictureBox();
-        //    Help.Image = Resources.Labrador_edit;
-        //    Help.Show();
+            Contoller Controller = new Contoller();
+            Controller.ControllerAddJournal(Convert.ToInt32(DoctorArray[DoctorComboBox.SelectedIndex,0]), Convert.ToInt32(TxtBoxAnimalNr.Text), Convert.ToDateTime(JournalCalender.Value).ToString("yyyy-MM-dd"), TxtJournalTitle.Text, TextBoxJournal.Text);
         }
 
         private void btnShowJournal_Click(object sender, EventArgs e)
@@ -171,8 +155,8 @@ namespace AnimalHouseV3
 
         private void ButtonCheckOwner_Click_Click(object sender, EventArgs e)
         {
-            AnimalHouseTemp.Controller Contemp = new Controller();
-            if (Contemp.CheckAnimalOwner(TxtOwnerPhone.Text) == true)
+            Contoller Controller = new Contoller();
+            if (Controller.ControllerCheckAnimalOwner(TxtOwnerPhone.Text) == true)
             {
                 CheckOwnerWrong.Checked = false;
                 CheckOwnerRight.Checked = true;
@@ -182,6 +166,11 @@ namespace AnimalHouseV3
                 CheckOwnerRight.Checked = false;
                 CheckOwnerWrong.Checked = true;
             }
+        }
+
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+
         }
     }   
 }

@@ -8,19 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using AnimalHouseController;
-//TEMP!
 using System.IO;
-using AnimalHouseTemp;
 using System.Diagnostics;
-//TEMP END
 
 namespace AnimalHouseV3
 {
     public partial class FormBooking : Form
     {
-        //TEMP
-        ViggoTemp Controller = new ViggoTemp();
-        //TEMP END
+        Contoller Controller = new Contoller();
 
         private string[,] DoctorArray;
         private string[,] TreatmentArray;
@@ -375,26 +370,6 @@ namespace AnimalHouseV3
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            List<string> DockterLetterList = Controller.ControllerPrintDocktorLetter();
-
-            string path = AppDomain.CurrentDomain.BaseDirectory + @"\" + "DockterLetter.txt";
-            File.WriteAllText(path, String.Empty);
-            TextWriter tw = new StreamWriter(path, true);
-            for (int i = 0; i < DockterLetterList.Count / 5; i++)
-            {
-                tw.WriteLine($"Animal ID: {DockterLetterList[i*5]}, belonging to owner: {DockterLetterList[(i*5)+1]} " +
-                    $"was last in here the: {Convert.ToDateTime(DockterLetterList[(i * 5) + 2]).ToString("dd-MM-yyyy")} to a {DockterLetterList[(i * 5) + 3]} whit doctor {DockterLetterList[(i * 5) + 4]}");
-            }
-
-            tw.Close();
-
-            MessageBox.Show("Letter list created", "Sucess!", MessageBoxButtons.OK);
-            Process.Start(path);
-            this.Close();
-        }
-
         private void buttonCreate_Click(object sender, EventArgs e)
         {
             if (SearchCheck != true || TimeCheck != true)
@@ -414,7 +389,6 @@ namespace AnimalHouseV3
                 CageID = 110;
                 CageDays = 0;
             }
-
             Controller.ControllerAddBookning(
                 Convert.ToInt32(TreatmentArray[comboBoxTreatmentsChoice.SelectedIndex, 0]),
                 Convert.ToInt32(DoctorArray[comboBoxDoctorChoice.SelectedIndex, 0]),

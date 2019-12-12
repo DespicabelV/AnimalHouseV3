@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace AnimalHousePersistence
@@ -326,7 +327,50 @@ namespace AnimalHousePersistence
             DBCCloseDB();
             return DBCDoctorLetterList;
         }
+        public object DBCGetJournal(string DBCPram)
+        {
+            string quary = $"select Laege, Dato, Emne, Kommentar from Journal " +
+                $"where Dyr = {DBCPram}";
+            SqlCommand SelectFromJoin = new SqlCommand(quary, DBCOpenDB());
+            SqlDataAdapter Adapter = new SqlDataAdapter(SelectFromJoin);
+            DataTable DT = new DataTable();
+            Adapter.Fill(DT);
 
+            DBCCloseDB();
+
+            return DT;
+        }
+        public List<string> DBCSelectSpecificIDFromRessourceWhereID(string Table, int ID)
+        {
+            DBCOpenDB();
+            List<string> DBCListSelect = new List<string>();
+
+            SqlCommand SelectFrom = new SqlCommand();
+            SelectFrom.CommandText = $"select  Ressource.VareKatagoriID, {Table}.*, Ressource.Pris from {Table},Ressource where {Table}.ID = Ressource.ID and ID Like '%{ID}%'";
+            SelectFrom.Connection = db;
+            reader = SelectFrom.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < reader.FieldCount; i++)
+                {
+                    DBCListSelect.Add(Convert.ToString(reader.GetValue(i)));
+                }
+            }
+            DBCCloseDB();
+            return DBCListSelect;
+        }
+        public object GetOwnersAnimalDataTable(string TelefonNr)
+        {
+            string Qry = $"select Dyr.Navn, Dyr.ID from Dyr join Relation on Dyr.ID = Relation.Dyr join Ejer on Relation.Ejer = Ejer.TelefonNr where Ejer.TelefonNr = {TelefonNr}";
+            DBCOpenDB();
+            SqlCommand SqlCMD = new SqlCommand(Qry, DBCOpenDB());
+            SqlDataAdapter Adapter = new SqlDataAdapter(SqlCMD);
+            DataTable dt = new DataTable();
+            Adapter.Fill(dt);
+            DBCCloseDB();
+            return dt;
+        }
 
         //Inserts
         public void DBCInsertAnimal(string Navn, char Kon, string Fodselsdag, string Race, int Laege, int Chip)
@@ -395,7 +439,7 @@ namespace AnimalHousePersistence
             DBCCloseDB();
         }
 
-        public void DBCInsertOrderLine(int Faktura, int RessourceKatagori, int Ressource, int Pris, int Antal)
+        public void DBCInsertOrderLine(int Faktura, int Ressource, int RessourceKatagori, int Pris, int Antal)
         {
             DBCOpenDB();
             SqlCommand DBCInsertOrderLine = new SqlCommand();
@@ -405,6 +449,8 @@ namespace AnimalHousePersistence
             DBCInsertOrderLine.ExecuteNonQuery();
             DBCCloseDB();
         }
+
+
 
         public void DBCInsertOwner(int TelefonNr, string Fornavn, string Efternavn, string Adresse, string Email, string By, int Postnr)
         {
@@ -452,6 +498,29 @@ namespace AnimalHousePersistence
             DBCCloseDB();
         }
 
+        public object SelectFromXToGridView(string Table)
+        {
+            string Qry = $"select Ressource.VareKatagoriID, {Table}.*, Ressource.Pris from {Table},Ressource where {Table}.ID = Ressource.ID";
+            DBCOpenDB();
+            SqlCommand SqlCMD = new SqlCommand(Qry, DBCOpenDB());
+            SqlDataAdapter Sdr = new SqlDataAdapter(SqlCMD);
+            DataTable dt = new DataTable();
+            Sdr.Fill(dt);
+            DBCCloseDB();
+            return dt;
+        }
+
+        public object SelectFromTableToGridViewWhereNameLike(string Table, string Where)
+        {
+            string Qry = $"select  Ressource.VareKatagoriID, {Table}.*, Ressource.Pris from {Table},Ressource where {Table}.ID = Ressource.ID and Navn Like '%{Where}%'";
+            DBCOpenDB();
+            SqlCommand SqlCMD = new SqlCommand(Qry, DBCOpenDB());
+            SqlDataAdapter Adapter = new SqlDataAdapter(SqlCMD);
+            DataTable dt = new DataTable();
+            Adapter.Fill(dt);
+            DBCCloseDB();
+            return dt;
+        }
 
         //Updates
         public void DBCUpdateOwner(int TelefonNr, string Fornavn, string Efternavn, string Adresse, string Email, string By_, int Postnr)
@@ -459,7 +528,7 @@ namespace AnimalHousePersistence
             DBCOpenDB();
             SqlCommand DBCUpdateOwner = new SqlCommand();
             DBCUpdateOwner.CommandText = $"UPDATE Ejer " +
-                $"SET TelefonNr = {TelefonNr}, Fornavn = '{Fornavn}',Efternavn = {Efternavn}, Adresse = '{Adresse}', Email = '{Email}', By_ = '{By_}', Postnr = {Postnr}" +
+                $"SET TelefonNr = {TelefonNr}, Fornavn = '{Fornavn}',Efternavn = '{Efternavn}', Adresse = '{Adresse}', Email = '{Email}', By_ = '{By_}', Postnr = {Postnr}" +
                 $"WHERE TelefonNr = {TelefonNr}";
             DBCUpdateOwner.Connection = db;
             DBCUpdateOwner.ExecuteNonQuery();

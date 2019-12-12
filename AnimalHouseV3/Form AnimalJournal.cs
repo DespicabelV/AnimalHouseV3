@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AnimalHouseController;
 
 namespace AnimalHouseV3
 {
@@ -19,10 +20,8 @@ namespace AnimalHouseV3
 
         private void btnSearch_Click(object sender, EventArgs e)
         {
-
-            AnimalHouseTemp.Controller Contemp = new AnimalHouseTemp.Controller();
-
-            dataGridViewJournal.DataSource = Contemp.GetJournal(txtBoxAnimalID.Text);
+            Contoller Controller = new Contoller();
+            dataGridViewJournal.DataSource = Controller.ControllerGetJournal(txtBoxAnimalID.Text);
         }
     }
 }

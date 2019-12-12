@@ -10,236 +10,236 @@ namespace AnimalHouseTemp
 {
     public class ViggoTemp
     {
-        IPersistenceController Daba;
+        //IPersistenceController Daba;
 
-        public ViggoTemp()
-        {
-            Daba = new DatabaseController();
-        }
+        //public ViggoTemp()
+        //{
+        //    Daba = new DatabaseController();
+        //}
 
-        //Controler
+        ////Controler
 
-        public bool ControllerOwnerExist(string COParam)
-        {
-            bool TempBool;
-            TempBool = PrivateExist(COParam);
-            return TempBool;
-        }
+        //public bool ControllerOwnerExist(string COParam)
+        //{
+        //    bool TempBool;
+        //    TempBool = PrivateExist(COParam);
+        //    return TempBool;
+        //}
 
-        public List<string> ControllerGetOwner(string PhoneNum)
-        {
-            List<string> ControllerGetOwner;
+        //public List<string> ControllerGetOwner(string PhoneNum)
+        //{
+        //    List<string> ControllerGetOwner;
 
-            ControllerGetOwner = PrivateFetch(PhoneNum);
+        //    ControllerGetOwner = PrivateFetch(PhoneNum);
 
-            return ControllerGetOwner;
-        }
+        //    return ControllerGetOwner;
+        //}
 
-        public List<string> ControllerGetRelation(string OwnerID)
-        {
-            List<string> ControllerGetRelation;
+        //public List<string> ControllerGetRelation(string OwnerID)
+        //{
+        //    List<string> ControllerGetRelation;
 
-            ControllerGetRelation = RelationFetch(OwnerID);
+        //    ControllerGetRelation = RelationFetch(OwnerID);
 
-            return ControllerGetRelation;
-        }
+        //    return ControllerGetRelation;
+        //}
 
-        public List<string> ControllerGetAnimal(string AnimalID)
-        {
-            List<string> ControllerGetAnimal;
+        //public List<string> ControllerGetAnimal(string AnimalID)
+        //{
+        //    List<string> ControllerGetAnimal;
 
-            ControllerGetAnimal = AnimalFetch(AnimalID);
+        //    ControllerGetAnimal = AnimalFetch(AnimalID);
 
-            return ControllerGetAnimal;
-        }
+        //    return ControllerGetAnimal;
+        //}
 
-        public List<string> ControllerGetAllDoctor()
-        {
-            List<string> ControllerGetAllDoctor;
+        //public List<string> ControllerGetAllDoctor()
+        //{
+        //    List<string> ControllerGetAllDoctor;
 
-            ControllerGetAllDoctor = DoctorAllFetch("Laege");
+        //    ControllerGetAllDoctor = DoctorAllFetch("Laege");
 
-            return ControllerGetAllDoctor;
-        }
+        //    return ControllerGetAllDoctor;
+        //}
 
-        public List<string> ControllerGetAllTreatment()
-        {
-            List<string> ControllerGetAllTreatment;
+        //public List<string> ControllerGetAllTreatment()
+        //{
+        //    List<string> ControllerGetAllTreatment;
 
-            ControllerGetAllTreatment = TreatmentAllFetch("Behandling");
+        //    ControllerGetAllTreatment = TreatmentAllFetch("Behandling");
 
-            return ControllerGetAllTreatment;
-        }
+        //    return ControllerGetAllTreatment;
+        //}
 
-        public List<string> ControllerGetBookedTime(string Date, string Doctor)
-        {
-            List<string> ControllerGetBookedTime;
+        //public List<string> ControllerGetBookedTime(string Date, string Doctor)
+        //{
+        //    List<string> ControllerGetBookedTime;
 
-            ControllerGetBookedTime = TimeBookedTimeFetch(Date, Doctor);
+        //    ControllerGetBookedTime = TimeBookedTimeFetch(Date, Doctor);
 
-            return ControllerGetBookedTime;
-        }
+        //    return ControllerGetBookedTime;
+        //}
 
-        public List<string> ControllerGetTime()
-        {
-            List<string> ControllerGetTime;
+        //public List<string> ControllerGetTime()
+        //{
+        //    List<string> ControllerGetTime;
 
-            ControllerGetTime = TimeTimeFetch();
+        //    ControllerGetTime = TimeTimeFetch();
 
-            return ControllerGetTime;
-        }
+        //    return ControllerGetTime;
+        //}
 
-        public List<string> ControllerGetCage()
-        {
-            List<string> ControllerGetCage;
+        //public List<string> ControllerGetCage()
+        //{
+        //    List<string> ControllerGetCage;
 
-            ControllerGetCage = CageFetch();
+        //    ControllerGetCage = CageFetch();
 
-            return ControllerGetCage;
-        }
+        //    return ControllerGetCage;
+        //}
 
-        public List<string> ControllerGetBookning(string OwnerID)
-        {
-            List<string> ControllerGetBookning;
+        //public List<string> ControllerGetBookning(string OwnerID)
+        //{
+        //    List<string> ControllerGetBookning;
 
-            ControllerGetBookning = BookningFetch(OwnerID);
+        //    ControllerGetBookning = BookningFetch(OwnerID);
 
-            return ControllerGetBookning;
-        }
+        //    return ControllerGetBookning;
+        //}
 
-        public void ControllerAddBookning(int Treatment, int Doctor, int Animal, int CageID, int CageDay, string Date, int Times, int Owner)
-        {
-            Booking TempBook;
-            TempBook = new Booking(Treatment, Doctor, Animal, CageID, CageDay, Date, Times, Owner);
-            TempBook.Add();
-        }
+        //public void ControllerAddBookning(int Treatment, int Doctor, int Animal, int CageID, int CageDay, string Date, int Times, int Owner)
+        //{
+        //    Booking TempBook;
+        //    TempBook = new Booking(Treatment, Doctor, Animal, CageID, CageDay, Date, Times, Owner);
+        //    TempBook.Add();
+        //}
 
-        public void ControllerUpdateBookning(int Treatment, int Doctor, int ID, int CageID, int CageDayAmount, string Date, int Times)
-        {
-            Booking TempBook;
-            TempBook = new Booking(Treatment,Doctor, ID, CageID,CageDayAmount,Date,Times);
-            TempBook.Update();
-        }
+        //public void ControllerUpdateBookning(int Treatment, int Doctor, int ID, int CageID, int CageDayAmount, string Date, int Times)
+        //{
+        //    Booking TempBook;
+        //    TempBook = new Booking(Treatment,Doctor, ID, CageID,CageDayAmount,Date,Times);
+        //    TempBook.Update();
+        //}
 
-        public void ControllerDeleteBookning(string Pram)
-        {
-            DeleteBookning(Pram);
-        }
+        //public void ControllerDeleteBookning(string Pram)
+        //{
+        //    DeleteBookning(Pram);
+        //}
 
-        public List<string> ControllerPrintDocktorLetter()
-        {
-            return PrintDoctorLetter();
-        }
+        //public List<string> ControllerPrintDocktorLetter()
+        //{
+        //    return PrintDoctorLetter();
+        //}
 
-        //------------------------Entity-----------------------------
+        ////------------------------Entity-----------------------------
 
-        static bool PrivateExist(string PEParam)
-        {
-            IPersistenceController Daba = new DatabaseController();
-            bool TempBool;
-            return TempBool = Daba.CheckIfExist("Ejer", "TelefonNr", PEParam);
-        }
+        //static bool PrivateExist(string PEParam)
+        //{
+        //    IPersistenceController Daba = new DatabaseController();
+        //    bool TempBool;
+        //    return TempBool = Daba.CheckIfExist("Ejer", "TelefonNr", PEParam);
+        //}
 
-        static List<string> PrivateFetch(string PFParam)
-        {
-            IPersistenceController Daba = new DatabaseController();
-            List<string> ListOwn;
+        //static List<string> PrivateFetch(string PFParam)
+        //{
+        //    IPersistenceController Daba = new DatabaseController();
+        //    List<string> ListOwn;
 
-            ListOwn = Daba.DBCSelectFromWhere("Ejer", "TelefonNr", PFParam);
+        //    ListOwn = Daba.DBCSelectFromWhere("Ejer", "TelefonNr", PFParam);
           
-            return ListOwn;
-        }
+        //    return ListOwn;
+        //}
 
-        static List<string> BookningFetch(string PFParam)
-        {
-            IPersistenceController Daba = new DatabaseController();
-            List<string> ListBookning;
+        //static List<string> BookningFetch(string PFParam)
+        //{
+        //    IPersistenceController Daba = new DatabaseController();
+        //    List<string> ListBookning;
 
-            ListBookning = Daba.DBCSelectFromWhere("Bookning", "Ejer", PFParam);
+        //    ListBookning = Daba.DBCSelectFromWhere("Bookning", "Ejer", PFParam);
 
-            return ListBookning;
-        }
+        //    return ListBookning;
+        //}
 
-        static List<string> RelationFetch(string RFParam)
-        {
-            IPersistenceController Daba = new DatabaseController();
-            List<string> ListRela;
+        //static List<string> RelationFetch(string RFParam)
+        //{
+        //    IPersistenceController Daba = new DatabaseController();
+        //    List<string> ListRela;
 
-            ListRela = Daba.DBCSelectFromWhere("Relation", "Ejer", RFParam);
+        //    ListRela = Daba.DBCSelectFromWhere("Relation", "Ejer", RFParam);
 
-            return ListRela;
-        }
+        //    return ListRela;
+        //}
 
-        static List<string> AnimalFetch(string AFParam)
-        {
-            IPersistenceController Daba = new DatabaseController();
-            List<string> ListAnimal;
+        //static List<string> AnimalFetch(string AFParam)
+        //{
+        //    IPersistenceController Daba = new DatabaseController();
+        //    List<string> ListAnimal;
 
-            ListAnimal = Daba.DBCSelectFromWhere("Dyr", "ID", AFParam);
+        //    ListAnimal = Daba.DBCSelectFromWhere("Dyr", "ID", AFParam);
 
-            return ListAnimal;
-        }
+        //    return ListAnimal;
+        //}
 
-        static List<string> DoctorAllFetch(string DFParam)
-        {
-            IPersistenceController Daba = new DatabaseController();
-            List<string> ListDoctor;
+        //static List<string> DoctorAllFetch(string DFParam)
+        //{
+        //    IPersistenceController Daba = new DatabaseController();
+        //    List<string> ListDoctor;
 
-            ListDoctor = Daba.DBCSelectFrom(DFParam);
+        //    ListDoctor = Daba.DBCSelectFrom(DFParam);
 
-            return ListDoctor;
-        }
+        //    return ListDoctor;
+        //}
 
-        static List<string> TreatmentAllFetch(string TFParam)
-        {
-            IPersistenceController Daba = new DatabaseController();
-            List<string> ListTreatment;
+        //static List<string> TreatmentAllFetch(string TFParam)
+        //{
+        //    IPersistenceController Daba = new DatabaseController();
+        //    List<string> ListTreatment;
 
-            ListTreatment = Daba.DBCSelectFrom(TFParam);
+        //    ListTreatment = Daba.DBCSelectFrom(TFParam);
 
-            return ListTreatment;
-        }
+        //    return ListTreatment;
+        //}
 
-        static List<string> TimeBookedTimeFetch(string TTParamDate, string TTPramDoctor)
-        {
-            IPersistenceController Daba = new DatabaseController();
-            List<string> ListTime;
+        //static List<string> TimeBookedTimeFetch(string TTParamDate, string TTPramDoctor)
+        //{
+        //    IPersistenceController Daba = new DatabaseController();
+        //    List<string> ListTime;
 
-            ListTime = Daba.DBCBookedTimes(TTParamDate, TTPramDoctor);
+        //    ListTime = Daba.DBCBookedTimes(TTParamDate, TTPramDoctor);
 
-            return ListTime;
-        }
+        //    return ListTime;
+        //}
 
-        static List<string> TimeTimeFetch()
-        {
-            IPersistenceController Daba = new DatabaseController();
-            List<string> ListTime;
+        //static List<string> TimeTimeFetch()
+        //{
+        //    IPersistenceController Daba = new DatabaseController();
+        //    List<string> ListTime;
 
-            ListTime = Daba.DBCTimes();
+        //    ListTime = Daba.DBCTimes();
 
-            return ListTime;
-        }
+        //    return ListTime;
+        //}
 
-        static List<string> CageFetch()
-        {
-            IPersistenceController Daba = new DatabaseController();
-            List<string> CageList;
+        //static List<string> CageFetch()
+        //{
+        //    IPersistenceController Daba = new DatabaseController();
+        //    List<string> CageList;
 
-            CageList = Daba.DBCSelectFrom("Bur");
+        //    CageList = Daba.DBCSelectFrom("Bur");
 
-            return CageList;
-        }
+        //    return CageList;
+        //}
         
-        static void DeleteBookning(string DBPram)
-        {
-            IPersistenceController Daba = new DatabaseController();
-            Daba.DBCDelete("Bookning", "ID", DBPram);
-        }
+        //static void DeleteBookning(string DBPram)
+        //{
+        //    IPersistenceController Daba = new DatabaseController();
+        //    Daba.DBCDelete("Bookning", "ID", DBPram);
+        //}
 
-        static List<string> PrintDoctorLetter()
-        {
-            IPersistenceController Daba = new DatabaseController();
-            return Daba.DBCPrintDocktorLetter();
-        }
+        //static List<string> PrintDoctorLetter()
+        //{
+        //    IPersistenceController Daba = new DatabaseController();
+        //    return Daba.DBCPrintDocktorLetter();
+        //}
     }
 }

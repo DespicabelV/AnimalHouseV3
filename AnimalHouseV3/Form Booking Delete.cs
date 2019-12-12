@@ -7,15 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using AnimalHouseTemp;
+using AnimalHouseController;
+
 
 namespace AnimalHouseV3
 {
     public partial class Form_Booking_Delete : Form
     {
-        //TEMP
-        ViggoTemp Controller = new ViggoTemp();
-        //TEMP END
+        Contoller Controller = new Contoller();
         private string[,] BookingArray;
 
         public Form_Booking_Delete()
@@ -53,7 +52,7 @@ namespace AnimalHouseV3
 
         private void buttonDelete_Click(object sender, EventArgs e)
         {
-            Controller.ControllerDeleteBookning(BookingArray[comboBoxBookningChoice.SelectedIndex,0]);
+            //Controller.ControllerDeleteBookning(BookingArray[comboBoxBookningChoice.SelectedIndex,0]);
             MessageBox.Show("Bookning deleted", "sucess!", MessageBoxButtons.OK);
             this.Close();
         }

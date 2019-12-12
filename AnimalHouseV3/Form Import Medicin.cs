@@ -8,13 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Windows.Forms;
-using AnimalHouseTemp;
+using AnimalHouseController;
 
 namespace AnimalHouseV3
 {
     public partial class FormImportMedicin : Form
     {
-        NæstenController Nc = new NæstenController();
         public FormImportMedicin()
         {
             InitializeComponent();
@@ -22,8 +21,9 @@ namespace AnimalHouseV3
 
         private void buttonUpdatePrice_Click_1(object sender, EventArgs e)
         {
+            Contoller Controller = new Contoller();
             richTextBoxInformation.AppendText("Starting transaction\n ");
-            int Changes = Nc.UpdateMedicin();
+            int Changes = Controller.ControllerUpdateMedicin();
             richTextBoxInformation.AppendText(Changes + " New changes where added \n");
             richTextBoxInformation.AppendText("Transaction was succesfully \n");
         }

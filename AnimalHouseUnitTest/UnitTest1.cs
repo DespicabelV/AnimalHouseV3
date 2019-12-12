@@ -1,6 +1,6 @@
 ﻿using System;
-using AnimalHouseTemp;
 using AnimalHousePersistence;
+using AnimalHouseEntity;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 
@@ -9,13 +9,12 @@ namespace AnimalHouseUnitTest
     [TestClass]
     public class UnitTest1
     {
-
         // testing discount method in POS-system.
         [TestMethod]
         public void TestMethodDiscount1()
         {
             int pris = 100;
-            EntityLejeOrdre Test = new EntityLejeOrdre(pris); 
+             OrderLine Test=new OrderLine(pris); 
             double TestPris= Test.Discount(pris, 20);
             Assert.AreEqual(80, TestPris);
         }
@@ -23,7 +22,7 @@ namespace AnimalHouseUnitTest
         public void TestMethodDiscount2()
         {
             int pris = 100000;
-            EntityLejeOrdre Test = new EntityLejeOrdre(pris);
+            OrderLine Test = new OrderLine(pris);
             double TestPris = Test.Discount(pris, 20);
             Assert.AreEqual(80000, TestPris);
         }
@@ -32,7 +31,7 @@ namespace AnimalHouseUnitTest
         {
             int OldPris = 100;
             int NewPris = 120;
-            EntityLejeOrdre Test = new EntityLejeOrdre(OldPris);
+            OrderLine Test = new OrderLine(OldPris);
            double testpris= Test.ChangeOfPriceWithMoms(NewPris, 2, OldPris);
             Assert.AreEqual(400, testpris);
         }
@@ -41,12 +40,9 @@ namespace AnimalHouseUnitTest
         {
             int OldPris = 100;
             int NewPris = 120;
-            EntityLejeOrdre Test = new EntityLejeOrdre(OldPris);
+            OrderLine Test = new OrderLine(OldPris);
             double testpris = Test.ChangeOfPriceWithOutMoms(NewPris, 2, OldPris);
             Assert.AreEqual(340, testpris);
         }
-
-
     }
-         
 }
