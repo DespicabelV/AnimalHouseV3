@@ -151,7 +151,9 @@ namespace AnimalHouseV3
 
         private void buttonHelp_Click(object sender, EventArgs e)
         {
-
+            FormHelp Help = new FormHelp();
+            Help.HelpIndex = 4;
+            Help.Show();
         }
 
         private void ButtonPay_Click(object sender, EventArgs e)

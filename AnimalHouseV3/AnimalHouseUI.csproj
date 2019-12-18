@@ -189,5 +189,17 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\DockterLetter.txt" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FormBookningHelp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FormOwnerHelp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FormSaleHelp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\FromAnimalHelp.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

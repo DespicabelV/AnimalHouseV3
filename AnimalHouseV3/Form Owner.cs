@@ -202,9 +202,9 @@ namespace AnimalHouseV3
 
         private void ButtonHelpOwner_Click(object sender, EventArgs e)
         {
-            PictureBox HelpPicture = new PictureBox();
-            HelpPicture.Image =Image.FromFile("C:/Users/jacob/OneDrive/Billeder/Labrador Edit");
-
+            FormHelp Help = new FormHelp();
+            Help.HelpIndex = 3;
+            Help.Show();
         }
     }
 }

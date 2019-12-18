@@ -16,6 +16,7 @@ namespace AnimalHouseEntity
         private string Email;
         private string City;
         private int ZipCode;
+        private IPersistenceController DatabaseController;
 
         public Owner(int TelefonNr, string FirstName, string LastName, string Adress, string Email, string City, int ZipCode)
         {
@@ -27,12 +28,12 @@ namespace AnimalHouseEntity
             this.City = City;
             this.ZipCode = ZipCode;
         }
+       
         public Owner(int TelefonNr)
         {
             this.TelefonNr = TelefonNr;
         }
-
-        IPersistenceController DatabaseController = new DatabaseController();
+        
         public static List<string> RelationFetch(string RFParam)
         {
             IPersistenceController Daba = new DatabaseController();
@@ -42,19 +43,23 @@ namespace AnimalHouseEntity
 
             return ListRela;
         }
+
         public void AddOwnerToDatabase(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
         {
             DatabaseController.DBCInsertOwner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
         }
+
         public List<string> SearchForOwner(string TelePhoneNr)
         {
             List<string> ownerlist = DatabaseController.DBCSelectFromWhere("ejer", "TelefonNr", TelePhoneNr);
             return ownerlist;
         }
+
         public void UpdateOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
         {
             DatabaseController.DBCUpdateOwner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
         }
+
         public void DeleteOwner(string Owner, string Where, string TelephoneNr)
         {
             DatabaseController.DBCDelete(Owner, Where, TelephoneNr);
@@ -64,7 +69,5 @@ namespace AnimalHouseEntity
         {
            return DatabaseController.GetOwnersAnimalDataTable(TelePhoneNr);
         }
-
-
     }
 }

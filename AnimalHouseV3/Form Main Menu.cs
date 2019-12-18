@@ -66,6 +66,15 @@ namespace AnimalHouseV3
             Print.Show();
         }
 
+        // Patient Line
+
+        private void buttonStartTest_Click(object sender, EventArgs e)
+        {
+            Thread PatienChecker = new Thread(new ThreadStart(PatientLineChecker));
+            PatienChecker.Start();
+            buttonStartTest.Visible = false;
+        }
+
         private void buttonAddPatient_Click(object sender, EventArgs e)
         {
             if (TempPatientNumb < 4)
@@ -175,13 +184,6 @@ namespace AnimalHouseV3
                 dataGridViewPatients.Rows.RemoveAt(num);
                 dataGridViewPatients.Update();
             }
-        }
-
-        private void buttonStartTest_Click(object sender, EventArgs e)
-        {
-            Thread PatienChecker = new Thread(new ThreadStart(PatientLineChecker));
-            PatienChecker.Start();
-            buttonStartTest.Visible = false;
         }
     }
 }

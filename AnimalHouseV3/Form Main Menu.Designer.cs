@@ -35,18 +35,18 @@
             this.ButtonImportMedicin = new System.Windows.Forms.Button();
             this.ButtonPrint = new System.Windows.Forms.Button();
             this.groupBoxPatientLine = new System.Windows.Forms.GroupBox();
-            this.dataGridViewPatients = new System.Windows.Forms.DataGridView();
-            this.buttonAddPatient = new System.Windows.Forms.Button();
-            this.buttonTreatPatient = new System.Windows.Forms.Button();
-            this.buttonClearList = new System.Windows.Forms.Button();
+            this.buttonStartTest = new System.Windows.Forms.Button();
             this.richTextBoxInfo = new System.Windows.Forms.RichTextBox();
+            this.buttonClearList = new System.Windows.Forms.Button();
+            this.buttonTreatPatient = new System.Windows.Forms.Button();
+            this.buttonAddPatient = new System.Windows.Forms.Button();
+            this.dataGridViewPatients = new System.Windows.Forms.DataGridView();
             this.Check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.ColumnPatientName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPatientTreatment = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDocktor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnDoneTreatment = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.buttonStartTest = new System.Windows.Forms.Button();
             this.groupBoxPatientLine.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatients)).BeginInit();
             this.SuspendLayout();
@@ -132,6 +132,54 @@
             this.groupBoxPatientLine.TabStop = false;
             this.groupBoxPatientLine.Text = "Patien Line Test";
             // 
+            // buttonStartTest
+            // 
+            this.buttonStartTest.Location = new System.Drawing.Point(645, 370);
+            this.buttonStartTest.Name = "buttonStartTest";
+            this.buttonStartTest.Size = new System.Drawing.Size(129, 48);
+            this.buttonStartTest.TabIndex = 7;
+            this.buttonStartTest.Text = "Start patient line test";
+            this.buttonStartTest.UseVisualStyleBackColor = true;
+            this.buttonStartTest.Click += new System.EventHandler(this.buttonStartTest_Click);
+            // 
+            // richTextBoxInfo
+            // 
+            this.richTextBoxInfo.Location = new System.Drawing.Point(7, 425);
+            this.richTextBoxInfo.Name = "richTextBoxInfo";
+            this.richTextBoxInfo.Size = new System.Drawing.Size(482, 149);
+            this.richTextBoxInfo.TabIndex = 4;
+            this.richTextBoxInfo.Text = "";
+            // 
+            // buttonClearList
+            // 
+            this.buttonClearList.Location = new System.Drawing.Point(360, 370);
+            this.buttonClearList.Name = "buttonClearList";
+            this.buttonClearList.Size = new System.Drawing.Size(129, 48);
+            this.buttonClearList.TabIndex = 3;
+            this.buttonClearList.Text = "Clear List";
+            this.buttonClearList.UseVisualStyleBackColor = true;
+            this.buttonClearList.Click += new System.EventHandler(this.buttonClearList_Click);
+            // 
+            // buttonTreatPatient
+            // 
+            this.buttonTreatPatient.Location = new System.Drawing.Point(185, 370);
+            this.buttonTreatPatient.Name = "buttonTreatPatient";
+            this.buttonTreatPatient.Size = new System.Drawing.Size(129, 48);
+            this.buttonTreatPatient.TabIndex = 2;
+            this.buttonTreatPatient.Text = "Treatment";
+            this.buttonTreatPatient.UseVisualStyleBackColor = true;
+            this.buttonTreatPatient.Click += new System.EventHandler(this.buttonTreatPatient_Click);
+            // 
+            // buttonAddPatient
+            // 
+            this.buttonAddPatient.Location = new System.Drawing.Point(5, 370);
+            this.buttonAddPatient.Name = "buttonAddPatient";
+            this.buttonAddPatient.Size = new System.Drawing.Size(129, 48);
+            this.buttonAddPatient.TabIndex = 1;
+            this.buttonAddPatient.Text = "Add Patient";
+            this.buttonAddPatient.UseVisualStyleBackColor = true;
+            this.buttonAddPatient.Click += new System.EventHandler(this.buttonAddPatient_Click);
+            // 
             // dataGridViewPatients
             // 
             this.dataGridViewPatients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -149,44 +197,6 @@
             this.dataGridViewPatients.RowTemplate.Height = 24;
             this.dataGridViewPatients.Size = new System.Drawing.Size(768, 329);
             this.dataGridViewPatients.TabIndex = 0;
-            // 
-            // buttonAddPatient
-            // 
-            this.buttonAddPatient.Location = new System.Drawing.Point(5, 370);
-            this.buttonAddPatient.Name = "buttonAddPatient";
-            this.buttonAddPatient.Size = new System.Drawing.Size(129, 48);
-            this.buttonAddPatient.TabIndex = 1;
-            this.buttonAddPatient.Text = "Add Patient";
-            this.buttonAddPatient.UseVisualStyleBackColor = true;
-            this.buttonAddPatient.Click += new System.EventHandler(this.buttonAddPatient_Click);
-            // 
-            // buttonTreatPatient
-            // 
-            this.buttonTreatPatient.Location = new System.Drawing.Point(185, 370);
-            this.buttonTreatPatient.Name = "buttonTreatPatient";
-            this.buttonTreatPatient.Size = new System.Drawing.Size(129, 48);
-            this.buttonTreatPatient.TabIndex = 2;
-            this.buttonTreatPatient.Text = "Treatment";
-            this.buttonTreatPatient.UseVisualStyleBackColor = true;
-            this.buttonTreatPatient.Click += new System.EventHandler(this.buttonTreatPatient_Click);
-            // 
-            // buttonClearList
-            // 
-            this.buttonClearList.Location = new System.Drawing.Point(360, 370);
-            this.buttonClearList.Name = "buttonClearList";
-            this.buttonClearList.Size = new System.Drawing.Size(129, 48);
-            this.buttonClearList.TabIndex = 3;
-            this.buttonClearList.Text = "Clear List";
-            this.buttonClearList.UseVisualStyleBackColor = true;
-            this.buttonClearList.Click += new System.EventHandler(this.buttonClearList_Click);
-            // 
-            // richTextBoxInfo
-            // 
-            this.richTextBoxInfo.Location = new System.Drawing.Point(7, 425);
-            this.richTextBoxInfo.Name = "richTextBoxInfo";
-            this.richTextBoxInfo.Size = new System.Drawing.Size(482, 149);
-            this.richTextBoxInfo.TabIndex = 4;
-            this.richTextBoxInfo.Text = "";
             // 
             // Check
             // 
@@ -234,16 +244,6 @@
             this.ColumnDoneTreatment.Name = "ColumnDoneTreatment";
             this.ColumnDoneTreatment.ReadOnly = true;
             this.ColumnDoneTreatment.Width = 50;
-            // 
-            // buttonStartTest
-            // 
-            this.buttonStartTest.Location = new System.Drawing.Point(645, 370);
-            this.buttonStartTest.Name = "buttonStartTest";
-            this.buttonStartTest.Size = new System.Drawing.Size(129, 48);
-            this.buttonStartTest.TabIndex = 7;
-            this.buttonStartTest.Text = "Start patient line test";
-            this.buttonStartTest.UseVisualStyleBackColor = true;
-            this.buttonStartTest.Click += new System.EventHandler(this.buttonStartTest_Click);
             // 
             // MainMenu
             // 

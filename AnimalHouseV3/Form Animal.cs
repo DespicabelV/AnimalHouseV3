@@ -170,7 +170,9 @@ namespace AnimalHouseV3
 
         private void buttonHelp_Click(object sender, EventArgs e)
         {
-
+            FormHelp Help = new FormHelp();
+            Help.HelpIndex = 1;
+            Help.Show();
         }
     }   
 }

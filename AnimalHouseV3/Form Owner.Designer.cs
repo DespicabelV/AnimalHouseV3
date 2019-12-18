@@ -289,9 +289,9 @@
             // 
             this.ButtonHelpOwner.BackColor = System.Drawing.SystemColors.Control;
             this.ButtonHelpOwner.Font = new System.Drawing.Font("Microsoft YaHei UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ButtonHelpOwner.Location = new System.Drawing.Point(786, 12);
+            this.ButtonHelpOwner.Location = new System.Drawing.Point(837, 12);
             this.ButtonHelpOwner.Name = "ButtonHelpOwner";
-            this.ButtonHelpOwner.Size = new System.Drawing.Size(74, 74);
+            this.ButtonHelpOwner.Size = new System.Drawing.Size(23, 28);
             this.ButtonHelpOwner.TabIndex = 34;
             this.ButtonHelpOwner.Text = "?";
             this.ButtonHelpOwner.UseVisualStyleBackColor = false;

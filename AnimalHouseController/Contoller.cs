@@ -117,7 +117,7 @@ namespace AnimalHouseController
 
         public void ControllerDeleteBookning(string Pram)
         {
-            Booking.DeleteBookning(Pram);
+            Booking.BookningDelete(Pram);
         }
 
         public List<string> ControllerPrintDocktorLetter()
@@ -134,7 +134,6 @@ namespace AnimalHouseController
         {
             return Ressource.PrintCategoryToDataGridViewName(Category,Where);
         }
-
 
         public int ControllerChangeOfPriceWithOutMoms(int Price, int Amount, int OldPrice)
         {
@@ -180,7 +179,6 @@ namespace AnimalHouseController
         {
             return Medicin.UpdatePriceForMedicin();
         }
-
 
         public void ControllerNewAnimal(string Name, char Gender, string Birthdate, string Race, int Doctor, int Chip)
         {
@@ -267,6 +265,7 @@ namespace AnimalHouseController
         {
             return Ressource.PrintShelftStock();
         }
+
         public void CreatePrivateOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
         {
             Owner Owner = new Owner(TelePhoneNr,firstname,lastname,adress,email,city,zipcode);
@@ -274,6 +273,7 @@ namespace AnimalHouseController
             PrivateOwner.AddOwnerToDatabase(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
             PrivateOwner.AddPrivateToDatabase(TelePhoneNr);
         }
+
         public void CreateBusinessOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode, string companyname, int CVRNR)
         {
             Owner owner = new Owner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
@@ -281,33 +281,39 @@ namespace AnimalHouseController
             owner.AddOwnerToDatabase(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
             BusinessOwner.AddBusinessToDatabase(TelePhoneNr, companyname, CVRNR);
         }
+        
         public List<string> SearchForOwner(string TelephoneNr)
         {
             Owner Owner = new Owner(Convert.ToInt32(TelephoneNr));
             List<string> Ownerlist = Owner.SearchForOwner(TelephoneNr);
             return Ownerlist;
         }
+        
         public List<string> SearchForBusiness(string TelePhoneNr)
         {
             Business BusinessOwner = new Business(Convert.ToInt32(TelePhoneNr));
             List<string> BusinessList = BusinessOwner.SearchForBusiness(TelePhoneNr);
             return BusinessList;
         }
+        
         public void UpdateOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
         {
             Owner owner = new Owner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
             owner.UpdateOwner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
         }
+        
         public void UpdateBusiness(int TelePhoneNr, string CompanyName, string CVRNR)
         {
             Business business = new Business(TelePhoneNr,Convert.ToInt32(CVRNR),CompanyName);
             business.UpdateBusiness(TelePhoneNr, CompanyName, CVRNR);
         }
+        
         public void DeleteOwner(string Owner, string Where, string TelephoneNr)
         {
             Owner owner = new Owner(Convert.ToInt32(TelephoneNr));
             owner.DeleteOwner(Owner, Where, TelephoneNr);
         }
+        
         public object ShowAnimalDataTable(string TelephoneNr)
         {
             Owner owner = new Owner(Convert.ToInt32(TelephoneNr));

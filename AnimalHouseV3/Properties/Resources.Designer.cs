@@ -63,6 +63,46 @@ namespace AnimalHouseV3.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FormBookningHelp {
+            get {
+                object obj = ResourceManager.GetObject("FormBookningHelp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FormOwnerHelp {
+            get {
+                object obj = ResourceManager.GetObject("FormOwnerHelp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FormSaleHelp {
+            get {
+                object obj = ResourceManager.GetObject("FormSaleHelp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FromAnimalHelp {
+            get {
+                object obj = ResourceManager.GetObject("FromAnimalHelp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Labrador_edit {
             get {
                 object obj = ResourceManager.GetObject("Labrador edit", resourceCulture);

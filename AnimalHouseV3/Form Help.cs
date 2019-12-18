@@ -23,31 +23,16 @@ namespace AnimalHouseV3
             switch (HelpIndex)
             {
                 case 1:
-                    pictureBoxHelp.Image = AnimalHouseV3.Properties.Resources.Labrador_edit;
+                    pictureBoxHelp.Image = AnimalHouseV3.Properties.Resources.FromAnimalHelp;
                     break;
                 case 2:
-                    pictureBoxHelp.Image = AnimalHouseV3.Properties.Resources.Labrador_edit;
+                    pictureBoxHelp.Image = AnimalHouseV3.Properties.Resources.FormBookningHelp;
                     break;
                 case 3:
-                    pictureBoxHelp.Image = AnimalHouseV3.Properties.Resources.Labrador_edit;
+                    pictureBoxHelp.Image = AnimalHouseV3.Properties.Resources.FormOwnerHelp;
                     break;
                 case 4:
-                    pictureBoxHelp.Image = AnimalHouseV3.Properties.Resources.Labrador_edit;
-                    break;
-                case 5:
-                    pictureBoxHelp.Image = AnimalHouseV3.Properties.Resources.Labrador_edit;
-                    break;
-                case 6:
-                    pictureBoxHelp.Image = AnimalHouseV3.Properties.Resources.Labrador_edit;
-                    break;
-                case 7:
-                    pictureBoxHelp.Image = AnimalHouseV3.Properties.Resources.Labrador_edit;
-                    break;
-                case 8:
-                    pictureBoxHelp.Image = AnimalHouseV3.Properties.Resources.Labrador_edit;
-                    break;
-                case 9:
-                    pictureBoxHelp.Image = AnimalHouseV3.Properties.Resources.Labrador_edit;
+                    pictureBoxHelp.Image = AnimalHouseV3.Properties.Resources.FormSaleHelp;
                     break;
 
                 default:

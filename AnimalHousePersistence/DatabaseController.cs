@@ -327,6 +327,7 @@ namespace AnimalHousePersistence
             DBCCloseDB();
             return DBCDoctorLetterList;
         }
+
         public object DBCGetJournal(string DBCPram)
         {
             string quary = $"select Laege, Dato, Emne, Kommentar from Journal " +
@@ -340,6 +341,7 @@ namespace AnimalHousePersistence
 
             return DT;
         }
+
         public List<string> DBCSelectSpecificIDFromRessourceWhereID(string Table, int ID)
         {
             DBCOpenDB();
@@ -360,6 +362,7 @@ namespace AnimalHousePersistence
             DBCCloseDB();
             return DBCListSelect;
         }
+
         public object GetOwnersAnimalDataTable(string TelefonNr)
         {
             string Qry = $"select Dyr.Navn, Dyr.ID from Dyr join Relation on Dyr.ID = Relation.Dyr join Ejer on Relation.Ejer = Ejer.TelefonNr where Ejer.TelefonNr = {TelefonNr}";
@@ -449,8 +452,6 @@ namespace AnimalHousePersistence
             DBCInsertOrderLine.ExecuteNonQuery();
             DBCCloseDB();
         }
-
-
 
         public void DBCInsertOwner(int TelefonNr, string Fornavn, string Efternavn, string Adresse, string Email, string By, int Postnr)
         {

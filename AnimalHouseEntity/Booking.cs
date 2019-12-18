@@ -95,7 +95,7 @@ namespace AnimalHouseEntity
             return ListTime;
         }
 
-        public static void DeleteBookning(string DBPram)
+        public static void BookningDelete(string DBPram)
         {
             IPersistenceController Daba = new DatabaseController();
             Daba.DBCDelete("Bookning", "ID", DBPram);
