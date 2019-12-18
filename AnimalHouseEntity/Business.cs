@@ -12,6 +12,7 @@ namespace AnimalHouseEntity
         IPersistenceController DatabaseController = new DatabaseController();
         private int CVRNr;
         private string CompanyName;
+        private int PhoneNr;
 
         public Business(int TelefonNr, string FirstName, string LastName, string Adress, string Email, string City, int ZipCode, int CVRNr, string CompanyName)
             : base(TelefonNr, FirstName, LastName, Adress, Email, City, ZipCode)
@@ -21,6 +22,7 @@ namespace AnimalHouseEntity
         }
         public Business (int TelefonNr,int CVRNr,string CompanyName): base (TelefonNr)
         {
+            this.PhoneNr = TelefonNr;
             this.CVRNr = CVRNr;
             this.CompanyName = CompanyName;
         }
@@ -29,19 +31,19 @@ namespace AnimalHouseEntity
             
         }
 
-        public void AddBusinessToDatabase(int TelePhoneNr, string companyname, int CVRNR)
+        public void AddBusinessToDatabase()
         {
 
-            DatabaseController.DBCInsertBusiness(TelePhoneNr, companyname, CVRNR);
+            DatabaseController.DBCInsertBusiness(PhoneNr, CompanyName,CVRNr);
         }
         public List<string> SearchForBusiness(string TelePhoneNr)
         {
             List<string> BusinessList = DatabaseController.DBCSelectFromWhere("Erhverv", "ejer", TelePhoneNr);
             return BusinessList;
         }
-        public void UpdateBusiness(int TelePhoneNr, string companyname, string CVRNR)
+        public void UpdateBusiness()
         {
-            DatabaseController.DBCUpdateBusiness(TelePhoneNr, companyname, CVRNR);
+            DatabaseController.DBCUpdateBusiness(PhoneNr, CompanyName, CVRNr);
         }
     }
 }

@@ -10,20 +10,22 @@ namespace AnimalHouseEntity
     public class Private : Owner
     {
         IPersistenceController DatabaseController = new DatabaseController();
+        private int PhoneNr;
         public Private(int TelefonNr, string FirstName, string LastName, string Adress, string Email, string City, int ZipCode) : base(TelefonNr, FirstName, LastName, Adress, Email, City, ZipCode)
         {
         }
         public Private(int TelefonNr) : base(TelefonNr)
         {
+            PhoneNr = TelefonNr;
 
         }
         
         
 
 
-        public void AddPrivateToDatabase(int TelePhoneNr)
+        public void AddPrivateToDatabase()
         {
-            DatabaseController.DBCInsertPrivate(TelePhoneNr);
+            DatabaseController.DBCInsertPrivate(PhoneNr);
         }
         public List<string> SearchForPrivate(string TelePhoneNr)
         {

@@ -46,6 +46,7 @@ namespace AnimalHouseV3
 
                 MessageBox.Show("The Owner was added to The System", "Creation Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            this.Close();
         }
 
         private void Form_Owner_Load(object sender, EventArgs e)
@@ -78,6 +79,12 @@ namespace AnimalHouseV3
 
         private void ButtonSearchOwner_Click(object sender, EventArgs e)
         {
+            if (Controller.ControllerOwnerExist(TextBoxTelephoneNR.Text) == false)
+            {
+                MessageBox.Show("Does not exist!");
+            }
+            else
+                
             if (BusinessCheck.Checked)
             {
                BusinessList = Controller.SearchForBusiness(TextBoxTelephoneNR.Text);
@@ -138,13 +145,14 @@ namespace AnimalHouseV3
             if (BusinessCheck.Checked)
             {
                 Controller.UpdateOwner(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxFirstName.Text, TextBoxLastName.Text, TextBoxStreet.Text+" " + TextBoxNr.Text+" " + TextBoxFloor.Text, TextBoxEmail.Text, TextBoxCity.Text, Convert.ToInt32(TextBoxZipCode.Text));
-                Controller.UpdateBusiness(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxCompanyName.Text, TextBoxCVRNR.Text);
+                Controller.UpdateBusiness(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxCompanyName.Text, Convert.ToInt32(TextBoxCVRNR.Text));
             }
             else if(PrivateCheck.Checked)
             {
                 Controller.UpdateOwner(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxFirstName.Text, TextBoxLastName.Text, TextBoxStreet.Text + " "+TextBoxNr.Text +" "+TextBoxFloor.Text, TextBoxEmail.Text, TextBoxCity.Text, Convert.ToInt32(TextBoxZipCode.Text));
             }
             MessageBox.Show("The Owner was updated Sucessfully", "Update Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
 
         private void ButtonAddPet_Click(object sender, EventArgs e)
@@ -169,6 +177,7 @@ namespace AnimalHouseV3
                 Controller.DeleteOwner("ejer", "TelefonNr", TextBoxTelephoneNR.Text);
             }
             MessageBox.Show("The Owner was removed Sucessfully", "Deletion Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            this.Close();
         }
 
         private void PrivateCheck_CheckedChanged(object sender, EventArgs e)

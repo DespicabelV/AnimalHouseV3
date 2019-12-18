@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.TxtAnimalName = new System.Windows.Forms.TextBox();
-            this.TxtOwnerPhone = new System.Windows.Forms.TextBox();
+            this.TextAnimalName = new System.Windows.Forms.TextBox();
+            this.TextOwnerPhone = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.TxtAnimal = new System.Windows.Forms.TextBox();
+            this.TextAnimal = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -40,7 +40,7 @@
             this.CheckBoxFemale = new System.Windows.Forms.CheckBox();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.TxtBoxAnimalChip = new System.Windows.Forms.TextBox();
+            this.TextBoxAnimalChip = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnAnimalUploadPic = new System.Windows.Forms.Button();
             this.PictureBoxAnimal = new System.Windows.Forms.PictureBox();
@@ -52,12 +52,12 @@
             this.TextBoxJournal = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.AnimalBirthCalender = new System.Windows.Forms.DateTimePicker();
-            this.TxtBoxAnimalNr = new System.Windows.Forms.TextBox();
+            this.TextBoxAnimalNr = new System.Windows.Forms.TextBox();
             this.DoctorComboBox = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.TxtJournalTitle = new System.Windows.Forms.TextBox();
+            this.TextJournalTitle = new System.Windows.Forms.TextBox();
             this.JournalCalender = new System.Windows.Forms.DateTimePicker();
             this.btnJournal = new System.Windows.Forms.Button();
             this.buttonHelp = new System.Windows.Forms.Button();
@@ -72,84 +72,84 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 40);
+            this.label1.Location = new System.Drawing.Point(18, 32);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 17);
+            this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
             // 
-            // TxtAnimalName
+            // TextAnimalName
             // 
-            this.TxtAnimalName.Location = new System.Drawing.Point(100, 40);
-            this.TxtAnimalName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TxtAnimalName.Name = "TxtAnimalName";
-            this.TxtAnimalName.Size = new System.Drawing.Size(202, 22);
-            this.TxtAnimalName.TabIndex = 1;
+            this.TextAnimalName.Location = new System.Drawing.Point(75, 32);
+            this.TextAnimalName.Margin = new System.Windows.Forms.Padding(2);
+            this.TextAnimalName.Name = "TextAnimalName";
+            this.TextAnimalName.Size = new System.Drawing.Size(152, 20);
+            this.TextAnimalName.TabIndex = 1;
             // 
-            // TxtOwnerPhone
+            // TextOwnerPhone
             // 
-            this.TxtOwnerPhone.Location = new System.Drawing.Point(595, 42);
-            this.TxtOwnerPhone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TxtOwnerPhone.Name = "TxtOwnerPhone";
-            this.TxtOwnerPhone.Size = new System.Drawing.Size(202, 22);
-            this.TxtOwnerPhone.TabIndex = 3;
+            this.TextOwnerPhone.Location = new System.Drawing.Point(446, 34);
+            this.TextOwnerPhone.Margin = new System.Windows.Forms.Padding(2);
+            this.TextOwnerPhone.Name = "TextOwnerPhone";
+            this.TextOwnerPhone.Size = new System.Drawing.Size(152, 20);
+            this.TextOwnerPhone.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(539, 43);
+            this.label2.Location = new System.Drawing.Point(404, 35);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 17);
+            this.label2.Size = new System.Drawing.Size(41, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "Owner:";
             // 
-            // TxtAnimal
+            // TextAnimal
             // 
-            this.TxtAnimal.Location = new System.Drawing.Point(100, 76);
-            this.TxtAnimal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TxtAnimal.Name = "TxtAnimal";
-            this.TxtAnimal.Size = new System.Drawing.Size(202, 22);
-            this.TxtAnimal.TabIndex = 5;
+            this.TextAnimal.Location = new System.Drawing.Point(75, 62);
+            this.TextAnimal.Margin = new System.Windows.Forms.Padding(2);
+            this.TextAnimal.Name = "TextAnimal";
+            this.TextAnimal.Size = new System.Drawing.Size(152, 20);
+            this.TextAnimal.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(24, 76);
+            this.label3.Location = new System.Drawing.Point(18, 62);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(54, 17);
+            this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Animal:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(24, 150);
+            this.label4.Location = new System.Drawing.Point(18, 122);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 17);
+            this.label4.Size = new System.Drawing.Size(48, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Birthday:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(24, 116);
+            this.label5.Location = new System.Drawing.Point(18, 94);
             this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(60, 17);
+            this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 8;
             this.label5.Text = "Gender:";
             // 
             // CheckBoxMale
             // 
             this.CheckBoxMale.AutoSize = true;
-            this.CheckBoxMale.Location = new System.Drawing.Point(100, 113);
-            this.CheckBoxMale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckBoxMale.Location = new System.Drawing.Point(75, 92);
+            this.CheckBoxMale.Margin = new System.Windows.Forms.Padding(2);
             this.CheckBoxMale.Name = "CheckBoxMale";
-            this.CheckBoxMale.Size = new System.Drawing.Size(60, 21);
+            this.CheckBoxMale.Size = new System.Drawing.Size(49, 17);
             this.CheckBoxMale.TabIndex = 9;
             this.CheckBoxMale.Text = "Male";
             this.CheckBoxMale.UseVisualStyleBackColor = true;
@@ -158,10 +158,10 @@
             // CheckBoxFemale
             // 
             this.CheckBoxFemale.AutoSize = true;
-            this.CheckBoxFemale.Location = new System.Drawing.Point(192, 113);
-            this.CheckBoxFemale.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckBoxFemale.Location = new System.Drawing.Point(144, 92);
+            this.CheckBoxFemale.Margin = new System.Windows.Forms.Padding(2);
             this.CheckBoxFemale.Name = "CheckBoxFemale";
-            this.CheckBoxFemale.Size = new System.Drawing.Size(76, 21);
+            this.CheckBoxFemale.Size = new System.Drawing.Size(60, 17);
             this.CheckBoxFemale.TabIndex = 10;
             this.CheckBoxFemale.Text = "Female";
             this.CheckBoxFemale.UseVisualStyleBackColor = true;
@@ -170,104 +170,104 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(519, 147);
+            this.label6.Location = new System.Drawing.Point(389, 119);
             this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(73, 17);
+            this.label6.Size = new System.Drawing.Size(55, 13);
             this.label6.TabIndex = 11;
             this.label6.Text = "Animal Nr:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(26, 188);
+            this.label7.Location = new System.Drawing.Point(20, 153);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(54, 17);
+            this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 15;
             this.label7.Text = "Doctor:";
             // 
-            // TxtBoxAnimalChip
+            // TextBoxAnimalChip
             // 
-            this.TxtBoxAnimalChip.Location = new System.Drawing.Point(100, 236);
-            this.TxtBoxAnimalChip.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TxtBoxAnimalChip.Name = "TxtBoxAnimalChip";
-            this.TxtBoxAnimalChip.Size = new System.Drawing.Size(202, 22);
-            this.TxtBoxAnimalChip.TabIndex = 18;
+            this.TextBoxAnimalChip.Location = new System.Drawing.Point(75, 192);
+            this.TextBoxAnimalChip.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxAnimalChip.Name = "TextBoxAnimalChip";
+            this.TextBoxAnimalChip.Size = new System.Drawing.Size(152, 20);
+            this.TextBoxAnimalChip.TabIndex = 18;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(32, 236);
+            this.label8.Location = new System.Drawing.Point(24, 192);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(40, 17);
+            this.label8.Size = new System.Drawing.Size(31, 13);
             this.label8.TabIndex = 17;
             this.label8.Text = "Chip:";
             // 
             // btnAnimalUploadPic
             // 
-            this.btnAnimalUploadPic.Location = new System.Drawing.Point(611, 557);
-            this.btnAnimalUploadPic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAnimalUploadPic.Location = new System.Drawing.Point(458, 453);
+            this.btnAnimalUploadPic.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnimalUploadPic.Name = "btnAnimalUploadPic";
-            this.btnAnimalUploadPic.Size = new System.Drawing.Size(138, 33);
+            this.btnAnimalUploadPic.Size = new System.Drawing.Size(104, 27);
             this.btnAnimalUploadPic.TabIndex = 19;
             this.btnAnimalUploadPic.Text = "Upload Picture";
             this.btnAnimalUploadPic.UseVisualStyleBackColor = true;
-            this.btnAnimalUploadPic.Click += new System.EventHandler(this.btnAnimalUploadPic_Click);
+            this.btnAnimalUploadPic.Click += new System.EventHandler(this.buttonAnimalUploadPic_Click);
             // 
             // PictureBoxAnimal
             // 
             this.PictureBoxAnimal.Image = global::AnimalHouseV3.Properties.Resources.Labrador_edit;
-            this.PictureBoxAnimal.Location = new System.Drawing.Point(596, 402);
-            this.PictureBoxAnimal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PictureBoxAnimal.Location = new System.Drawing.Point(447, 327);
+            this.PictureBoxAnimal.Margin = new System.Windows.Forms.Padding(2);
             this.PictureBoxAnimal.Name = "PictureBoxAnimal";
-            this.PictureBoxAnimal.Size = new System.Drawing.Size(184, 152);
+            this.PictureBoxAnimal.Size = new System.Drawing.Size(138, 124);
             this.PictureBoxAnimal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBoxAnimal.TabIndex = 20;
             this.PictureBoxAnimal.TabStop = false;
             // 
             // btnAnimalCreate
             // 
-            this.btnAnimalCreate.Location = new System.Drawing.Point(752, 557);
-            this.btnAnimalCreate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAnimalCreate.Location = new System.Drawing.Point(564, 453);
+            this.btnAnimalCreate.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnimalCreate.Name = "btnAnimalCreate";
-            this.btnAnimalCreate.Size = new System.Drawing.Size(138, 33);
+            this.btnAnimalCreate.Size = new System.Drawing.Size(104, 27);
             this.btnAnimalCreate.TabIndex = 21;
             this.btnAnimalCreate.Text = "Create";
             this.btnAnimalCreate.UseVisualStyleBackColor = true;
-            this.btnAnimalCreate.Click += new System.EventHandler(this.btnAnimalCreate_Click);
+            this.btnAnimalCreate.Click += new System.EventHandler(this.buttonAnimalCreate_Click);
             // 
             // btnAnimalDelete
             // 
-            this.btnAnimalDelete.Location = new System.Drawing.Point(752, 593);
-            this.btnAnimalDelete.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAnimalDelete.Location = new System.Drawing.Point(564, 482);
+            this.btnAnimalDelete.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnimalDelete.Name = "btnAnimalDelete";
-            this.btnAnimalDelete.Size = new System.Drawing.Size(138, 33);
+            this.btnAnimalDelete.Size = new System.Drawing.Size(104, 27);
             this.btnAnimalDelete.TabIndex = 22;
             this.btnAnimalDelete.Text = "Delete";
             this.btnAnimalDelete.UseVisualStyleBackColor = true;
-            this.btnAnimalDelete.Click += new System.EventHandler(this.btnAnimalDelete_Click);
+            this.btnAnimalDelete.Click += new System.EventHandler(this.buttonAnimalDelete_Click);
             // 
             // btnAnimalUpdate
             // 
-            this.btnAnimalUpdate.Location = new System.Drawing.Point(611, 593);
-            this.btnAnimalUpdate.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnAnimalUpdate.Location = new System.Drawing.Point(458, 482);
+            this.btnAnimalUpdate.Margin = new System.Windows.Forms.Padding(2);
             this.btnAnimalUpdate.Name = "btnAnimalUpdate";
-            this.btnAnimalUpdate.Size = new System.Drawing.Size(138, 33);
+            this.btnAnimalUpdate.Size = new System.Drawing.Size(104, 27);
             this.btnAnimalUpdate.TabIndex = 23;
             this.btnAnimalUpdate.Text = "Update";
             this.btnAnimalUpdate.UseVisualStyleBackColor = true;
-            this.btnAnimalUpdate.Click += new System.EventHandler(this.btnAnimalUpdate_Click);
+            this.btnAnimalUpdate.Click += new System.EventHandler(this.buttonAnimalUpdate_Click);
             // 
             // CheckOwnerRight
             // 
             this.CheckOwnerRight.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.CheckOwnerRight.AutoSize = true;
-            this.CheckOwnerRight.Location = new System.Drawing.Point(640, 89);
-            this.CheckOwnerRight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckOwnerRight.Location = new System.Drawing.Point(480, 72);
+            this.CheckOwnerRight.Margin = new System.Windows.Forms.Padding(2);
             this.CheckOwnerRight.Name = "CheckOwnerRight";
-            this.CheckOwnerRight.Size = new System.Drawing.Size(63, 21);
+            this.CheckOwnerRight.Size = new System.Drawing.Size(51, 17);
             this.CheckOwnerRight.TabIndex = 24;
             this.CheckOwnerRight.Text = "Right";
             this.CheckOwnerRight.UseVisualStyleBackColor = true;
@@ -275,122 +275,123 @@
             // CheckOwnerWrong
             // 
             this.CheckOwnerWrong.AutoSize = true;
-            this.CheckOwnerWrong.Location = new System.Drawing.Point(727, 89);
-            this.CheckOwnerWrong.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CheckOwnerWrong.Location = new System.Drawing.Point(545, 72);
+            this.CheckOwnerWrong.Margin = new System.Windows.Forms.Padding(2);
             this.CheckOwnerWrong.Name = "CheckOwnerWrong";
-            this.CheckOwnerWrong.Size = new System.Drawing.Size(72, 21);
+            this.CheckOwnerWrong.Size = new System.Drawing.Size(58, 17);
             this.CheckOwnerWrong.TabIndex = 25;
             this.CheckOwnerWrong.Text = "Wrong";
             this.CheckOwnerWrong.UseVisualStyleBackColor = true;
             // 
             // TextBoxJournal
             // 
-            this.TextBoxJournal.Location = new System.Drawing.Point(27, 434);
-            this.TextBoxJournal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TextBoxJournal.Location = new System.Drawing.Point(20, 353);
+            this.TextBoxJournal.Margin = new System.Windows.Forms.Padding(2);
             this.TextBoxJournal.Name = "TextBoxJournal";
-            this.TextBoxJournal.Size = new System.Drawing.Size(275, 193);
+            this.TextBoxJournal.Size = new System.Drawing.Size(207, 158);
             this.TextBoxJournal.TabIndex = 27;
             this.TextBoxJournal.Text = "";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(24, 281);
+            this.label9.Location = new System.Drawing.Point(18, 228);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 17);
+            this.label9.Size = new System.Drawing.Size(44, 13);
             this.label9.TabIndex = 28;
             this.label9.Text = "Journal:";
             // 
             // AnimalBirthCalender
             // 
-            this.AnimalBirthCalender.Location = new System.Drawing.Point(100, 150);
-            this.AnimalBirthCalender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AnimalBirthCalender.Location = new System.Drawing.Point(75, 122);
+            this.AnimalBirthCalender.Margin = new System.Windows.Forms.Padding(2);
             this.AnimalBirthCalender.Name = "AnimalBirthCalender";
-            this.AnimalBirthCalender.Size = new System.Drawing.Size(202, 22);
+            this.AnimalBirthCalender.Size = new System.Drawing.Size(152, 20);
             this.AnimalBirthCalender.TabIndex = 29;
             this.AnimalBirthCalender.Value = new System.DateTime(2019, 12, 2, 0, 0, 0, 0);
             // 
-            // TxtBoxAnimalNr
+            // TextBoxAnimalNr
             // 
-            this.TxtBoxAnimalNr.Location = new System.Drawing.Point(596, 146);
-            this.TxtBoxAnimalNr.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TxtBoxAnimalNr.Name = "TxtBoxAnimalNr";
-            this.TxtBoxAnimalNr.Size = new System.Drawing.Size(93, 22);
-            this.TxtBoxAnimalNr.TabIndex = 12;
+            this.TextBoxAnimalNr.Location = new System.Drawing.Point(447, 119);
+            this.TextBoxAnimalNr.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxAnimalNr.Name = "TextBoxAnimalNr";
+            this.TextBoxAnimalNr.Size = new System.Drawing.Size(71, 20);
+            this.TextBoxAnimalNr.TabIndex = 12;
             // 
             // DoctorComboBox
             // 
             this.DoctorComboBox.FormattingEnabled = true;
-            this.DoctorComboBox.Location = new System.Drawing.Point(100, 184);
-            this.DoctorComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DoctorComboBox.Location = new System.Drawing.Point(75, 150);
+            this.DoctorComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.DoctorComboBox.Name = "DoctorComboBox";
-            this.DoctorComboBox.Size = new System.Drawing.Size(202, 24);
+            this.DoctorComboBox.Size = new System.Drawing.Size(152, 21);
             this.DoctorComboBox.TabIndex = 30;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(28, 312);
+            this.label10.Location = new System.Drawing.Point(21, 254);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(39, 17);
+            this.label10.Size = new System.Drawing.Size(30, 13);
             this.label10.TabIndex = 31;
             this.label10.Text = "Title:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(28, 365);
+            this.label11.Location = new System.Drawing.Point(21, 297);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(42, 17);
+            this.label11.Size = new System.Drawing.Size(33, 13);
             this.label11.TabIndex = 32;
             this.label11.Text = "Date:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(28, 413);
+            this.label12.Location = new System.Drawing.Point(21, 336);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(71, 17);
+            this.label12.Size = new System.Drawing.Size(54, 13);
             this.label12.TabIndex = 33;
             this.label12.Text = "Comment:";
             // 
-            // TxtJournalTitle
+            // TextJournalTitle
             // 
-            this.TxtJournalTitle.Location = new System.Drawing.Point(100, 308);
-            this.TxtJournalTitle.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.TxtJournalTitle.Name = "TxtJournalTitle";
-            this.TxtJournalTitle.Size = new System.Drawing.Size(202, 22);
-            this.TxtJournalTitle.TabIndex = 34;
+            this.TextJournalTitle.Location = new System.Drawing.Point(75, 250);
+            this.TextJournalTitle.Margin = new System.Windows.Forms.Padding(2);
+            this.TextJournalTitle.Name = "TextJournalTitle";
+            this.TextJournalTitle.Size = new System.Drawing.Size(152, 20);
+            this.TextJournalTitle.TabIndex = 34;
             // 
             // JournalCalender
             // 
-            this.JournalCalender.Location = new System.Drawing.Point(100, 365);
-            this.JournalCalender.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.JournalCalender.Location = new System.Drawing.Point(75, 297);
+            this.JournalCalender.Margin = new System.Windows.Forms.Padding(2);
             this.JournalCalender.Name = "JournalCalender";
-            this.JournalCalender.Size = new System.Drawing.Size(202, 22);
+            this.JournalCalender.Size = new System.Drawing.Size(152, 20);
             this.JournalCalender.TabIndex = 35;
             this.JournalCalender.Value = new System.DateTime(2019, 12, 2, 13, 17, 56, 0);
             // 
             // btnJournal
             // 
-            this.btnJournal.Location = new System.Drawing.Point(308, 594);
-            this.btnJournal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnJournal.Location = new System.Drawing.Point(231, 483);
+            this.btnJournal.Margin = new System.Windows.Forms.Padding(2);
             this.btnJournal.Name = "btnJournal";
-            this.btnJournal.Size = new System.Drawing.Size(110, 32);
+            this.btnJournal.Size = new System.Drawing.Size(82, 26);
             this.btnJournal.TabIndex = 36;
             this.btnJournal.Text = "Comment";
             this.btnJournal.UseVisualStyleBackColor = true;
-            this.btnJournal.Click += new System.EventHandler(this.btnJournal_Click);
+            this.btnJournal.Click += new System.EventHandler(this.buttonJournal_Click);
             // 
             // buttonHelp
             // 
-            this.buttonHelp.Location = new System.Drawing.Point(862, 8);
+            this.buttonHelp.Location = new System.Drawing.Point(646, 6);
+            this.buttonHelp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.buttonHelp.Name = "buttonHelp";
-            this.buttonHelp.Size = new System.Drawing.Size(25, 25);
+            this.buttonHelp.Size = new System.Drawing.Size(19, 20);
             this.buttonHelp.TabIndex = 37;
             this.buttonHelp.Text = "?";
             this.buttonHelp.UseVisualStyleBackColor = true;
@@ -398,52 +399,52 @@
             // 
             // groupboxFillin
             // 
-            this.groupboxFillin.Location = new System.Drawing.Point(18, 23);
-            this.groupboxFillin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupboxFillin.Location = new System.Drawing.Point(14, 19);
+            this.groupboxFillin.Margin = new System.Windows.Forms.Padding(2);
             this.groupboxFillin.Name = "groupboxFillin";
-            this.groupboxFillin.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupboxFillin.Size = new System.Drawing.Size(302, 257);
+            this.groupboxFillin.Padding = new System.Windows.Forms.Padding(2);
+            this.groupboxFillin.Size = new System.Drawing.Size(226, 209);
             this.groupboxFillin.TabIndex = 38;
             this.groupboxFillin.TabStop = false;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(700, 144);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnSearch.Location = new System.Drawing.Point(525, 117);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(95, 28);
+            this.btnSearch.Size = new System.Drawing.Size(71, 23);
             this.btnSearch.TabIndex = 14;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            this.btnSearch.Click += new System.EventHandler(this.buttonSearch_Click);
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(493, 20);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(370, 16);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(326, 175);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(244, 142);
             this.groupBox1.TabIndex = 39;
             this.groupBox1.TabStop = false;
             // 
             // btnShowJournal
             // 
-            this.btnShowJournal.Location = new System.Drawing.Point(308, 555);
-            this.btnShowJournal.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnShowJournal.Location = new System.Drawing.Point(231, 451);
+            this.btnShowJournal.Margin = new System.Windows.Forms.Padding(2);
             this.btnShowJournal.Name = "btnShowJournal";
-            this.btnShowJournal.Size = new System.Drawing.Size(111, 35);
+            this.btnShowJournal.Size = new System.Drawing.Size(83, 28);
             this.btnShowJournal.TabIndex = 40;
             this.btnShowJournal.Text = "Show Journal";
             this.btnShowJournal.UseVisualStyleBackColor = true;
-            this.btnShowJournal.Click += new System.EventHandler(this.btnShowJournal_Click);
+            this.btnShowJournal.Click += new System.EventHandler(this.buttonShowJournal_Click);
             // 
             // ButtonCheckOwner_Click
             // 
-            this.ButtonCheckOwner_Click.Location = new System.Drawing.Point(535, 84);
-            this.ButtonCheckOwner_Click.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ButtonCheckOwner_Click.Location = new System.Drawing.Point(401, 68);
+            this.ButtonCheckOwner_Click.Margin = new System.Windows.Forms.Padding(2);
             this.ButtonCheckOwner_Click.Name = "ButtonCheckOwner_Click";
-            this.ButtonCheckOwner_Click.Size = new System.Drawing.Size(86, 29);
+            this.ButtonCheckOwner_Click.Size = new System.Drawing.Size(64, 24);
             this.ButtonCheckOwner_Click.TabIndex = 13;
             this.ButtonCheckOwner_Click.Text = "Check";
             this.ButtonCheckOwner_Click.UseVisualStyleBackColor = true;
@@ -451,16 +452,16 @@
             // 
             // Form_Animal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(895, 545);
+            this.ClientSize = new System.Drawing.Size(671, 443);
             this.Controls.Add(this.btnShowJournal);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.buttonHelp);
             this.Controls.Add(this.btnJournal);
             this.Controls.Add(this.JournalCalender);
-            this.Controls.Add(this.TxtJournalTitle);
+            this.Controls.Add(this.TextJournalTitle);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -475,25 +476,25 @@
             this.Controls.Add(this.btnAnimalCreate);
             this.Controls.Add(this.PictureBoxAnimal);
             this.Controls.Add(this.btnAnimalUploadPic);
-            this.Controls.Add(this.TxtBoxAnimalChip);
+            this.Controls.Add(this.TextBoxAnimalChip);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.ButtonCheckOwner_Click);
-            this.Controls.Add(this.TxtBoxAnimalNr);
+            this.Controls.Add(this.TextBoxAnimalNr);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.CheckBoxFemale);
             this.Controls.Add(this.CheckBoxMale);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.TxtAnimal);
+            this.Controls.Add(this.TextAnimal);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.TxtOwnerPhone);
+            this.Controls.Add(this.TextOwnerPhone);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.TxtAnimalName);
+            this.Controls.Add(this.TextAnimalName);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupboxFillin);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form_Animal";
             this.Text = "Animal";
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnimal)).EndInit();
@@ -505,10 +506,10 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox TxtAnimalName;
-        private System.Windows.Forms.TextBox TxtOwnerPhone;
+        private System.Windows.Forms.TextBox TextAnimalName;
+        private System.Windows.Forms.TextBox TextOwnerPhone;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TxtAnimal;
+        private System.Windows.Forms.TextBox TextAnimal;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -516,7 +517,7 @@
         private System.Windows.Forms.CheckBox CheckBoxFemale;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox TxtBoxAnimalChip;
+        private System.Windows.Forms.TextBox TextBoxAnimalChip;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnAnimalUploadPic;
         private System.Windows.Forms.PictureBox PictureBoxAnimal;
@@ -528,12 +529,12 @@
         private System.Windows.Forms.RichTextBox TextBoxJournal;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.DateTimePicker AnimalBirthCalender;
-        private System.Windows.Forms.TextBox TxtBoxAnimalNr;
+        private System.Windows.Forms.TextBox TextBoxAnimalNr;
         private System.Windows.Forms.ComboBox DoctorComboBox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox TxtJournalTitle;
+        private System.Windows.Forms.TextBox TextJournalTitle;
         private System.Windows.Forms.DateTimePicker JournalCalender;
         private System.Windows.Forms.Button btnJournal;
         private System.Windows.Forms.Button buttonHelp;

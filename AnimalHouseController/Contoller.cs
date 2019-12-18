@@ -270,16 +270,16 @@ namespace AnimalHouseController
         {
             Owner Owner = new Owner(TelePhoneNr,firstname,lastname,adress,email,city,zipcode);
             Private PrivateOwner = new Private(TelePhoneNr);
-            PrivateOwner.AddOwnerToDatabase(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
-            PrivateOwner.AddPrivateToDatabase(TelePhoneNr);
+            PrivateOwner.AddOwnerToDatabase();
+            PrivateOwner.AddPrivateToDatabase();
         }
 
         public void CreateBusinessOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode, string companyname, int CVRNR)
         {
             Owner owner = new Owner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
             Business BusinessOwner = new Business(TelePhoneNr, CVRNR, companyname);
-            owner.AddOwnerToDatabase(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
-            BusinessOwner.AddBusinessToDatabase(TelePhoneNr, companyname, CVRNR);
+            owner.AddOwnerToDatabase();
+            BusinessOwner.AddBusinessToDatabase();
         }
         
         public List<string> SearchForOwner(string TelephoneNr)
@@ -299,13 +299,13 @@ namespace AnimalHouseController
         public void UpdateOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
         {
             Owner owner = new Owner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
-            owner.UpdateOwner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
+            owner.UpdateOwner();
         }
         
-        public void UpdateBusiness(int TelePhoneNr, string CompanyName, string CVRNR)
+        public void UpdateBusiness(int TelePhoneNr, string CompanyName, int CVRNR)
         {
-            Business business = new Business(TelePhoneNr,Convert.ToInt32(CVRNR),CompanyName);
-            business.UpdateBusiness(TelePhoneNr, CompanyName, CVRNR);
+            Business business = new Business(TelePhoneNr,CVRNR,CompanyName);
+            business.UpdateBusiness();
         }
         
         public void DeleteOwner(string Owner, string Where, string TelephoneNr)

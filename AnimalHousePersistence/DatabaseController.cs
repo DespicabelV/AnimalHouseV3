@@ -560,7 +560,7 @@ namespace AnimalHousePersistence
             DBCCloseDB();
         }
 
-        public void DBCUpdateBusiness(int ID, string Navn, string CVR)
+        public void DBCUpdateBusiness(int ID, string Navn, int CVR)
         {
             DBCOpenDB();
             SqlCommand DBCUpdateBusiness = new SqlCommand();

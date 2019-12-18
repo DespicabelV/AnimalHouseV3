@@ -145,7 +145,7 @@ namespace AnimalHouseV3
 
         private void BtnAddBookning_Click(object sender, EventArgs e)
         {
-            
+            MessageBox.Show("This is not implemented yet");
             //NC.SelectSpecificTreatment(Convert.ToInt32(ComboBoxBookning.Text));
         }
 

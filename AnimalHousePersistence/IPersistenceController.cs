@@ -70,7 +70,7 @@ namespace AnimalHousePersistence
 
         void DBCUpdateRessource(int ID, int Pris);
 
-        void DBCUpdateBusiness(int ID, string Navn, string CVR);
+        void DBCUpdateBusiness(int ID, string Navn, int CVR);
 
         void DBCUpdateBookning(int Behandling, int Laege, int ID, int Bur, int Burdag, string Dato, int Tid);
 
