@@ -9,12 +9,13 @@ namespace AnimalHouseEntity
 {
    public class Receipt
     {
+        //Nichlas
+        IPersistenceController DABA = new DatabaseController();
+        
         private int ID;
         private int PriceTotal;
         private int BookingID;
         private int EjerTelefonNr;
-
-        IPersistenceController DABA = new DatabaseController();
 
         public Receipt(int ID, int PriceTotal, int BookingID, int EjerTelefonNr)
         {

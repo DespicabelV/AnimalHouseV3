@@ -12,7 +12,9 @@ namespace AnimalHouseV3
 {
     public partial class FormHelp : Form
     {
+        //Viggo
         public int HelpIndex = 0;
+
         public FormHelp()
         {
             InitializeComponent();
@@ -20,6 +22,7 @@ namespace AnimalHouseV3
 
         private void FormHelp_Shown(object sender, EventArgs e)
         {
+
             switch (HelpIndex)
             {
                 case 1:

@@ -13,38 +13,12 @@ namespace AnimalHouseController
         {
         }
 
+        //Viggo
         public bool ControllerOwnerExist(string COParam)
         {
             bool TempBool;
             TempBool = Private.PrivateExist(COParam);
             return TempBool;
-        }
-
-        public List<string> ControllerGetOwner(string PhoneNum)
-        {
-            List<string> ControllerGetOwner;
-
-            ControllerGetOwner = Private.PrivateFetch(PhoneNum);
-
-            return ControllerGetOwner;
-        }
-
-        public List<string> ControllerGetRelation(string OwnerID)
-        {
-            List<string> ControllerGetRelation;
-
-            ControllerGetRelation = Owner.RelationFetch(OwnerID);
-
-            return ControllerGetRelation;
-        }
-
-        public List<string> ControllerGetAnimal(string AnimalID)
-        {
-            List<string> ControllerGetAnimal;
-
-            ControllerGetAnimal = Animal.AnimalFetch(AnimalID);
-
-            return ControllerGetAnimal;
         }
 
         public List<string> ControllerGetAllDoctor()
@@ -56,15 +30,6 @@ namespace AnimalHouseController
             return ControllerGetAllDoctor;
         }
 
-        public List<string> ControllerGetAllTreatment()
-        {
-            List<string> ControllerGetAllTreatment;
-
-            ControllerGetAllTreatment = Treatment.TreatmentAllFetch("Behandling");
-
-            return ControllerGetAllTreatment;
-        }
-
         public List<string> ControllerGetBookedTime(string Date, string Doctor)
         {
             List<string> ControllerGetBookedTime;
@@ -72,6 +37,15 @@ namespace AnimalHouseController
             ControllerGetBookedTime = Booking.TimeBookedTimeFetch(Date, Doctor);
 
             return ControllerGetBookedTime;
+        }
+
+        public List<string> ControllerGetAllTreatment()
+        {
+            List<string> ControllerGetAllTreatment;
+
+            ControllerGetAllTreatment = Treatment.TreatmentAllFetch("Behandling");
+
+            return ControllerGetAllTreatment;
         }
 
         public List<string> ControllerGetTime()
@@ -120,9 +94,24 @@ namespace AnimalHouseController
             Booking.BookningDelete(Pram);
         }
 
+        public List<string> ControllerBookningFeetch(string OwnerID)
+        {
+            return Booking.BookningFetchSpecific(OwnerID);
+        }
+
         public List<string> ControllerPrintDocktorLetter()
         {
             return Doctor.PrintDoctorLetter();
+        }
+
+        //Nichlas
+        public List<string> ControllerGetOwner(string PhoneNum)
+        {
+            List<string> ControllerGetOwner;
+
+            ControllerGetOwner = Private.PrivateFetch(PhoneNum);
+
+            return ControllerGetOwner;
         }
 
         public object ControllerPrintCategoryToDataGridView(string Category)
@@ -132,7 +121,7 @@ namespace AnimalHouseController
 
         public object ControllerPrintCategoryToDataGridViewName(string Category, string Where)
         {
-            return Ressource.PrintCategoryToDataGridViewName(Category,Where);
+            return Ressource.PrintCategoryToDataGridViewName(Category, Where);
         }
 
         public int ControllerChangeOfPriceWithOutMoms(int Price, int Amount, int OldPrice)
@@ -159,9 +148,9 @@ namespace AnimalHouseController
             return Receipt.InsertReciept();
         }
 
-        public void ControllerInsertOrderLine(int RecieptID,int RessourceID, int ProductCategoryID, int Price, int Amount)
+        public void ControllerInsertOrderLine(int RecieptID, int RessourceID, int ProductCategoryID, int Price, int Amount)
         {
-            OrderLine OrderLine = new OrderLine(RecieptID,RessourceID,ProductCategoryID,Price,Amount);
+            OrderLine OrderLine = new OrderLine(RecieptID, RessourceID, ProductCategoryID, Price, Amount);
             OrderLine.InsertOrderLine();
         }
 
@@ -170,16 +159,22 @@ namespace AnimalHouseController
             return Private.CheckIfExsistInPrivateIsPrivate(OwnerID);
         }
 
-        public List<string> ControllerBookningFeetch(string OwnerID)
-        {
-            return Booking.BookningFetchSpecific(OwnerID);
-        }
-
         public int ControllerUpdateMedicin()
         {
             return Medicin.UpdatePriceForMedicin();
         }
 
+        public List<string> ControllerPrintMedicin()
+        {
+            return Ressource.PrintMedicin();
+        }
+
+        public List<string> ControllerPrintShelfStock()
+        {
+            return Ressource.PrintShelftStock();
+        }
+
+        //Allan
         public void ControllerNewAnimal(string Name, char Gender, string Birthdate, string Race, int Doctor, int Chip)
         {
             Animal animal = new Animal(Name, Gender, Birthdate, Race, Doctor, Chip);
@@ -205,33 +200,33 @@ namespace AnimalHouseController
             }
             return DyrList;
         }
-
+        
         public bool ControllerCheckIfAnimalExist(string Parameter)
         {
             return Animal.CheckIfAnimalExist(Parameter);
         }
-
+        
         public List<string> ControllerFindAnimalID(string Name, string Date, string Race, char Gender)
         {
             return Animal.GetDyrID(Name, Date, Race, Gender);
         }
-
+        
         public void ControllerUpdateAnimal(int ID, string Name, char Gender, string Date, string Race, int Doctor, int Chip)
         {
             Animal animal = new Animal(ID, Name, Gender, Date, Race, Doctor, Chip);
             animal.UpdateAnimal();
         }
-
+        
         public void ControllerDeleteRelation(string ID)
         {
             Animal.DeleteRelation(ID);
         }
-
+        
         public void ControllerDeleteAnimal(string Parameter)
         {
             Animal.DeleteAnimal(Parameter);
         }
-
+        
         public List<string> ControllerFindAllDoctor()
         {
             List<string> GetAllDoctor;
@@ -240,41 +235,50 @@ namespace AnimalHouseController
 
             return GetAllDoctor;
         }
-
+        
         public string ControllerGetDoctorName(string DyrID)
         {
             return Animal.GetDoctorName(DyrID);
         }
-
+        
         public void ControllerAddJournal(int Doctor, int ID, string Date, string Title, string Comment)
         {
             Animal.AddJournal(Doctor, ID, Date, Title, Comment);
         }
-
+        
         public object ControllerGetJournal(string DyrID)
         {
             return Animal.ShowJournal(DyrID);
         }
-
-        public List<string> ControllerPrintMedicin()
+        
+        public List<string> ControllerGetRelation(string OwnerID)
         {
-            return Ressource.PrintMedicin();
-        }
+            List<string> ControllerGetRelation;
 
-        public List<string> ControllerPrintShelfStock()
+            ControllerGetRelation = Owner.RelationFetch(OwnerID);
+
+            return ControllerGetRelation;
+        }
+        
+        public List<string> ControllerGetAnimal(string AnimalID)
         {
-            return Ressource.PrintShelftStock();
-        }
+            List<string> ControllerGetAnimal;
 
-        public void CreatePrivateOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
+            ControllerGetAnimal = Animal.AnimalFetch(AnimalID);
+
+            return ControllerGetAnimal;
+        }
+        
+        //Jacob
+        public void ControllerCreatePrivateOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
         {
             Owner Owner = new Owner(TelePhoneNr,firstname,lastname,adress,email,city,zipcode);
             Private PrivateOwner = new Private(TelePhoneNr);
             PrivateOwner.AddOwnerToDatabase();
             PrivateOwner.AddPrivateToDatabase();
         }
-
-        public void CreateBusinessOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode, string companyname, int CVRNR)
+        
+        public void ControllerCreateBusinessOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode, string companyname, int CVRNR)
         {
             Owner owner = new Owner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
             Business BusinessOwner = new Business(TelePhoneNr, CVRNR, companyname);
@@ -282,39 +286,39 @@ namespace AnimalHouseController
             BusinessOwner.AddBusinessToDatabase();
         }
         
-        public List<string> SearchForOwner(string TelephoneNr)
+        public List<string> ControllerSearchForOwner(string TelephoneNr)
         {
             Owner Owner = new Owner(Convert.ToInt32(TelephoneNr));
             List<string> Ownerlist = Owner.SearchForOwner(TelephoneNr);
             return Ownerlist;
         }
         
-        public List<string> SearchForBusiness(string TelePhoneNr)
+        public List<string> ControllerSearchForBusiness(string TelePhoneNr)
         {
             Business BusinessOwner = new Business(Convert.ToInt32(TelePhoneNr));
             List<string> BusinessList = BusinessOwner.SearchForBusiness(TelePhoneNr);
             return BusinessList;
         }
         
-        public void UpdateOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
+        public void ControllerUpdateOwner(int TelePhoneNr, string firstname, string lastname, string adress, string email, string city, int zipcode)
         {
             Owner owner = new Owner(TelePhoneNr, firstname, lastname, adress, email, city, zipcode);
             owner.UpdateOwner();
         }
         
-        public void UpdateBusiness(int TelePhoneNr, string CompanyName, int CVRNR)
+        public void ControllerUpdateBusiness(int TelePhoneNr, string CompanyName, int CVRNR)
         {
             Business business = new Business(TelePhoneNr,CVRNR,CompanyName);
             business.UpdateBusiness();
         }
         
-        public void DeleteOwner(string Owner, string Where, string TelephoneNr)
+        public void ControllerDeleteOwner(string Owner, string Where, string TelephoneNr)
         {
             Owner owner = new Owner(Convert.ToInt32(TelephoneNr));
             owner.DeleteOwner(Owner, Where, TelephoneNr);
         }
         
-        public object ShowAnimalDataTable(string TelephoneNr)
+        public object ControllerShowAnimalDataTable(string TelephoneNr)
         {
             Owner owner = new Owner(Convert.ToInt32(TelephoneNr));
             object dt = owner.GetOwnersAnimalDataTable(TelephoneNr);

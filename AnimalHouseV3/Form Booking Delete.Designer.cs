@@ -39,24 +39,27 @@
             // labelOwner
             // 
             this.labelOwner.AutoSize = true;
-            this.labelOwner.Location = new System.Drawing.Point(9, 30);
+            this.labelOwner.Location = new System.Drawing.Point(18, 58);
+            this.labelOwner.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelOwner.Name = "labelOwner";
-            this.labelOwner.Size = new System.Drawing.Size(49, 17);
+            this.labelOwner.Size = new System.Drawing.Size(98, 32);
             this.labelOwner.TabIndex = 0;
             this.labelOwner.Text = "Owner";
             // 
             // textBoxBookingSearch
             // 
-            this.textBoxBookingSearch.Location = new System.Drawing.Point(64, 28);
+            this.textBoxBookingSearch.Location = new System.Drawing.Point(128, 54);
+            this.textBoxBookingSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.textBoxBookingSearch.Name = "textBoxBookingSearch";
-            this.textBoxBookingSearch.Size = new System.Drawing.Size(235, 22);
+            this.textBoxBookingSearch.Size = new System.Drawing.Size(466, 38);
             this.textBoxBookingSearch.TabIndex = 1;
             // 
             // buttonSearch
             // 
-            this.buttonSearch.Location = new System.Drawing.Point(306, 26);
+            this.buttonSearch.Location = new System.Drawing.Point(612, 50);
+            this.buttonSearch.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.buttonSearch.Name = "buttonSearch";
-            this.buttonSearch.Size = new System.Drawing.Size(75, 23);
+            this.buttonSearch.Size = new System.Drawing.Size(150, 45);
             this.buttonSearch.TabIndex = 2;
             this.buttonSearch.Text = "Search";
             this.buttonSearch.UseVisualStyleBackColor = true;
@@ -65,25 +68,28 @@
             // labelReservation
             // 
             this.labelReservation.AutoSize = true;
-            this.labelReservation.Location = new System.Drawing.Point(9, 63);
+            this.labelReservation.Location = new System.Drawing.Point(18, 122);
+            this.labelReservation.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             this.labelReservation.Name = "labelReservation";
-            this.labelReservation.Size = new System.Drawing.Size(84, 17);
+            this.labelReservation.Size = new System.Drawing.Size(167, 32);
             this.labelReservation.TabIndex = 3;
             this.labelReservation.Text = "Reservation";
             // 
             // comboBoxBookningChoice
             // 
             this.comboBoxBookningChoice.FormattingEnabled = true;
-            this.comboBoxBookningChoice.Location = new System.Drawing.Point(100, 60);
+            this.comboBoxBookningChoice.Location = new System.Drawing.Point(200, 116);
+            this.comboBoxBookningChoice.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.comboBoxBookningChoice.Name = "comboBoxBookningChoice";
-            this.comboBoxBookningChoice.Size = new System.Drawing.Size(199, 24);
+            this.comboBoxBookningChoice.Size = new System.Drawing.Size(394, 39);
             this.comboBoxBookningChoice.TabIndex = 4;
             // 
             // buttonDelete
             // 
-            this.buttonDelete.Location = new System.Drawing.Point(305, 60);
+            this.buttonDelete.Location = new System.Drawing.Point(610, 116);
+            this.buttonDelete.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.buttonDelete.Name = "buttonDelete";
-            this.buttonDelete.Size = new System.Drawing.Size(75, 23);
+            this.buttonDelete.Size = new System.Drawing.Size(150, 45);
             this.buttonDelete.TabIndex = 5;
             this.buttonDelete.Text = "Delete";
             this.buttonDelete.UseVisualStyleBackColor = true;
@@ -91,15 +97,17 @@
             // 
             // Form_Booking_Delete
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 158);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(816, 306);
             this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.comboBoxBookningChoice);
             this.Controls.Add(this.labelReservation);
             this.Controls.Add(this.buttonSearch);
             this.Controls.Add(this.textBoxBookingSearch);
             this.Controls.Add(this.labelOwner);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "Form_Booking_Delete";
             this.Text = "Form_Booking_Delete";
             this.ResumeLayout(false);

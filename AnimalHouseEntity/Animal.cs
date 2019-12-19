@@ -9,6 +9,7 @@ namespace AnimalHouseEntity
 {
     public class Animal
     {
+        //Allan
         private int ID;
         private string Name;
         private char Gender;
@@ -16,7 +17,6 @@ namespace AnimalHouseEntity
         private string Race;
         private int Doctor;
         private int Chip;
-
 
         public Animal(string Name, char Gender, string Birthdate, string Race, int Doctor, int Chip)
         {
@@ -38,7 +38,6 @@ namespace AnimalHouseEntity
             this.Doctor = Doctor;
             this.Chip = Chip;
         }
-
 
         public void Add()
         {
@@ -90,7 +89,6 @@ namespace AnimalHouseEntity
             DBController.DBCUpdateAnimal(ID, Name, Gender, Birthdate, Race, Doctor, Chip);
         }
 
-
         public static void DeleteAnimal(string ID)
         {
             IPersistenceController DBController = new DatabaseController();
@@ -135,6 +133,7 @@ namespace AnimalHouseEntity
 
             return ListAnimal;
         }
+
         public static object ShowJournal(string DyrID)
         {
             IPersistenceController DBController = new DatabaseController();

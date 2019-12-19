@@ -5,6 +5,8 @@ namespace AnimalHousePersistence
 {
     public interface IPersistenceController
     {
+        //Viggo
+
         List<string> DBCSelectFrom(string DBCFrom);
 
         List<string> DBCSelectSpecificFromWhere(string DBCSelect, string DBCFrom, string DBCWhere, string DBCParam);
@@ -34,12 +36,17 @@ namespace AnimalHousePersistence
         List<string> DBCGetMedicinPrint();
 
         List<string> DBCPrintDocktorLetter();
+
         List<string> DBCSelectSpecificIDFromRessourceWhereID(string Table, int ID);
+
         object SelectFromXToGridView(string Table);
+
         object GetOwnersAnimalDataTable(string TelefonNr);
 
         object SelectFromTableToGridViewWhereNameLike(string Table, string Where);
+
         object DBCGetJournal(string DBCPram);
+
         void DBCInsertAnimal(string Navn, char Kon, string Fodselsdag, string Race, int Laege, int Chip);
 
         void DBCInsertRelation(int Ejer, int Dyr);
@@ -75,6 +82,5 @@ namespace AnimalHousePersistence
         void DBCUpdateBookning(int Behandling, int Laege, int ID, int Bur, int Burdag, string Dato, int Tid);
 
         List<string> DBCTimes();
-
     }
 }

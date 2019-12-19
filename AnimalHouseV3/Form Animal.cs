@@ -14,17 +14,19 @@ namespace AnimalHouseV3
 {
     public partial class Form_Animal : Form
     {
+        //Allan
 
-        private string[,] DoctorArray; // array bliver lavet
+        private string[,] DoctorArray;
+
         public Form_Animal()
         {
             Contoller Controller = new Contoller();
 
             InitializeComponent();
 
-            List<string> DoctorList = Controller.ControllerFindAllDoctor(); // ny list bliver lavet. FindAllDoctor er også en list. FindAllDoctorList finder 12 læger
+            List<string> DoctorList = Controller.ControllerFindAllDoctor();
 
-            DoctorArray = new string[DoctorList.Count / 2, 2]; // list bliver instatireret og array er lige med ny instans af list. FindAllDoctorList bliver halveret. 
+            DoctorArray = new string[DoctorList.Count / 2, 2];
             for (int i = 0; i < DoctorList.Count / 2; i++)  
             {
                 DoctorArray[i, 0] = DoctorList[(i * 2)];
@@ -32,7 +34,6 @@ namespace AnimalHouseV3
                 DoctorComboBox.Items.Add(DoctorList[(i * 2) + 1]);
             }
         }
-        //Husk at ændre nedenunder
         
         private char Gender()
         {            
@@ -41,7 +42,6 @@ namespace AnimalHouseV3
             {
                 MessageBox.Show("Choose gender");                
             }
-
             if (CheckBoxFemale.Checked == true)
             {
                 Gender = 'F';
@@ -56,7 +56,6 @@ namespace AnimalHouseV3
         private void buttonAnimalCreate_Click(object sender, EventArgs e)
         {
             Contoller Controller = new Contoller();
-
             if (TextAnimalName.Text == "" || TextAnimal.Text == "" || DoctorComboBox.Text == "" || TextBoxAnimalChip.Text == "" || TextOwnerPhone.Text == "")
             {
                 MessageBox.Show("Fill out the blanks");
@@ -100,8 +99,6 @@ namespace AnimalHouseV3
             else
             {
                 List<string> DoctorList = Controller.ControllerFindAllDoctor();
-
-                
                 TextAnimalName.Text = Controller.ControllerSearchAnimal(TextBoxAnimalNr.Text)[1];
                 if (Controller.ControllerSearchAnimal(TextBoxAnimalNr.Text)[2] == "F")
                 {
@@ -125,7 +122,6 @@ namespace AnimalHouseV3
         private void buttonAnimalUpdate_Click(object sender, EventArgs e)
         {
             Contoller Controller = new Contoller();
-
             Controller.ControllerUpdateAnimal(Convert.ToInt32(TextBoxAnimalNr.Text), TextAnimalName.Text, Gender(), Convert.ToDateTime(AnimalBirthCalender.Value).ToString("yyyy-MM-dd"), TextAnimal.Text, Convert.ToInt32(DoctorArray[DoctorComboBox.SelectedIndex,0]), Convert.ToInt32(TextBoxAnimalChip.Text));
         }
 
@@ -168,6 +164,7 @@ namespace AnimalHouseV3
             }
         }
 
+        //viggo
         private void buttonHelp_Click(object sender, EventArgs e)
         {
             FormHelp Help = new FormHelp();

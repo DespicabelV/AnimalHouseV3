@@ -35,9 +35,10 @@
             // 
             // buttonUpdatePrice
             // 
-            this.buttonUpdatePrice.Location = new System.Drawing.Point(81, 165);
+            this.buttonUpdatePrice.Location = new System.Drawing.Point(216, 393);
+            this.buttonUpdatePrice.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.buttonUpdatePrice.Name = "buttonUpdatePrice";
-            this.buttonUpdatePrice.Size = new System.Drawing.Size(93, 23);
+            this.buttonUpdatePrice.Size = new System.Drawing.Size(248, 55);
             this.buttonUpdatePrice.TabIndex = 0;
             this.buttonUpdatePrice.Text = "Update Price";
             this.buttonUpdatePrice.UseVisualStyleBackColor = true;
@@ -45,17 +46,19 @@
             // 
             // richTextBoxInformation
             // 
-            this.richTextBoxInformation.Location = new System.Drawing.Point(295, 22);
+            this.richTextBoxInformation.Location = new System.Drawing.Point(787, 52);
+            this.richTextBoxInformation.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.richTextBoxInformation.Name = "richTextBoxInformation";
-            this.richTextBoxInformation.Size = new System.Drawing.Size(482, 379);
+            this.richTextBoxInformation.Size = new System.Drawing.Size(1279, 898);
             this.richTextBoxInformation.TabIndex = 1;
             this.richTextBoxInformation.Text = "";
             // 
             // buttonChangeFile
             // 
-            this.buttonChangeFile.Location = new System.Drawing.Point(81, 237);
+            this.buttonChangeFile.Location = new System.Drawing.Point(216, 565);
+            this.buttonChangeFile.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.buttonChangeFile.Name = "buttonChangeFile";
-            this.buttonChangeFile.Size = new System.Drawing.Size(93, 23);
+            this.buttonChangeFile.Size = new System.Drawing.Size(248, 55);
             this.buttonChangeFile.TabIndex = 2;
             this.buttonChangeFile.Text = "Change File";
             this.buttonChangeFile.UseVisualStyleBackColor = true;
@@ -63,12 +66,14 @@
             // 
             // FormImportMedicin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(2133, 1073);
             this.Controls.Add(this.buttonChangeFile);
             this.Controls.Add(this.richTextBoxInformation);
             this.Controls.Add(this.buttonUpdatePrice);
+            this.Margin = new System.Windows.Forms.Padding(8, 7, 8, 7);
             this.Name = "FormImportMedicin";
             this.Text = "FormImportMedicin";
             this.ResumeLayout(false);

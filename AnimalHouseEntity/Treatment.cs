@@ -9,7 +9,9 @@ namespace AnimalHouseEntity
 {
     public class Treatment : Ressource
     {
+        //Viggo
         private string Name;
+
         public Treatment(int ID, double Price, int ProductCategoryID,string Name) : base(ID, Price, ProductCategoryID)
         {
             this.Name = Name;

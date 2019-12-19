@@ -9,6 +9,8 @@ namespace AnimalHouseEntity
 {
     public abstract class Ressource
     {
+
+        //Nichlas
         private int ID;
         private double Price;
         private int ProductCategoryID;
@@ -31,17 +33,6 @@ namespace AnimalHouseEntity
             this.Price = Price;
         }
 
-       public static object PrintCategoryToDataGridView(string Category)
-       {
-            IPersistenceController Daba = new DatabaseController();
-            return Daba.SelectFromXToGridView(Category);
-       }
-
-       public static object PrintCategoryToDataGridViewName(string Category, string Where)
-       {
-            IPersistenceController Daba = new DatabaseController();
-            return Daba.SelectFromTableToGridViewWhereNameLike(Category,Where);
-       }
         public static List<string> PrintMedicin()
         {
             IPersistenceController DBController = new DatabaseController();
@@ -53,6 +44,18 @@ namespace AnimalHouseEntity
             IPersistenceController DBController = new DatabaseController();
             return DBController.DBCGetRessourcePrint();
         }
+
+       public static object PrintCategoryToDataGridView(string Category)
+       {
+            IPersistenceController Daba = new DatabaseController();
+            return Daba.SelectFromXToGridView(Category);
+       }
+
+       public static object PrintCategoryToDataGridViewName(string Category, string Where)
+       {
+            IPersistenceController Daba = new DatabaseController();
+            return Daba.SelectFromTableToGridViewWhereNameLike(Category,Where);
+       }
 
     }
 }

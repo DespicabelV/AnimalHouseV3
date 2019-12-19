@@ -9,6 +9,7 @@ namespace AnimalHouseEntity
 {
     public class OrderLine
     {
+        //Nichlas
         private int ReceiptID;
         private int RessourceID;
         private int ProductCategoryID;
@@ -29,6 +30,7 @@ namespace AnimalHouseEntity
             this.Price = Price;
             this.Amount = Amount;
         }
+
         public OrderLine(int Price)
         {
             this.Price = Price;
@@ -40,6 +42,7 @@ namespace AnimalHouseEntity
             NewPrice = Price - ((Price / 100) * Discount);
             return NewPrice;
         }
+
         public double ChangeOfPriceWithMoms(int Price, int Amount, int OldPrice)
         {
             double NewPrice = Price;
@@ -62,6 +65,5 @@ namespace AnimalHouseEntity
             IPersistenceController Controller = new DatabaseController();
             Controller.DBCInsertOrderLine(ReceiptID,ProductCategoryID,RessourceID,Price,Amount);
         }
-
     }
 }

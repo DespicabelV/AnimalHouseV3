@@ -9,6 +9,7 @@ namespace AnimalHouseEntity
 {
     public class Booking
     {
+        //Viggo
         IPersistenceController IPC;
         private int CageID;
         private int CageDayAmount;

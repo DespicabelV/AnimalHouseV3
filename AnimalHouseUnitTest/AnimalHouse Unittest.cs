@@ -9,6 +9,7 @@ namespace AnimalHouseUnitTest
     [TestClass]
     public class UnitTest1
     {
+        //Jacob
         // testing discount method in POS-system.
         [TestMethod]
         public void TestMethodDiscount1()
@@ -27,6 +28,7 @@ namespace AnimalHouseUnitTest
             Assert.AreEqual(80000, TestPris);
         }
         [TestMethod]
+        //Testing Moms Methods in POS-system 
         public void TestMethodChangedOfPriceWithMoms()
         {
             int OldPris = 100;

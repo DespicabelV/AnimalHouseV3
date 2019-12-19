@@ -9,8 +9,10 @@ namespace AnimalHouseEntity
 {
     public class Medicin : Ressource
     {
+        //Nichlas
         private string Name;
         private int Amount;
+
         public Medicin(int ID, double Price, int ProductCategoryID, string Name, int Amount) : base(ID, Price, ProductCategoryID)
         {
             this.Name = Name;
@@ -33,7 +35,6 @@ namespace AnimalHouseEntity
         {
             List<string> Lines = new List<string>();
             string Line;
-            //System.IO.StreamReader File = new System.IO.StreamReader(@"C:\CSharp\MedicinData.txt");
             string Path = AppDomain.CurrentDomain.BaseDirectory + @"\" + "MedicinData.txt";
             System.IO.StreamReader File = new System.IO.StreamReader(Path);
             while ((Line = File.ReadLine()) != null)
@@ -43,6 +44,7 @@ namespace AnimalHouseEntity
             File.Close();
             return Lines;
         }
+
         public static int UpdatePriceForMedicin()
         {
             int Counter = 0;

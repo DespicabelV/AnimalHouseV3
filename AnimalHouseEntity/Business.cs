@@ -9,6 +9,7 @@ namespace AnimalHouseEntity
 {
     public class Business : Owner
     {
+        //Jacob
         IPersistenceController DatabaseController = new DatabaseController();
         private int CVRNr;
         private string CompanyName;
@@ -20,27 +21,29 @@ namespace AnimalHouseEntity
             this.CVRNr = CVRNr;
             this.CompanyName = CompanyName;
         }
+
         public Business (int TelefonNr,int CVRNr,string CompanyName): base (TelefonNr)
         {
             this.PhoneNr = TelefonNr;
             this.CVRNr = CVRNr;
             this.CompanyName = CompanyName;
         }
+
         public Business(int TelefonNr) : base(TelefonNr)
         {
-            
         }
 
         public void AddBusinessToDatabase()
         {
-
             DatabaseController.DBCInsertBusiness(PhoneNr, CompanyName,CVRNr);
         }
+
         public List<string> SearchForBusiness(string TelePhoneNr)
         {
             List<string> BusinessList = DatabaseController.DBCSelectFromWhere("Erhverv", "ejer", TelePhoneNr);
             return BusinessList;
         }
+
         public void UpdateBusiness()
         {
             DatabaseController.DBCUpdateBusiness(PhoneNr, CompanyName, CVRNr);

@@ -10,6 +10,7 @@ namespace AnimalHousePersistence
 {
     public class DatabaseController : IPersistenceController
     {
+        //Viggo
         SqlConnection db;
         SqlDataReader reader;
 
@@ -74,7 +75,6 @@ namespace AnimalHousePersistence
 
             return flag;
         }
-
 
         //Genaric Statemets used by all 
         public void DBCDelete(string DBCFrom, string DBCWhere, string DBCParam)
@@ -475,19 +475,6 @@ namespace AnimalHousePersistence
             DBCCloseDB();
         }
 
-        public int DBCInsertReceipt(int Total, int Bookning, int Ejer)
-        {
-            int TempID;
-            DBCOpenDB();
-            SqlCommand DBCInsertReceipt = new SqlCommand();
-            DBCInsertReceipt.CommandText = $"INSERT INTO Faktura (Total, Bookning, Ejer) output INSERTED.ID " +
-                $"VALUES({Total}, {Bookning}, {Ejer})";
-            DBCInsertReceipt.Connection = db;
-            TempID = (int)DBCInsertReceipt.ExecuteScalar();
-            DBCCloseDB();
-            return TempID;
-        }
-
         public void DBCInsertJournal(int Laege, int Dyr, string Dato, string Emne, string Kommentar)
         {
             DBCOpenDB();
@@ -499,29 +486,6 @@ namespace AnimalHousePersistence
             DBCCloseDB();
         }
 
-        public object SelectFromXToGridView(string Table)
-        {
-            string Qry = $"select Ressource.VareKatagoriID, {Table}.*, Ressource.Pris from {Table},Ressource where {Table}.ID = Ressource.ID";
-            DBCOpenDB();
-            SqlCommand SqlCMD = new SqlCommand(Qry, DBCOpenDB());
-            SqlDataAdapter Sdr = new SqlDataAdapter(SqlCMD);
-            DataTable dt = new DataTable();
-            Sdr.Fill(dt);
-            DBCCloseDB();
-            return dt;
-        }
-
-        public object SelectFromTableToGridViewWhereNameLike(string Table, string Where)
-        {
-            string Qry = $"select  Ressource.VareKatagoriID, {Table}.*, Ressource.Pris from {Table},Ressource where {Table}.ID = Ressource.ID and Navn Like '%{Where}%'";
-            DBCOpenDB();
-            SqlCommand SqlCMD = new SqlCommand(Qry, DBCOpenDB());
-            SqlDataAdapter Adapter = new SqlDataAdapter(SqlCMD);
-            DataTable dt = new DataTable();
-            Adapter.Fill(dt);
-            DBCCloseDB();
-            return dt;
-        }
 
         //Updates
         public void DBCUpdateOwner(int TelefonNr, string Fornavn, string Efternavn, string Adresse, string Email, string By_, int Postnr)
@@ -594,6 +558,45 @@ namespace AnimalHousePersistence
             DBCUpdateBookning.Connection = db;
             DBCUpdateBookning.ExecuteNonQuery();
             DBCCloseDB();
+        }
+
+        // Nichlas & Viggo
+        public int DBCInsertReceipt(int Total, int Bookning, int Ejer)
+        {
+            int TempID;
+            DBCOpenDB();
+            SqlCommand DBCInsertReceipt = new SqlCommand();
+            DBCInsertReceipt.CommandText = $"INSERT INTO Faktura (Total, Bookning, Ejer) output INSERTED.ID " +
+                $"VALUES({Total}, {Bookning}, {Ejer})";
+            DBCInsertReceipt.Connection = db;
+            TempID = (int)DBCInsertReceipt.ExecuteScalar();
+            DBCCloseDB();
+            return TempID;
+        }
+
+        // Nichlas
+        public object SelectFromXToGridView(string Table)
+        {
+            string Qry = $"select Ressource.VareKatagoriID, {Table}.*, Ressource.Pris from {Table},Ressource where {Table}.ID = Ressource.ID";
+            DBCOpenDB();
+            SqlCommand SqlCMD = new SqlCommand(Qry, DBCOpenDB());
+            SqlDataAdapter Sdr = new SqlDataAdapter(SqlCMD);
+            DataTable dt = new DataTable();
+            Sdr.Fill(dt);
+            DBCCloseDB();
+            return dt;
+        }
+
+        public object SelectFromTableToGridViewWhereNameLike(string Table, string Where)
+        {
+            string Qry = $"select  Ressource.VareKatagoriID, {Table}.*, Ressource.Pris from {Table},Ressource where {Table}.ID = Ressource.ID and Navn Like '%{Where}%'";
+            DBCOpenDB();
+            SqlCommand SqlCMD = new SqlCommand(Qry, DBCOpenDB());
+            SqlDataAdapter Adapter = new SqlDataAdapter(SqlCMD);
+            DataTable dt = new DataTable();
+            Adapter.Fill(dt);
+            DBCCloseDB();
+            return dt;
         }
     }
 }

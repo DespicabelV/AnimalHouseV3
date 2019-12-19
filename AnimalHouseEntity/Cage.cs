@@ -9,6 +9,7 @@ namespace AnimalHouseEntity
 {
     public class Cage : Ressource
     {
+        //Viggo
         private string AnimalType;
 
         public Cage(int ID, double Price, int ProductCategoryID, string AnimalType) : base(ID, Price, ProductCategoryID)

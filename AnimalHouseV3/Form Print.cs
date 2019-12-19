@@ -15,6 +15,7 @@ namespace AnimalHouseV3
 {
     public partial class FormPrint : Form
     {
+        //Allan
         Contoller Controller = new Contoller();
 
         public FormPrint()
@@ -49,6 +50,7 @@ namespace AnimalHouseV3
             Process.Start(path);
         }
 
+        //Viggo
         private void buttonPrintDoctorNotice_Click(object sender, EventArgs e)
         {
             List<string> DockterLetterList = Controller.ControllerPrintDocktorLetter();

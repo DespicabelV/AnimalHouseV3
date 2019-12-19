@@ -13,16 +13,21 @@ namespace AnimalHouseV3
 {
     public partial class MainMenu : Form
     {
+        //Viggo
+
         private delegate void SafeCallDelegateDataGrid(DataGridViewRow text);
         private delegate void SafeCallDelegateTextBox(string text);
         private delegate void SafeCallDelegateDeleteDataGrid(int num);
+
         Random rnd = new Random();
+
         private string[,] TempRanPatient = { 
             { "Fiddo", "Bloodtest", "Peter Madsen", "9-10"}, 
             { "Mads", "Ear Exam", "Peter Madsen", "10-11"}, 
             { "Simba", "Snip", "Maria Lund", "11-12"}, 
             { "Bubi", "Bath", "Jens Larsen", "12-13"},
             { "Scooby", "Nail clipping", "Maria Lund", "13-14"} };
+
         static int TempPatientNumb = 0;
 
         public MainMenu()
@@ -65,8 +70,6 @@ namespace AnimalHouseV3
             FormPrint Print = new FormPrint();
             Print.Show();
         }
-
-        // Patient Line
 
         private void buttonStartTest_Click(object sender, EventArgs e)
         {

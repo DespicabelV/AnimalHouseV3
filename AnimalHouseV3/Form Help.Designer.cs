@@ -34,7 +34,8 @@
             // 
             // pictureBoxHelp
             // 
-            this.pictureBoxHelp.Location = new System.Drawing.Point(12, 12);
+            this.pictureBoxHelp.Location = new System.Drawing.Point(24, 23);
+            this.pictureBoxHelp.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.pictureBoxHelp.Name = "pictureBoxHelp";
             this.pictureBoxHelp.Size = new System.Drawing.Size(273, 291);
             this.pictureBoxHelp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -43,10 +44,12 @@
             // 
             // FormHelp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 567);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(1600, 1099);
             this.Controls.Add(this.pictureBoxHelp);
+            this.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.Name = "FormHelp";
             this.Text = "FormHelp";
             this.Shown += new System.EventHandler(this.FormHelp_Shown);

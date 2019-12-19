@@ -9,6 +9,7 @@ namespace AnimalHouseEntity
 {
     public class Doctor
     {
+        //viggo
         private int ID;
         private string Name;
         private int Expertise;

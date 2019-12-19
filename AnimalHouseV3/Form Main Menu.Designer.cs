@@ -53,10 +53,10 @@
             // 
             // ButtonBooking
             // 
-            this.ButtonBooking.Location = new System.Drawing.Point(15, 38);
-            this.ButtonBooking.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonBooking.Location = new System.Drawing.Point(30, 74);
+            this.ButtonBooking.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.ButtonBooking.Name = "ButtonBooking";
-            this.ButtonBooking.Size = new System.Drawing.Size(129, 48);
+            this.ButtonBooking.Size = new System.Drawing.Size(258, 93);
             this.ButtonBooking.TabIndex = 0;
             this.ButtonBooking.Text = "Bookning";
             this.ButtonBooking.UseVisualStyleBackColor = true;
@@ -64,10 +64,10 @@
             // 
             // ButtonOwner
             // 
-            this.ButtonOwner.Location = new System.Drawing.Point(15, 111);
-            this.ButtonOwner.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonOwner.Location = new System.Drawing.Point(30, 215);
+            this.ButtonOwner.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.ButtonOwner.Name = "ButtonOwner";
-            this.ButtonOwner.Size = new System.Drawing.Size(129, 48);
+            this.ButtonOwner.Size = new System.Drawing.Size(258, 93);
             this.ButtonOwner.TabIndex = 1;
             this.ButtonOwner.Text = "Owner";
             this.ButtonOwner.UseVisualStyleBackColor = true;
@@ -75,10 +75,10 @@
             // 
             // ButtonAnimal
             // 
-            this.ButtonAnimal.Location = new System.Drawing.Point(15, 180);
-            this.ButtonAnimal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonAnimal.Location = new System.Drawing.Point(30, 349);
+            this.ButtonAnimal.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.ButtonAnimal.Name = "ButtonAnimal";
-            this.ButtonAnimal.Size = new System.Drawing.Size(129, 48);
+            this.ButtonAnimal.Size = new System.Drawing.Size(258, 93);
             this.ButtonAnimal.TabIndex = 3;
             this.ButtonAnimal.Text = "Animal";
             this.ButtonAnimal.UseVisualStyleBackColor = true;
@@ -86,10 +86,10 @@
             // 
             // ButtonSale
             // 
-            this.ButtonSale.Location = new System.Drawing.Point(15, 246);
-            this.ButtonSale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonSale.Location = new System.Drawing.Point(30, 477);
+            this.ButtonSale.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.ButtonSale.Name = "ButtonSale";
-            this.ButtonSale.Size = new System.Drawing.Size(129, 48);
+            this.ButtonSale.Size = new System.Drawing.Size(258, 93);
             this.ButtonSale.TabIndex = 2;
             this.ButtonSale.Text = "Sale";
             this.ButtonSale.UseVisualStyleBackColor = true;
@@ -97,10 +97,10 @@
             // 
             // ButtonImportMedicin
             // 
-            this.ButtonImportMedicin.Location = new System.Drawing.Point(15, 475);
-            this.ButtonImportMedicin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonImportMedicin.Location = new System.Drawing.Point(30, 920);
+            this.ButtonImportMedicin.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.ButtonImportMedicin.Name = "ButtonImportMedicin";
-            this.ButtonImportMedicin.Size = new System.Drawing.Size(129, 48);
+            this.ButtonImportMedicin.Size = new System.Drawing.Size(258, 93);
             this.ButtonImportMedicin.TabIndex = 4;
             this.ButtonImportMedicin.Text = "Import Medicin";
             this.ButtonImportMedicin.UseVisualStyleBackColor = true;
@@ -108,10 +108,10 @@
             // 
             // ButtonPrint
             // 
-            this.ButtonPrint.Location = new System.Drawing.Point(175, 475);
-            this.ButtonPrint.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ButtonPrint.Location = new System.Drawing.Point(350, 920);
+            this.ButtonPrint.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.ButtonPrint.Name = "ButtonPrint";
-            this.ButtonPrint.Size = new System.Drawing.Size(129, 48);
+            this.ButtonPrint.Size = new System.Drawing.Size(258, 93);
             this.ButtonPrint.TabIndex = 5;
             this.ButtonPrint.Text = "Print";
             this.ButtonPrint.UseVisualStyleBackColor = true;
@@ -119,24 +119,28 @@
             // 
             // groupBoxPatientLine
             // 
+            this.groupBoxPatientLine.AutoSize = true;
             this.groupBoxPatientLine.Controls.Add(this.buttonStartTest);
             this.groupBoxPatientLine.Controls.Add(this.richTextBoxInfo);
             this.groupBoxPatientLine.Controls.Add(this.buttonClearList);
             this.groupBoxPatientLine.Controls.Add(this.buttonTreatPatient);
             this.groupBoxPatientLine.Controls.Add(this.buttonAddPatient);
             this.groupBoxPatientLine.Controls.Add(this.dataGridViewPatients);
-            this.groupBoxPatientLine.Location = new System.Drawing.Point(310, 12);
+            this.groupBoxPatientLine.Location = new System.Drawing.Point(620, 23);
+            this.groupBoxPatientLine.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.groupBoxPatientLine.Name = "groupBoxPatientLine";
-            this.groupBoxPatientLine.Size = new System.Drawing.Size(780, 580);
+            this.groupBoxPatientLine.Padding = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.groupBoxPatientLine.Size = new System.Drawing.Size(1560, 1151);
             this.groupBoxPatientLine.TabIndex = 6;
             this.groupBoxPatientLine.TabStop = false;
             this.groupBoxPatientLine.Text = "Patien Line Test";
             // 
             // buttonStartTest
             // 
-            this.buttonStartTest.Location = new System.Drawing.Point(645, 370);
+            this.buttonStartTest.Location = new System.Drawing.Point(1290, 717);
+            this.buttonStartTest.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.buttonStartTest.Name = "buttonStartTest";
-            this.buttonStartTest.Size = new System.Drawing.Size(129, 48);
+            this.buttonStartTest.Size = new System.Drawing.Size(258, 93);
             this.buttonStartTest.TabIndex = 7;
             this.buttonStartTest.Text = "Start patient line test";
             this.buttonStartTest.UseVisualStyleBackColor = true;
@@ -144,17 +148,19 @@
             // 
             // richTextBoxInfo
             // 
-            this.richTextBoxInfo.Location = new System.Drawing.Point(7, 425);
+            this.richTextBoxInfo.Location = new System.Drawing.Point(14, 823);
+            this.richTextBoxInfo.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.richTextBoxInfo.Name = "richTextBoxInfo";
-            this.richTextBoxInfo.Size = new System.Drawing.Size(482, 149);
+            this.richTextBoxInfo.Size = new System.Drawing.Size(960, 285);
             this.richTextBoxInfo.TabIndex = 4;
             this.richTextBoxInfo.Text = "";
             // 
             // buttonClearList
             // 
-            this.buttonClearList.Location = new System.Drawing.Point(360, 370);
+            this.buttonClearList.Location = new System.Drawing.Point(720, 717);
+            this.buttonClearList.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.buttonClearList.Name = "buttonClearList";
-            this.buttonClearList.Size = new System.Drawing.Size(129, 48);
+            this.buttonClearList.Size = new System.Drawing.Size(258, 93);
             this.buttonClearList.TabIndex = 3;
             this.buttonClearList.Text = "Clear List";
             this.buttonClearList.UseVisualStyleBackColor = true;
@@ -162,19 +168,21 @@
             // 
             // buttonTreatPatient
             // 
-            this.buttonTreatPatient.Location = new System.Drawing.Point(185, 370);
+            this.buttonTreatPatient.Location = new System.Drawing.Point(370, 717);
+            this.buttonTreatPatient.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.buttonTreatPatient.Name = "buttonTreatPatient";
-            this.buttonTreatPatient.Size = new System.Drawing.Size(129, 48);
+            this.buttonTreatPatient.Size = new System.Drawing.Size(258, 93);
             this.buttonTreatPatient.TabIndex = 2;
-            this.buttonTreatPatient.Text = "Treatment";
+            this.buttonTreatPatient.Text = "Treat checked off patient";
             this.buttonTreatPatient.UseVisualStyleBackColor = true;
             this.buttonTreatPatient.Click += new System.EventHandler(this.buttonTreatPatient_Click);
             // 
             // buttonAddPatient
             // 
-            this.buttonAddPatient.Location = new System.Drawing.Point(5, 370);
+            this.buttonAddPatient.Location = new System.Drawing.Point(10, 717);
+            this.buttonAddPatient.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.buttonAddPatient.Name = "buttonAddPatient";
-            this.buttonAddPatient.Size = new System.Drawing.Size(129, 48);
+            this.buttonAddPatient.Size = new System.Drawing.Size(258, 93);
             this.buttonAddPatient.TabIndex = 1;
             this.buttonAddPatient.Text = "Add Patient";
             this.buttonAddPatient.UseVisualStyleBackColor = true;
@@ -190,12 +198,13 @@
             this.ColumnDocktor,
             this.ColumnTime,
             this.ColumnDoneTreatment});
-            this.dataGridViewPatients.Location = new System.Drawing.Point(6, 21);
+            this.dataGridViewPatients.Location = new System.Drawing.Point(12, 41);
+            this.dataGridViewPatients.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
             this.dataGridViewPatients.Name = "dataGridViewPatients";
             this.dataGridViewPatients.RowHeadersVisible = false;
             this.dataGridViewPatients.RowHeadersWidth = 51;
             this.dataGridViewPatients.RowTemplate.Height = 24;
-            this.dataGridViewPatients.Size = new System.Drawing.Size(768, 329);
+            this.dataGridViewPatients.Size = new System.Drawing.Size(1536, 637);
             this.dataGridViewPatients.TabIndex = 0;
             // 
             // Check
@@ -247,9 +256,10 @@
             // 
             // MainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(16F, 31F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1102, 604);
+            this.AutoSize = true;
+            this.ClientSize = new System.Drawing.Size(2204, 1170);
             this.Controls.Add(this.groupBoxPatientLine);
             this.Controls.Add(this.ButtonPrint);
             this.Controls.Add(this.ButtonImportMedicin);
@@ -257,12 +267,13 @@
             this.Controls.Add(this.ButtonSale);
             this.Controls.Add(this.ButtonOwner);
             this.Controls.Add(this.ButtonBooking);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(6, 4, 6, 4);
             this.Name = "MainMenu";
             this.Text = "Main Menu";
             this.groupBoxPatientLine.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPatients)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

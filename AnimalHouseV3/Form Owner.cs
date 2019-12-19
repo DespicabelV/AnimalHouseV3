@@ -13,9 +13,11 @@ namespace AnimalHouseV3
 {
     public partial class Form_Owner : Form
     {
+        //Jacob
         Contoller Controller = new Contoller();
         List<string> OwnerList;
         List<string> BusinessList;
+
         string[] Adresse;
 
         public Form_Owner()
@@ -25,6 +27,7 @@ namespace AnimalHouseV3
 
         private void textBox4_TextChanged(object sender, EventArgs e)
         {}
+
         private void ButtonCreateOwner_Click(object sender, EventArgs e)
         {
             if (TextBoxTelephoneNR.Text == "" || TextBoxFirstName.Text == "" || TextBoxLastName.Text == "" || TextBoxStreet.Text == "" || TextBoxNr.Text == "" || TextBoxEmail.Text == "" || TextBoxCity.Text == "" || TextBoxZipCode.Text == "")
@@ -35,32 +38,30 @@ namespace AnimalHouseV3
             {
                 if (BusinessCheck.Checked &&!PrivateCheck.Checked)
                 {
-                    Controller.CreateBusinessOwner(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxFirstName.Text, TextBoxLastName.Text, TextBoxStreet.Text+ " " +TextBoxNr.Text+ " " +TextBoxFloor.Text, TextBoxEmail.Text, TextBoxCity.Text, Convert.ToInt32(TextBoxZipCode.Text), TextBoxCompanyName.Text, Convert.ToInt32(TextBoxCVRNR.Text));
+                    Controller.ControllerCreateBusinessOwner(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxFirstName.Text, TextBoxLastName.Text, TextBoxStreet.Text+ " " +TextBoxNr.Text+ " " +TextBoxFloor.Text, TextBoxEmail.Text, TextBoxCity.Text, Convert.ToInt32(TextBoxZipCode.Text), TextBoxCompanyName.Text, Convert.ToInt32(TextBoxCVRNR.Text));
                     PrivateCheck.Checked = false;
+                    MessageBox.Show("The Owner was added to The System", "Creation Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
                 else if(PrivateCheck.Checked&&!BusinessCheck.Checked)
                 {
-                    Controller.CreatePrivateOwner(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxFirstName.Text, TextBoxLastName.Text, TextBoxStreet.Text + " " + TextBoxNr.Text + " " + TextBoxFloor.Text, TextBoxEmail.Text, TextBoxCity.Text, Convert.ToInt32(TextBoxZipCode.Text));
+                    Controller.ControllerCreatePrivateOwner(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxFirstName.Text, TextBoxLastName.Text, TextBoxStreet.Text + " " + TextBoxNr.Text + " " + TextBoxFloor.Text, TextBoxEmail.Text, TextBoxCity.Text, Convert.ToInt32(TextBoxZipCode.Text));
                     BusinessCheck.Checked = false;
+                    MessageBox.Show("The Owner was added to The System", "Creation Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    this.Close();
                 }
-
-                MessageBox.Show("The Owner was added to The System", "Creation Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            this.Close();
         }
 
         private void Form_Owner_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'animalhousev3DataSet.Dyr' table. You can move, or remove it, as needed.
-            //this.dyrTableAdapter.Fill(this.animalhousev3DataSet.Dyr);
-
+           
         }
 
         private void BusinessCheck_CheckedChanged(object sender, EventArgs e)
         {
             if (BusinessCheck.Checked)
             {
-                
                 PrivateCheck.Checked = false;
                 TextBoxCompanyName.Visible = true;
                 TextBoxCVRNR.Visible = true;
@@ -79,16 +80,18 @@ namespace AnimalHouseV3
 
         private void ButtonSearchOwner_Click(object sender, EventArgs e)
         {
-            if (Controller.ControllerOwnerExist(TextBoxTelephoneNR.Text) == false)
+            if (TextBoxTelephoneNR.Text == "")
+            {
+                MessageBox.Show("You are missing some blank spaces, fill them out please", "Error: Empty spaces", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (Controller.ControllerOwnerExist(TextBoxTelephoneNR.Text) == false)
             {
                 MessageBox.Show("Does not exist!");
             }
-            else
-                
-            if (BusinessCheck.Checked)
+            else if (BusinessCheck.Checked)
             {
-               BusinessList = Controller.SearchForBusiness(TextBoxTelephoneNR.Text);
-               OwnerList= Controller.SearchForOwner(TextBoxTelephoneNR.Text);
+               BusinessList = Controller.ControllerSearchForBusiness(TextBoxTelephoneNR.Text);
+               OwnerList= Controller.ControllerSearchForOwner(TextBoxTelephoneNR.Text);
                Adresse = OwnerList[3].Split(' ');
                TextBoxTelephoneNR.Text = OwnerList[0];
                TextBoxFirstName.Text = OwnerList[1];
@@ -111,11 +114,12 @@ namespace AnimalHouseV3
                TextBoxZipCode.Text = OwnerList[6];
                TextBoxCompanyName.Text = BusinessList[1];
                TextBoxCVRNR.Text = BusinessList[2];
-               
+
+                dataGridViewOwnerDyr.DataSource = Controller.ControllerShowAnimalDataTable(TextBoxTelephoneNR.Text);
             }
             else if(PrivateCheck.Checked)
             {
-                 OwnerList = Controller.SearchForOwner(TextBoxTelephoneNR.Text);
+                 OwnerList = Controller.ControllerSearchForOwner(TextBoxTelephoneNR.Text);
                  Adresse = OwnerList[3].Split(' ');
                 TextBoxTelephoneNR.Text = OwnerList[0];
                 TextBoxFirstName.Text = OwnerList[1];
@@ -136,23 +140,30 @@ namespace AnimalHouseV3
                 TextBoxEmail.Text = OwnerList[4];
                 TextBoxCity.Text = OwnerList[5];
                 TextBoxZipCode.Text = OwnerList[6];
+
+                dataGridViewOwnerDyr.DataSource = Controller.ControllerShowAnimalDataTable(TextBoxTelephoneNR.Text);
             }
-            dataGridViewOwnerDyr.DataSource= Controller.ShowAnimalDataTable(TextBoxTelephoneNR.Text);
         }
 
         private void ButtonUpdateOwner_Click(object sender, EventArgs e)
         {
-            if (BusinessCheck.Checked)
+            if (TextBoxTelephoneNR.Text == "" || TextBoxFirstName.Text == "" || TextBoxLastName.Text == "" || TextBoxStreet.Text == "" || TextBoxNr.Text == "" || TextBoxEmail.Text == "" || TextBoxCity.Text == "" || TextBoxZipCode.Text == "")
             {
-                Controller.UpdateOwner(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxFirstName.Text, TextBoxLastName.Text, TextBoxStreet.Text+" " + TextBoxNr.Text+" " + TextBoxFloor.Text, TextBoxEmail.Text, TextBoxCity.Text, Convert.ToInt32(TextBoxZipCode.Text));
-                Controller.UpdateBusiness(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxCompanyName.Text, Convert.ToInt32(TextBoxCVRNR.Text));
+                MessageBox.Show("You are missing some blank spaces, fill them out please", "Error: Empty spaces", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (BusinessCheck.Checked)
+            {
+                Controller.ControllerUpdateOwner(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxFirstName.Text, TextBoxLastName.Text, TextBoxStreet.Text+" " + TextBoxNr.Text+" " + TextBoxFloor.Text, TextBoxEmail.Text, TextBoxCity.Text, Convert.ToInt32(TextBoxZipCode.Text));
+                Controller.ControllerUpdateBusiness(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxCompanyName.Text, Convert.ToInt32(TextBoxCVRNR.Text));
+                MessageBox.Show("The Owner was updated Sucessfully", "Update Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             else if(PrivateCheck.Checked)
             {
-                Controller.UpdateOwner(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxFirstName.Text, TextBoxLastName.Text, TextBoxStreet.Text + " "+TextBoxNr.Text +" "+TextBoxFloor.Text, TextBoxEmail.Text, TextBoxCity.Text, Convert.ToInt32(TextBoxZipCode.Text));
+                Controller.ControllerUpdateOwner(Convert.ToInt32(TextBoxTelephoneNR.Text), TextBoxFirstName.Text, TextBoxLastName.Text, TextBoxStreet.Text + " "+TextBoxNr.Text +" "+TextBoxFloor.Text, TextBoxEmail.Text, TextBoxCity.Text, Convert.ToInt32(TextBoxZipCode.Text));
+                MessageBox.Show("The Owner was updated Sucessfully", "Update Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
-            MessageBox.Show("The Owner was updated Sucessfully", "Update Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
         }
 
         private void ButtonAddPet_Click(object sender, EventArgs e)
@@ -163,21 +174,26 @@ namespace AnimalHouseV3
 
         private void ButtonDeleteOwner_Click(object sender, EventArgs e)
         {
-            if (PrivateCheck.Checked)
+            if (TextBoxTelephoneNR.Text== "")
             {
-                Controller.DeleteOwner("Relation", "ejer", TextBoxTelephoneNR.Text);
-                Controller.DeleteOwner("Private_", "ejer", TextBoxTelephoneNR.Text);
-                Controller.DeleteOwner("ejer", "TelefonNr", TextBoxTelephoneNR.Text);
-
+                MessageBox.Show("You are missing some blank spaces, fill them out please", "error: Empty Spaces", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (PrivateCheck.Checked)
+            {
+                Controller.ControllerDeleteOwner("Relation", "ejer", TextBoxTelephoneNR.Text);
+                Controller.ControllerDeleteOwner("Private_", "ejer", TextBoxTelephoneNR.Text);
+                Controller.ControllerDeleteOwner("ejer", "TelefonNr", TextBoxTelephoneNR.Text);
+                MessageBox.Show("The Owner was removed Sucessfully", "Deletion Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
             else if (BusinessCheck.Checked)
             {
-                Controller.DeleteOwner("Relation", "ejer", TextBoxTelephoneNR.Text);
-                Controller.DeleteOwner("Erhverv", "ejer", TextBoxTelephoneNR.Text);
-                Controller.DeleteOwner("ejer", "TelefonNr", TextBoxTelephoneNR.Text);
+                Controller.ControllerDeleteOwner("Relation", "ejer", TextBoxTelephoneNR.Text);
+                Controller.ControllerDeleteOwner("Erhverv", "ejer", TextBoxTelephoneNR.Text);
+                Controller.ControllerDeleteOwner("ejer", "TelefonNr", TextBoxTelephoneNR.Text);
+                MessageBox.Show("The Owner was removed Sucessfully", "Deletion Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
             }
-            MessageBox.Show("The Owner was removed Sucessfully", "Deletion Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            this.Close();
         }
 
         private void PrivateCheck_CheckedChanged(object sender, EventArgs e)
@@ -208,7 +224,7 @@ namespace AnimalHouseV3
                 TextBoxFloor.Visible = false;
             }
         }
-
+        //Viggo
         private void ButtonHelpOwner_Click(object sender, EventArgs e)
         {
             FormHelp Help = new FormHelp();

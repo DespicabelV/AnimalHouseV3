@@ -15,6 +15,7 @@ namespace AnimalHouseV3
 {
     public partial class FormBooking : Form
     {
+        //Viggo
         Contoller Controller = new Contoller();
 
         private string[,] DoctorArray;
@@ -87,7 +88,6 @@ namespace AnimalHouseV3
             comboBoxAnimalChoice.Items.Clear();
             comboBoxTimeChoice.Items.Clear();
             comboBoxTimeChoice.Text = "";
-
             if (textBoxOwnerInput.TextLength == 0)
             {
                 MessageBox.Show("Please put in a phone number for the owner");
@@ -100,6 +100,7 @@ namespace AnimalHouseV3
             }
 
             TempOwnerList = Controller.ControllerGetOwner(textBoxOwnerInput.Text);
+
             textBoxOwnerPhoneInfo.Text = TempOwnerList[0];
             textBoxOwnerNameInfo.Text = TempOwnerList[1] + " " + TempOwnerList[2];
             textBoxOwnerStreetInfo.Text = TempOwnerList[3];
@@ -216,6 +217,7 @@ namespace AnimalHouseV3
             List<string> TempBookningList = new List<string>();
             List<string> TempRelationList = new List<string>();
             List<string> TempAnimalList = new List<string>();
+
             TempBookningList = Controller.ControllerGetBookning(textBoxBookingSearch.Text);
             TempRelationList = Controller.ControllerGetRelation(textBoxBookingSearch.Text);
 
@@ -228,7 +230,6 @@ namespace AnimalHouseV3
                     AnimalArray[i, j] = TempAnimalList[j];
                 }
             }
-
 
             BookingArray = new string[TempBookningList.Count / 9, 9];
             for (int i = 0; i < TempBookningList.Count / 9; i++)
@@ -361,7 +362,6 @@ namespace AnimalHouseV3
             textBoxAnimalRaceInfo.Text = TempAnimalList[4];
             textBoxAnimalDoctorInfo.Text = DoctorArray[Convert.ToInt32(TempAnimalList[5]) - 1, 1];
             textBoxAnimalChipInfo.Text = TempAnimalList[6];
-
 
             for (int i = 0; i < TreatmentArray.Length / 2; i++)
             {
