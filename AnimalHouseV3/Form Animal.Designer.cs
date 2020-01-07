@@ -72,84 +72,79 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 32);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Location = new System.Drawing.Point(24, 39);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.Size = new System.Drawing.Size(49, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name:";
             // 
             // TextAnimalName
             // 
-            this.TextAnimalName.Location = new System.Drawing.Point(75, 32);
-            this.TextAnimalName.Margin = new System.Windows.Forms.Padding(2);
+            this.TextAnimalName.Location = new System.Drawing.Point(100, 39);
+            this.TextAnimalName.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextAnimalName.Name = "TextAnimalName";
-            this.TextAnimalName.Size = new System.Drawing.Size(152, 20);
+            this.TextAnimalName.Size = new System.Drawing.Size(201, 22);
             this.TextAnimalName.TabIndex = 1;
             // 
             // TextOwnerPhone
             // 
-            this.TextOwnerPhone.Location = new System.Drawing.Point(446, 34);
-            this.TextOwnerPhone.Margin = new System.Windows.Forms.Padding(2);
+            this.TextOwnerPhone.Location = new System.Drawing.Point(595, 42);
+            this.TextOwnerPhone.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextOwnerPhone.Name = "TextOwnerPhone";
-            this.TextOwnerPhone.Size = new System.Drawing.Size(152, 20);
+            this.TextOwnerPhone.Size = new System.Drawing.Size(201, 22);
             this.TextOwnerPhone.TabIndex = 3;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(404, 35);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Location = new System.Drawing.Point(539, 43);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 13);
+            this.label2.Size = new System.Drawing.Size(53, 17);
             this.label2.TabIndex = 2;
             this.label2.Text = "Owner:";
             // 
             // TextAnimal
             // 
-            this.TextAnimal.Location = new System.Drawing.Point(75, 62);
-            this.TextAnimal.Margin = new System.Windows.Forms.Padding(2);
+            this.TextAnimal.Location = new System.Drawing.Point(100, 76);
+            this.TextAnimal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextAnimal.Name = "TextAnimal";
-            this.TextAnimal.Size = new System.Drawing.Size(152, 20);
+            this.TextAnimal.Size = new System.Drawing.Size(201, 22);
             this.TextAnimal.TabIndex = 5;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(18, 62);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Location = new System.Drawing.Point(24, 76);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(54, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "Animal:";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 122);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Location = new System.Drawing.Point(24, 150);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(48, 13);
+            this.label4.Size = new System.Drawing.Size(64, 17);
             this.label4.TabIndex = 6;
             this.label4.Text = "Birthday:";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(18, 94);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Location = new System.Drawing.Point(24, 116);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 13);
+            this.label5.Size = new System.Drawing.Size(60, 17);
             this.label5.TabIndex = 8;
             this.label5.Text = "Gender:";
             // 
             // CheckBoxMale
             // 
             this.CheckBoxMale.AutoSize = true;
-            this.CheckBoxMale.Location = new System.Drawing.Point(75, 92);
-            this.CheckBoxMale.Margin = new System.Windows.Forms.Padding(2);
+            this.CheckBoxMale.Location = new System.Drawing.Point(100, 113);
+            this.CheckBoxMale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CheckBoxMale.Name = "CheckBoxMale";
-            this.CheckBoxMale.Size = new System.Drawing.Size(49, 17);
+            this.CheckBoxMale.Size = new System.Drawing.Size(60, 21);
             this.CheckBoxMale.TabIndex = 9;
             this.CheckBoxMale.Text = "Male";
             this.CheckBoxMale.UseVisualStyleBackColor = true;
@@ -158,10 +153,10 @@
             // CheckBoxFemale
             // 
             this.CheckBoxFemale.AutoSize = true;
-            this.CheckBoxFemale.Location = new System.Drawing.Point(144, 92);
-            this.CheckBoxFemale.Margin = new System.Windows.Forms.Padding(2);
+            this.CheckBoxFemale.Location = new System.Drawing.Point(192, 113);
+            this.CheckBoxFemale.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CheckBoxFemale.Name = "CheckBoxFemale";
-            this.CheckBoxFemale.Size = new System.Drawing.Size(60, 17);
+            this.CheckBoxFemale.Size = new System.Drawing.Size(76, 21);
             this.CheckBoxFemale.TabIndex = 10;
             this.CheckBoxFemale.Text = "Female";
             this.CheckBoxFemale.UseVisualStyleBackColor = true;
@@ -170,47 +165,44 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(389, 119);
-            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label6.Location = new System.Drawing.Point(519, 146);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(55, 13);
+            this.label6.Size = new System.Drawing.Size(73, 17);
             this.label6.TabIndex = 11;
             this.label6.Text = "Animal Nr:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(20, 153);
-            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label7.Location = new System.Drawing.Point(27, 188);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(42, 13);
+            this.label7.Size = new System.Drawing.Size(54, 17);
             this.label7.TabIndex = 15;
             this.label7.Text = "Doctor:";
             // 
             // TextBoxAnimalChip
             // 
-            this.TextBoxAnimalChip.Location = new System.Drawing.Point(75, 192);
-            this.TextBoxAnimalChip.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxAnimalChip.Location = new System.Drawing.Point(100, 236);
+            this.TextBoxAnimalChip.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxAnimalChip.Name = "TextBoxAnimalChip";
-            this.TextBoxAnimalChip.Size = new System.Drawing.Size(152, 20);
+            this.TextBoxAnimalChip.Size = new System.Drawing.Size(201, 22);
             this.TextBoxAnimalChip.TabIndex = 18;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(24, 192);
-            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Location = new System.Drawing.Point(32, 236);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(31, 13);
+            this.label8.Size = new System.Drawing.Size(40, 17);
             this.label8.TabIndex = 17;
             this.label8.Text = "Chip:";
             // 
             // btnAnimalUploadPic
             // 
-            this.btnAnimalUploadPic.Location = new System.Drawing.Point(458, 453);
-            this.btnAnimalUploadPic.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAnimalUploadPic.Location = new System.Drawing.Point(611, 558);
+            this.btnAnimalUploadPic.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnimalUploadPic.Name = "btnAnimalUploadPic";
-            this.btnAnimalUploadPic.Size = new System.Drawing.Size(104, 27);
+            this.btnAnimalUploadPic.Size = new System.Drawing.Size(139, 33);
             this.btnAnimalUploadPic.TabIndex = 19;
             this.btnAnimalUploadPic.Text = "Upload Picture";
             this.btnAnimalUploadPic.UseVisualStyleBackColor = true;
@@ -219,20 +211,20 @@
             // PictureBoxAnimal
             // 
             this.PictureBoxAnimal.Image = global::AnimalHouseV3.Properties.Resources.Labrador_edit;
-            this.PictureBoxAnimal.Location = new System.Drawing.Point(447, 327);
-            this.PictureBoxAnimal.Margin = new System.Windows.Forms.Padding(2);
+            this.PictureBoxAnimal.Location = new System.Drawing.Point(596, 402);
+            this.PictureBoxAnimal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PictureBoxAnimal.Name = "PictureBoxAnimal";
-            this.PictureBoxAnimal.Size = new System.Drawing.Size(138, 124);
+            this.PictureBoxAnimal.Size = new System.Drawing.Size(184, 153);
             this.PictureBoxAnimal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PictureBoxAnimal.TabIndex = 20;
             this.PictureBoxAnimal.TabStop = false;
             // 
             // btnAnimalCreate
             // 
-            this.btnAnimalCreate.Location = new System.Drawing.Point(564, 453);
-            this.btnAnimalCreate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAnimalCreate.Location = new System.Drawing.Point(752, 558);
+            this.btnAnimalCreate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnimalCreate.Name = "btnAnimalCreate";
-            this.btnAnimalCreate.Size = new System.Drawing.Size(104, 27);
+            this.btnAnimalCreate.Size = new System.Drawing.Size(139, 33);
             this.btnAnimalCreate.TabIndex = 21;
             this.btnAnimalCreate.Text = "Create";
             this.btnAnimalCreate.UseVisualStyleBackColor = true;
@@ -240,10 +232,10 @@
             // 
             // btnAnimalDelete
             // 
-            this.btnAnimalDelete.Location = new System.Drawing.Point(564, 482);
-            this.btnAnimalDelete.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAnimalDelete.Location = new System.Drawing.Point(752, 593);
+            this.btnAnimalDelete.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnimalDelete.Name = "btnAnimalDelete";
-            this.btnAnimalDelete.Size = new System.Drawing.Size(104, 27);
+            this.btnAnimalDelete.Size = new System.Drawing.Size(139, 33);
             this.btnAnimalDelete.TabIndex = 22;
             this.btnAnimalDelete.Text = "Delete";
             this.btnAnimalDelete.UseVisualStyleBackColor = true;
@@ -251,10 +243,10 @@
             // 
             // btnAnimalUpdate
             // 
-            this.btnAnimalUpdate.Location = new System.Drawing.Point(458, 482);
-            this.btnAnimalUpdate.Margin = new System.Windows.Forms.Padding(2);
+            this.btnAnimalUpdate.Location = new System.Drawing.Point(611, 593);
+            this.btnAnimalUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAnimalUpdate.Name = "btnAnimalUpdate";
-            this.btnAnimalUpdate.Size = new System.Drawing.Size(104, 27);
+            this.btnAnimalUpdate.Size = new System.Drawing.Size(139, 33);
             this.btnAnimalUpdate.TabIndex = 23;
             this.btnAnimalUpdate.Text = "Update";
             this.btnAnimalUpdate.UseVisualStyleBackColor = true;
@@ -264,10 +256,10 @@
             // 
             this.CheckOwnerRight.AccessibleRole = System.Windows.Forms.AccessibleRole.None;
             this.CheckOwnerRight.AutoSize = true;
-            this.CheckOwnerRight.Location = new System.Drawing.Point(480, 72);
-            this.CheckOwnerRight.Margin = new System.Windows.Forms.Padding(2);
+            this.CheckOwnerRight.Location = new System.Drawing.Point(640, 89);
+            this.CheckOwnerRight.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CheckOwnerRight.Name = "CheckOwnerRight";
-            this.CheckOwnerRight.Size = new System.Drawing.Size(51, 17);
+            this.CheckOwnerRight.Size = new System.Drawing.Size(63, 21);
             this.CheckOwnerRight.TabIndex = 24;
             this.CheckOwnerRight.Text = "Right";
             this.CheckOwnerRight.UseVisualStyleBackColor = true;
@@ -275,112 +267,108 @@
             // CheckOwnerWrong
             // 
             this.CheckOwnerWrong.AutoSize = true;
-            this.CheckOwnerWrong.Location = new System.Drawing.Point(545, 72);
-            this.CheckOwnerWrong.Margin = new System.Windows.Forms.Padding(2);
+            this.CheckOwnerWrong.Location = new System.Drawing.Point(727, 89);
+            this.CheckOwnerWrong.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CheckOwnerWrong.Name = "CheckOwnerWrong";
-            this.CheckOwnerWrong.Size = new System.Drawing.Size(58, 17);
+            this.CheckOwnerWrong.Size = new System.Drawing.Size(72, 21);
             this.CheckOwnerWrong.TabIndex = 25;
             this.CheckOwnerWrong.Text = "Wrong";
             this.CheckOwnerWrong.UseVisualStyleBackColor = true;
             // 
             // TextBoxJournal
             // 
-            this.TextBoxJournal.Location = new System.Drawing.Point(20, 353);
-            this.TextBoxJournal.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxJournal.Location = new System.Drawing.Point(27, 434);
+            this.TextBoxJournal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxJournal.Name = "TextBoxJournal";
-            this.TextBoxJournal.Size = new System.Drawing.Size(207, 158);
+            this.TextBoxJournal.Size = new System.Drawing.Size(275, 194);
             this.TextBoxJournal.TabIndex = 27;
             this.TextBoxJournal.Text = "";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(18, 228);
-            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Location = new System.Drawing.Point(24, 281);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 13);
+            this.label9.Size = new System.Drawing.Size(59, 17);
             this.label9.TabIndex = 28;
             this.label9.Text = "Journal:";
             // 
             // AnimalBirthCalender
             // 
-            this.AnimalBirthCalender.Location = new System.Drawing.Point(75, 122);
-            this.AnimalBirthCalender.Margin = new System.Windows.Forms.Padding(2);
+            this.AnimalBirthCalender.Location = new System.Drawing.Point(100, 150);
+            this.AnimalBirthCalender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.AnimalBirthCalender.Name = "AnimalBirthCalender";
-            this.AnimalBirthCalender.Size = new System.Drawing.Size(152, 20);
+            this.AnimalBirthCalender.Size = new System.Drawing.Size(201, 22);
             this.AnimalBirthCalender.TabIndex = 29;
             this.AnimalBirthCalender.Value = new System.DateTime(2019, 12, 2, 0, 0, 0, 0);
             // 
             // TextBoxAnimalNr
             // 
-            this.TextBoxAnimalNr.Location = new System.Drawing.Point(447, 119);
-            this.TextBoxAnimalNr.Margin = new System.Windows.Forms.Padding(2);
+            this.TextBoxAnimalNr.Location = new System.Drawing.Point(596, 146);
+            this.TextBoxAnimalNr.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextBoxAnimalNr.Name = "TextBoxAnimalNr";
-            this.TextBoxAnimalNr.Size = new System.Drawing.Size(71, 20);
+            this.TextBoxAnimalNr.Size = new System.Drawing.Size(93, 22);
             this.TextBoxAnimalNr.TabIndex = 12;
             // 
             // DoctorComboBox
             // 
             this.DoctorComboBox.FormattingEnabled = true;
-            this.DoctorComboBox.Location = new System.Drawing.Point(75, 150);
-            this.DoctorComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.DoctorComboBox.Location = new System.Drawing.Point(100, 185);
+            this.DoctorComboBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DoctorComboBox.Name = "DoctorComboBox";
-            this.DoctorComboBox.Size = new System.Drawing.Size(152, 21);
+            this.DoctorComboBox.Size = new System.Drawing.Size(201, 24);
             this.DoctorComboBox.TabIndex = 30;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(21, 254);
-            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label10.Location = new System.Drawing.Point(28, 313);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(30, 13);
+            this.label10.Size = new System.Drawing.Size(39, 17);
             this.label10.TabIndex = 31;
             this.label10.Text = "Title:";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(21, 297);
-            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Location = new System.Drawing.Point(28, 366);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(33, 13);
+            this.label11.Size = new System.Drawing.Size(42, 17);
             this.label11.TabIndex = 32;
             this.label11.Text = "Date:";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(21, 336);
-            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label12.Location = new System.Drawing.Point(28, 414);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(54, 13);
+            this.label12.Size = new System.Drawing.Size(71, 17);
             this.label12.TabIndex = 33;
             this.label12.Text = "Comment:";
             // 
             // TextJournalTitle
             // 
-            this.TextJournalTitle.Location = new System.Drawing.Point(75, 250);
-            this.TextJournalTitle.Margin = new System.Windows.Forms.Padding(2);
+            this.TextJournalTitle.Location = new System.Drawing.Point(100, 308);
+            this.TextJournalTitle.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.TextJournalTitle.Name = "TextJournalTitle";
-            this.TextJournalTitle.Size = new System.Drawing.Size(152, 20);
+            this.TextJournalTitle.Size = new System.Drawing.Size(201, 22);
             this.TextJournalTitle.TabIndex = 34;
             // 
             // JournalCalender
             // 
-            this.JournalCalender.Location = new System.Drawing.Point(75, 297);
-            this.JournalCalender.Margin = new System.Windows.Forms.Padding(2);
+            this.JournalCalender.Location = new System.Drawing.Point(100, 366);
+            this.JournalCalender.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.JournalCalender.Name = "JournalCalender";
-            this.JournalCalender.Size = new System.Drawing.Size(152, 20);
+            this.JournalCalender.Size = new System.Drawing.Size(201, 22);
             this.JournalCalender.TabIndex = 35;
             this.JournalCalender.Value = new System.DateTime(2019, 12, 2, 13, 17, 56, 0);
             // 
             // btnJournal
             // 
-            this.btnJournal.Location = new System.Drawing.Point(231, 483);
-            this.btnJournal.Margin = new System.Windows.Forms.Padding(2);
+            this.btnJournal.Location = new System.Drawing.Point(308, 594);
+            this.btnJournal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnJournal.Name = "btnJournal";
-            this.btnJournal.Size = new System.Drawing.Size(82, 26);
+            this.btnJournal.Size = new System.Drawing.Size(109, 32);
             this.btnJournal.TabIndex = 36;
             this.btnJournal.Text = "Comment";
             this.btnJournal.UseVisualStyleBackColor = true;
@@ -388,10 +376,10 @@
             // 
             // buttonHelp
             // 
-            this.buttonHelp.Location = new System.Drawing.Point(646, 6);
-            this.buttonHelp.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonHelp.Location = new System.Drawing.Point(861, 7);
+            this.buttonHelp.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.buttonHelp.Name = "buttonHelp";
-            this.buttonHelp.Size = new System.Drawing.Size(19, 20);
+            this.buttonHelp.Size = new System.Drawing.Size(25, 25);
             this.buttonHelp.TabIndex = 37;
             this.buttonHelp.Text = "?";
             this.buttonHelp.UseVisualStyleBackColor = true;
@@ -399,20 +387,20 @@
             // 
             // groupboxFillin
             // 
-            this.groupboxFillin.Location = new System.Drawing.Point(14, 19);
-            this.groupboxFillin.Margin = new System.Windows.Forms.Padding(2);
+            this.groupboxFillin.Location = new System.Drawing.Point(19, 23);
+            this.groupboxFillin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupboxFillin.Name = "groupboxFillin";
-            this.groupboxFillin.Padding = new System.Windows.Forms.Padding(2);
-            this.groupboxFillin.Size = new System.Drawing.Size(226, 209);
+            this.groupboxFillin.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupboxFillin.Size = new System.Drawing.Size(301, 257);
             this.groupboxFillin.TabIndex = 38;
             this.groupboxFillin.TabStop = false;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(525, 117);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.btnSearch.Location = new System.Drawing.Point(700, 144);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(71, 23);
+            this.btnSearch.Size = new System.Drawing.Size(95, 28);
             this.btnSearch.TabIndex = 14;
             this.btnSearch.Text = "Search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -420,20 +408,20 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Location = new System.Drawing.Point(370, 16);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Location = new System.Drawing.Point(493, 20);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(244, 142);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(325, 175);
             this.groupBox1.TabIndex = 39;
             this.groupBox1.TabStop = false;
             // 
             // btnShowJournal
             // 
-            this.btnShowJournal.Location = new System.Drawing.Point(231, 451);
-            this.btnShowJournal.Margin = new System.Windows.Forms.Padding(2);
+            this.btnShowJournal.Location = new System.Drawing.Point(308, 555);
+            this.btnShowJournal.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnShowJournal.Name = "btnShowJournal";
-            this.btnShowJournal.Size = new System.Drawing.Size(83, 28);
+            this.btnShowJournal.Size = new System.Drawing.Size(111, 34);
             this.btnShowJournal.TabIndex = 40;
             this.btnShowJournal.Text = "Show Journal";
             this.btnShowJournal.UseVisualStyleBackColor = true;
@@ -441,10 +429,10 @@
             // 
             // ButtonCheckOwner_Click
             // 
-            this.ButtonCheckOwner_Click.Location = new System.Drawing.Point(401, 68);
-            this.ButtonCheckOwner_Click.Margin = new System.Windows.Forms.Padding(2);
+            this.ButtonCheckOwner_Click.Location = new System.Drawing.Point(535, 84);
+            this.ButtonCheckOwner_Click.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ButtonCheckOwner_Click.Name = "ButtonCheckOwner_Click";
-            this.ButtonCheckOwner_Click.Size = new System.Drawing.Size(64, 24);
+            this.ButtonCheckOwner_Click.Size = new System.Drawing.Size(85, 30);
             this.ButtonCheckOwner_Click.TabIndex = 13;
             this.ButtonCheckOwner_Click.Text = "Check";
             this.ButtonCheckOwner_Click.UseVisualStyleBackColor = true;
@@ -452,10 +440,10 @@
             // 
             // Form_Animal
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(671, 443);
+            this.ClientSize = new System.Drawing.Size(895, 621);
             this.Controls.Add(this.btnShowJournal);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.buttonHelp);
@@ -494,7 +482,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupboxFillin);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Form_Animal";
             this.Text = "Animal";
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxAnimal)).EndInit();

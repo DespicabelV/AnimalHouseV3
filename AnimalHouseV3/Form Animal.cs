@@ -127,9 +127,10 @@ namespace AnimalHouseV3
 
         private void buttonAnimalDelete_Click(object sender, EventArgs e)
         {
-            Contoller Controller = new Contoller();
-            Controller.ControllerDeleteRelation(TextBoxAnimalNr.Text);
-            Controller.ControllerDeleteAnimal(TextBoxAnimalNr.Text);
+            MessageBox.Show("This funtion isn't implemented yet");
+            //Contoller Controller = new Contoller();
+            //Controller.ControllerDeleteRelation(TextBoxAnimalNr.Text);
+            //Controller.ControllerDeleteAnimal(TextBoxAnimalNr.Text);
         }
 
         private void buttonAnimalUploadPic_Click(object sender, EventArgs e)

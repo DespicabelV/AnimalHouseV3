@@ -41,8 +41,8 @@ namespace AnimalHouseV3
 
             for (int i = 0; i < ShelfStock.Count/5; i++)
             {
-                Writer.WriteLine($"Item Categori: {MedicinStock[(i*5)]}, Item ID: {MedicinStock[(i*5)+1]}," +
-                    $"Item Name: {MedicinStock[(i*5)+2]}, Quantity: {MedicinStock[(i*5)+3]}, Price: {MedicinStock[(i*5)+4]}");
+                Writer.WriteLine($"Item Categori: {ShelfStock[(i*5)]}, Item ID: {ShelfStock[(i*5)+1]}," +
+                    $"Item Name: {ShelfStock[(i*5)+2]}, Quantity: {ShelfStock[(i*5)+3]}, Price: {ShelfStock[(i*5)+4]}");
             }
 
             Writer.Close();

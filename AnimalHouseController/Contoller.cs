@@ -274,7 +274,7 @@ namespace AnimalHouseController
         {
             Owner Owner = new Owner(TelePhoneNr,firstname,lastname,adress,email,city,zipcode);
             Private PrivateOwner = new Private(TelePhoneNr);
-            PrivateOwner.AddOwnerToDatabase();
+            Owner.AddOwnerToDatabase();
             PrivateOwner.AddPrivateToDatabase();
         }
         

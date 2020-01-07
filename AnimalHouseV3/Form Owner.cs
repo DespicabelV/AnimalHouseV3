@@ -174,26 +174,27 @@ namespace AnimalHouseV3
 
         private void ButtonDeleteOwner_Click(object sender, EventArgs e)
         {
-            if (TextBoxTelephoneNR.Text== "")
-            {
-                MessageBox.Show("You are missing some blank spaces, fill them out please", "error: Empty Spaces", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else if (PrivateCheck.Checked)
-            {
-                Controller.ControllerDeleteOwner("Relation", "ejer", TextBoxTelephoneNR.Text);
-                Controller.ControllerDeleteOwner("Private_", "ejer", TextBoxTelephoneNR.Text);
-                Controller.ControllerDeleteOwner("ejer", "TelefonNr", TextBoxTelephoneNR.Text);
-                MessageBox.Show("The Owner was removed Sucessfully", "Deletion Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
-            else if (BusinessCheck.Checked)
-            {
-                Controller.ControllerDeleteOwner("Relation", "ejer", TextBoxTelephoneNR.Text);
-                Controller.ControllerDeleteOwner("Erhverv", "ejer", TextBoxTelephoneNR.Text);
-                Controller.ControllerDeleteOwner("ejer", "TelefonNr", TextBoxTelephoneNR.Text);
-                MessageBox.Show("The Owner was removed Sucessfully", "Deletion Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                this.Close();
-            }
+             MessageBox.Show("This funtion isn't implemented yet");
+            //if (TextBoxTelephoneNR.Text== "")
+            //{
+            //    MessageBox.Show("You are missing some blank spaces, fill them out please", "error: Empty Spaces", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            //else if (PrivateCheck.Checked)
+            //{
+            //    Controller.ControllerDeleteOwner("Relation", "ejer", TextBoxTelephoneNR.Text);
+            //    Controller.ControllerDeleteOwner("Private_", "ejer", TextBoxTelephoneNR.Text);
+            //    Controller.ControllerDeleteOwner("ejer", "TelefonNr", TextBoxTelephoneNR.Text);
+            //    MessageBox.Show("The Owner was removed Sucessfully", "Deletion Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    this.Close();
+            //}
+            //else if (BusinessCheck.Checked)
+            //{
+            //    Controller.ControllerDeleteOwner("Relation", "ejer", TextBoxTelephoneNR.Text);
+            //    Controller.ControllerDeleteOwner("Erhverv", "ejer", TextBoxTelephoneNR.Text);
+            //    Controller.ControllerDeleteOwner("ejer", "TelefonNr", TextBoxTelephoneNR.Text);
+            //    MessageBox.Show("The Owner was removed Sucessfully", "Deletion Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    this.Close();
+            //}
         }
 
         private void PrivateCheck_CheckedChanged(object sender, EventArgs e)

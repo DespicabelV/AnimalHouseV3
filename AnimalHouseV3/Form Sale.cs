@@ -124,7 +124,7 @@ namespace AnimalHouseV3
                         DataGridViewItemsInStock.Rows[i].Cells[0].Value = false;
                     }
                     textboxTotalPrisWithOutTax.Text = Controller.ControllerChangeOfPriceWithOutMoms(Convert.ToInt32(Row.Cells[5].Value),Convert.ToInt32(TextboxAmount.Text), Convert.ToInt32(textboxTotalPrisWithOutTax.Text)).ToString();
-                    textboxTotalPrisWithTax.Text = Controller.ControllerChangeOfPriceWithMoms(Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text), Convert.ToInt32(textboxTotalPrisWithOutTax.Text)).ToString();
+                    textboxTotalPrisWithTax.Text = Controller.ControllerChangeOfPriceWithMoms(Convert.ToInt32(Row.Cells[5].Value), Convert.ToInt32(TextboxAmount.Text), Convert.ToInt32(textboxTotalPrisWithTax.Text)).ToString();
                 }
             }
             TextboxAmount.Text = "";
@@ -153,7 +153,7 @@ namespace AnimalHouseV3
 
         private void ButtonPay_Click(object sender, EventArgs e)
         {
-            if (BuisnessCheckBox.Checked == false && BuisnessCheckBox.Checked == false || textBoxOwner.Text == "" || textboxTotalPrisWithOutTax.Text == "")
+            if (BuisnessCheckBox.Checked == false && PrivateCheckBox.Checked == false || textBoxOwner.Text == "" || textboxTotalPrisWithOutTax.Text == "")
             {
                 MessageBox.Show("Fill out the empty brackets");
             }
